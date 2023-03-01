@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Footer from './Footer';
 import Navigation from './Navigation';
 
 type Props = {
@@ -7,15 +8,13 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <>
-      <Navigation>oh hai, I&#39;m header</Navigation>
+    <div className='content'>
+      <Navigation />
 
       <div>{children}</div>
 
-      <footer>
-        <p>Copyright 2023 Hackerman</p>
-      </footer>
-    </>
+      <Footer />
+    </div>
   );
 };
 

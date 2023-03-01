@@ -1,4 +1,12 @@
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  padding: 5px;
+
+  img {
+    max-height: 100%;
+    width: auto;
+  }
 }

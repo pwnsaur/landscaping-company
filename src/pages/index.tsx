@@ -9,7 +9,9 @@ export default function Home() {
         titleTemplate='Brasika | %s'
         description='A short description goes here.'
       />
-      <main></main>
+      <main>
+        <div>Sākums</div>
+      </main>
     </>
   );
 }
