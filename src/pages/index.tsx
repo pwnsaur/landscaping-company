@@ -7,11 +7,10 @@ export default function Home() {
       <NextSeo
         title='Sākums'
         titleTemplate='Brasika | %s'
-        description='A short description goes here.'
+        description='Sākums'
       />
-      <main>
-        <div>Sākums</div>
-      </main>
+
+      <div>Sākums</div>
     </>
   );
 }

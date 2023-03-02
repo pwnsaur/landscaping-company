@@ -1,15 +1,24 @@
 import Cato from '../../public/cato.webp';
 import Image from 'next/image';
+import Link from 'next/link';
+import { TypePost } from 'types';
 
-type Props = {
-  title: string;
-};
-
-const ProjectCard = ({ title }: Props) => {
+const ProjectCard = ({ project }: { project: TypePost }) => {
+  const { content, coverImage, date, excerpt, slug, title } = project.fields;
   return (
     <div className='card'>
-      <div className='title'>{title}</div>
-      <Image className='image' src={Cato} alt='cato' height={200} />
+      <Link href={`/projects/${slug}`}>
+        <div className='title'>{project.fields.title}</div>
+        {/* <Image className='image' src={Cato} alt='cato' height={200} /> */}
+        <Image
+          className='image'
+          src={`https:${coverImage.fields.file.url}`}
+          alt='cato'
+          height={200}
+          width={250}
+        />
+      </Link>
+
       <style jsx>{`
         .card {
           display: flex;
@@ -20,15 +29,16 @@ const ProjectCard = ({ title }: Props) => {
           padding: 20px;
           background-color: salmon;
           border-radius: 8px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: transform 0.2s ease-in-out;
         }
-
+        .card:hover {
+          transform: scale(1.05);
+        }
         .title {
           font-size: 1.5rem;
           font-weight: bold;
           margin-bottom: 10px;
         }
-
         .image {
           width: 100%;
           max-height: 200px;

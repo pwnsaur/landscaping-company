@@ -1,25 +1,25 @@
 import ProjectCard from '@/components/ProjectCard';
 import { NextSeo } from 'next-seo';
+import { TypePost } from 'types';
+import { createClient } from 'contentful';
 
-const projects = [
-  { id: 1, title: 'pirmais projekts' },
-  { id: 2, title: 'otrais projekts' },
-  { id: 3, title: 'trešais projekts' },
-  { id: 4, title: 'ceturtais projekts' },
-  { id: 5, title: 'piektais projekts' },
-  { id: 6, title: 'sestais projekts' },
-];
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID as string,
+    environment: 'master',
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
+  });
 
-// export async function getStaticPaths() {
-//   return {
-//     paths: [{ params: { id: '1' } }],
-//     fallback: true,
-//   };
-// }
+  const res = await client.getEntries({ content_type: 'post' });
 
-type Props = {};
+  return {
+    props: { projects: res.items },
+    revalidate: 60,
+  };
+}
 
-const Projects = (props: Props) => {
+const Projects = ({ projects }: { projects: TypePost[] }) => {
+  console.log(projects);
   return (
     <>
       <NextSeo
@@ -29,7 +29,7 @@ const Projects = (props: Props) => {
       />
       <div className='container'>
         {projects.map((project) => (
-          <ProjectCard key={project.id} title={project.title} />
+          <ProjectCard key={project.sys.id} project={project} />
         ))}
 
         <style jsx>{`

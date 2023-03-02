@@ -10,6 +10,7 @@ const Footer = (props: Props) => {
           display: flex;
           justify-content: center;
           margin: 20px;
+          margin-top: auto;
         }
       `}</style>
     </footer>

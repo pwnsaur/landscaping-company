@@ -3,16 +3,14 @@ import Footer from './Footer';
 import Navigation from './Navigation';
 
 type Props = {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 };
 
 const Layout = ({ children }: Props) => {
   return (
     <div className='content'>
       <Navigation />
-
-      <div>{children}</div>
-
+      <main>{children}</main>
       <Footer />
     </div>
   );
