@@ -1,4 +1,3 @@
-import Cato from '../../public/cato.webp';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TypePost } from 'types';
@@ -9,7 +8,6 @@ const ProjectCard = ({ project }: { project: TypePost }) => {
     <div className='card'>
       <Link href={`/projects/${slug}`}>
         <div className='title'>{project.fields.title}</div>
-        {/* <Image className='image' src={Cato} alt='cato' height={200} /> */}
         <Image
           className='image'
           src={`https:${coverImage.fields.file.url}`}
