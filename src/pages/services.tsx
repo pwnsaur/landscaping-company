@@ -1,8 +1,6 @@
 import { NextSeo } from 'next-seo';
 
-type Props = {};
-
-const Services = (props: Props) => {
+const Services = () => {
   return (
     <>
       <NextSeo

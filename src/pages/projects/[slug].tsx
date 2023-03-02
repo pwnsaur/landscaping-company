@@ -1,6 +1,6 @@
-import { TypePost, TypePostFields } from 'types';
 import React from 'react';
 import Image from 'next/image';
+import { TypePost } from 'types';
 import { getStaticPaths, getStaticProps } from '../api/projectData';
 
 const Project = ({ post }: { post: TypePost }) => {
