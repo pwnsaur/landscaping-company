@@ -1,25 +1,9 @@
 import ProjectCard from '@/components/ProjectCard';
 import { NextSeo } from 'next-seo';
 import { TypePost } from 'types';
-import { createClient } from 'contentful';
-
-export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    environment: 'master',
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const res = await client.getEntries({ content_type: 'post' });
-
-  return {
-    props: { projects: res.items },
-    revalidate: 60,
-  };
-}
+import { getStaticProps } from './api/projectsData';
 
 const Projects = ({ projects }: { projects: TypePost[] }) => {
-  console.log(projects);
   return (
     <>
       <NextSeo
@@ -45,4 +29,5 @@ const Projects = ({ projects }: { projects: TypePost[] }) => {
   );
 };
 
+export { getStaticProps };
 export default Projects;
