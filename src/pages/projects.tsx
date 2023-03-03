@@ -19,11 +19,14 @@ const Projects = ({ projects }: { projects: TypeProject[] }) => {
         <style jsx>{`
           .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 100px));
             grid-template-rows: 1fr;
-            column-gap: 15px;
-            row-gap: 15px;
-            padding: 30px;
+            column-gap: 40px;
+            row-gap: 40px;
+            width: 100%;
+            max-width: 1600px;
+            justify-content: center;
+            padding: 8vh 6vw;
           }
         `}</style>
       </div>
