@@ -3,7 +3,7 @@ import { client } from './client';
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries<TypePostFields>({
-    content_type: 'post',
+    content_type: 'project',
   });
 
   const paths = res.items.map((item) => {
@@ -21,7 +21,7 @@ export const getStaticProps = async ({
   params: TypePostFields;
 }) => {
   const { items } = await client.getEntries({
-    content_type: 'post',
+    content_type: 'project',
     'fields.slug': params.slug,
   });
 
@@ -34,7 +34,7 @@ export const getStaticProps = async ({
     };
   }
   return {
-    props: { post: items[0] },
+    props: { project: items[0] },
     revalidate: 60,
   };
 };

@@ -3,12 +3,12 @@ import Image from 'next/image';
 import { TypePost } from 'types';
 import { getStaticPaths, getStaticProps } from '../api/projectData';
 
-const Project = ({ post }: { post: TypePost }) => {
-  const { content, coverImage, date, excerpt, slug, title } = post.fields;
+const Project = ({ project }: { project: TypePost }) => {
+  const { content, coverImage, date, excerpt, slug, title } = project.fields;
 
   return (
     <>
-      <div>{post.fields.title}</div>
+      <div>{project.fields.title}</div>
       <Image
         src={`https:${coverImage.fields.file.url}`}
         alt='food'

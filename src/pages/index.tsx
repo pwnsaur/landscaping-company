@@ -1,4 +1,6 @@
-import styles from '@/styles/Home.module.css';
+// import styles from '@/styles/Home.module.css';
+import styles from '../styles/Home.module.scss';
+
 import { NextSeo } from 'next-seo';
 
 export default function Home() {
@@ -10,7 +12,7 @@ export default function Home() {
         description='Sākums'
       />
 
-      <div>Sākums</div>
+      <main className={styles.main}>Sākums</main>
     </>
   );
 }

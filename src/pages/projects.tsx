@@ -28,6 +28,5 @@ const Projects = ({ projects }: { projects: TypePost[] }) => {
     </>
   );
 };
-
 export { getStaticProps };
 export default Projects;

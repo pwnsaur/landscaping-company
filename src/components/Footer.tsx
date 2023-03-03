@@ -5,6 +5,9 @@ const Footer = () => {
 
       <style jsx>{`
         .footer {
+          margin-top: auto;
+          /* position: fixed;
+          bottom: 0 */
           display: flex;
           justify-content: center;
           margin: 20px;

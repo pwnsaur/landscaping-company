@@ -1,9 +1,13 @@
 .container {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   height: 100px;
   align-items: center;
   padding: 5px;
+  background-color: black;
+  z-index: 1;
 
   img {
     max-height: 100%;

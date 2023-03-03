@@ -5,7 +5,7 @@ import Logo from '../../public/logo.png';
 
 const Navigation = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ position: 'sticky', top: 0 }}>
       <Image className='image' src={Logo} alt='logo' priority />
       <Link href='/'>Sākums</Link>
       <Link href='/about'>Par mums</Link>
