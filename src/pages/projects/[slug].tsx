@@ -8,7 +8,7 @@ const Project = ({ project }: { project: TypeProject }) => {
 
   return (
     <div className='project'>
-      <h2>{project.fields.title}</h2>
+      <h2>{title}</h2>
       <Image
         src={`https:${coverImage.fields.file.url}`}
         alt='cover image'
