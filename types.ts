@@ -15,10 +15,8 @@ export type TypeProject = Entry<TypeProjectFields>;
 export interface TypeServiceFields {
   title: EntryFields.Symbol;
   slug: EntryFields.Symbol;
-  content: CFRichTextTypes.Block | CFRichTextTypes.Inline;
-  excerpt?: EntryFields.Symbol;
+  description: CFRichTextTypes.Block | CFRichTextTypes.Inline;
   coverImage: Asset;
-  date: EntryFields.Date;
 }
 
 export type TypeService = Entry<TypeProjectFields>;
