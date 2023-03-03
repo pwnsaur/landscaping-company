@@ -1,19 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { TypePost } from 'types';
+import { TypeProject } from 'types';
 
-const ProjectCard = ({ project }: { project: TypePost }) => {
+const ProjectCard = ({ project }: { project: TypeProject }) => {
   const { content, coverImage, date, excerpt, slug, title } = project.fields;
+
   return (
     <div className='card'>
       <Link href={`/projects/${slug}`}>
-        <div className='title'>{project.fields.title}</div>
+        <div className='title'>{title}</div>
         <Image
           className='image'
           src={`https:${coverImage.fields.file.url}`}
-          alt='cato'
-          height={200}
-          width={250}
+          alt='cover-image'
+          height={250}
+          width={300}
         />
       </Link>
 
@@ -21,28 +22,29 @@ const ProjectCard = ({ project }: { project: TypePost }) => {
         .card {
           display: flex;
           flex-direction: column;
-          max-width: 300px;
-          height: 200px%;
+          width: 300px;
+          height: 295px;
           align-items: center;
-          padding: 20px;
-          background-color: salmon;
-          border-radius: 8px;
+          text-align: center;
+          /* padding-top: 5px; */
+          background-color: #353232;
           transition: transform 0.2s ease-in-out;
         }
         .card:hover {
           transform: scale(1.05);
         }
         .title {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           font-weight: bold;
-          margin-bottom: 10px;
+          margin: 10px;
+          /* text-transform: uppercase; */
         }
-        .image {
+        /* .image {
           width: 100%;
           max-height: 200px;
           object-fit: cover;
           border-radius: 4px;
-        }
+        } */
       `}</style>
     </div>
   );

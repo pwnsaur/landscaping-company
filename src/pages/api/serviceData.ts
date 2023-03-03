@@ -3,7 +3,7 @@ import { client } from './client';
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries<TypeProjectFields>({
-    content_type: 'project',
+    content_type: 'service',
   });
 
   const paths = res.items.map((item) => {
@@ -21,7 +21,7 @@ export const getStaticProps = async ({
   params: TypeProjectFields;
 }) => {
   const { items } = await client.getEntries({
-    content_type: 'project',
+    content_type: 'service',
     'fields.slug': params.slug,
   });
 
@@ -34,7 +34,7 @@ export const getStaticProps = async ({
     };
   }
   return {
-    props: { project: items[0] },
+    props: { service: items[0] },
     revalidate: 60,
   };
 };

@@ -1,9 +1,9 @@
 import ProjectCard from '@/components/ProjectCard';
 import { NextSeo } from 'next-seo';
-import { TypePost } from 'types';
+import { TypeProject } from 'types';
 import { getStaticProps } from './api/projectsData';
 
-const Projects = ({ projects }: { projects: TypePost[] }) => {
+const Projects = ({ projects }: { projects: TypeProject[] }) => {
   return (
     <>
       <NextSeo
@@ -28,5 +28,6 @@ const Projects = ({ projects }: { projects: TypePost[] }) => {
     </>
   );
 };
+
 export { getStaticProps };
 export default Projects;
