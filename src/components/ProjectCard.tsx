@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TypeProject } from 'types';
@@ -6,9 +7,9 @@ const ProjectCard = ({ project }: { project: TypeProject }) => {
   const { content, coverImage, date, excerpt, slug, title } = project.fields;
 
   return (
-    <div className='card'>
+    <StyledCard className='card'>
       <Link href={`/projects/${slug}`}>
-        <div className='title'>{title}</div>
+        <StyledTitle className='title'>{title}</StyledTitle>
         <Image
           className='image'
           src={`https:${coverImage.fields.file.url}`}
@@ -17,37 +18,29 @@ const ProjectCard = ({ project }: { project: TypeProject }) => {
           width={300}
         />
       </Link>
-
-      <style jsx>{`
-        .card {
-          display: flex;
-          flex-direction: column;
-          width: 300px;
-          height: 295px;
-          align-items: center;
-          text-align: center;
-          /* padding-top: 5px; */
-          background-color: #353232;
-          transition: transform 0.2s ease-in-out;
-        }
-        .card:hover {
-          transform: scale(1.05);
-        }
-        .title {
-          font-size: 1.2rem;
-          font-weight: bold;
-          margin: 10px;
-          /* text-transform: uppercase; */
-        }
-        /* .image {
-          width: 100%;
-          max-height: 200px;
-          object-fit: cover;
-          border-radius: 4px;
-        } */
-      `}</style>
-    </div>
+    </StyledCard>
   );
 };
 
 export default ProjectCard;
+
+const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 290px;
+  align-items: center;
+  text-align: center;
+  background-color: #f7efef;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const StyledTitle = styled.div`
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px;
+`;
