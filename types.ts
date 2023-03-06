@@ -20,3 +20,9 @@ export interface TypeServiceFields {
 }
 
 export type TypeService = Entry<TypeServiceFields>;
+
+export type FromData = {
+  name?: string;
+  email?: string;
+  message: string;
+};

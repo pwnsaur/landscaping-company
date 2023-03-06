@@ -1,19 +1,16 @@
-:root {
-  --max-width: 1200px;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-html,
-body {
-  // max-width: 100vw;
-  // overflow-x: hidden;
-  // min-height: 100vh;
-  height: 100%;
+// html,
+// body {
+//   height: 100%;
+// }
+
+.container {
+  width: 100%;
 }
 
 .content {
@@ -28,10 +25,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
