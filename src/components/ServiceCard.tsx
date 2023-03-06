@@ -13,10 +13,21 @@ const Service = ({ service }: { service: TypeService }) => {
           className='image'
           src={`https:${coverImage.fields.file.url}`}
           alt='cover-image'
-          height={250}
-          width={300}
+          height={350}
+          width={500}
         />
       </Link>
+
+      <style jsx>{`
+        .card {
+          display: flex;
+          width: 1200px;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+      `}</style>
     </div>
   );
 };
