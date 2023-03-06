@@ -23,9 +23,9 @@ const Service = ({ service }: { service: TypeService }) => {
           display: flex;
           width: 1200px;
           flex-direction: row;
-          align-items: center;
           justify-content: center;
           padding: 20px;
+          text-align: center;
         }
       `}</style>
     </div>
