@@ -8,9 +8,9 @@ const Navigation = () => {
     <div className={styles.container} style={{ position: 'sticky', top: 0 }}>
       <Image className='image' src={Logo} alt='logo' priority />
       <Link href='/'>Sākums</Link>
-      <Link href='/about'>Par mums</Link>
-      <Link href='/services'>Pakalpojumi</Link>
       <Link href='/projects'>Projekti</Link>
+      <Link href='/services'>Pakalpojumi</Link>
+      <Link href='/about'>Par mums</Link>
       <Link href='/contacts'>Kontakti</Link>
 
       {/* <style jsx>{`

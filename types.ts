@@ -19,4 +19,4 @@ export interface TypeServiceFields {
   coverImage: Asset;
 }
 
-export type TypeService = Entry<TypeProjectFields>;
+export type TypeService = Entry<TypeServiceFields>;

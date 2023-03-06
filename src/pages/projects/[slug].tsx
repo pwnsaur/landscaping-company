@@ -1,7 +1,16 @@
-import React from 'react';
 import Image from 'next/image';
 import { TypeProject } from 'types';
 import { getStaticPaths, getStaticProps } from '../api/projectData';
+// import {
+//   getStaticPathsItem,
+//   getStaticPropsItem,
+// } from '../api/getStaticPropsAndPathsItem';
+
+// export const getStaticPaths = async () => {
+//   const { paths, fallback } = await getStaticPathsItem('project', null);
+//   return { paths, fallback };
+// };
+// export const getStaticProps = getStaticPropsItem('project');
 
 const Project = ({ project }: { project: TypeProject }) => {
   const { content, coverImage, date, excerpt, slug, title } = project.fields;

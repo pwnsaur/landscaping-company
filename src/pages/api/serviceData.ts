@@ -1,8 +1,8 @@
-import { TypeProjectFields } from 'types';
+import { TypeServiceFields } from 'types';
 import { client } from './client';
 
 export const getStaticPaths = async () => {
-  const res = await client.getEntries<TypeProjectFields>({
+  const res = await client.getEntries<TypeServiceFields>({
     content_type: 'service',
   });
 
@@ -18,7 +18,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({
   params,
 }: {
-  params: TypeProjectFields;
+  params: TypeServiceFields;
 }) => {
   const { items } = await client.getEntries({
     content_type: 'service',

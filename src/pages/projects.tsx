@@ -1,9 +1,12 @@
 import ProjectCard from '@/components/ProjectCard';
 import { NextSeo } from 'next-seo';
 import { TypeProject } from 'types';
-import { getStaticProps } from './api/projectsData';
+import { getStaticPropsPage } from './api/getStaticPropsPage';
+
+export const getStaticProps = getStaticPropsPage('project');
 
 const Projects = ({ projects }: { projects: TypeProject[] }) => {
+  console.log(projects);
   return (
     <>
       <NextSeo
@@ -19,7 +22,7 @@ const Projects = ({ projects }: { projects: TypeProject[] }) => {
         <style jsx>{`
           .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 100px));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 0));
             grid-template-rows: 1fr;
             column-gap: 40px;
             row-gap: 40px;
@@ -34,5 +37,4 @@ const Projects = ({ projects }: { projects: TypeProject[] }) => {
   );
 };
 
-export { getStaticProps };
 export default Projects;

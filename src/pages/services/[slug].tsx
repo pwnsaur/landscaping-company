@@ -1,9 +1,8 @@
-import React from 'react';
 import { TypeService } from 'types';
 import { getStaticPaths, getStaticProps } from '../api/serviceData';
 
 const Service = ({ service }: { service: TypeService }) => {
-  const { coverImage, slug, title } = service.fields;
+  const { coverImage, description, slug, title } = service.fields;
 
   return <div>{title}</div>;
 };

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { TypeService } from 'types';
 
 const Service = ({ service }: { service: TypeService }) => {
-  const { coverImage, slug, title } = service.fields;
+  const { coverImage, slug, title, description } = service.fields;
 
   return (
     <div className='card'>

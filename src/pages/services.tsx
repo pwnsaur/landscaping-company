@@ -1,9 +1,13 @@
 import ServiceCard from '@/components/ServiceCard';
 import { NextSeo } from 'next-seo';
 import { TypeService } from 'types';
-import { getStaticProps } from './api/servicesData';
+// import { getStaticProps } from './api/servicesData';
+import { getStaticPropsPage } from './api/getStaticPropsPage';
+
+export const getStaticProps = getStaticPropsPage('service');
 
 const Services = ({ services }: { services: TypeService[] }) => {
+  console.log(services);
   return (
     <>
       <NextSeo
@@ -29,5 +33,5 @@ const Services = ({ services }: { services: TypeService[] }) => {
   );
 };
 
-export { getStaticProps };
+// export { getStaticProps };
 export default Services;
