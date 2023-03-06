@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../public/logo.png';
+import styles from '../styles/Navigation.module.scss';
 
 const Navigation = () => {
   return (
-    <StyledContainer>
-      <Image className='image' src={Logo} alt='logo' priority />
+    <StyledContainer className={styles.container}>
+      {/* <ImageWrapper> */}
+      <Image src={Logo} alt='logo' priority />
+      {/* </ImageWrapper> */}
       <Link href='/'>Sākums</Link>
       <Link href='/projects'>Projekti</Link>
       <Link href='/services'>Pakalpojumi</Link>
@@ -30,6 +33,11 @@ const StyledContainer = styled.div`
   padding-right: 100px;
   background-color: white;
   z-index: 1;
+`;
+
+const ImageWrapper = styled.div`
+  max-height: 100%;
+  width: auto;
 
   img {
     max-height: 100%;
