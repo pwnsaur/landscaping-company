@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import ContactForm from '@/components/ContactForm';
 import { FormData } from 'types';
@@ -15,17 +16,16 @@ const Contact = () => {
         description='Kontakti'
       />
 
-      <div className='container'>
+      <Container>
         <ContactForm onSubmit={handleSubmit} />
-        <style jsx>{`
-          .container {
-            text-align: center;
-            padding: 5vh 0 5vh;
-          }
-        `}</style>
-      </div>
+      </Container>
     </>
   );
 };
 
 export default Contact;
+
+const Container = styled.div`
+  text-align: center;
+  padding: 5vh 0 5vh;
+`;
