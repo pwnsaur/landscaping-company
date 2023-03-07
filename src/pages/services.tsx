@@ -1,8 +1,8 @@
 import ServiceCard from '@/components/ServiceCard';
 import { NextSeo } from 'next-seo';
 import { TypeService } from 'types';
-// import { getStaticProps } from './api/servicesData';
 import { getStaticPropsPage } from './api/getStaticPropsPage';
+import styled from 'styled-components';
 
 export const getStaticProps = getStaticPropsPage('service');
 
@@ -15,23 +15,20 @@ const Services = ({ services }: { services: TypeService[] }) => {
         titleTemplate='Brasika | %s'
         description='Par mums'
       />
-      <div className='container'>
+      <Container>
         {services.map((service) => (
           <ServiceCard key={service.sys.id} service={service} />
         ))}
-
-        <style jsx>{`
-          .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-          }
-        `}</style>
-      </div>
+      </Container>
     </>
   );
 };
 
-// export { getStaticProps };
 export default Services;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`;

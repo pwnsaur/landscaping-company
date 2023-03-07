@@ -21,8 +21,6 @@ const Service = ({ service }: { service: TypeService }) => {
       <style jsx>{`
         .card {
           display: flex;
-          width: 1200px;
-          flex-direction: row;
           justify-content: center;
           padding: 20px;
           text-align: center;

@@ -1,9 +1,9 @@
 import { NextSeo } from 'next-seo';
 import ContactForm from '@/components/ContactForm';
-import { FromData } from 'types';
+import { FormData } from 'types';
 
 const Contact = () => {
-  const handleSubmit = (formData: FromData) => {
+  const handleSubmit = (formData: FormData) => {
     console.log(formData);
   };
 

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { FromData } from 'types';
+import { FormData } from 'types';
 
 type ContactFormProps = {
-  onSubmit: (formData: FromData) => void;
+  onSubmit: (formData: FormData) => void;
 };
 
 const ContactForm = ({ onSubmit }: ContactFormProps) => {
@@ -14,6 +14,7 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = {
+      email,
       name,
       message,
     };
