@@ -1,21 +1,23 @@
+import styled from 'styled-components';
+
 const Footer = () => {
   return (
-    <footer className='footer'>
-      <p>Copyright 2023 Hackerman</p>
-
-      <style jsx>{`
-        .footer {
-          margin-top: auto;
-          /* position: fixed;
-          bottom: 0 */
-          display: flex;
-          justify-content: center;
-          margin: 20px;
-          margin-top: auto;
-        }
-      `}</style>
-    </footer>
+    <FooterContainer>
+      <FooterText>Copyright 2023 Hackerman</FooterText>
+    </FooterContainer>
   );
 };
 
 export default Footer;
+
+const FooterContainer = styled.footer`
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  margin-top: auto;
+`;
+
+const FooterText = styled.p`
+  color: #555;
+`;

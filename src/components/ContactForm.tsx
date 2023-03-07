@@ -45,7 +45,6 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
         placeholder='Vārds, uzvārds'
         required
       />
-
       <Input
         type='email'
         onChange={(e) => setEmail(e.target.value)}
@@ -53,7 +52,6 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
         placeholder='Epasts'
         required
       />
-
       <Input
         type='tel'
         onChange={(e) => setPhone(e.target.value)}
@@ -61,14 +59,12 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
         placeholder='Tālrunis'
         required
       />
-
       <Textarea
         onChange={(e) => setMessage(e.target.value)}
         value={message}
         placeholder='Ievadiet ziņojumu'
         required
       />
-
       <Button type='submit'>Apstiprināt</Button>
     </Form>
   );
