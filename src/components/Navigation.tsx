@@ -35,12 +35,12 @@ const StyledContainer = styled.div`
   z-index: 1;
 `;
 
-const ImageWrapper = styled.div`
-  max-height: 100%;
-  width: auto;
+// const ImageWrapper = styled.div`
+//   max-height: 100%;
+//   width: auto;
 
-  img {
-    max-height: 100%;
-    width: auto;
-  }
-`;
+//   img {
+//     max-height: 100%;
+//     width: auto;
+//   }
+// `;
