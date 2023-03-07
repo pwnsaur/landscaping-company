@@ -1,6 +1,7 @@
+import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <NextSeo
@@ -9,16 +10,18 @@ export default function Home() {
         description='Sākums'
       />
 
-      <main>Sākums</main>
-
-      <style jsx>{`
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 6rem;
-        height: 100%;
-      `}</style>
+      <Main>Sākums</Main>
     </>
   );
-}
+};
+
+export default Home;
+
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  height: 100%;
+`;
