@@ -2,6 +2,9 @@ import Image from 'next/image';
 import { TypeService } from 'types';
 import { getStaticPaths, getStaticProps } from '../api/serviceData';
 
+// import getContentTypeData from '../api/getContentType';
+// export const { getStaticPaths, getStaticProps } = getContentTypeData('service');
+
 const Service = ({ service }: { service: TypeService }) => {
   const { coverImage, description, slug, title } = service.fields;
 
