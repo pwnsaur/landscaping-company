@@ -28,7 +28,7 @@ const StyledContainer = styled.div`
   align-items: center;
   padding: 5px;
   padding-right: 100px;
-  background-color: white;
+  background-color: #ededed;
   z-index: 1;
 `;
 

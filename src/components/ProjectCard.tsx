@@ -41,6 +41,6 @@ const StyledCard = styled.div`
 
 const StyledTitle = styled.div`
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
   margin: 10px;
 `;

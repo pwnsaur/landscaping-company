@@ -8,6 +8,7 @@ export interface TypeProjectFields {
   excerpt?: EntryFields.Symbol;
   coverImage: Asset;
   date: EntryFields.Date;
+  images?: Asset[];
 }
 
 export type TypeProject = Entry<TypeProjectFields>;

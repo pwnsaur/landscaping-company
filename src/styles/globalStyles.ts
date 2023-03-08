@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
   width: 100%;
   align-items: center;
   justify-content: center;
+  background-color: #ededed;
 }
 
 a {

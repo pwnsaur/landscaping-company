@@ -9,7 +9,7 @@ import { Document } from '@contentful/rich-text-types';
 import { ReactNode } from 'react';
 
 const Project = ({ project }: { project: TypeProject }) => {
-  const { content, coverImage, date, excerpt, slug, title } = project.fields;
+  const { content, coverImage, date, excerpt, title, images } = project.fields;
 
   const contentDocument = content as Document;
 
@@ -44,7 +44,7 @@ const ProjectContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 70%;
-  margin: 0 5rem;
+  margin: 3rem 5rem 0;
 `;
 
 const Title = styled.h3`
