@@ -7,11 +7,11 @@ const Navigation = () => {
   return (
     <StyledContainer>
       <StyledImage src={Logo} alt='logo' priority />
-      <Link href='/'>Sākums</Link>
-      <Link href='/projects'>Projekti</Link>
-      <Link href='/services'>Pakalpojumi</Link>
-      <Link href='/about'>Par mums</Link>
-      <Link href='/contacts'>Kontakti</Link>
+      <StyledLink href='/'>Sākums</StyledLink>
+      <StyledLink href='/projects'>Projekti</StyledLink>
+      <StyledLink href='/services'>Pakalpojumi</StyledLink>
+      <StyledLink href='/about'>Par mums</StyledLink>
+      <StyledLink href='/contacts'>Kontakti</StyledLink>
     </StyledContainer>
   );
 };
@@ -35,4 +35,8 @@ const StyledContainer = styled.div`
 const StyledImage = styled(Image)`
   max-height: 100%;
   width: auto;
+`;
+
+const StyledLink = styled(Link)`
+  font-size: 1.2rem;
 `;

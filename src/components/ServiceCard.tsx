@@ -7,9 +7,9 @@ const Service = ({ service }: { service: TypeService }) => {
   const { coverImage, slug, title, description } = service.fields;
 
   return (
-    <Card>
+    <StyledCard>
       <Link href={`/services/${slug}`}>
-        <Title>{title}</Title>
+        <StyledTitle>{title}</StyledTitle>
         <Image
           src={`https:${coverImage.fields.file.url}`}
           alt='cover-image'
@@ -17,20 +17,20 @@ const Service = ({ service }: { service: TypeService }) => {
           width={500}
         />
       </Link>
-    </Card>
+    </StyledCard>
   );
 };
 
 export default Service;
 
-const Card = styled.div`
+const StyledCard = styled.div`
   display: flex;
   justify-content: center;
   padding: 20px;
   text-align: center;
 `;
 
-const Title = styled.div`
+const StyledTitle = styled.div`
   font-size: 1.5rem;
   margin-bottom: 10px;
 `;

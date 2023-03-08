@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { TypeProject } from 'types';
 
 const ProjectCard = ({ project }: { project: TypeProject }) => {
-  const { content, coverImage, date, excerpt, slug, title } = project.fields;
+  const { coverImage, slug, title } = project.fields;
 
   return (
     <StyledCard className='card'>

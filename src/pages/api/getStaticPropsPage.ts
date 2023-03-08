@@ -1,6 +1,7 @@
 import { client } from './client';
+import { GetStaticProps } from 'next';
 
-export function getStaticPropsPage(content_type: string) {
+export function getStaticPropsPage(content_type: string): GetStaticProps {
   return async () => {
     const res = await client.getEntries({ content_type });
 

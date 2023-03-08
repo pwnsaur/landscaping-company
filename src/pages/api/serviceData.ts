@@ -1,7 +1,9 @@
 import { TypeServiceFields } from 'types';
 import { client } from './client';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await client.getEntries<TypeServiceFields>({
     content_type: 'service',
   });
@@ -15,10 +17,10 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async ({
-  params,
+export const getStaticProps: GetStaticProps = async ({
+  params = {},
 }: {
-  params: TypeServiceFields;
+  params?: ParsedUrlQuery;
 }) => {
   const { items } = await client.getEntries({
     content_type: 'service',
