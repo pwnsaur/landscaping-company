@@ -4,10 +4,10 @@ import { TypeService } from 'types';
 import styled from 'styled-components';
 
 const Service = ({ service }: { service: TypeService }) => {
-  const { coverImage, slug, title, description } = service.fields;
+  const { coverImage, slug, title, description, excerpt } = service.fields;
 
   return (
-    <StyledCard>
+    <Card>
       <StyledLink href={`/services/${slug}`}>
         <StyledImage
           src={`https:${coverImage.fields.file.url}`}
@@ -15,22 +15,29 @@ const Service = ({ service }: { service: TypeService }) => {
           height={coverImage.fields.file.details.image!.height}
           width={coverImage.fields.file.details.image!.width}
         />
-        <StyledTitle>{title}</StyledTitle>
+        <Description>
+          <Title>{title}</Title>
+          <Excerpt>{excerpt}</Excerpt>
+        </Description>
       </StyledLink>
-    </StyledCard>
+    </Card>
   );
 };
 
 export default Service;
 
-const StyledCard = styled.div`
-  /* display: flex; */
+const Card = styled.div`
+  /* display: flex;
+  flex-direction: row; */
   justify-content: center;
+  width: 100%;
   padding: 20px;
+  margin: 20px auto;
   text-align: center;
+  background-color: #fff;
 `;
 
-const StyledTitle = styled.div`
+const Title = styled.div`
   font-size: 1.5rem;
   /* margin-bottom: 10px; */
   margin: auto;
@@ -45,5 +52,14 @@ const StyledLink = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 1100px;
+  width: 100%;
+  /* width: 1100px; */
+`;
+
+const Excerpt = styled.p`
+  margin: 10px 20px;
+`;
+
+const Description = styled.div`
+  width: 100%;
 `;

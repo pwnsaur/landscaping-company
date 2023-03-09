@@ -17,6 +17,7 @@ export interface TypeServiceFields {
   title: EntryFields.Symbol;
   slug: EntryFields.Symbol;
   description: CFRichTextTypes.Block | CFRichTextTypes.Inline;
+  excerpt?: EntryFields.Symbol;
   coverImage: Asset;
 }
 

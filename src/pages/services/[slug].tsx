@@ -23,8 +23,8 @@ const Service = ({ service }: { service: TypeService }) => {
         <CoverImage
           src={`https:${coverImage.fields.file.url}`}
           alt='cover image'
-          width={coverImage.fields.file.details.image!.width / 3}
-          height={coverImage.fields.file.details.image!.height / 3}
+          width={coverImage.fields.file.details.image!.width}
+          height={coverImage.fields.file.details.image!.height}
         />
         <Desription>
           {documentToReactComponents(descriptionDocument)}
@@ -52,6 +52,8 @@ const Title = styled.h2`
 `;
 
 const CoverImage = styled(Image)`
+  width: 80%;
+  height: auto;
   border-radius: 8px;
   margin: 1rem 0;
 `;
