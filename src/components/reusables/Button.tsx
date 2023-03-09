@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type ButtonProps = {
-  type: 'submit' | 'button' | 'reset';
+  type: 'submit';
   children: React.ReactNode;
   onClick?: () => void;
 };

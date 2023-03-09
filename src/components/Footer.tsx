@@ -11,11 +11,9 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled.footer`
-  margin-top: auto;
   display: flex;
   justify-content: center;
-  margin: 20px;
-  margin-top: auto;
+  margin: auto 0 20px;
 `;
 
 const FooterText = styled.p`

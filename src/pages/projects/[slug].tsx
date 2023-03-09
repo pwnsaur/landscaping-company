@@ -1,38 +1,36 @@
-import Image from 'next/image';
 import { TypeProject } from 'types';
-import { getStaticPaths, getStaticProps } from '../api/projectData';
-import styled from 'styled-components';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';
-import { ReactNode } from 'react';
+import styled from 'styled-components';
+import { NextSeo } from 'next-seo';
+import { getStaticPaths, getStaticProps } from '../api/projectData';
+import ImageContainer from '@/components/ImageContainer';
 
 const Project = ({ project }: { project: TypeProject }) => {
   const { content, coverImage, date, excerpt, title, images } = project.fields;
 
   const contentDocument = content as Document;
 
-  const options = {
-    renderMark: {
-      [MARKS.BOLD]: (text: ReactNode) => <strong>{text}</strong>,
-      [MARKS.UNDERLINE]: (text: ReactNode) => <u>{text}</u>,
-    },
-  };
-
   return (
-    <ProjectContainer>
-      <CoverImage
-        src={`https:${coverImage.fields.file.url}`}
-        alt='cover image'
-        width={coverImage.fields.file.details.image!.width}
-        height={coverImage.fields.file.details.image!.height}
+    <>
+      <NextSeo
+        title={title}
+        titleTemplate={`Brasika | ${title}`}
+        description={excerpt}
       />
-      <Title>{title}</Title>
-      <Desription>
-        {documentToReactComponents(contentDocument, options)}
-      </Desription>
-    </ProjectContainer>
+      <ProjectContainer>
+        <CoverImage
+          src={`https:${coverImage.fields.file.url}`}
+          alt='cover image'
+          width={coverImage.fields.file.details.image!.width}
+          height={coverImage.fields.file.details.image!.height}
+        />
+        <Title>{title}</Title>
+        <Desription>{documentToReactComponents(contentDocument)}</Desription>
+        <ImageContainer images={images} />
+      </ProjectContainer>
+    </>
   );
 };
 
