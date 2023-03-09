@@ -11,9 +11,9 @@ const Services = ({ services }: { services: TypeService[] }) => {
   return (
     <>
       <NextSeo
-        title='Par mums'
+        title='Pakalpojumi'
         titleTemplate='Brasika | %s'
-        description='Par mums'
+        description='Pakalpojumi'
       />
       <Container>
         {services.map((service) => (
