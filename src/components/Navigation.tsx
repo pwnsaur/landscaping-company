@@ -6,10 +6,11 @@ import Logo from '../../public/logo.png';
 const Navigation = () => {
   return (
     <StyledContainer>
-      <StyledImage src={Logo} alt='logo' priority />
-      <StyledLink href='/'>Sākums</StyledLink>
       <StyledLink href='/projects'>Projekti</StyledLink>
       <StyledLink href='/services'>Pakalpojumi</StyledLink>
+      <StyledLink href='/'>
+        <StyledLogo src={Logo} alt='logo' priority />
+      </StyledLink>
       <StyledLink href='/about'>Par mums</StyledLink>
       <StyledLink href='/contacts'>Kontakti</StyledLink>
     </StyledContainer>
@@ -22,21 +23,23 @@ const StyledContainer = styled.div`
   position: sticky;
   top: 0;
   display: flex;
-  width: 100%;
   justify-content: space-between;
-  height: 100px;
+  width: 100%;
+  height: 70px;
   align-items: center;
   padding: 5px;
-  padding-right: 100px;
+  padding: 0 220px;
   background-color: #ededed;
   z-index: 1;
 `;
-
-const StyledImage = styled(Image)`
-  max-height: 100%;
+const StyledLogo = styled(Image)`
+  height: 100%;
   width: auto;
 `;
 
 const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  height: 100%;
   font-size: 1.2rem;
 `;

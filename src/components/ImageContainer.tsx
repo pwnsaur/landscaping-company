@@ -32,7 +32,7 @@ const StyledImage = styled(Image)`
   height: auto;
   object-fit: cover;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     width: 100%;
   }
 `;
