@@ -8,15 +8,15 @@ const Service = ({ service }: { service: TypeService }) => {
 
   return (
     <StyledCard>
-      <Link href={`/services/${slug}`}>
-        <StyledTitle>{title}</StyledTitle>
-        <Image
+      <StyledLink href={`/services/${slug}`}>
+        <StyledImage
           src={`https:${coverImage.fields.file.url}`}
           alt='cover-image'
-          height={350}
-          width={500}
+          height={coverImage.fields.file.details.image!.height}
+          width={coverImage.fields.file.details.image!.width}
         />
-      </Link>
+        <StyledTitle>{title}</StyledTitle>
+      </StyledLink>
     </StyledCard>
   );
 };
@@ -24,7 +24,7 @@ const Service = ({ service }: { service: TypeService }) => {
 export default Service;
 
 const StyledCard = styled.div`
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   padding: 20px;
   text-align: center;
@@ -32,5 +32,18 @@ const StyledCard = styled.div`
 
 const StyledTitle = styled.div`
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  margin: auto;
+`;
+
+const StyledImage = styled(Image)`
+  width: 40%;
+  height: auto;
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 1100px;
 `;

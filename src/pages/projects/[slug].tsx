@@ -19,6 +19,7 @@ const Project = ({ project }: { project: TypeProject }) => {
         titleTemplate={`Brasika | ${title}`}
         description={excerpt}
       />
+
       <ProjectContainer>
         <CoverImage
           src={`https:${coverImage.fields.file.url}`}
@@ -42,7 +43,7 @@ const ProjectContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 70%;
-  margin: 3rem 5rem 0;
+  margin: 3rem 5rem;
 `;
 
 const Title = styled.h3`

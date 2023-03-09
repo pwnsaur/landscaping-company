@@ -2,29 +2,48 @@ import Image from 'next/image';
 import { TypeService } from 'types';
 import { getStaticPaths, getStaticProps } from '../api/serviceData';
 import styled from 'styled-components';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Document } from '@contentful/rich-text-types';
+import { NextSeo } from 'next-seo';
 
 const Service = ({ service }: { service: TypeService }) => {
-  const { coverImage, description, slug, title } = service.fields;
-  // console.log(description.content[0].content[0].value);
+  const { coverImage, description, title } = service.fields;
+
+  const descriptionDocument = description as Document;
 
   return (
     <>
-      <Title>{title}</Title>
-      <CoverImage
-        src={`https:${coverImage.fields.file.url}`}
-        alt='cover image'
-        width={coverImage.fields.file.details.image!.width / 3}
-        height={coverImage.fields.file.details.image!.height / 3}
+      <NextSeo
+        title={title}
+        titleTemplate={`Brasika | ${title}`}
+        // description={excerpt}
       />
-      {/* <div>{description.content[0].content[0].value}</div> */}
+      <ServiceContainer>
+        <Title>{title}</Title>
+        <CoverImage
+          src={`https:${coverImage.fields.file.url}`}
+          alt='cover image'
+          width={coverImage.fields.file.details.image!.width / 3}
+          height={coverImage.fields.file.details.image!.height / 3}
+        />
+        <Desription>
+          {documentToReactComponents(descriptionDocument)}
+        </Desription>
+      </ServiceContainer>
     </>
   );
 };
 
 export { getStaticPaths, getStaticProps };
 export default Service;
+
+const ServiceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 3rem 5rem;
+`;
 
 const Title = styled.h2`
   font-size: 1.5rem;
@@ -35,4 +54,9 @@ const Title = styled.h2`
 const CoverImage = styled(Image)`
   border-radius: 8px;
   margin: 1rem 0;
+`;
+
+const Desription = styled.p`
+  margin: 1rem 0;
+  width: 80%;
 `;

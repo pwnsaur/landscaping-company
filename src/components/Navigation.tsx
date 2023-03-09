@@ -9,7 +9,7 @@ const Navigation = () => {
       <StyledLink href='/projects'>Projekti</StyledLink>
       <StyledLink href='/services'>Pakalpojumi</StyledLink>
       <StyledLinkLogo href='/'>
-        <StyledLogo src={Logo} alt='logo' priority />
+        <StyledLogo src={Logo} alt='logo' unoptimized />
       </StyledLinkLogo>
       <StyledLink href='/about'>Par mums</StyledLink>
       <StyledLink href='/contacts'>Kontakti</StyledLink>
@@ -24,7 +24,7 @@ const StyledContainer = styled.div`
   top: 0; */
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 70%;
   height: 70px;
   align-items: center;
   padding: 5px;
