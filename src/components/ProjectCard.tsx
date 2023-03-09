@@ -7,15 +7,14 @@ const ProjectCard = ({ project }: { project: TypeProject }) => {
   const { coverImage, slug, title } = project.fields;
 
   return (
-    <StyledCard className='card'>
+    <StyledCard>
       <Link href={`/projects/${slug}`}>
-        <StyledTitle className='title'>{title}</StyledTitle>
-        <Image
-          className='image'
+        <StyledTitle>{title}</StyledTitle>
+        <StyledImage
           src={`https:${coverImage.fields.file.url}`}
           alt='cover-image'
-          height={250}
-          width={300}
+          height={coverImage.fields.file.details.image!.height}
+          width={coverImage.fields.file.details.image!.width}
         />
       </Link>
     </StyledCard>
@@ -28,7 +27,7 @@ const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 290px;
+  /* height: 250px; */
   align-items: center;
   text-align: center;
   background-color: #f7efef;
@@ -37,6 +36,11 @@ const StyledCard = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: auto;
 `;
 
 const StyledTitle = styled.div`

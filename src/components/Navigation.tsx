@@ -8,9 +8,9 @@ const Navigation = () => {
     <StyledContainer>
       <StyledLink href='/projects'>Projekti</StyledLink>
       <StyledLink href='/services'>Pakalpojumi</StyledLink>
-      <StyledLink href='/'>
+      <StyledLinkLogo href='/'>
         <StyledLogo src={Logo} alt='logo' priority />
-      </StyledLink>
+      </StyledLinkLogo>
       <StyledLink href='/about'>Par mums</StyledLink>
       <StyledLink href='/contacts'>Kontakti</StyledLink>
     </StyledContainer>
@@ -20,15 +20,14 @@ const Navigation = () => {
 export default Navigation;
 
 const StyledContainer = styled.div`
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 60%;
   height: 70px;
   align-items: center;
   padding: 5px;
-  padding: 0 220px;
   background-color: #ededed;
   z-index: 1;
 `;
@@ -40,6 +39,14 @@ const StyledLogo = styled(Image)`
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  height: 100%;
   font-size: 1.2rem;
+  color: black;
+
+  &:hover:not(:active) {
+    color: #696767;
+  }
+`;
+
+const StyledLinkLogo = styled(StyledLink)`
+  height: 100%;
 `;

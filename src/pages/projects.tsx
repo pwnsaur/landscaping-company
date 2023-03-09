@@ -28,10 +28,9 @@ export default Projects;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 0));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 0));
   grid-template-rows: 1fr;
-  column-gap: 40px;
-  row-gap: 40px;
+  gap: 20px 40px;
   width: 100%;
   max-width: 1600px;
   justify-content: center;
