@@ -25,6 +25,7 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 70%;
+  max-width: 768px;
   height: 70px;
   align-items: center;
   padding: 5px;
@@ -44,6 +45,7 @@ const StyledLink = styled(Link)`
 
   &:hover:not(:active) {
     color: #696767;
+    text-decoration: underline;
   }
 `;
 

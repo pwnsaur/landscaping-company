@@ -18,14 +18,15 @@ const Service = ({ service }: { service: TypeService }) => {
         titleTemplate={`Brasika | ${title}`}
         // description={excerpt}
       />
+
       <ServiceContainer>
-        <Title>{title}</Title>
         <CoverImage
           src={`https:${coverImage.fields.file.url}`}
           alt='cover image'
           width={coverImage.fields.file.details.image!.width}
           height={coverImage.fields.file.details.image!.height}
         />
+        <Title>{title}</Title>
         <Desription>
           {documentToReactComponents(descriptionDocument)}
         </Desription>
@@ -52,9 +53,8 @@ const Title = styled.h2`
 `;
 
 const CoverImage = styled(Image)`
-  width: 80%;
+  width: 90%;
   height: auto;
-  border-radius: 8px;
   margin: 1rem 0;
 `;
 

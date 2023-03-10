@@ -31,7 +31,7 @@ const Card = styled.div`
   flex-direction: row; */
   justify-content: center;
   width: 100%;
-  padding: 20px;
+  /* padding: 20px; */
   margin: 20px auto;
   text-align: center;
   background-color: #fff;

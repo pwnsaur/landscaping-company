@@ -8,7 +8,7 @@ const About = () => {
         titleTemplate='Brasika | %s'
         description='Par mums'
       />
-      <div>about</div>
+      <div></div>
     </>
   );
 };

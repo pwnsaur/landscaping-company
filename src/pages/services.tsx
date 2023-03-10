@@ -32,5 +32,5 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 20px;
+  padding: 8vh 6vw;
 `;
