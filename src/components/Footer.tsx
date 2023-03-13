@@ -12,10 +12,14 @@ export default Footer;
 
 const FooterContainer = styled.footer`
   display: flex;
+  width: 100%;
+  height: 100px;
   justify-content: center;
-  margin: auto 0 20px;
+  align-items: center;
+  margin: auto 0 0;
+  background-color: darkgreen;
 `;
 
 const FooterText = styled.p`
-  color: #555;
+  color: white;
 `;

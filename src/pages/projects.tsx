@@ -35,4 +35,5 @@ const Container = styled.div`
   max-width: 1600px;
   justify-content: center;
   padding: 8vh 6vw;
+  margin-top: 50px;
 `;

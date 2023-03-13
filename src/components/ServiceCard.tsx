@@ -34,7 +34,7 @@ const Card = styled.div`
   /* padding: 20px; */
   margin: 20px auto;
   text-align: center;
-  background-color: #fff;
+  /* background-color: #fff; */
 `;
 
 const Title = styled.div`

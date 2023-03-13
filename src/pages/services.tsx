@@ -17,7 +17,10 @@ const Services = ({ services }: { services: TypeService[] }) => {
       />
       <Container>
         {services.map((service) => (
-          <ServiceCard key={service.sys.id} service={service} />
+          <>
+            <Break />
+            <ServiceCard key={service.sys.id} service={service} />
+          </>
         ))}
       </Container>
     </>
@@ -33,4 +36,12 @@ const Container = styled.div`
   width: 100%;
   max-width: 1200px;
   padding: 8vh 6vw;
+`;
+
+const Break = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: black;
+  margin: 20px 0;
+  width: 100%;
 `;

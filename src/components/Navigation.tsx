@@ -6,8 +6,8 @@ import Logo from '../../public/logo.png';
 const Navigation = () => {
   return (
     <StyledContainer>
-      <StyledLink href='/projects'>Projekti</StyledLink>
       <StyledLink href='/services'>Pakalpojumi</StyledLink>
+      <StyledLink href='/projects'>Projekti</StyledLink>
       <StyledLinkLogo href='/'>
         <StyledLogo src={Logo} alt='logo' unoptimized />
       </StyledLinkLogo>
@@ -28,6 +28,7 @@ const StyledContainer = styled.div`
   max-width: 768px;
   height: 70px;
   align-items: center;
+  margin-top: 40px;
   padding: 5px;
   background-color: #ededed;
   z-index: 1;
@@ -40,8 +41,9 @@ const StyledLogo = styled(Image)`
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: black;
+  text-transform: uppercase;
 
   &:hover:not(:active) {
     color: #696767;
