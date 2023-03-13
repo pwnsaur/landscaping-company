@@ -15,9 +15,9 @@ const GlobalStyles = createGlobalStyle`
   font-family: ${nunito.style.fontFamily}, sans-serif;
 }
 
-.container {
+/* .container {
   width: 100%;
-}
+} */
 
 .content {
   display: flex;

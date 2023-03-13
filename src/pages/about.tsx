@@ -45,7 +45,7 @@ const LeftDiv = styled.div`
 
 const RightDiv = styled.div`
   width: 60%;
-  padding: 0 20px 0 80px;
+  padding: 0 40px 0 120px;
 `;
 
 const Heading = styled.h2`

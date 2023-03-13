@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
+import { Parallax } from 'react-scroll-parallax';
+import Image from 'next/image';
+import backgroundImage from '../../public/backgroundImage.jpg';
 
 const Home = () => {
   return (
@@ -10,7 +13,14 @@ const Home = () => {
         description='Sākums'
       />
 
-      <Main>Sākums</Main>
+      <Main>
+        <Parallax translateY={[-150, 220]}>
+          <BackgroundImage src={backgroundImage} alt='bg' />
+        </Parallax>
+        <Content>
+          <Title>Sākums</Title>
+        </Content>
+      </Main>
     </>
   );
 };
@@ -24,4 +34,25 @@ const Main = styled.main`
   align-items: center;
   padding: 6rem;
   height: 100%;
+  width: 100%;
+`;
+
+const BackgroundImage = styled(Image)`
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+`;
+
+const Content = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+`;
+
+const Title = styled.h2`
+  color: #fff;
+  font-size: 3rem;
 `;

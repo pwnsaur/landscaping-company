@@ -1,41 +1,51 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '../../public/logo.png';
+import logoImage from '../../public/logo.png';
 
 const Navigation = () => {
   return (
-    <StyledContainer>
-      <StyledLink href='/services'>Pakalpojumi</StyledLink>
-      <StyledLink href='/projects'>Projekti</StyledLink>
-      <StyledLinkLogo href='/'>
-        <StyledLogo src={Logo} alt='logo' unoptimized />
-      </StyledLinkLogo>
-      <StyledLink href='/about'>Par mums</StyledLink>
-      <StyledLink href='/contacts'>Kontakti</StyledLink>
-    </StyledContainer>
+    <Container>
+      <Nav>
+        <StyledLink href='/services'>Pakalpojumi</StyledLink>
+        <StyledLink href='/projects'>Projekti</StyledLink>
+        <StyledLinkLogo href='/'>
+          <Logo src={logoImage} alt='logo' />
+        </StyledLinkLogo>
+        <StyledLink href='/about'>Par mums</StyledLink>
+        <StyledLink href='/contacts'>Kontakti</StyledLink>
+      </Nav>
+    </Container>
   );
 };
 
 export default Navigation;
 
-const StyledContainer = styled.div`
+const Container = styled.div`
   /* position: sticky;
   top: 0; */
   display: flex;
-  justify-content: space-between;
-  width: 70%;
-  max-width: 768px;
-  height: 70px;
+  justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 70px;
   margin-top: 40px;
   padding: 5px;
   background-color: #ededed;
   z-index: 1;
 `;
-const StyledLogo = styled(Image)`
+
+const Logo = styled(Image)`
   height: 100%;
   width: auto;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  max-width: 768px;
 `;
 
 const StyledLink = styled(Link)`
