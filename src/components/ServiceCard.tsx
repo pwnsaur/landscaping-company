@@ -39,25 +39,25 @@ const Break = styled.hr`
 `;
 
 const Card = styled.div`
-  /* display: flex;
-  flex-direction: row; */
   justify-content: center;
   width: 100%;
-  /* padding: 20px; */
   margin: 20px auto;
   text-align: center;
-  /* background-color: #fff; */
 `;
 
 const Title = styled.div`
   font-size: 1.5rem;
-  /* margin-bottom: 10px; */
   margin: auto;
 `;
 
 const StyledImage = styled(Image)`
   width: 40%;
   height: auto;
+
+  @media screen and (max-width: 40em) {
+    width: 100%;
+    margin: 0 1rem 2rem;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -65,7 +65,11 @@ const StyledLink = styled(Link)`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  /* width: 1100px; */
+
+  @media screen and (max-width: 40em) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Excerpt = styled.p`

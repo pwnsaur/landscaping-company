@@ -15,7 +15,7 @@ const Home = () => {
 
       <Main>
         <Parallax translateY={[-150, 220]}>
-          <BackgroundImage src={backgroundImage} alt='bg' priority />
+          <BackgroundImage src={backgroundImage} alt='background' priority />
         </Parallax>
         <Content>
           <Title>Sākums</Title>

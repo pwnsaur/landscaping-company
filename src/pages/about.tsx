@@ -49,6 +49,7 @@ const LeftDiv = styled.div`
 
   @media only screen and (max-width: 40em) {
     width: 100%;
+    padding: 1rem;
   }
 `;
 
@@ -58,7 +59,7 @@ const RightDiv = styled.div`
 
   @media only screen and (max-width: 40em) {
     width: 100%;
-    padding: 0;
+    padding: 1rem;
   }
 `;
 

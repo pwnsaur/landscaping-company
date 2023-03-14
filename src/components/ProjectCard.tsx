@@ -29,8 +29,7 @@ export default ProjectCard;
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
-  /* height: 250px; */
+  width: 18rem;
   align-items: center;
   text-align: center;
   background-color: #ededed;
@@ -49,6 +48,6 @@ const StyledImage = styled(Image)`
 const Title = styled.div`
   font-size: 0.8rem;
   font-weight: 500;
-  margin: 5px;
+  margin: 0.6rem;
   text-transform: uppercase;
 `;

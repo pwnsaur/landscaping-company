@@ -22,14 +22,12 @@ const Navigation = () => {
 export default Navigation;
 
 const Container = styled.div`
-  /* position: sticky;
-  top: 0; */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70px;
-  margin-top: 40px;
+  height: 5rem;
+  margin-top: 3rem;
   padding: 5px;
   background-color: #ededed;
   z-index: 1;
@@ -54,8 +52,10 @@ const StyledLink = styled(Link)`
   font-size: 1rem;
   color: black;
   text-transform: uppercase;
+  height: 2rem;
+  margin: auto 0;
 
-  &:hover:not(:active) {
+  &:hover {
     color: #696767;
     text-decoration: underline;
   }
