@@ -15,7 +15,7 @@ const Home = () => {
 
       <Main>
         <Parallax translateY={[-150, 220]}>
-          <BackgroundImage src={backgroundImage} alt='bg' />
+          <BackgroundImage src={backgroundImage} alt='bg' priority />
         </Parallax>
         <Content>
           <Title>Sākums</Title>
@@ -38,8 +38,8 @@ const Main = styled.main`
 `;
 
 const BackgroundImage = styled(Image)`
-  height: 100vh;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
   z-index: -1;
 `;

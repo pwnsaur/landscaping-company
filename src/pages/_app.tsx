@@ -2,13 +2,16 @@ import type { AppProps } from 'next/app';
 import Layout from '@/components/Layout';
 import GlobalStyles from '@/styles/globalStyles';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import ErrorBoundary from '@/utils/ErrorBoundary';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ParallaxProvider>
       <Layout>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <ErrorBoundary>
+          <Component {...pageProps} />
+        </ErrorBoundary>
       </Layout>
     </ParallaxProvider>
   );
