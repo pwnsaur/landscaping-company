@@ -36,28 +36,42 @@ export default About;
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 100px;
+  margin: 4em;
+
+  @media only screen and (max-width: 40em) {
+    flex-direction: column;
+    margin: 2em;
+  }
 `;
 
 const LeftDiv = styled.div`
   width: 40%;
+
+  @media only screen and (max-width: 40em) {
+    width: 100%;
+  }
 `;
 
 const RightDiv = styled.div`
   width: 60%;
-  padding: 0 40px 0 120px;
+  padding: 0 4rem;
+
+  @media only screen and (max-width: 40em) {
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 const Heading = styled.h2`
   font-size: 1.2rem;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 `;
 
 const Paragraph = styled.p`
   font-size: 1rem;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 `;
 
 const StyledImage = styled(Image)`

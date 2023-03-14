@@ -10,7 +10,7 @@ const Navigation = () => {
         <StyledLink href='/services'>Pakalpojumi</StyledLink>
         <StyledLink href='/projects'>Projekti</StyledLink>
         <StyledLinkLogo href='/'>
-          <Logo src={logoImage} alt='logo' />
+          <Logo src={logoImage} alt='logo' width={120} height={70} />
         </StyledLinkLogo>
         <StyledLink href='/about'>Par mums</StyledLink>
         <StyledLink href='/contacts'>Kontakti</StyledLink>
