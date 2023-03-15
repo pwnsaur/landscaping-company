@@ -23,6 +23,7 @@ const GlobalStyles = createGlobalStyle`
   align-items: center;
   justify-content: center;
   background-color: #ededed;
+  background-color: ${(props) => props.theme.background};
 }
 
 a {

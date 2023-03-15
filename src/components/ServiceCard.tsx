@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { TypeService } from 'types';
+import { TypeService } from '@/types/contentfulTypes';
 import styled from 'styled-components';
 import ErrorBoundary from '@/utils/ErrorBoundary';
 

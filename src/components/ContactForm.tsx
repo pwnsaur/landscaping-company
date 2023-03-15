@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { FormData } from 'types';
+import { FormData } from '@/types/contentfulTypes';
 import Textarea from './reusables/Textarea';
 import Input from './reusables/Input';
 import Button from './reusables/Button';

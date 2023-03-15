@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-import { TypeProject } from 'types';
+import { TypeProject } from '@/types/contentfulTypes';
 import ErrorBoundary from '@/utils/ErrorBoundary';
 
 const ProjectCard = ({ project }: { project: TypeProject }) => {

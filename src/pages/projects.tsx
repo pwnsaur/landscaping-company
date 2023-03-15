@@ -1,6 +1,6 @@
 import ProjectCard from '@/components/ProjectCard';
 import { NextSeo } from 'next-seo';
-import { TypeProject } from 'types';
+import { TypeProject } from '@/types/contentfulTypes';
 import { getStaticPropsPage } from './api/getStaticPropsPage';
 import styled from 'styled-components';
 

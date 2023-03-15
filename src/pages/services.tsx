@@ -1,6 +1,6 @@
 import ServiceCard from '@/components/ServiceCard';
 import { NextSeo } from 'next-seo';
-import { TypeService } from 'types';
+import { TypeService } from '@/types/contentfulTypes';
 import { getStaticPropsPage } from './api/getStaticPropsPage';
 import styled from 'styled-components';
 

@@ -1,5 +1,5 @@
 import { client } from './client';
-import { TypeProjectFields, TypeServiceFields } from 'types';
+import { TypeProjectFields, TypeServiceFields } from '@/types/contentfulTypes';
 
 type ContentType = 'project' | 'service';
 

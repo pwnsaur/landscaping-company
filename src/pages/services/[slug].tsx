@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { TypeService } from 'types';
+import { TypeService } from '@/types/contentfulTypes';
 import { getStaticPaths, getStaticProps } from '../api/serviceData';
 import styled from 'styled-components';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';

@@ -1,4 +1,4 @@
-import { TypeProjectFields } from 'types';
+import { TypeProjectFields } from '@/types/contentfulTypes';
 import { client } from './client';
 
 export const getStaticPaths = async () => {

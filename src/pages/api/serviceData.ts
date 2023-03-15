@@ -1,4 +1,4 @@
-import { TypeServiceFields } from 'types';
+import { TypeServiceFields } from '@/types/contentfulTypes';
 import { client } from './client';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { ParsedUrlQuery } from 'querystring';

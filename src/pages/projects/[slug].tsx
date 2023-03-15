@@ -1,4 +1,4 @@
-import { TypeProject } from 'types';
+import { TypeProject } from '@/types/contentfulTypes';
 import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';

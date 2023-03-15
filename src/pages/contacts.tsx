@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import ContactForm from '@/components/ContactForm';
-import { FormData } from 'types';
+import { FormData } from '@/types/contentfulTypes';
 
 const Contact = () => {
   const handleSubmit = (formData: FormData) => {

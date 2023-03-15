@@ -1,4 +1,4 @@
-import { TypeProjectFields, TypeServiceFields } from 'types';
+import { TypeProjectFields, TypeServiceFields } from '@/types/contentfulTypes';
 import { client } from './client';
 
 export async function getStaticPathsItem(content_type: string) {

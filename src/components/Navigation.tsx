@@ -31,6 +31,10 @@ const Container = styled.div`
   padding: 5px;
   background-color: #ededed;
   z-index: 1;
+
+  @media (max-width: 36em) {
+    margin: 2rem 0 0 1rem;
+  }
 `;
 
 const Logo = styled(Image)`
@@ -49,7 +53,7 @@ const Nav = styled.nav`
     display: flex;
     flex-direction: column;
 
-    img {
+    & > :nth-child(3) {
       display: none;
     }
   }
@@ -67,6 +71,10 @@ const StyledLink = styled(Link)`
   &:hover {
     color: #696767;
     text-decoration: underline;
+  }
+
+  @media (max-width: 36em) {
+    margin: 0.2rem 0;
   }
 `;
 
