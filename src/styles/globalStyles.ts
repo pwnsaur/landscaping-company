@@ -15,17 +15,6 @@ const GlobalStyles = createGlobalStyle`
   font-family: ${nunito.style.fontFamily}, sans-serif;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: #ededed;
-  background-color: ${(props) => props.theme.background};
-}
-
 a {
   color: inherit;
   text-decoration: none;

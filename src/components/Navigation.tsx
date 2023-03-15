@@ -29,7 +29,7 @@ const Container = styled.div`
   height: 5rem;
   margin-top: 3rem;
   padding: 5px;
-  background-color: #ededed;
+  background-color: ${(props) => props.theme.colors.background};
   z-index: 1;
 
   @media (max-width: 36em) {
