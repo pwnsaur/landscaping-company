@@ -86,6 +86,10 @@ const BackgroundImage = styled(Image)`
 const Title = styled.h2`
   color: #fff;
   font-size: 3rem;
+
+  @media (max-width: 36em) {
+    font-size: 2rem;
+  }
 `;
 
 const SectionsGrid = styled.div`
@@ -105,6 +109,10 @@ const Section = styled.section`
   width: 100%;
   height: 100%;
   position: relative;
+
+  @media (max-width: 36em) {
+    height: 80vh;
+  }
 `;
 
 const TransparentContainer = styled.div`
@@ -118,10 +126,14 @@ const TransparentContainer = styled.div`
 const SectionContent = styled.div`
   position: relative;
   z-index: 2;
+
+  @media (max-width: 36em) {
+    padding: 0 1rem;
+  }
 `;
 
 const Wrapper = styled.div`
-  width: calc(100% - 2rem);
+  width: 100%;
   margin: auto;
   overflow: hidden;
   position: relative;

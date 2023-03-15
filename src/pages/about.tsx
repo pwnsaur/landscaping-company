@@ -40,26 +40,27 @@ const Container = styled.div`
 
   @media only screen and (max-width: 40em) {
     flex-direction: column;
-    margin: 2em;
+    margin: 0.5rem;
   }
 `;
 
 const LeftDiv = styled.div`
-  width: 40%;
+  max-width: 40%;
+  align-self: center;
 
   @media only screen and (max-width: 40em) {
-    width: 100%;
-    padding: 1rem;
+    max-width: 80%;
   }
 `;
 
 const RightDiv = styled.div`
-  width: 60%;
+  max-width: 60%;
   padding: 0 4rem;
 
   @media only screen and (max-width: 40em) {
-    width: 100%;
+    max-width: 100%;
     padding: 1rem;
+    text-align: center;
   }
 `;
 
@@ -77,5 +78,6 @@ const Paragraph = styled.p`
 
 const StyledImage = styled(Image)`
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 `;

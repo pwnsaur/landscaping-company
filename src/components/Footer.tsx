@@ -13,11 +13,11 @@ export default Footer;
 const FooterContainer = styled.footer`
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 15rem;
   justify-content: center;
   align-items: center;
   margin: auto 0 0;
-  background-color: darkgreen;
+  background-color: ${(props) => props.theme.colors.darkGreen};
   z-index: 1;
 `;
 

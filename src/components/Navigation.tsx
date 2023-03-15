@@ -46,7 +46,8 @@ const Nav = styled.nav`
   max-width: 768px;
 
   @media (max-width: 36em) {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -66,13 +67,12 @@ const StyledLink = styled(Link)`
 
   @media (max-width: 36em) {
     font-size: 0.8rem;
-    margin: 0.2rem 0;
   }
 `;
 
 const StyledLinkLogo = styled(StyledLink)`
   height: 100%;
-  margin-bottom: 1rem;
+  margin: 1rem 0 2rem;
 
   @media (max-width: 36em) {
     width: 100%;

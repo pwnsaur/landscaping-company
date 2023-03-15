@@ -1,6 +1,8 @@
 export const theme = {
   colors: {
     background: '#ededed',
+    black: '#1a1a1a',
+    darkGreen: '#21412a',
     primary: '#3498db',
     secondary: 'green',
     text: '#333',
@@ -17,10 +19,5 @@ export const theme = {
   fontWeights: {
     normal: 400,
     bold: 700,
-  },
-  spacings: {
-    small: '0.5rem',
-    normal: '1rem',
-    large: '2rem',
   },
 };
