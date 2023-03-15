@@ -28,7 +28,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 1rem 5px;
   background-color: ${(props) => props.theme.colors.background};
   z-index: 1;
 `;

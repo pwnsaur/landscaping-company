@@ -19,6 +19,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+h1, h2 {
+  color: ${(props) => props.theme.colors.title}
+}
 `;
 
 export default GlobalStyles;

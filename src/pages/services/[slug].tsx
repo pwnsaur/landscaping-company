@@ -7,7 +7,7 @@ import { Document } from '@contentful/rich-text-types';
 import { NextSeo } from 'next-seo';
 
 const Service = ({ service }: { service: TypeService }) => {
-  const { coverImage, description, title } = service.fields;
+  const { coverImage, description, title, excerpt } = service.fields;
 
   const descriptionDocument = description as Document;
 
@@ -58,7 +58,7 @@ const CoverImage = styled(Image)`
   margin: 1rem 0;
 `;
 
-const Desription = styled.p`
+const Desription = styled.div`
   margin: 1rem 0;
   width: 80%;
 `;

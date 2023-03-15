@@ -45,8 +45,9 @@ const Card = styled.div`
   text-align: center;
 `;
 
-const Title = styled.div`
-  font-size: 1.5rem;
+const Title = styled.h2`
+  font-size: 1.4rem;
+  font-weight: 400;
   margin: auto;
 `;
 
