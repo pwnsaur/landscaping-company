@@ -6,12 +6,13 @@ import logoImage from '../../public/logo.png';
 const Navigation = () => {
   return (
     <Container>
+      <StyledLinkLogo href='/'>
+        <Logo src={logoImage} alt='logo' width={120} height={70} />
+      </StyledLinkLogo>
       <Nav>
+        <StyledLink href='/'>Sākums</StyledLink>
         <StyledLink href='/services'>Pakalpojumi</StyledLink>
         <StyledLink href='/projects'>Projekti</StyledLink>
-        <StyledLinkLogo href='/'>
-          <Logo src={logoImage} alt='logo' width={120} height={70} />
-        </StyledLinkLogo>
         <StyledLink href='/about'>Par mums</StyledLink>
         <StyledLink href='/contacts'>Kontakti</StyledLink>
       </Nav>
@@ -23,18 +24,13 @@ export default Navigation;
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 5rem;
-  margin-top: 3rem;
-  padding: 5px;
+  padding: 1rem 5px;
   background-color: ${(props) => props.theme.colors.background};
   z-index: 1;
-
-  @media (max-width: 36em) {
-    margin: 2rem 0 0 1rem;
-  }
 `;
 
 const Logo = styled(Image)`
@@ -50,12 +46,7 @@ const Nav = styled.nav`
   max-width: 768px;
 
   @media (max-width: 36em) {
-    display: flex;
-    flex-direction: column;
-
-    & > :nth-child(3) {
-      display: none;
-    }
+    flex-wrap: wrap;
   }
 `;
 
@@ -74,10 +65,17 @@ const StyledLink = styled(Link)`
   }
 
   @media (max-width: 36em) {
+    font-size: 0.8rem;
     margin: 0.2rem 0;
   }
 `;
 
 const StyledLinkLogo = styled(StyledLink)`
   height: 100%;
+  margin-bottom: 1rem;
+
+  @media (max-width: 36em) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
