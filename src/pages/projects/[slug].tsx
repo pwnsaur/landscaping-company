@@ -4,8 +4,10 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Document } from '@contentful/rich-text-types';
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
-import { getStaticPaths, getStaticProps } from '../api/projectData';
 import ImageContainer from '@/components/ImageContainer';
+import { getStaticData } from '../api/getStaticDataSlug';
+
+const { getStaticPaths, getStaticProps } = getStaticData('project');
 
 const Project = ({ project }: { project: TypeProject }) => {
   const { content, coverImage, date, excerpt, title, images } = project.fields;

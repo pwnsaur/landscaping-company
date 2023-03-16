@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import { TypeService } from '@/types/contentfulTypes';
-import { getStaticPaths, getStaticProps } from '../api/serviceData';
 import styled from 'styled-components';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';
 import { NextSeo } from 'next-seo';
+import { getStaticData } from '../api/getStaticDataSlug';
+
+const { getStaticPaths, getStaticProps } = getStaticData('service');
 
 const Service = ({ service }: { service: TypeService }) => {
   const { coverImage, description, title, excerpt } = service.fields;
