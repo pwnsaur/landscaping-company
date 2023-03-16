@@ -26,5 +26,5 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${(props) => props.theme.colors.background};
-  padding: 0.8rem;
+  /* padding: 0.8rem; */
 `;
