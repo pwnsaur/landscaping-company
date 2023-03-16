@@ -25,14 +25,10 @@ export function getStaticData(content_type: ContentType) {
   }: {
     params?: ParsedUrlQuery;
   }) => {
-    console.log('params:', params);
-
     const { items } = await client.getEntries({
       content_type,
       'fields.slug': params.slug,
     });
-
-    console.log('items:', items);
 
     if (!items.length) {
       return {
@@ -44,7 +40,7 @@ export function getStaticData(content_type: ContentType) {
     }
 
     return {
-      props: { [content_type === 'service' ? 'service' : 'project']: items[0] },
+      props: { [content_type]: items[0] },
       revalidate: 1,
     };
   };
