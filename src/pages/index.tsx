@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import backgroundTall from '@/../public/backgroundTall.jpg';
+import backgroundTall from '../../public/backgroundTall.jpg';
 
 const Home = () => {
   const backgroundRef = useRef<HTMLDivElement | null>(null);
