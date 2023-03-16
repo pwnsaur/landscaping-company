@@ -42,7 +42,7 @@ const PageTitle = styled.h1`
   max-width: 20em;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: 500;
   padding-bottom: 3rem;
 `;

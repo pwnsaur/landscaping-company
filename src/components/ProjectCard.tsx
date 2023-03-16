@@ -14,6 +14,7 @@ const ProjectCard = ({ project }: { project: TypeProject }) => {
           <StyledImage
             src={`https:${coverImage.fields.file.url}`}
             alt='cover-image'
+            layout='responsive'
             height={coverImage.fields.file.details.image!.height}
             width={coverImage.fields.file.details.image!.width}
           />
@@ -29,11 +30,12 @@ export default ProjectCard;
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 18rem;
+  width: 100%;
   align-items: center;
   text-align: center;
   background-color: #ededed;
   transition: transform 0.2s ease-in-out;
+  padding: 1rem;
 
   &:hover {
     transform: scale(1.02);
@@ -46,7 +48,7 @@ const StyledImage = styled(Image)`
 `;
 
 const Title = styled.div`
-  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 1.1vw, 1.5rem);
   font-weight: 500;
   margin: 0.6rem;
   text-transform: uppercase;

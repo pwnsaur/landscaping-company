@@ -28,12 +28,10 @@ export default Projects;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 0));
-  grid-template-rows: 1fr;
-  gap: 20px 40px;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2vh 4vw;
   width: 100%;
-  max-width: 1600px;
   justify-content: center;
   padding: 8vh 6vw;
-  margin-top: 50px;
+  margin-top: 3rem;
 `;
