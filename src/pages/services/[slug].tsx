@@ -46,6 +46,11 @@ const ServiceContainer = styled.div`
   align-items: center;
   width: 70%;
   margin: 3rem 5rem;
+
+  @media screen and (max-width: 40em) {
+    width: 100%;
+    padding: 0 1rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -55,8 +60,9 @@ const Title = styled.h2`
 `;
 
 const CoverImage = styled(Image)`
-  width: 90%;
+  width: 100%;
   height: auto;
+  object-fit: cover;
   margin: 1rem 0;
 `;
 

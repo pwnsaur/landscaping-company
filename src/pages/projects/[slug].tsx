@@ -46,6 +46,11 @@ const ProjectContainer = styled.div`
   align-items: center;
   width: 70%;
   margin: 3rem 5rem;
+
+  @media screen and (max-width: 40em) {
+    width: 100%;
+    padding: 0 1rem;
+  }
 `;
 
 const Title = styled.h3`

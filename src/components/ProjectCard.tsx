@@ -34,7 +34,7 @@ const StyledCard = styled.div`
   text-align: center;
   background-color: #ededed;
   transition: transform 0.2s ease-in-out;
-  padding: 1rem;
+  /* padding: 1rem; */
 
   &:hover {
     transform: scale(1.02);

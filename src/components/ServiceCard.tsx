@@ -57,7 +57,6 @@ const StyledImage = styled(Image)`
   height: auto;
 
   @media screen and (max-width: 40em) {
-    /* width: 100%; */
     max-width: 100%;
     margin: 0 1rem 2rem;
   }
