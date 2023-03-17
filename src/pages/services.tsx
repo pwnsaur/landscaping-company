@@ -35,7 +35,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 8vh 6vw;
+  padding: 8vh 3vw;
 `;
 
 const PageTitle = styled.h1`

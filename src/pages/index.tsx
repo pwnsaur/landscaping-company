@@ -36,9 +36,9 @@ const Home = () => {
         <StyledImage
           src={backgroundTall}
           alt='Background'
-          layout='fill'
-          objectFit='cover'
-          objectPosition='center'
+          fill
+          // objectFit='cover'
+          // objectPosition='center'
         />
       </Background>
       <Container>

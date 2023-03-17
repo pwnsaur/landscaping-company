@@ -14,7 +14,6 @@ const ProjectCard = ({ project }: { project: TypeProject }) => {
           <StyledImage
             src={`https:${coverImage.fields.file.url}`}
             alt='cover-image'
-            layout='responsive'
             height={coverImage.fields.file.details.image!.height}
             width={coverImage.fields.file.details.image!.width}
           />

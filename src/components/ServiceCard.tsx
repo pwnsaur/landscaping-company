@@ -15,7 +15,6 @@ const Service = ({ service }: { service: TypeService }) => {
           <StyledImage
             src={`https:${coverImage.fields.file.url}`}
             alt='cover-image'
-            layout='responsive'
             height={coverImage.fields.file.details.image!.height}
             width={coverImage.fields.file.details.image!.width}
           />
@@ -35,7 +34,7 @@ const Break = styled.hr`
   border: none;
   height: 1px;
   background-color: black;
-  margin: 20px 0;
+  margin: 1.5rem 0;
   width: 100%;
 `;
 
@@ -43,7 +42,7 @@ const Card = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 20px auto;
+  margin: 1.5rem auto;
   text-align: center;
 `;
 
@@ -58,7 +57,8 @@ const StyledImage = styled(Image)`
   height: auto;
 
   @media screen and (max-width: 40em) {
-    width: 100%;
+    /* width: 100%; */
+    max-width: 100%;
     margin: 0 1rem 2rem;
   }
 `;
