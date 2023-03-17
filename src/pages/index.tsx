@@ -33,13 +33,7 @@ const Home = () => {
       />
 
       <Background ref={backgroundRef}>
-        <StyledImage
-          src={backgroundTall}
-          alt='Background'
-          fill
-          // objectFit='cover'
-          // objectPosition='center'
-        />
+        {/* <StyledImage src={backgroundTall} alt='Background' fill /> */}
       </Background>
       <Container>
         <Section first>

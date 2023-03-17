@@ -73,9 +73,9 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
 export default ContactForm;
 
 const Form = styled.form`
-  width: 70vw;
-  max-width: 500px;
-  margin: 0 auto;
+  width: 100%;
+  /* max-width: 500px; */
+  margin: 2rem auto 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -33,5 +33,5 @@ const Container = styled.div`
   width: 100%;
   justify-content: center;
   padding: 1rem 2rem;
-  margin-top: 3rem;
+  margin: 3rem 0;
 `;

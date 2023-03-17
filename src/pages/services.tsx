@@ -16,9 +16,9 @@ const Services = ({ services }: { services: TypeService[] }) => {
         description='Pakalpojumi'
       />
       <Container>
-        <PageTitle>
+        <Title>
           A short description of types of services we offer to our clients
-        </PageTitle>
+        </Title>
         {services.map((service) => (
           <ServiceCard key={service.sys.id} service={service} />
         ))}
@@ -38,7 +38,7 @@ const Container = styled.div`
   padding: 8vh 3vw;
 `;
 
-const PageTitle = styled.h1`
+const Title = styled.h1`
   max-width: 20em;
   text-align: center;
   text-transform: uppercase;

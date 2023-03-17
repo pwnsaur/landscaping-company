@@ -28,7 +28,7 @@ export default Textarea;
 
 const StyledTextarea = styled.textarea`
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   margin: 15px 0;

@@ -34,7 +34,6 @@ const StyledCard = styled.div`
   text-align: center;
   background-color: #ededed;
   transition: transform 0.2s ease-in-out;
-  /* padding: 1rem; */
 
   &:hover {
     transform: scale(1.02);
@@ -46,8 +45,8 @@ const StyledImage = styled(Image)`
   height: auto;
 `;
 
-const Title = styled.div`
-  font-size: clamp(0.8rem, 1.1vw, 1.5rem);
+const Title = styled.h3`
+  font-size: clamp(0.8rem, 1.1vw, 1rem);
   font-weight: 500;
   margin: 0.6rem;
   text-transform: uppercase;

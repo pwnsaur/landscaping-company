@@ -54,7 +54,7 @@ const ProjectContainer = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: 400;
   margin: 1rem 0;
 `;
