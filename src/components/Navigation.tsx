@@ -5,9 +5,12 @@ import Image from 'next/image';
 import logoImage from '../../public/logo.png';
 import DesktopNav from './navigation/DesktopNav';
 import MobileNav from './navigation/MobileNav';
+import useDeviceType from '@/utils/hooks/useDeviceType';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isOnMobile, isOnDesktop } = useDeviceType();
+  console.log(isOnMobile, isOnDesktop);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -20,14 +23,12 @@ const Navigation = () => {
   return (
     <Container>
       <Header>
-        <StyledHamburger isOpen={isOpen} onClick={toggleMenu}>
-          {isOpen ? 'X' : 'NAV'}
-        </StyledHamburger>
-        <StyledLinkLogo href='/'>
+        <Hamburger onClick={toggleMenu}>{isOpen ? 'X' : 'B'}</Hamburger>
+        <LinkLogo href='/'>
           <Logo src={logoImage} alt='logo' width={120} height={70} />
-        </StyledLinkLogo>
-        <DesktopNav />
-        {isOpen && (
+        </LinkLogo>
+        {isOnDesktop && <DesktopNav />}
+        {isOnMobile && (
           <MobileNav isOpen={isOpen} handleItemClick={handleMenuItemClick} />
         )}
       </Header>
@@ -58,15 +59,14 @@ const Header = styled.header`
   }
 `;
 
-const StyledHamburger = styled.button<{ isOpen: boolean }>`
+const Hamburger = styled.button`
   display: none;
   background: none;
   border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin: 1rem 2rem;
   font-weight: 1000;
-  z-index: ${(props) => (props.isOpen ? 101 : 1)};
+  z-index: 2;
 
   @media (max-width: 40em) {
     display: block;
@@ -78,25 +78,8 @@ const Logo = styled(Image)`
   width: auto;
 `;
 
-const StyledLink = styled(Link)`
+const LinkLogo = styled(Link)`
   display: flex;
-  align-items: center;
-  font-size: 1rem;
-  text-transform: uppercase;
-  height: 2rem;
-  margin: auto 0;
-
-  &:hover {
-    color: #696767;
-    text-decoration: underline;
-  }
-
-  @media (max-width: 40em) {
-    font-size: 0.8rem;
-  }
-`;
-
-const StyledLinkLogo = styled(StyledLink)`
   height: 100%;
   margin: 1rem auto 2rem;
 

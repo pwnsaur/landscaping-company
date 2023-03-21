@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 type NavItemsProps = {
   handleItemClick?: (event: MouseEvent) => void;
+  isOpen?: boolean;
 };
 
 const NavItems = ({ handleItemClick }: NavItemsProps) => {

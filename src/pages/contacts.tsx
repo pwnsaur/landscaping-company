@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
-import ContactForm from '@/components/ContactForm';
+import ContactForm from '@/components/contactForm/ContactForm';
 import { FormData } from '@/types/contentfulTypes';
 
 const Contact = () => {

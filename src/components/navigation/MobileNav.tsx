@@ -12,7 +12,7 @@ const MobileNav = ({ isOpen, handleItemClick }: MobileNavProps) => {
 
   return (
     <StyledMobileNav>
-      <NavItems handleItemClick={handleItemClick} />
+      <NavItems handleItemClick={handleItemClick} isOpen={isOpen} />
     </StyledMobileNav>
   );
 };
@@ -26,13 +26,16 @@ const StyledMobileNav = styled.nav`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100dvh;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: ${(props) => props.theme.colors.background};
-    z-index: 100;
+    /* background-color: ${(props) => props.theme.colors.background}; */
+    background-color: green;
+
+    z-index: 1;
     padding-top: 1rem;
   }
 `;

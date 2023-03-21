@@ -7,22 +7,22 @@ import backgroundTall from '../../public/backgroundTall.jpg';
 const Home = () => {
   const backgroundRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!backgroundRef.current) return;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (!backgroundRef.current) return;
 
-      const scrollTop = window.pageYOffset;
-      const scrollFraction =
-        scrollTop / (document.body.scrollHeight - window.innerHeight);
-      const parallaxOffset = scrollFraction * 600;
-      backgroundRef.current.style.transform = `translateY(-${
-        parallaxOffset * 0.5
-      }px)`;
-    };
+  //     const scrollTop = window.pageYOffset;
+  //     const scrollFraction =
+  //       scrollTop / (document.body.scrollHeight - window.innerHeight);
+  //     const parallaxOffset = scrollFraction * 600;
+  //     backgroundRef.current.style.transform = `translateY(-${
+  //       parallaxOffset * 0.5
+  //     }px)`;
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   return (
     <>

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { FormData } from '@/types/contentfulTypes';
-import Textarea from './reusables/Textarea';
-import Input from './reusables/Input';
-import Button from './reusables/Button';
+import Textarea from './Textarea';
+import Input from './Input';
+import Button from './Button';
 
 type ContactFormProps = {
   onSubmit: (formData: FormData) => void;
