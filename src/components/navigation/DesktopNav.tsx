@@ -18,8 +18,4 @@ const StyledDesktopNav = styled.nav`
   width: 100%;
   height: 100%;
   max-width: 48rem;
-
-  @media (max-width: 40em) {
-    display: none;
-  }
 `;

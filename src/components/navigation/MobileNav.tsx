@@ -20,22 +20,18 @@ const MobileNav = ({ isOpen, handleItemClick }: MobileNavProps) => {
 export default MobileNav;
 
 const StyledMobileNav = styled.nav`
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: ${(props) => props.theme.colors.background};
+  background-color: green;
 
-  @media (max-width: 40em) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100dvh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    /* background-color: ${(props) => props.theme.colors.background}; */
-    background-color: green;
-
-    z-index: 1;
-    padding-top: 1rem;
-  }
+  z-index: 1;
+  padding-top: 1rem;
 `;

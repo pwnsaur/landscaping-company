@@ -67,10 +67,7 @@ const StyledLink = styled(Link)`
   flex-direction: row;
   align-items: center;
   width: 100%;
-
-  @media screen and (max-width: 40em) {
-    flex-direction: column;
-  }
+  ${(props) => props.theme.isMobile && `flex-direction: column;`}
 `;
 
 const Excerpt = styled.p`

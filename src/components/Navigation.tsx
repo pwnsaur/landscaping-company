@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import logoImage from '../../public/logo.png';
 import DesktopNav from './navigation/DesktopNav';
 import MobileNav from './navigation/MobileNav';
-import useDeviceType from '@/utils/hooks/useDeviceType';
+import useIsMobile from '@/utils/hooks/useIsMobile';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isOnMobile, isOnDesktop } = useDeviceType();
-  console.log(isOnMobile, isOnDesktop);
+  const isMobile = useIsMobile();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -20,15 +19,24 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }, [isOpen]);
+
   return (
     <Container>
       <Header>
-        <Hamburger onClick={toggleMenu}>{isOpen ? 'X' : 'B'}</Hamburger>
+        {isMobile && (
+          <Hamburger onClick={toggleMenu} isOpen={isOpen}>
+            {isOpen ? 'X' : 'B'}
+          </Hamburger>
+        )}
         <LinkLogo href='/'>
           <Logo src={logoImage} alt='logo' width={120} height={70} />
         </LinkLogo>
-        {isOnDesktop && <DesktopNav />}
-        {isOnMobile && (
+        {!isMobile ? (
+          <DesktopNav />
+        ) : (
           <MobileNav isOpen={isOpen} handleItemClick={handleMenuItemClick} />
         )}
       </Header>
@@ -53,24 +61,20 @@ const Header = styled.header`
   justify-content: space-between;
   width: 100%;
   max-width: 768px;
-
-  @media (min-width: 40em) {
-    flex-direction: column;
-  }
+  ${(props) => !props.theme.isMobile && `flex-direction: column;`}
 `;
 
-const Hamburger = styled.button`
-  display: none;
+const Hamburger = styled.button<{ isOpen: boolean }>`
+  display: block;
   background: none;
   border: none;
   font-size: 1.5rem;
   margin: 1rem 2rem;
   font-weight: 1000;
+  cursor: pointer;
   z-index: 2;
-
-  @media (max-width: 40em) {
-    display: block;
-  }
+  position: ${({ isOpen }) => isOpen && 'fixed'};
+  top: ${({ isOpen }) => isOpen && '1.5rem'};
 `;
 
 const Logo = styled(Image)`
@@ -83,9 +87,11 @@ const LinkLogo = styled(Link)`
   height: 100%;
   margin: 1rem auto 2rem;
 
-  @media (max-width: 40em) {
-    width: 100%;
-    justify-content: end;
-    margin-right: 1rem;
-  }
+  ${(props) =>
+    props.theme.isMobile &&
+    `
+      width: 100%;
+      justify-content: end;
+      margin-right: 1rem;
+  `}
 `;
