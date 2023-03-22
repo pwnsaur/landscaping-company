@@ -74,7 +74,6 @@ export default ContactForm;
 
 const Form = styled.form`
   width: 100%;
-  /* max-width: 500px; */
   margin: 2rem auto 1rem;
   display: flex;
   flex-direction: column;

@@ -17,7 +17,7 @@ const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   margin: auto 0 0;
-  background-color: ${(props) => props.theme.colors.darkGreen};
+  background-color: ${({ theme }) => theme.colors.darkGreen};
   z-index: 1;
 `;
 

@@ -56,10 +56,11 @@ const StyledImage = styled(Image)`
   max-width: 40%;
   height: auto;
 
-  @media screen and (max-width: 40em) {
-    max-width: 100%;
-    margin: 0 1rem 2rem;
-  }
+  ${({ theme }) =>
+    theme.isMobile &&
+    `
+      max-width: 100%;
+      margin: 0 1rem 2rem;`}
 `;
 
 const StyledLink = styled(Link)`
@@ -67,7 +68,7 @@ const StyledLink = styled(Link)`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  ${(props) => props.theme.isMobile && `flex-direction: column;`}
+  ${({ theme }) => theme.isMobile && `flex-direction: column;`}
 `;
 
 const Excerpt = styled.p`

@@ -32,9 +32,11 @@ const Container = styled.div`
   max-width: 25rem;
   width: 80%;
 
-  @media screen and (max-width: 40em) {
-    width: 90%;
-  }
+  ${({ theme }) =>
+    theme.isMobile &&
+    `
+      width: 90%;
+  `}
 `;
 
 const Title = styled.h2`

@@ -52,7 +52,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};
   z-index: 1;
 `;
 
@@ -61,7 +61,7 @@ const Header = styled.header`
   justify-content: space-between;
   width: 100%;
   max-width: 768px;
-  ${(props) => !props.theme.isMobile && `flex-direction: column;`}
+  ${({ theme }) => !theme.isMobile && `flex-direction: column;`}
 `;
 
 const Hamburger = styled.button<{ isOpen: boolean }>`
@@ -87,8 +87,8 @@ const LinkLogo = styled(Link)`
   height: 100%;
   margin: 1rem auto 2rem;
 
-  ${(props) =>
-    props.theme.isMobile &&
+  ${({ theme }) =>
+    theme.isMobile &&
     `
       width: 100%;
       justify-content: end;

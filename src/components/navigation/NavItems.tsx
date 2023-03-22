@@ -45,7 +45,7 @@ const StyledLink = styled(Link)`
     text-decoration: underline;
   }
 
-  @media (max-width: 40em) {
+  /* @media (max-width: 40em) {
     font-size: 0.8rem;
-  }
+  } */
 `;

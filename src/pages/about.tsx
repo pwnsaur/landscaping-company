@@ -38,30 +38,36 @@ const Container = styled.div`
   justify-content: space-between;
   margin: 4em;
 
-  @media only screen and (max-width: 40em) {
-    flex-direction: column;
-    margin: 0.5rem;
-  }
+  ${({ theme }) =>
+    theme.isMobile &&
+    `
+      flex-direction: column;
+      margin: 0.5rem;
+  `}
 `;
 
 const LeftDiv = styled.div`
   max-width: 40%;
   align-self: center;
 
-  @media only screen and (max-width: 40em) {
-    max-width: 80%;
-  }
+  ${({ theme }) =>
+    theme.isMobile &&
+    `
+      max-width: 80%;
+  `}
 `;
 
 const RightDiv = styled.div`
   max-width: 60%;
   padding: 0 4rem;
 
-  @media only screen and (max-width: 40em) {
-    max-width: 100%;
-    padding: 1rem;
-    text-align: center;
-  }
+  ${({ theme }) =>
+    theme.isMobile &&
+    `
+      max-width: 100%;
+      padding: 1rem;
+      text-align: center;
+  `}
 `;
 
 const Heading = styled.h2`

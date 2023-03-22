@@ -29,7 +29,7 @@ const StyledMobileNav = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};
   background-color: green;
 
   z-index: 1;
