@@ -4,10 +4,6 @@ import ContactForm from '@/components/contactForm/ContactForm';
 import { FormData } from '@/types/contentfulTypes';
 
 const Contact = () => {
-  const handleSubmit = (formData: FormData) => {
-    console.log(formData);
-  };
-
   return (
     <>
       <NextSeo
@@ -18,7 +14,7 @@ const Contact = () => {
 
       <Container>
         <Title>Sazinieties ar mums!</Title>
-        <ContactForm onSubmit={handleSubmit} />
+        <ContactForm />
       </Container>
     </>
   );

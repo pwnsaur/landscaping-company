@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/send-mail HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "email": "sample@email.com",
+    "phone": "66666666",
+    "message": "meow meow meow"
+}

@@ -4,64 +4,65 @@ import { FormData } from '@/types/contentfulTypes';
 import Textarea from './Textarea';
 import Input from './Input';
 import Button from './Button';
+import useContactForm from '@/utils/hooks/useContactForm';
+import sendEmail from '@/utils/sendEmail';
 
-type ContactFormProps = {
-  onSubmit: (formData: FormData) => void;
-};
-
-const ContactForm = ({ onSubmit }: ContactFormProps) => {
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [phone, setPhone] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
+const ContactForm = () => {
+  const { values, handleChange } = useContactForm();
+  const [responseMessage, setResponseMessage] = useState({
+    isSuccessful: false,
+    message: '',
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = {
-      name,
-      email,
-      phone,
-      message,
-    };
 
     try {
-      console.log(formData);
-      onSubmit(formData);
-      setName('');
-      setEmail('');
-      setPhone('');
-      setMessage('');
-    } catch (err) {
-      console.log(err);
+      const req = await sendEmail(values);
+      if (req.status === 250) {
+        setResponseMessage({
+          isSuccessful: true,
+          message: 'Thanks for the message!',
+        });
+      }
+    } catch (e) {
+      setResponseMessage({
+        isSuccessful: false,
+        message: 'get rekt lmao',
+      });
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Input
+        id='name'
         type='text'
-        onChange={(e) => setName(e.target.value)}
-        value={name}
+        value={values.name}
+        onChange={handleChange}
         placeholder='Vārds, uzvārds'
         required
       />
       <Input
+        id='email'
         type='email'
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
+        onChange={handleChange}
+        value={values.email}
         placeholder='Epasts'
         required
       />
       <Input
+        id='phone'
         type='tel'
-        onChange={(e) => setPhone(e.target.value)}
-        value={phone}
+        onChange={handleChange}
+        value={values.phone}
         placeholder='Tālrunis'
         required
       />
       <Textarea
-        onChange={(e) => setMessage(e.target.value)}
-        value={message}
+        id='message'
+        onChange={handleChange}
+        value={values.message}
         placeholder='Ievadiet ziņojumu'
         required
       />

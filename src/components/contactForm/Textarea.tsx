@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type TextareaProps = {
+  id: string;
   value: string;
   placeholder: string;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -9,6 +10,7 @@ type TextareaProps = {
 };
 
 const Textarea = ({
+  id,
   value,
   placeholder,
   onChange,
@@ -16,6 +18,7 @@ const Textarea = ({
 }: TextareaProps) => {
   return (
     <StyledTextarea
+      id={id}
       value={value}
       placeholder={placeholder}
       onChange={onChange}

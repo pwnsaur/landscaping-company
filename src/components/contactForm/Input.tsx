@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type InputProps = {
+  id: string;
   type: string;
   value: string;
   placeholder: string;
@@ -10,6 +11,7 @@ type InputProps = {
 };
 
 const Input = ({
+  id,
   type,
   value,
   placeholder,
@@ -18,6 +20,7 @@ const Input = ({
 }: InputProps) => {
   return (
     <StyledInput
+      id={id}
       type={type}
       value={value}
       placeholder={placeholder}
