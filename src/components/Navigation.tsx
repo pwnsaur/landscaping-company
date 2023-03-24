@@ -26,6 +26,7 @@ const Navigation = () => {
 
   const handleMenuItemClick = () => {
     setIsOpen(false);
+    setIsVisible(false);
   };
 
   // useEffect(() => {
