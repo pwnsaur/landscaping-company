@@ -61,7 +61,7 @@ const Container = styled.div`
   background-repeat: repeat-y;
   background-position: top center;
   width: 100%;
-  min-height: 100dvh;
+  min-height: 100vh;
 `;
 
 const TitleContainer = styled.div`
