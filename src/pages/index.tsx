@@ -9,7 +9,7 @@ const Home = () => {
     const handleScroll = () => {
       const yPos = window.pageYOffset;
       document.getElementById('parallax')!.style.backgroundPositionY = `${
-        yPos * -0.5
+        yPos * -0.75
       }px`;
     };
 
@@ -62,6 +62,7 @@ const Container = styled.div`
   background-position: top center;
   width: 100%;
   min-height: 100vh;
+  margin-bottom: -5rem;
 `;
 
 const TitleContainer = styled.div`

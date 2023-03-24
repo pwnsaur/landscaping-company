@@ -19,9 +19,9 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  }, [isOpen]);
+  // useEffect(() => {
+  //   document.body.style.overflow = isOpen ? 'hidden' : '';
+  // }, [isOpen]);
 
   return (
     <Container>

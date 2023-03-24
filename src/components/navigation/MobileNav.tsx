@@ -11,7 +11,7 @@ const MobileNav = ({ isOpen, handleItemClick }: MobileNavProps) => {
   if (!isOpen) return null;
 
   return (
-    <StyledMobileNav>
+    <StyledMobileNav isOpen={isOpen}>
       <NavItems handleItemClick={handleItemClick} isOpen={isOpen} />
     </StyledMobileNav>
   );
@@ -19,19 +19,21 @@ const MobileNav = ({ isOpen, handleItemClick }: MobileNavProps) => {
 
 export default MobileNav;
 
-const StyledMobileNav = styled.nav`
+const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   height: 100vh;
-  width: 100%;
+  width: 70vw;
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  background-color: ${({ theme }) => theme.colors.background};
-  background-color: green;
-
+  left: ${({ isOpen }) => (isOpen ? 0 : '-70vw')};
+  /* background-color: ${({ theme }) => theme.colors.background}; */
+  background-color: #228b22;
   z-index: 1;
   padding-top: 1rem;
+  height: 100%;
+  transition: left 0.3s ease-in-out;
+  padding-top: 5rem;
 `;

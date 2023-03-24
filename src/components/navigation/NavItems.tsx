@@ -34,18 +34,16 @@ export default NavItems;
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: black;
   text-transform: uppercase;
-  height: 2rem;
-  margin: auto 0;
+  height: 4rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  transition: color 0.3s ease-in-out;
 
   &:hover {
     color: #696767;
-    text-decoration: underline;
+    text-decoration: none;
   }
-
-  /* @media (max-width: 40em) {
-    font-size: 0.8rem;
-  } */
 `;
