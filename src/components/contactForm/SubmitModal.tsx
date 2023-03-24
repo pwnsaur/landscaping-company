@@ -1,0 +1,54 @@
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+
+interface ModalProps {
+  isOpen: boolean;
+  message: string;
+  isError: boolean;
+  onClose: () => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ isOpen, message, isError, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => {
+        onClose();
+      }, 3000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [isOpen, onClose]);
+
+  return (
+    <ModalContainer isOpen={isOpen} isError={isError}>
+      <Message>{message}</Message>
+    </ModalContainer>
+  );
+};
+
+const ModalContainer = styled.div<{ isOpen: boolean; isError: boolean }>`
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: ${({ theme, isError }) =>
+    isError ? theme.colors.error : theme.colors.success};
+  color: ${({ theme }) => theme.colors.text};
+  transition: all 0.3s ease;
+  z-index: 3;
+`;
+
+const Message = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+`;
+
+export default Modal;

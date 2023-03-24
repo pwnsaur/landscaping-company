@@ -18,7 +18,16 @@ const useContactForm = () => {
     setValues((prevState) => ({ ...prevState, [id]: value }));
   };
 
-  return { values, handleChange };
+  const reset = () => {
+    setValues({
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    });
+  };
+
+  return { values, handleChange, reset };
 };
 
 export default useContactForm;

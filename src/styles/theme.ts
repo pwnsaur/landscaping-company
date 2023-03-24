@@ -8,6 +8,8 @@ export const theme = {
     secondary: 'green',
     text: '#333',
     textLight: '#888',
+    error: 'red',
+    success: 'green',
   },
   fonts: {
     primary: 'Nunito, sans-serif',
