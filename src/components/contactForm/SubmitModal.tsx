@@ -8,7 +8,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, message, isError, onClose }) => {
+const Modal = ({ isOpen, message, isError, onClose }: ModalProps) => {
   useEffect(() => {
     if (isOpen) {
       const timer = setTimeout(() => {
