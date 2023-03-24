@@ -18,7 +18,7 @@ const FooterContainer = styled.footer`
   align-items: center;
   margin: auto 0 0;
   background-color: ${({ theme }) => theme.colors.darkGreen};
-  z-index: 1;
+  /* z-index: 1; */
 `;
 
 const FooterText = styled.p`

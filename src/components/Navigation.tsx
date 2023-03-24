@@ -9,10 +9,19 @@ import useIsMobile from '@/utils/hooks/useIsMobile';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
   const isMobile = useIsMobile();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    if (!isOpen) {
+      setIsVisible(true);
+    } else {
+      setTimeout(() => {
+        setIsVisible(false);
+      }, 300);
+    }
   };
 
   const handleMenuItemClick = () => {
@@ -37,7 +46,11 @@ const Navigation = () => {
         {!isMobile ? (
           <DesktopNav />
         ) : (
-          <MobileNav isOpen={isOpen} handleItemClick={handleMenuItemClick} />
+          <MobileNav
+            isVisible={isVisible}
+            isOpen={isOpen}
+            handleItemClick={handleMenuItemClick}
+          />
         )}
       </Header>
     </Container>
@@ -72,7 +85,7 @@ const Hamburger = styled.button<{ isOpen: boolean }>`
   margin: 1rem 2rem;
   font-weight: 1000;
   cursor: pointer;
-  z-index: 2;
+  z-index: 3;
   position: ${({ isOpen }) => isOpen && 'fixed'};
   top: ${({ isOpen }) => isOpen && '1.5rem'};
 `;
