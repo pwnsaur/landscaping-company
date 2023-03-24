@@ -58,7 +58,7 @@ const Container = styled.div`
   background-image: url(${backgroundTall.src});
   background-attachment: fixed;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: top center;
   width: 100%;
   min-height: 100dvh;
@@ -69,7 +69,7 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: calc(100dvh - 141px);
+  min-height: calc(100vh - 141px);
   ${({ theme }) => theme.isMobile && `min-height: calc(100dvh - 109px);`}
 `;
 
@@ -87,7 +87,8 @@ const Section = styled.div`
   justify-content: center;
   width: 100%;
   margin-bottom: 20rem;
-  background-color: ${({ theme }) => theme.colors.background};
+  /* background-color: ${({ theme }) => theme.colors.background}; */
+  background-color: lightgreen;
 `;
 
 const Text = styled.div`
