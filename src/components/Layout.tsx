@@ -8,17 +8,17 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <Content>
+    <Container>
       <Navigation />
-      {children}
+      <Content>{children}</Content>
       <Footer />
-    </Content>
+    </Container>
   );
 };
 
 export default Layout;
 
-const Content = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
@@ -26,4 +26,12 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.background};
+`;
+
+const Content = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  /* margin-top: 2rem; */
+  /* margin-bottom: 5rem; */
 `;

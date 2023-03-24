@@ -9,6 +9,7 @@ import Modal from './SubmitModal';
 
 const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false);
+
   const [responseMessage, setResponseMessage] = useState({
     isSuccessful: false,
     message: '',
@@ -16,9 +17,7 @@ const ContactForm = () => {
 
   const { values, handleChange, reset } = useContactForm();
 
-  const handleModalClose = () => {
-    setModalOpen(false);
-  };
+  const handleModalClose = () => setModalOpen(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

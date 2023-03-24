@@ -1,28 +1,23 @@
-import { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import backgroundTall from '../../public/backgroundTall.jpg';
 
 const Home = () => {
-  const backgroundRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      const yPos = window.pageYOffset;
+      document.getElementById('parallax')!.style.backgroundPositionY = `${
+        yPos * -0.5
+      }px`;
+    };
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (!backgroundRef.current) return;
-
-  //     const scrollTop = window.pageYOffset;
-  //     const scrollFraction =
-  //       scrollTop / (document.body.scrollHeight - window.innerHeight);
-  //     const parallaxOffset = scrollFraction * 600;
-  //     backgroundRef.current.style.transform = `translateY(-${
-  //       parallaxOffset * 0.5
-  //     }px)`;
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -32,17 +27,24 @@ const Home = () => {
         description='Sākums'
       />
 
-      <Background ref={backgroundRef}>
-        {/* <StyledImage src={backgroundTall} alt='Background' fill /> */}
-      </Background>
-      <Container>
-        <Section first>
-          <Heading>Section 1</Heading>
-          <Content>Content</Content>
+      <Container id='parallax'>
+        <TitleContainer>
+          <Title>The Company</Title>
+        </TitleContainer>
+        <Section>
+          <Text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
+            officiis. Illo assumenda velit ratione enim, quaerat inventore
+            nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus
+            voluptates provident sit?
+          </Text>
         </Section>
         <Section>
-          <Heading>Section 2</Heading>
-          <Content>Content</Content>
+          <Text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque
+            dolorum minus quisquam sint sunt ad sit vero, eos repudiandae in
+            doloribus est porro veniam enim fugiat ipsam laborum at?
+          </Text>
         </Section>
       </Container>
     </>
@@ -51,53 +53,48 @@ const Home = () => {
 
 export default Home;
 
-const Background = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-`;
-
-const StyledImage = styled(Image)`
-  position: absolute !important;
-`;
-
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  background-image: url(${backgroundTall.src});
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
   width: 100%;
-  background-color: rgba(248, 249, 250, 1);
+  min-height: 100dvh;
 `;
 
-const Section = styled.section<{ first?: boolean }>`
+const TitleContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: ${({ first }) => (first ? 'calc(100vh - 141px) 0 8rem' : '8rem 0')};
+  min-height: calc(100dvh - 141px);
+  ${({ theme }) => theme.isMobile && `min-height: calc(100dvh - 109px);`}
+`;
+
+const Title = styled.h1`
+  font-size: 4rem;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  ${({ theme }) => theme.isMobile && `font-size: 2.5rem;`}
+`;
+
+const Section = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20rem;
+  background-color: ${({ theme }) => theme.colors.background};
+`;
+
+const Text = styled.div`
+  width: 70%;
   padding: 2rem;
-  background-color: rgba(237, 237, 237, 1);
-  z-index: 1;
-
-  @media (max-width: 36em) {
-    margin: ${({ first }) => (first ? 'calc(100vh - 269px) 0 8rem' : '8rem 0')};
-  }
-`;
-
-const Heading = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 1rem;
-`;
-
-const Content = styled.div`
-  font-size: 1rem;
-  font-weight: 400;
-  color: #666666;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+  ${({ theme }) => theme.isMobile && `width: 100%;`}
 `;

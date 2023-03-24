@@ -30,13 +30,13 @@ const Textarea = ({
 export default Textarea;
 
 const StyledTextarea = styled.textarea`
-  padding: 10px;
+  padding: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin: 15px 0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin: 1.5rem 0 2.5rem;
   width: 100%;
-  height: 200px;
+  height: 10rem;
   resize: none;
   outline: none;
 

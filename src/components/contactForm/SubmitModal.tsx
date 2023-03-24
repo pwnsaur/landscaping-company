@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 interface ModalProps {
@@ -13,7 +13,7 @@ const Modal = ({ isOpen, message, isError, onClose }: ModalProps) => {
     if (isOpen) {
       const timer = setTimeout(() => {
         onClose();
-      }, 3000);
+      }, 5000);
 
       return () => {
         clearTimeout(timer);
@@ -36,7 +36,7 @@ const ModalContainer = styled.div<{ isOpen: boolean; isError: boolean }>`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 7rem;
   background-color: ${({ theme, isError }) =>
     isError ? theme.colors.error : theme.colors.success};
   color: ${({ theme }) => theme.colors.text};
