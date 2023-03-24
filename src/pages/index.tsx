@@ -70,7 +70,7 @@ const TitleContainer = styled.div`
   justify-content: center;
   width: 100%;
   min-height: calc(100vh - 141px);
-  ${({ theme }) => theme.isMobile && `min-height: calc(100dvh - 109px);`}
+  ${({ theme }) => theme.isMobile && `min-height: calc(100vh - 109px);`}
 `;
 
 const Title = styled.h1`

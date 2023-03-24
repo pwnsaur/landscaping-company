@@ -23,7 +23,7 @@ const StyledMobileNav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100dvh;
+  height: 100vh;
   width: 100%;
   position: fixed;
   top: 0;
