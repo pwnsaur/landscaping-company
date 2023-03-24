@@ -5,34 +5,39 @@ import { FormData } from '@/types/contentfulTypes';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { name, email, phone, message } = req.body as FormData;
 
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', ['POST']);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
+    return;
+  }
+
   const mailMessage = {
     from: email,
-    to: process.env.GMAIL_EMAIL_ADDRESS,
-    subject: 'meow meow',
+    to: process.env.EMAIL_ADDRESS,
+    subject: `no ${name}`,
     text: message,
-    html: `<p>${message}</p>`,
+    html: `<p>${message}
+            telefona numurs: ${phone}</p>`,
   };
 
   let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    service: process.env.EMAIL_SERVICE,
     auth: {
-      user: process.env.GMAIL_EMAIL_ADDRESS,
-      pass: process.env.GMAIL_APP_PASSWORD,
+      user: process.env.EMAIL_ADDRESS,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 
-  if (req.method === 'POST') {
-    try {
-      const info = await transporter.sendMail(mailMessage);
-      res.status(250).json({
-        success: `Message delivered to ${info.accepted}`,
-      });
-    } catch (err: any) {
-      res.status(500).json({
-        error: `Error sending email: ${err.message}`,
-        details: err,
-      });
-    }
+  try {
+    const info = await transporter.sendMail(mailMessage);
+    res.status(250).json({
+      success: `Message delivered to ${info.accepted}`,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      error: `Error sending email: ${err.message}`,
+      details: err,
+    });
   }
 };
 

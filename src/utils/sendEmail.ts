@@ -6,9 +6,11 @@ type ServerResponse = {
   response: string;
 };
 
-const sendEmail = async (
+type SendEmailFn = (
   formData: FormData
-): Promise<AxiosResponse<ServerResponse>> => {
+) => Promise<AxiosResponse<ServerResponse>>;
+
+const sendEmail: SendEmailFn = async (formData: FormData) => {
   return axios({
     method: 'post',
     url: '/api/send-mail',
