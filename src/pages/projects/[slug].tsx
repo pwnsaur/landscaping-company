@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { TypeProject } from '@/types/contentfulTypes';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Document } from '@contentful/rich-text-types';
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
-import ImageContainer from '@/components/ImageContainer';
-import { getStaticData } from '../api/getStaticDataSlug';
+import { Document } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { TypeProject } from '@/types/contentfulTypes';
+import { getStaticData } from '@pages/api/getStaticDataSlug';
+import ImageContainer from '@components/ImageContainer';
 
 const { getStaticPaths, getStaticProps } = getStaticData('project');
 

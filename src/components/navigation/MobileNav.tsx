@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { MouseEvent } from 'react';
-import NavItems from './NavItems';
+import NavItems from '@components/navigation/NavItems';
 
 const slideIn = keyframes`
   0% {

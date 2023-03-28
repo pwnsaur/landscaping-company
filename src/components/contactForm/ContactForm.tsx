@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
-import Textarea from './Textarea';
-import Input from './Input';
-import Button from './Button';
-import useContactForm from '@/utils/hooks/useContactForm';
-import useEmailSubmit from '@/utils/hooks/useEmailSubmit';
-import SubmitModal from './SubmitModal';
+import { useState } from 'react';
+import useContactForm from '@utils/hooks/useContactForm';
+import useEmailSubmit from '@utils/hooks/useEmailSubmit';
+import Textarea from '@components/contactForm/Textarea';
+import Input from '@components/contactForm/Input';
+import Button from '@components/contactForm/Button';
+import SubmitModal from '@components/contactForm/SubmitModal';
 
 const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false);

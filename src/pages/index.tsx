@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
-import Image from 'next/image';
-import backgroundTall from '../../public/backgroundTall.jpg';
+import React, { useEffect } from 'react';
+import backgroundTall from '@assets/backgroundTall.jpg';
 
 const Home = () => {
   useEffect(() => {

@@ -1,8 +1,8 @@
-import ServiceCard from '@/components/ServiceCard';
+import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import { TypeService } from '@/types/contentfulTypes';
-import styled from 'styled-components';
-import { getStaticPropsPage } from '@/pages/api/getStaticPropsPage';
+import ServiceCard from '@components/ServiceCard';
+import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
 
 export const getStaticProps = getStaticPropsPage('service');
 

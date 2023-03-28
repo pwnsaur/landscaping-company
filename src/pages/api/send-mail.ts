@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer';
 import { NextApiRequest, NextApiResponse } from 'next';
+import nodemailer from 'nodemailer';
 import { FormData } from '@/types/contentfulTypes';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -14,13 +14,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  const htmlMessage = `
+  <pre>
+    ${message}
+
+    epasts: ${email}
+    telefona numurs: ${phone}
+  </pre>
+`;
+
   const mailMessage = {
     from: email,
     to: process.env.EMAIL_ADDRESS,
-    subject: `no ${name}`,
-    text: message,
-    html: `<pre>${message}
-            telefona numurs: ${phone}</pre>`,
+    subject: `ziņojums no ${name}`,
+    html: htmlMessage,
   };
 
   let transporter = nodemailer.createTransport({

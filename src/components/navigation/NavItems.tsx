@@ -1,6 +1,6 @@
-import React, { MouseEvent } from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
+import styled from 'styled-components';
+import { MouseEvent } from 'react';
 
 type NavItemsProps = {
   handleItemClick?: (event: MouseEvent) => void;

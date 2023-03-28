@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
-import logoImage from '../../public/logo.png';
-import DesktopNav from './navigation/DesktopNav';
-import MobileNav from './navigation/MobileNav';
+import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import useIsMobile from '@/utils/hooks/useIsMobile';
+import DesktopNav from '@components/navigation/DesktopNav';
+import MobileNav from '@components/navigation/MobileNav';
+import logoImage from '@/assets/logo.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -86,9 +86,9 @@ const Hamburger = styled.button<{ isOpen: boolean }>`
   margin: 1rem 2rem;
   font-weight: 1000;
   cursor: pointer;
-  z-index: 3;
   position: ${({ isOpen }) => isOpen && 'fixed'};
   top: ${({ isOpen }) => isOpen && '1.5rem'};
+  z-index: 3;
 `;
 
 const Logo = styled(Image)`

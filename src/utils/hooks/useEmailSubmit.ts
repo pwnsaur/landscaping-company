@@ -1,6 +1,6 @@
+import { FormData } from '@/types/contentfulTypes';
 import { useState } from 'react';
 import sendEmail from '@/utils/sendEmail';
-import { FormData } from '@/types/contentfulTypes';
 
 const useEmailSubmit = () => {
   const [responseMessage, setResponseMessage] = useState({

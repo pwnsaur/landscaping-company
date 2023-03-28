@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { TypeService } from '@/types/contentfulTypes';
 import styled from 'styled-components';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Document } from '@contentful/rich-text-types';
 import { NextSeo } from 'next-seo';
-import { getStaticData } from '../api/getStaticDataSlug';
+import { Document } from '@contentful/rich-text-types';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { TypeService } from '@/types/contentfulTypes';
+import { getStaticData } from '@pages/api/getStaticDataSlug';
 
 const { getStaticPaths, getStaticProps } = getStaticData('service');
 

@@ -1,7 +1,7 @@
-import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
-import cato from '../../public/cato.jpg';
+import cato from '@assets/cato.jpg';
 
 const About = () => {
   return (

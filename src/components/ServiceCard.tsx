@@ -1,14 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { TypeService } from '@/types/contentfulTypes';
 import styled from 'styled-components';
-import ErrorBoundary from '@/utils/ErrorBoundary';
+import { TypeService } from '@/types/contentfulTypes';
 
 const Service = ({ service }: { service: TypeService }) => {
   const { coverImage, slug, title, description, excerpt } = service.fields;
 
   return (
-    <ErrorBoundary>
+    <>
       <Break />
       <Card>
         <StyledLink href={`/services/${slug}`}>
@@ -24,7 +23,7 @@ const Service = ({ service }: { service: TypeService }) => {
           </Description>
         </StyledLink>
       </Card>
-    </ErrorBoundary>
+    </>
   );
 };
 

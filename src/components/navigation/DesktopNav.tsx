@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import NavItems from './NavItems';
+import NavItems from '@/components/navigation/NavItems';
 
 const DesktopNav = () => {
   return (

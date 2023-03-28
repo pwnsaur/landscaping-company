@@ -1,5 +1,5 @@
-import { client } from './client';
 import { GetStaticProps } from 'next';
+import { client } from '@pages/api/client';
 
 export function getStaticPropsPage(content_type: string): GetStaticProps {
   return async () => {
