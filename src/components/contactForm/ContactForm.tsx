@@ -1,24 +1,24 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Textarea from './Textarea';
 import Input from './Input';
 import Button from './Button';
 import useContactForm from '@/utils/hooks/useContactForm';
-import { useEmailSubmit } from '@/utils/hooks/useEmailSubmit';
-import Modal from './SubmitModal';
+import useEmailSubmit from '@/utils/hooks/useEmailSubmit';
+import SubmitModal from './SubmitModal';
 
 const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { values, handleChange, reset } = useContactForm();
-  const { responseMessage, submitEmail } = useEmailSubmit(values);
+  const { formData, handleChange, reset } = useContactForm();
+  const { responseMessage, submitEmail } = useEmailSubmit();
 
   const handleModalClose = () => setModalOpen(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await submitEmail(values);
+    await submitEmail(formData);
     reset();
     setModalOpen(true);
   };
@@ -29,7 +29,7 @@ const ContactForm = () => {
         <Input
           id='name'
           type='text'
-          value={values.name}
+          value={formData.name}
           onChange={handleChange}
           placeholder='Vārds, uzvārds'
           required
@@ -38,7 +38,7 @@ const ContactForm = () => {
           id='email'
           type='email'
           onChange={handleChange}
-          value={values.email}
+          value={formData.email}
           placeholder='Epasts'
           required
         />
@@ -46,20 +46,20 @@ const ContactForm = () => {
           id='phone'
           type='tel'
           onChange={handleChange}
-          value={values.phone}
+          value={formData.phone}
           placeholder='Tālrunis'
           required
         />
         <Textarea
           id='message'
           onChange={handleChange}
-          value={values.message}
+          value={formData.message}
           placeholder='Ievadiet ziņojumu'
           required
         />
         <Button type='submit'>Apstiprināt</Button>
       </Form>
-      <Modal
+      <SubmitModal
         isOpen={modalOpen}
         message={responseMessage.message}
         isError={!responseMessage.isSuccessful}

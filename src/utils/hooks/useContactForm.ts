@@ -9,7 +9,7 @@ const blankForm: FormData = {
 };
 
 const useContactForm = () => {
-  const [values, setValues] = useState<FormData>(blankForm);
+  const [formData, setformData] = useState<FormData>(blankForm);
 
   type HandleChangeFn = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -17,14 +17,14 @@ const useContactForm = () => {
 
   const handleChange: HandleChangeFn = (e) => {
     const { id, value } = e.target;
-    setValues((prevState) => ({ ...prevState, [id]: value }));
+    setformData((prevState) => ({ ...prevState, [id]: value }));
   };
 
   const reset = () => {
-    setValues(blankForm);
+    setformData(blankForm);
   };
 
-  return { values, handleChange, reset };
+  return { formData, handleChange, reset };
 };
 
 export default useContactForm;

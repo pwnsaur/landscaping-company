@@ -19,8 +19,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     to: process.env.EMAIL_ADDRESS,
     subject: `no ${name}`,
     text: message,
-    html: `<p>${message}
-            telefona numurs: ${phone}</p>`,
+    html: `<pre>${message}
+            telefona numurs: ${phone}</pre>`,
   };
 
   let transporter = nodemailer.createTransport({

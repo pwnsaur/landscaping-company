@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import sendEmail from '@/utils/sendEmail';
+import { FormData } from '@/types/contentfulTypes';
 
-export const useEmailSubmit = (initialValues: any) => {
+const useEmailSubmit = () => {
   const [responseMessage, setResponseMessage] = useState({
     isSuccessful: false,
     message: '',
   });
 
-  const submitEmail = async (values: any) => {
+  const submitEmail = async (formData: FormData) => {
     try {
-      const req = await sendEmail(values);
+      const req = await sendEmail(formData);
       if (req.status === 250) {
         setResponseMessage({
           isSuccessful: true,
@@ -29,3 +30,5 @@ export const useEmailSubmit = (initialValues: any) => {
     submitEmail,
   };
 };
+
+export default useEmailSubmit;
