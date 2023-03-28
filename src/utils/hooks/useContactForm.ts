@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { FormData } from '@/types/contentfulTypes';
 
-type HandleChangeFn = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-) => void;
+const blankForm: FormData = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+};
 
 const useContactForm = () => {
-  const [values, setValues] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+  const [values, setValues] = useState<FormData>(blankForm);
+
+  type HandleChangeFn = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 
   const handleChange: HandleChangeFn = (e) => {
     const { id, value } = e.target;
@@ -19,12 +21,7 @@ const useContactForm = () => {
   };
 
   const reset = () => {
-    setValues({
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-    });
+    setValues(blankForm);
   };
 
   return { values, handleChange, reset };

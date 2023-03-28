@@ -45,14 +45,10 @@ const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* height: 100vh; */
   width: 70%;
   position: fixed;
-  /* top: 0; */
-  /* left: 0; */
   /* background-color: ${({ theme }) => theme.colors.background}; */
   background-color: #228b22;
-  /* z-index: 1; */
   height: 100%;
   padding-top: 5rem;
   animation: ${({ isOpen }) => (isOpen ? slideIn : slideOut)} 0.2s ease-in-out

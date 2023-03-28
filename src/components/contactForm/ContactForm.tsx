@@ -4,41 +4,23 @@ import Textarea from './Textarea';
 import Input from './Input';
 import Button from './Button';
 import useContactForm from '@/utils/hooks/useContactForm';
-import sendEmail from '@/utils/sendEmail';
+import { useEmailSubmit } from '@/utils/hooks/useEmailSubmit';
 import Modal from './SubmitModal';
 
 const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const [responseMessage, setResponseMessage] = useState({
-    isSuccessful: false,
-    message: '',
-  });
-
   const { values, handleChange, reset } = useContactForm();
+  const { responseMessage, submitEmail } = useEmailSubmit(values);
 
   const handleModalClose = () => setModalOpen(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      const req = await sendEmail(values);
-      if (req.status === 250) {
-        setResponseMessage({
-          isSuccessful: true,
-          message: 'Ziņojums nosūtīts, paldies!',
-        });
-        reset();
-        setModalOpen(true);
-      }
-    } catch (e) {
-      setResponseMessage({
-        isSuccessful: false,
-        message: 'Ziņojumu neizdevās nosūtīt.',
-      });
-      setModalOpen(true);
-    }
+    await submitEmail(values);
+    reset();
+    setModalOpen(true);
   };
 
   return (
