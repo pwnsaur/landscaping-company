@@ -37,9 +37,8 @@ const Navigation = () => {
   }, [router.events, handleMenuItemClick]);
 
   useEffect(() => {
-    setIsOpen(false);
-    setIsVisible(false);
-  }, [isMobile]);
+    handleMenuItemClick();
+  }, [isMobile, handleMenuItemClick]);
 
   // useEffect(() => {
   //   document.body.style.overflow = isOpen ? 'hidden' : '';

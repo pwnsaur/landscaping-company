@@ -28,17 +28,25 @@ type MobileNavProps = {
   handleItemClick: (event: MouseEvent) => void;
 };
 
-const MobileNav = ({ isOpen, isVisible }: MobileNavProps) => {
+const MobileNav = ({ isOpen, isVisible, handleItemClick }: MobileNavProps) => {
   if (!isVisible) return null;
 
   return (
-    <StyledMobileNav isOpen={isOpen}>
-      <NavItems />
-    </StyledMobileNav>
+    <Container onClick={handleItemClick}>
+      <StyledMobileNav isOpen={isOpen}>
+        <NavItems />
+      </StyledMobileNav>
+    </Container>
   );
 };
 
 export default MobileNav;
+
+const Container = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+`;
 
 const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
   display: flex;
