@@ -25,15 +25,15 @@ const slideOut = keyframes`
 type MobileNavProps = {
   isOpen: boolean;
   isVisible: boolean;
-  handleItemClick?: (event: MouseEvent) => void;
+  handleItemClick: (event: MouseEvent) => void;
 };
 
-const MobileNav = ({ isOpen, isVisible, handleItemClick }: MobileNavProps) => {
+const MobileNav = ({ isOpen, isVisible }: MobileNavProps) => {
   if (!isVisible) return null;
 
   return (
     <StyledMobileNav isOpen={isOpen}>
-      <NavItems handleItemClick={handleItemClick} isOpen={isOpen} />
+      <NavItems />
     </StyledMobileNav>
   );
 };

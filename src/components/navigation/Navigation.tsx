@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useCallback, useEffect, useState } from 'react';
 import useIsMobile from '@/utils/hooks/useIsMobile';
 import DesktopNav from '@components/navigation/DesktopNav';
 import MobileNav from '@components/navigation/MobileNav';
@@ -12,22 +13,33 @@ const Navigation = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const isMobile = useIsMobile();
+  const router = useRouter();
+
+  const handleMenuItemClick = useCallback(() => {
+    setIsOpen(false);
+    setIsVisible(false);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    if (!isOpen) {
-      setIsVisible(true);
-    } else {
-      setTimeout(() => {
-        setIsVisible(false);
-      }, 300);
-    }
+    setTimeout(
+      () => {
+        setIsVisible(!isOpen);
+      },
+      !isOpen ? 0 : 300
+    );
   };
 
-  const handleMenuItemClick = () => {
+  useEffect(() => {
+    const handleRouteChange = () => handleMenuItemClick();
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => router.events.off('routeChangeStart', handleRouteChange);
+  }, [router.events, handleMenuItemClick]);
+
+  useEffect(() => {
     setIsOpen(false);
     setIsVisible(false);
-  };
+  }, [isMobile]);
 
   // useEffect(() => {
   //   document.body.style.overflow = isOpen ? 'hidden' : '';
