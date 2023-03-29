@@ -6,14 +6,14 @@ const nextConfig = {
   images: {
     domains: ['images.ctfassets.net'],
   },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
   compiler: {
-    styledComponents: {
-      ssr: true,
-      displayName: true,
-    },
+    // styledComponents: {
+    //   ssr: true,
+    //   displayName: process.env.NODE_ENV === 'development',
+    //   fileName: true,
+    //   cssProp: true,
+    // },
+    styledComponents: true,
   },
 };
 
