@@ -7,7 +7,6 @@ import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
 export const getStaticProps = getStaticPropsPage('project');
 
 const Projects = ({ projects }: { projects: TypeProject[] }) => {
-  console.log(projects);
   return (
     <>
       <NextSeo
@@ -16,8 +15,12 @@ const Projects = ({ projects }: { projects: TypeProject[] }) => {
         description='Projekti'
       />
       <Container>
-        {projects.map((project) => (
-          <ProjectCard key={project.sys.id} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={project.sys.id}
+            project={project}
+            priority={index === 0}
+          />
         ))}
       </Container>
     </>

@@ -3,7 +3,13 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { TypeService } from '@/types/contentfulTypes';
 
-const Service = ({ service }: { service: TypeService }) => {
+const ServiceCard = ({
+  service,
+  priority,
+}: {
+  service: TypeService;
+  priority: boolean;
+}) => {
   const { coverImage, slug, title, description, excerpt } = service.fields;
 
   return (
@@ -16,6 +22,7 @@ const Service = ({ service }: { service: TypeService }) => {
             alt='cover-image'
             height={coverImage.fields.file.details.image!.height}
             width={coverImage.fields.file.details.image!.width}
+            priority={priority}
           />
           <Description>
             <Title>{title}</Title>
@@ -27,7 +34,7 @@ const Service = ({ service }: { service: TypeService }) => {
   );
 };
 
-export default Service;
+export default ServiceCard;
 
 const Break = styled.hr`
   border: none;

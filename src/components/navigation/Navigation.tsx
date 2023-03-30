@@ -9,8 +9,8 @@ import MobileNav from '@components/navigation/MobileNav';
 import logoImage from '@/assets/logo.png';
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const isMobile = useIsMobile();
   const router = useRouter();
@@ -48,7 +48,7 @@ const Navigation = () => {
     <Container>
       <Header>
         {isMobile && (
-          <Hamburger onClick={toggleMenu} isOpen={isOpen}>
+          <Hamburger onClick={toggleMenu} $isOpen={isOpen}>
             {isOpen ? 'X' : 'B'}
           </Hamburger>
         )}
@@ -89,7 +89,7 @@ const Header = styled.header`
   ${({ theme }) => !theme.isMobile && `flex-direction: column;`}
 `;
 
-const Hamburger = styled.button<{ isOpen: boolean }>`
+const Hamburger = styled.button<{ $isOpen: boolean }>`
   display: block;
   background: none;
   border: none;
@@ -97,8 +97,8 @@ const Hamburger = styled.button<{ isOpen: boolean }>`
   margin: 1rem 2rem;
   font-weight: 1000;
   cursor: pointer;
-  position: ${({ isOpen }) => isOpen && 'fixed'};
-  top: ${({ isOpen }) => isOpen && '1.5rem'};
+  position: ${({ $isOpen }) => ($isOpen ? 'fixed' : 'static')};
+  top: ${({ $isOpen }) => ($isOpen ? '1.5rem' : 'auto')};
   z-index: 3;
 `;
 

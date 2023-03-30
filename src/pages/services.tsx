@@ -7,7 +7,6 @@ import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
 export const getStaticProps = getStaticPropsPage('service');
 
 const Services = ({ services }: { services: TypeService[] }) => {
-  console.log(services);
   return (
     <>
       <NextSeo
@@ -19,8 +18,12 @@ const Services = ({ services }: { services: TypeService[] }) => {
         <Title>
           A short description of types of services we offer to our clients
         </Title>
-        {services.map((service) => (
-          <ServiceCard key={service.sys.id} service={service} />
+        {services.map((service, index) => (
+          <ServiceCard
+            key={service.sys.id}
+            service={service}
+            priority={index === 0}
+          />
         ))}
       </Container>
     </>

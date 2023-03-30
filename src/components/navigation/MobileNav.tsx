@@ -32,8 +32,9 @@ const MobileNav = ({ isOpen, isVisible, handleItemClick }: MobileNavProps) => {
   if (!isVisible) return null;
 
   return (
-    <Container onClick={handleItemClick}>
-      <StyledMobileNav isOpen={isOpen}>
+    <Container>
+      <TransparentContainer onClick={handleItemClick}></TransparentContainer>
+      <StyledMobileNav $isOpen={isOpen}>
         <NavItems />
       </StyledMobileNav>
     </Container>
@@ -43,12 +44,22 @@ const MobileNav = ({ isOpen, isVisible, handleItemClick }: MobileNavProps) => {
 export default MobileNav;
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
   position: fixed;
-  inset: 0;
-  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;
 
-const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
+const TransparentContainer = styled.div`
+  flex-grow: 1;
+  height: 100%;
+  background-color: transparent;
+`;
+
+const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,6 +70,7 @@ const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
   background-color: #228b22;
   height: 100%;
   padding-top: 5rem;
-  animation: ${({ isOpen }) => (isOpen ? slideIn : slideOut)} 0.2s ease-in-out
+  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.2s ease-in-out
     forwards;
+  z-index: 5;
 `;

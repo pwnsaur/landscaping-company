@@ -22,14 +22,14 @@ const Modal = ({ isOpen, message, isError, onClose }: ModalProps) => {
   }, [isOpen, onClose]);
 
   return (
-    <ModalContainer isOpen={isOpen} isError={isError}>
+    <ModalContainer $isOpen={isOpen} $isError={isError}>
       <Message>{message}</Message>
     </ModalContainer>
   );
 };
 
-const ModalContainer = styled.div<{ isOpen: boolean; isError: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -37,8 +37,8 @@ const ModalContainer = styled.div<{ isOpen: boolean; isError: boolean }>`
   left: 0;
   right: 0;
   height: 7rem;
-  background-color: ${({ theme, isError }) =>
-    isError ? theme.colors.error : theme.colors.success};
+  background-color: ${({ theme, $isError }) =>
+    $isError ? theme.colors.error : theme.colors.success};
   color: ${({ theme }) => theme.colors.text};
   transition: all 0.3s ease;
   z-index: 3;

@@ -3,7 +3,13 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { TypeProject } from '@/types/contentfulTypes';
 
-const ProjectCard = ({ project }: { project: TypeProject }) => {
+const ProjectCard = ({
+  project,
+  priority,
+}: {
+  project: TypeProject;
+  priority: boolean;
+}) => {
   const { coverImage, slug, title } = project.fields;
 
   return (
@@ -14,6 +20,9 @@ const ProjectCard = ({ project }: { project: TypeProject }) => {
           alt='cover-image'
           height={coverImage.fields.file.details.image!.height}
           width={coverImage.fields.file.details.image!.width}
+          placeholder='blur'
+          blurDataURL={coverImage.fields.file.url}
+          priority={priority}
         />
       </Link>
       <Title>{title}</Title>
