@@ -20,8 +20,8 @@ const ServiceCard = ({
           <StyledImage
             src={`https:${coverImage.fields.file.url}`}
             alt='cover-image'
-            height={coverImage.fields.file.details.image!.height}
-            width={coverImage.fields.file.details.image!.width}
+            height={coverImage.fields.file.details.image!.height / 4}
+            width={coverImage.fields.file.details.image!.width / 4}
             priority={priority}
           />
           <Description>
