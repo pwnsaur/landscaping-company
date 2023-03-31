@@ -32,7 +32,7 @@ export default Projects;
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 2vh 4vw;
+  gap: 4vh 4vw;
   width: 100%;
   justify-content: center;
   padding: 1rem 2rem;

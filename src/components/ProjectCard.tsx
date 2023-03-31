@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { TypeProject } from '@/types/contentfulTypes';
+import { useRef } from 'react';
+import useOnScreen from '@/utils/hooks/useOnScreen';
 
 const ProjectCard = ({
   project,
@@ -12,31 +14,46 @@ const ProjectCard = ({
 }) => {
   const { coverImage, slug, title } = project.fields;
 
+  const ref = useRef<HTMLDivElement>(null);
+  const onScreen = useOnScreen(ref);
+  const shouldLoadImage = priority || onScreen;
+
   return (
-    <StyledCard>
+    <StyledCard ref={ref}>
       <Link href={`/projects/${slug}`}>
-        <StyledImage
-          src={`https:${coverImage.fields.file.url}`}
-          alt='cover-image'
-          height={coverImage.fields.file.details.image!.height / 4}
-          width={coverImage.fields.file.details.image!.width / 4}
-          placeholder='blur'
-          blurDataURL={coverImage.fields.file.url}
-          priority={priority}
-        />
+        {shouldLoadImage ? (
+          <ImageContainer>
+            <Image
+              src={`https:${coverImage.fields.file.url}`}
+              alt='cover-image'
+              // height={coverImage.fields.file.details.image!.height / 4}
+              // width={coverImage.fields.file.details.image!.width / 3}
+              fill
+              priority={priority}
+              style={{ objectFit: 'cover' }}
+            />
+          </ImageContainer>
+        ) : (
+          <Placeholder
+            // height={coverImage.fields.file.details.image!.height / 4}
+            height={400}
+          />
+        )}
+        <Title>{title}</Title>
       </Link>
-      <Title>{title}</Title>
     </StyledCard>
   );
 };
 
 export default ProjectCard;
 
-const StyledCard = styled.div`
-  display: flex;
-  flex-direction: column;
+const Placeholder = styled.div<{ height: number }>`
   width: 100%;
-  align-items: center;
+  height: ${({ height }) => `${height}px`};
+`;
+
+const StyledCard = styled.div`
+  position: relative;
   text-align: center;
   background-color: #ededed;
   transition: transform 0.2s ease-in-out;
@@ -46,9 +63,9 @@ const StyledCard = styled.div`
   }
 `;
 
-const StyledImage = styled(Image)`
-  width: 100%;
-  height: auto;
+const ImageContainer = styled.div`
+  position: relative;
+  padding-bottom: 75%;
 `;
 
 const Title = styled.h3`
