@@ -1,8 +1,8 @@
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { TypeProject } from '@/types/contentfulTypes';
-import { useRef } from 'react';
 import useOnScreen from '@/utils/hooks/useOnScreen';
 
 const ProjectCard = ({
@@ -23,20 +23,18 @@ const ProjectCard = ({
       <Link href={`/projects/${slug}`}>
         {shouldLoadImage ? (
           <ImageContainer>
-            <Image
+            <StyledImage
               src={`https:${coverImage.fields.file.url}`}
               alt='cover-image'
-              // height={coverImage.fields.file.details.image!.height / 4}
-              // width={coverImage.fields.file.details.image!.width / 3}
-              fill
+              height={coverImage.fields.file.details.image!.height / 4}
+              width={coverImage.fields.file.details.image!.width / 4}
+              // layout='fill'
               priority={priority}
-              style={{ objectFit: 'cover' }}
             />
           </ImageContainer>
         ) : (
           <Placeholder
-            // height={coverImage.fields.file.details.image!.height / 4}
-            height={400}
+            height={coverImage.fields.file.details.image!.height / 4}
           />
         )}
         <Title>{title}</Title>
@@ -50,6 +48,7 @@ export default ProjectCard;
 const Placeholder = styled.div<{ height: number }>`
   width: 100%;
   height: ${({ height }) => `${height}px`};
+  background-color: #eee;
 `;
 
 const StyledCard = styled.div`
@@ -66,6 +65,16 @@ const StyledCard = styled.div`
 const ImageContainer = styled.div`
   position: relative;
   padding-bottom: 75%;
+  overflow: hidden;
+`;
+
+const StyledImage = styled(Image)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const Title = styled.h3`

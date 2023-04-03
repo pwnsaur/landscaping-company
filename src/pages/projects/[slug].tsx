@@ -28,6 +28,7 @@ const Project = ({ project }: { project: TypeProject }) => {
           alt='cover image'
           width={coverImage.fields.file.details.image!.width}
           height={coverImage.fields.file.details.image!.height}
+          priority
         />
         <Title>{title}</Title>
         <Desription>{documentToReactComponents(contentDocument)}</Desription>

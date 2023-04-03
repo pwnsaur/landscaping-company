@@ -11,13 +11,16 @@ const ImageContainer = ({ images }: { images: Asset[] | undefined }) => {
             key={image.sys.id}
             src={`https:${image.fields.file.url}`}
             alt='project image'
-            height={image.fields.file.details.image!.height}
-            width={image.fields.file.details.image!.width}
+            height={image.fields.file.details.image!.height / 4}
+            width={image.fields.file.details.image!.width / 4}
+            quality={75}
           />
         ))}
     </Container>
   );
 };
+
+export default ImageContainer;
 
 const Container = styled.div`
   display: flex;
@@ -36,5 +39,3 @@ const StyledImage = styled(Image)`
     width: 100%;
   }
 `;
-
-export default ImageContainer;

@@ -13,7 +13,7 @@ const useOnScreen = (ref: RefObject<HTMLElement>): boolean => {
       },
       {
         threshold,
-        rootMargin: '300px',
+        rootMargin: '500px',
       }
     );
 

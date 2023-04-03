@@ -55,14 +55,14 @@ const Navigation = () => {
         <LinkLogo href='/'>
           <Logo src={logoImage} alt='logo' width={120} height={70} />
         </LinkLogo>
-        {!isMobile ? (
-          <DesktopNav />
-        ) : (
+        {isMobile ? (
           <MobileNav
             isVisible={isVisible}
             isOpen={isOpen}
             handleItemClick={handleMenuItemClick}
           />
+        ) : (
+          <DesktopNav />
         )}
       </Header>
     </Container>

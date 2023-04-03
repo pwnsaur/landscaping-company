@@ -1,10 +1,9 @@
-import useWindowSize from './useWindowSize';
+import useWindowSize from '@utils/hooks/useWindowSize';
 
 const useIsMobile = (): boolean => {
-  const { width, height } = useWindowSize();
-  const currentWidth = width || 0;
-  const currentHeight = height || 0;
-  const isMobile = currentWidth <= 666;
+  const { width } = useWindowSize();
+  if (width === undefined) return false;
+  const isMobile = width <= 666;
 
   return isMobile;
 };
