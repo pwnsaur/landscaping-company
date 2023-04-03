@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import React, { useEffect } from 'react';
 import backgroundTall from '@assets/backgroundTall.jpg';
+import SplashScreen from '@/components/SplashScreen';
+import useSplashScreen from '@/utils/hooks/useSplashScreen';
 
 const Home = () => {
+  const loading = useSplashScreen();
+
   useEffect(() => {
     const handleScroll = () => {
       const yPos = window.pageYOffset;
@@ -26,7 +30,7 @@ const Home = () => {
         titleTemplate='Brasika | %s'
         description='Sākums'
       />
-
+      {loading && <SplashScreen />}
       <Container id='parallax'>
         <TitleContainer>
           <Title>The Company</Title>
@@ -51,6 +55,7 @@ const Home = () => {
   );
 };
 
+// export default withSplashScreen(Home);
 export default Home;
 
 const Container = styled.div`

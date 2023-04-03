@@ -26,7 +26,7 @@ const Navigation = () => {
       () => {
         setIsVisible(!isOpen);
       },
-      !isOpen ? 0 : 300
+      !isOpen ? 0 : 100
     );
   };
 
@@ -53,7 +53,7 @@ const Navigation = () => {
           </Hamburger>
         )}
         <LinkLogo href='/'>
-          <Logo src={logoImage} alt='logo' width={120} height={70} />
+          <Logo src={logoImage} alt='logo' width={120} height={70} priority />
         </LinkLogo>
         {isMobile ? (
           <MobileNav

@@ -70,7 +70,7 @@ const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
   background-color: #228b22;
   height: 100%;
   padding-top: 5rem;
-  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.2s ease-in-out
+  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.1s ease-in-out
     forwards;
   z-index: 5;
 `;

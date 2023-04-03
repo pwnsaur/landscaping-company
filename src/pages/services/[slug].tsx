@@ -25,8 +25,8 @@ const Service = ({ service }: { service: TypeService }) => {
         <CoverImage
           src={`https:${coverImage.fields.file.url}`}
           alt='cover image'
-          width={coverImage.fields.file.details.image!.width / 5}
-          height={coverImage.fields.file.details.image!.height / 5}
+          width={coverImage.fields.file.details.image!.width}
+          height={coverImage.fields.file.details.image!.height}
           quality={75}
         />
         <Title>{title}</Title>

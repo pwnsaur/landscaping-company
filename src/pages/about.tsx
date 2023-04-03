@@ -14,7 +14,13 @@ const About = () => {
 
       <Container>
         <LeftDiv>
-          <StyledImage src={cato} alt='cato' />
+          <StyledImage
+            src={cato}
+            alt='cato'
+            priority
+            layout='responsive'
+            quality={50}
+          />
         </LeftDiv>
         <RightDiv>
           <Heading>Hey it&#39;s us</Heading>
@@ -83,7 +89,7 @@ const Paragraph = styled.p`
 `;
 
 const StyledImage = styled(Image)`
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   object-fit: contain;
 `;
