@@ -68,10 +68,10 @@ export default ImageContainer;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  width: 100%;
   gap: 1rem;
-  justify-items: center;
+  justify-content: center;
   margin-top: 2rem;
 `;
 
