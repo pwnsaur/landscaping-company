@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
-import cato from '@assets/cato.jpg';
+import cato from '@/assets/cato.jpg';
 
 const About = () => {
   return (
@@ -14,13 +14,7 @@ const About = () => {
 
       <Container>
         <LeftDiv>
-          <StyledImage
-            src={cato}
-            alt='cato'
-            priority
-            layout='responsive'
-            quality={50}
-          />
+          <StyledImage src={cato} alt='cato' priority />
         </LeftDiv>
         <RightDiv>
           <Heading>Hey it&#39;s us</Heading>
@@ -41,7 +35,6 @@ export default About;
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
   margin: 4em;
 
   ${({ theme }) =>
@@ -53,13 +46,13 @@ const Container = styled.div`
 `;
 
 const LeftDiv = styled.div`
-  max-width: 40%;
   align-self: center;
+  height: 100%;
 
   ${({ theme }) =>
     theme.isMobile &&
     `
-      max-width: 80%;
+      max-width: 70%;
   `}
 `;
 
@@ -89,7 +82,6 @@ const Paragraph = styled.p`
 `;
 
 const StyledImage = styled(Image)`
-  /* width: 100%;
-  height: 100%; */
-  object-fit: contain;
+  width: 100%;
+  height: auto;
 `;

@@ -30,7 +30,8 @@ const Home = () => {
         titleTemplate='Brasika | %s'
         description='Sākums'
       />
-      {loading && <SplashScreen />}
+
+      {/* {loading && <SplashScreen />} */}
       <Container id='parallax'>
         <TitleContainer>
           <Title>The Company</Title>
@@ -55,7 +56,6 @@ const Home = () => {
   );
 };
 
-// export default withSplashScreen(Home);
 export default Home;
 
 const Container = styled.div`

@@ -27,6 +27,7 @@ const Service = ({ service }: { service: TypeService }) => {
           alt='cover image'
           width={coverImage.fields.file.details.image!.width}
           height={coverImage.fields.file.details.image!.height}
+          priority
           quality={75}
         />
         <Title>{title}</Title>

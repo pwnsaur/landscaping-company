@@ -1,20 +1,3 @@
-// import StyledComponentsRegistry from '@/lib/registry';
-// import { Html, Head, Main, NextScript } from 'next/document';
-
-// export default function Document() {
-//   return (
-//     <Html lang='en'>
-//       <Head></Head>
-//       <StyledComponentsRegistry>
-//         <body>
-//           <Main />
-//           <NextScript />
-//         </body>
-//       </StyledComponentsRegistry>
-//     </Html>
-//   );
-// }
-
 import Document, { DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 

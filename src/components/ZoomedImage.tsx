@@ -15,14 +15,26 @@ const ZoomedImage = ({ src, alt, width, height, close }: ZoomedImageProps) => {
 
   return (
     <Overlay onClick={close}>
-      <ImageWrapper aspectRatio={aspectRatio}>
-        <Image src={src} alt={alt} fill />
+      <ImageWrapper $aspectRatio={aspectRatio}>
+        <StyledImage src={src} alt={alt} width={width} height={height} />
       </ImageWrapper>
     </Overlay>
   );
 };
 
 export default ZoomedImage;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: auto;
+`;
+
+const ImageWrapper = styled.div<{ $aspectRatio: number }>`
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  padding-bottom: calc(80% * ${({ $aspectRatio }) => $aspectRatio});
+`;
 
 const Overlay = styled.div`
   position: fixed;
@@ -36,13 +48,4 @@ const Overlay = styled.div`
   justify-content: center;
   padding: 5rem;
   z-index: 6;
-`;
-
-const ImageWrapper = styled.div<{ aspectRatio: number }>`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 80%;
-  max-height: 80%;
-  padding-bottom: calc(70% * ${({ aspectRatio }) => aspectRatio});
 `;

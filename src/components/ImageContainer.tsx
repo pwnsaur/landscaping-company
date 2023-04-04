@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Asset } from 'contentful';
 import ZoomedImage from './ZoomedImage';
 import React, { useState } from 'react';
+import useIsMobile from '@/utils/hooks/useIsMobile';
 
 const ImageContainer = ({ images }: { images: Asset[] | undefined }) => {
   const [zoomedImage, setZoomedImage] = useState<{
@@ -11,12 +12,16 @@ const ImageContainer = ({ images }: { images: Asset[] | undefined }) => {
     height: number;
   } | null>(null);
 
+  const isMobile = useIsMobile();
+
   const handleClick = (src: string, width: number, height: number) => {
+    if (isMobile) return;
     setZoomedImage({ src, width, height });
     document.body.style.overflow = 'hidden';
   };
 
   const handleClose = () => {
+    if (isMobile) return;
     setZoomedImage(null);
     document.body.style.overflow = 'auto';
   };
@@ -41,13 +46,12 @@ const ImageContainer = ({ images }: { images: Asset[] | undefined }) => {
                 alt='project image'
                 height={image.fields.file.details.image!.height / 4}
                 width={image.fields.file.details.image!.width / 4}
-                objectFit='cover'
                 quality={75}
               />
             </ImageWrapper>
           ))}
       </Container>
-      {zoomedImage && (
+      {zoomedImage && !isMobile && (
         <ZoomedImage
           src={zoomedImage.src}
           alt='zoomed image'
@@ -71,19 +75,19 @@ const Container = styled.div`
   margin-top: 2rem;
 `;
 
-const ImageWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  padding-top: 75%;
-  overflow: hidden;
-  cursor: pointer;
-`;
-
 const StyledImage = styled(Image)`
   position: absolute;
+  object-fit: cover;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 66%;
+  overflow: hidden;
+  ${({ theme }) => !theme.isMobile && `cursor: pointer;`}
 `;
