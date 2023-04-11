@@ -110,7 +110,7 @@ const Logo = styled(Image)`
 const LinkLogo = styled(Link)`
   display: flex;
   height: 100%;
-  margin: 1rem auto 2rem;
+  margin: 1rem auto 1rem;
 
   ${({ theme }) =>
     theme.isMobile &&

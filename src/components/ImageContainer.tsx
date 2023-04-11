@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Asset } from 'contentful';
-import ZoomedImage from './ZoomedImage';
+import ZoomedImage from '@components/ZoomedImage';
 import React, { useState } from 'react';
 import useIsMobile from '@/utils/hooks/useIsMobile';
 

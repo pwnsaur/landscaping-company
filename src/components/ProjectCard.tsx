@@ -53,6 +53,7 @@ const Placeholder = styled.div<{ height: number }>`
 
 const StyledCard = styled.div`
   position: relative;
+  height: fit-content;
   text-align: center;
   background-color: #ededed;
   transition: transform 0.2s ease-in-out;

@@ -2,6 +2,10 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack(config) {
+    config.experiments = { ...config.experiments, topLevelAwait: true };
+    return config;
+  },
   i18n: {
     locales: ['en'],
     defaultLocale: 'en',

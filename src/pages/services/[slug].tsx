@@ -18,7 +18,7 @@ const Service = ({ service }: { service: TypeService }) => {
       <NextSeo
         title={title}
         titleTemplate={`Brasika | ${title}`}
-        // description={excerpt}
+        description={excerpt}
       />
 
       <ServiceContainer>

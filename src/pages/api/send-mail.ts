@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import nodemailer from 'nodemailer';
 import { FormData } from '@/types/contentfulTypes';
+// import nodemailer from 'nodemailer';
+const nodemailer = (await import('nodemailer')).default;
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { name, email, phone, message } = req.body as FormData;

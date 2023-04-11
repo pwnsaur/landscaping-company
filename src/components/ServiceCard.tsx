@@ -22,6 +22,7 @@ const ServiceCard = ({
             alt='cover-image'
             height={coverImage.fields.file.details.image!.height / 4}
             width={coverImage.fields.file.details.image!.width / 4}
+            quality={50}
             priority={priority}
           />
           <Description>
@@ -40,7 +41,7 @@ const Break = styled.hr`
   border: none;
   height: 1px;
   background-color: black;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   width: 100%;
 `;
 
@@ -48,11 +49,11 @@ const Card = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 1.5rem auto;
+  margin: 0 auto;
   text-align: center;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: 400;
   margin: auto;
