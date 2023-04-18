@@ -26,8 +26,9 @@ const Project = ({ project }: { project: TypeProject }) => {
         <CoverImage
           src={`https:${coverImage.fields.file.url}`}
           alt='cover image'
-          width={coverImage.fields.file.details.image!.width}
-          height={coverImage.fields.file.details.image!.height}
+          width={coverImage.fields.file.details.image!.width / 1.5}
+          height={coverImage.fields.file.details.image!.height / 1.5}
+          quality={50}
           priority
         />
         <Title>{title}</Title>
