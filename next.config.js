@@ -1,4 +1,6 @@
-const path = require('path');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,14 +8,12 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
+
   reactStrictMode: true,
   images: {
     domains: ['images.ctfassets.net'],
   },
+
   compiler: {
     // styledComponents: {
     //   ssr: true,
@@ -23,6 +23,12 @@ const nextConfig = {
     // },
     styledComponents: true,
   },
+
+  i18n: {
+    locales: ['lv'],
+    defaultLocale: 'lv',
+  },
 };
 
-module.exports = nextConfig;
+// module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);
