@@ -5,7 +5,8 @@ declare global {
       CONTENTFUL_ACCESS_TOKEN: string;
       // EMAIL_ADDRESS: string;
       // EMAIL_PASSWORD: string;
-      // GOOGLE_RECAPTCHA_API_KEY: string;
+      GOOGLE_RECAPTCHA_SITE_KEY: string;
+      GOOGLE_RECAPTCHA_SECRET_KEY: string;
     }
   }
 }

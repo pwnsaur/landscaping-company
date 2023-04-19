@@ -1,5 +1,6 @@
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useContactForm from '@utils/hooks/useContactForm';
 import useEmailSubmit from '@utils/hooks/useEmailSubmit';
 import Textarea from '@components/contactForm/Textarea';
@@ -15,10 +16,19 @@ const ContactForm = () => {
 
   const handleModalClose = () => setModalOpen(false);
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await submitEmail(formData);
+    if (!executeRecaptcha) {
+      console.log('get rekt robot');
+      return;
+    }
+
+    const recaptchaToken = await executeRecaptcha('contact_form_submit');
+
+    await submitEmail({ ...formData, recaptcha: recaptchaToken });
     reset();
     setModalOpen(true);
   };
