@@ -17,33 +17,6 @@ const SqareButton = ({ name, destination, isInverted }: SqareButtonProps) => {
 
 export default SqareButton;
 
-// const Button = styled.button<{ $inverted?: boolean }>`
-//   min-width: 6rem;
-//   height: 3rem;
-//   padding: 0 1rem;
-//   background-color: ${({ theme, $inverted }) =>
-//     $inverted ? theme.colors.darkGreen : theme.colors.background};
-//   border: 2px solid
-//     ${({ theme, $inverted }) =>
-//       $inverted ? theme.colors.background : theme.colors.darkGreen};
-//   color: ${({ theme, $inverted }) =>
-//     $inverted ? theme.colors.background : theme.colors.darkGreen};
-//   text-transform: uppercase;
-//   font-weight: 600;
-//   font-size: 1rem;
-//   cursor: pointer;
-//   transition: all 0.2s ease-in-out;
-
-//   &:hover {
-//     background-color: ${({ theme, $inverted }) =>
-//       $inverted ? theme.colors.background : theme.colors.darkGreen};
-//     border-color: ${({ theme, $inverted }) =>
-//       $inverted ? theme.colors.darkGreen : theme.colors.background};
-//     color: ${({ theme, $inverted }) =>
-//       $inverted ? theme.colors.darkGreen : theme.colors.background};
-//   }
-// `;
-
 const Button = styled.button<{ $inverted?: boolean }>`
   min-width: 6rem;
   height: 3rem;
