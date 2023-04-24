@@ -16,7 +16,8 @@ const Button = ({ children, disabled, onClick }: ButtonProps) => {
 };
 
 const StyledButton = styled.button`
-  padding: 10px;
+  padding: 0.5rem;
+  min-width: 5rem;
   background-color: green;
   color: white;
   border: none;
