@@ -28,7 +28,7 @@ const ProjectCard = ({
               alt='cover-image'
               height={coverImage.fields.file.details.image!.height / 4}
               width={coverImage.fields.file.details.image!.width / 4}
-              // layout='fill'
+              quality={50}
               priority={priority}
             />
           </ImageContainer>
