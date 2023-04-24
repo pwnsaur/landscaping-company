@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { ThemeProvider } from 'styled-components';
 import useIsMobile from '@utils/hooks/useIsMobile';
 import Layout from '@components/Layout';
@@ -11,12 +12,16 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ErrorBoundary>
-      <ThemeProvider theme={{ ...theme, isMobile }}>
-        <Layout>
-          <GlobalStyles />
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <GoogleReCaptchaProvider
+        reCaptchaKey={process.env.GOOGLE_RECAPTCHA_SITE_KEY}
+      >
+        <ThemeProvider theme={{ ...theme, isMobile }}>
+          <Layout>
+            <GlobalStyles />
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </GoogleReCaptchaProvider>
     </ErrorBoundary>
   );
 }
