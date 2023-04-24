@@ -21,8 +21,12 @@ const ContactForm = () => {
     e.preventDefault();
     setDisabled(true);
     setButtonText('Sūta');
-    await submitEmail(formData);
-    resetForm();
+
+    const isSuccessful = await submitEmail(formData);
+    if (isSuccessful) {
+      resetForm();
+    }
+
     setModalOpen(true);
     setDisabled(false);
     setButtonText('Sūtīt');

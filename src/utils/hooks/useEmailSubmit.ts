@@ -16,6 +16,7 @@ const useEmailSubmit = () => {
           isSuccessful: true,
           message: 'Ziņojums nosūtīts, paldies!',
         });
+        return true;
       }
     } catch (e) {
       setResponseMessage({
@@ -23,6 +24,7 @@ const useEmailSubmit = () => {
         message: 'Ziņojumu neizdevās nosūtīt.',
       });
     }
+    return false;
   };
 
   return {
