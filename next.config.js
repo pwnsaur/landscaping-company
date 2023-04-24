@@ -1,4 +1,6 @@
-const path = require('path');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,17 +8,21 @@ const nextConfig = {
     GOOGLE_RECAPTCHA_SITE_KEY: process.env.GOOGLE_RECAPTCHA_SITE_KEY,
   },
   webpack(config) {
-    config.experiments = { ...config.experiments, topLevelAwait: true };
+    config.experiments = {
+      ...config.experiments,
+      topLevelAwait: true,
+    };
     return config;
   },
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
+  experimental: {
+    scrollRestoration: true,
   },
+
   reactStrictMode: true,
   images: {
     domains: ['images.ctfassets.net'],
   },
+
   compiler: {
     // styledComponents: {
     //   ssr: true,
@@ -26,6 +32,12 @@ const nextConfig = {
     // },
     styledComponents: true,
   },
+
+  i18n: {
+    locales: ['lv'],
+    defaultLocale: 'lv',
+  },
 };
 
-module.exports = nextConfig;
+// module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

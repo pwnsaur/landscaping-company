@@ -19,7 +19,7 @@ const Projects = ({ projects }: { projects: TypeProject[] }) => {
           <ProjectCard
             key={project.sys.id}
             project={project}
-            priority={index === 0}
+            priority={index < 2}
           />
         ))}
       </Container>

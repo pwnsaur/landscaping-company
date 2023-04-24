@@ -15,7 +15,7 @@ const verifyRecaptcha = async (recaptchaToken: string) => {
     }
   );
 
-  return recaptchaResponse.data.success;
+  return recaptchaResponse.data.success && recaptchaResponse.data.score > 0.8;
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -33,6 +33,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const isRecaptchaValid = await verifyRecaptcha(recaptcha);
 
   if (!isRecaptchaValid) {
+    console.log('get rekt robot');
     res.status(400).json({
       error: 'reCAPTCHA verification failed',
     });
