@@ -5,8 +5,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
-    config.experiments = { ...config.experiments, topLevelAwait: true };
+    config.experiments = {
+      ...config.experiments,
+      topLevelAwait: true,
+    };
     return config;
+  },
+  experimental: {
+    scrollRestoration: true,
   },
 
   reactStrictMode: true,

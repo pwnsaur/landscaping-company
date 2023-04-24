@@ -9,18 +9,27 @@ import SubmitModal from '@components/contactForm/SubmitModal';
 
 const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [buttonText, setButtonText] = useState('Sūtīt');
 
-  const { formData, handleChange, reset } = useContactForm();
+  const { formData, handleChange, resetForm } = useContactForm();
   const { responseMessage, submitEmail } = useEmailSubmit();
 
   const handleModalClose = () => setModalOpen(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setDisabled(true);
+    setButtonText('Sūta');
 
-    await submitEmail(formData);
-    reset();
+    const isSuccessful = await submitEmail(formData);
+    if (isSuccessful) {
+      resetForm();
+    }
+
     setModalOpen(true);
+    setDisabled(false);
+    setButtonText('Sūtīt');
   };
 
   return (
@@ -57,7 +66,9 @@ const ContactForm = () => {
           placeholder='Ievadiet ziņojumu'
           required
         />
-        <Button type='submit'>Apstiprināt</Button>
+        <Button type='submit' disabled={disabled}>
+          {buttonText}
+        </Button>
       </Form>
       <SubmitModal
         isOpen={modalOpen}
