@@ -21,7 +21,7 @@ a {
 }
 
 h1, h2 {
-  color: ${(props) => props.theme.colors.title}
+  color: ${({ theme }) => theme.colors.title}
 }
 `;
 

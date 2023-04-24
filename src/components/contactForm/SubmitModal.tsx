@@ -13,7 +13,7 @@ const Modal = ({ isOpen, message, isError, onClose }: ModalProps) => {
     if (isOpen) {
       const timer = setTimeout(() => {
         onClose();
-      }, 5000);
+      }, 3000);
 
       return () => {
         clearTimeout(timer);
@@ -36,12 +36,12 @@ const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 7rem;
+  height: 3rem;
   background-color: ${({ theme, $isError }) =>
     $isError ? theme.colors.error : theme.colors.success};
   color: ${({ theme }) => theme.colors.text};
   transition: all 0.3s ease;
-  z-index: 3;
+  z-index: 5;
 `;
 
 const Message = styled.p`

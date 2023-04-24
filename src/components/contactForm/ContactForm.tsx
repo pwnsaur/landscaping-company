@@ -10,8 +10,10 @@ import SubmitModal from '@components/contactForm/SubmitModal';
 
 const ContactForm = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [buttonText, setButtonText] = useState('Sūtīt');
 
-  const { formData, handleChange, reset } = useContactForm();
+  const { formData, handleChange, resetForm } = useContactForm();
   const { responseMessage, submitEmail } = useEmailSubmit();
 
   const handleModalClose = () => setModalOpen(false);
@@ -20,17 +22,25 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setDisabled(true);
+    setButtonText('Sūta');
 
-    if (!executeRecaptcha) {
+    const recaptchaToken = await executeRecaptcha?.('contact_form_submit');
+
+    const isSuccessful = await submitEmail({
+      ...formData,
+      recaptcha: recaptchaToken,
+    });
+
+    if (!isSuccessful) {
       console.log('get rekt robot');
-      return;
+    } else {
+      resetForm();
     }
 
-    const recaptchaToken = await executeRecaptcha('contact_form_submit');
-
-    await submitEmail({ ...formData, recaptcha: recaptchaToken });
-    reset();
     setModalOpen(true);
+    setDisabled(false);
+    setButtonText('Sūtīt');
   };
 
   return (
@@ -67,7 +77,9 @@ const ContactForm = () => {
           placeholder='Ievadiet ziņojumu'
           required
         />
-        <Button type='submit'>Apstiprināt</Button>
+        <Button type='submit' disabled={disabled}>
+          {buttonText}
+        </Button>
       </Form>
       <SubmitModal
         isOpen={modalOpen}
