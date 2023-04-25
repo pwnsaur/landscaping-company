@@ -46,7 +46,7 @@ const ImageContainer = ({ images }: { images: Asset[] | undefined }) => {
                 alt='project image'
                 height={image.fields.file.details.image!.height / 4}
                 width={image.fields.file.details.image!.width / 4}
-                quality={75}
+                quality={50}
               />
             </ImageWrapper>
           ))}

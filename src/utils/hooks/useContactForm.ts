@@ -20,11 +20,11 @@ const useContactForm = () => {
     setformData((prevState) => ({ ...prevState, [id]: value }));
   };
 
-  const reset = () => {
+  const resetForm = () => {
     setformData(blankForm);
   };
 
-  return { formData, handleChange, reset };
+  return { formData, handleChange, resetForm };
 };
 
 export default useContactForm;

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import React, { useEffect } from 'react';
+import SqareButton from '@/components/reusables/SquareButton';
 import backgroundTall from '@assets/backgroundTall.jpg';
 import SplashScreen from '@/components/SplashScreen';
 import useSplashScreen from '@/utils/hooks/useSplashScreen';
@@ -43,6 +44,7 @@ const Home = () => {
             nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus
             voluptates provident sit?
           </Text>
+          <SqareButton name='Projekti' destination='projects' />
         </Section>
         <Section>
           <Text>
@@ -50,6 +52,7 @@ const Home = () => {
             dolorum minus quisquam sint sunt ad sit vero, eos repudiandae in
             doloribus est porro veniam enim fugiat ipsam laborum at?
           </Text>
+          <SqareButton name='Pakalpojumi' destination='services' />
         </Section>
       </Container>
     </>
@@ -93,13 +96,13 @@ const Section = styled.div`
   justify-content: center;
   width: 100%;
   margin-bottom: 20rem;
-  /* background-color: ${({ theme }) => theme.colors.background}; */
-  background-color: lightgreen;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 const Text = styled.div`
+  display: block;
   width: 70%;
-  padding: 2rem;
+  padding: 2rem 6rem;
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: justify;
