@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-ae6f8b53-0 cnJUxe"
+  >
+    <header
+      class="sc-ae6f8b53-1 fNQlio"
+    >
+      <a
+        class="sc-ae6f8b53-4 hZHTsL"
+        href="/"
+      >
+        <img
+          alt="logo"
+          class="sc-ae6f8b53-3 jaFkLa"
+          data-nimg="1"
+          decoding="async"
+          height="70"
+          src="/_next/image?url=%2Fimg.jpg&w=256&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=128&q=75 1x, /_next/image?url=%2Fimg.jpg&w=256&q=75 2x"
+          style="color: transparent;"
+          width="120"
+        />
+      </a>
+      <nav
+        class="sc-23f60e78-0 gVZxNu"
+      >
+        <a
+          class="sc-a1402bc8-0 NAwpH"
+          href="/"
+        >
+          Sākums
+        </a>
+        <a
+          class="sc-a1402bc8-0 NAwpH"
+          href="/services"
+        >
+          Pakalpojumi
+        </a>
+        <a
+          class="sc-a1402bc8-0 NAwpH"
+          href="/projects"
+        >
+          Projekti
+        </a>
+        <a
+          class="sc-a1402bc8-0 NAwpH"
+          href="/about"
+        >
+          Par mums
+        </a>
+        <a
+          class="sc-a1402bc8-0 NAwpH"
+          href="/contacts"
+        >
+          Kontakti
+        </a>
+      </nav>
+    </header>
+  </div>
+</DocumentFragment>
+`;

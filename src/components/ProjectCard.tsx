@@ -17,6 +17,7 @@ const ProjectCard = ({
   const ref = useRef<HTMLDivElement>(null);
   const onScreen = useOnScreen(ref);
   const shouldLoadImage = priority || onScreen;
+  console.log(project);
 
   return (
     <StyledCard ref={ref}>
