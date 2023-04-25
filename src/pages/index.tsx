@@ -8,7 +8,7 @@ import SplashScreen from '@/components/SplashScreen';
 import useSplashScreen from '@/utils/hooks/useSplashScreen';
 
 const Home = () => {
-  const loading = useSplashScreen();
+  // const loading = useSplashScreen();
 
   useEffect(() => {
     const handleScroll = () => {

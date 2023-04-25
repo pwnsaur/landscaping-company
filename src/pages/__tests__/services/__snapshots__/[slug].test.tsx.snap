@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Service Page matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-4bb96bce-0 hvClZS"
+  >
+    <h1
+      class="sc-4bb96bce-1 fkdHKU"
+    >
+      A short description of types of services we offer to our clients
+    </h1>
+  </div>
+</DocumentFragment>
+`;

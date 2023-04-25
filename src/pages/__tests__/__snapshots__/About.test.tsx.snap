@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About Page matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fb9639f5-0 kwmZKs"
+  >
+    <div
+      class="sc-fb9639f5-1 iiCdSP"
+    >
+      <img
+        alt="cato"
+        class="sc-fb9639f5-5 jRXZRA"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=50"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=50 1x, /_next/image?url=%2Fimg.jpg&w=96&q=50 2x"
+        style="color: transparent;"
+        width="40"
+      />
+    </div>
+    <div
+      class="sc-fb9639f5-2 bAEsio"
+    >
+      <h2
+        class="sc-fb9639f5-3 ciWVqF"
+      >
+        Hey it's us
+      </h2>
+      <p
+        class="sc-fb9639f5-4 cErFkq"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet purus ac eros luctus dictum vel id dui. Nunc suscipit est vel augue euismod, quis tristique mauris luctus. Integer fringilla elit a eros mollis, nec dignissim eros efficitur. Sed eget eleifend lorem. Sed non arcu ac tortor consectetur lobortis vel vel arcu.
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

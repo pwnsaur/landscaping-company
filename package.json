@@ -8,7 +8,9 @@
     "start": "next build; next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
-    "test": "jest"
+    "test": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "jupdate": "jest -u"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.0.2",
