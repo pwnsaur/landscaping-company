@@ -8,10 +8,6 @@ const nextConfig = {
     GOOGLE_RECAPTCHA_SITE_KEY: process.env.GOOGLE_RECAPTCHA_SITE_KEY,
   },
   webpack(config, { isServer }) {
-    if (!isServer) {
-      config.externals = config.externals || [];
-      config.externals.push(/\.test\.(js|tsx?)$/);
-    }
     config.experiments = {
       ...config.experiments,
       topLevelAwait: true,
