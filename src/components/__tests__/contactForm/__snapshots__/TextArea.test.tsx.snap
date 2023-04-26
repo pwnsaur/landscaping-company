@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea component matches the snapshot 1`] = `
+<DocumentFragment>
+  <textarea
+    class="sc-7afd0231-0 fvmyhU"
+    id=""
+    placeholder=""
+  />
+</DocumentFragment>
+`;

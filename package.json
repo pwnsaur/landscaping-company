@@ -12,13 +12,7 @@
     "watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "jupdate": "jest -u",
-    "pre-commit": "npm test",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test"
-    }
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.0.2",

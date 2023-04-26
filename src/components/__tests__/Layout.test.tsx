@@ -10,7 +10,7 @@ jest.mock('next/router', () => ({
   }),
 }));
 
-describe('MobileNav component', () => {
+describe('Layout component', () => {
   test('matches the snapshot', () => {
     const { asFragment } = render(
       <Layout>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const SplashScreen = () => {
   return (
     <SplashContainer>
-      <h1>Loading, be patient, pls!</h1>
+      <h1>Loading, be patient pls!</h1>
     </SplashContainer>
   );
 };

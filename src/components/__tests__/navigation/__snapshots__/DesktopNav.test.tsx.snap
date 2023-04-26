@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MobileNav component matches the snapshot 1`] = `
+exports[`DesktopNav component matches the snapshot 1`] = `
 <DocumentFragment>
   <nav
     class="sc-23f60e78-0 gVZxNu"

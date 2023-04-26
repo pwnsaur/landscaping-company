@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Projects Page matches the snapshot without data 1`] = `
+exports[`Services Page matches the snapshot without data 1`] = `
 <DocumentFragment>
   <div
     class="sc-4bb96bce-0 hvClZS"
