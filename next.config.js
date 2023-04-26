@@ -7,7 +7,7 @@ const nextConfig = {
   env: {
     GOOGLE_RECAPTCHA_SITE_KEY: process.env.GOOGLE_RECAPTCHA_SITE_KEY,
   },
-  webpack(config, { isServer }) {
+  webpack(config) {
     config.experiments = {
       ...config.experiments,
       topLevelAwait: true,
