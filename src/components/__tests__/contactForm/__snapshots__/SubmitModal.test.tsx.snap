@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitModal component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-ca49ea0e-0 klEFXG"
+  >
+    <p
+      class="sc-ca49ea0e-1 cRdoJo"
+    />
+  </div>
+</DocumentFragment>
+`;

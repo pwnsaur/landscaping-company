@@ -22,7 +22,6 @@ const StyledLink = styled(Link)`
   color: black;
   text-transform: uppercase;
   height: 4rem;
-  /* margin: 1rem 0; */
   padding: 0 1rem;
   white-space: nowrap;
   transition: color 0.3s ease-in-out;

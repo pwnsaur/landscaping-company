@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SplashScreen component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-648b7200-0 lsqJg"
+  >
+    <h1>
+      Loading, be patient pls!
+    </h1>
+  </div>
+</DocumentFragment>
+`;

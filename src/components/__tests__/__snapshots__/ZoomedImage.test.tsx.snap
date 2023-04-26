@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ZoomedImage component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-e149bb82-2 htNgfC"
+  >
+    <div
+      class="sc-e149bb82-1 fOONHo"
+    >
+      <img
+        alt="meow"
+        class="sc-e149bb82-0 ifGgKS"
+        data-nimg="1"
+        decoding="async"
+        height="0"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fmeow.com&w=16&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fmeow.com&w=16&q=75 1x"
+        style="color: transparent;"
+        width="0"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

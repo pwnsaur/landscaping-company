@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SquareButton component matches the snapshot 1`] = `
+<DocumentFragment>
+  <a
+    href="/services"
+  >
+    <button
+      class="sc-990c1ae-0 czPovO"
+    />
+  </a>
+</DocumentFragment>
+`;

@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-75e6d97e-0 fWiFNT"
+  >
+    <div
+      class="sc-ae6f8b53-0 cnJUxe"
+    >
+      <header
+        class="sc-ae6f8b53-1 fNQlio"
+      >
+        <a
+          class="sc-ae6f8b53-4 hZHTsL"
+          href="/"
+        >
+          <img
+            alt="logo"
+            class="sc-ae6f8b53-3 jaFkLa"
+            data-nimg="1"
+            decoding="async"
+            height="70"
+            src="/_next/image?url=%2Fimg.jpg&w=256&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=128&q=75 1x, /_next/image?url=%2Fimg.jpg&w=256&q=75 2x"
+            style="color: transparent;"
+            width="120"
+          />
+        </a>
+        <nav
+          class="sc-23f60e78-0 gVZxNu"
+        >
+          <a
+            class="sc-a1402bc8-0 NAwpH"
+            href="/"
+          >
+            Sākums
+          </a>
+          <a
+            class="sc-a1402bc8-0 NAwpH"
+            href="/services"
+          >
+            Pakalpojumi
+          </a>
+          <a
+            class="sc-a1402bc8-0 NAwpH"
+            href="/projects"
+          >
+            Projekti
+          </a>
+          <a
+            class="sc-a1402bc8-0 NAwpH"
+            href="/about"
+          >
+            Par mums
+          </a>
+          <a
+            class="sc-a1402bc8-0 NAwpH"
+            href="/contacts"
+          >
+            Kontakti
+          </a>
+        </nav>
+      </header>
+    </div>
+    <div
+      class="sc-75e6d97e-1 kFlaaF"
+    >
+      <div>
+        Would you test me? Id test me.
+      </div>
+    </div>
+    <footer
+      class="sc-d0132352-0 fRdPdt"
+    >
+      <a
+        href="/contacts"
+      >
+        <button
+          class="sc-990c1ae-0 hrFIOm"
+        >
+          Sazināties
+        </button>
+      </a>
+      <p
+        class="sc-d0132352-1 jYRPcv"
+      >
+        Copyright 2023 Hackerman
+      </p>
+    </footer>
+  </div>
+</DocumentFragment>
+`;

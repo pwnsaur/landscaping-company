@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactForm component matches the snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="sc-d58b5085-0 crBvDy"
+  >
+    <input
+      class="sc-d818ba39-0 eRbIoZ"
+      id="name"
+      placeholder="Vārds, uzvārds"
+      required=""
+      type="text"
+      value=""
+    />
+    <input
+      class="sc-d818ba39-0 eRbIoZ"
+      id="email"
+      placeholder="Epasts"
+      required=""
+      type="email"
+      value=""
+    />
+    <input
+      class="sc-d818ba39-0 eRbIoZ"
+      id="phone"
+      placeholder="Tālrunis"
+      required=""
+      type="tel"
+      value=""
+    />
+    <textarea
+      class="sc-7afd0231-0 fvmyhU"
+      id="message"
+      placeholder="Ievadiet ziņojumu"
+      required=""
+    />
+    <button
+      class="sc-47e554e4-0 bQNqoZ"
+    >
+      Sūtīt
+    </button>
+  </form>
+  <div
+    class="sc-ca49ea0e-0 kcJRji"
+  >
+    <p
+      class="sc-ca49ea0e-1 cRdoJo"
+    />
+  </div>
+</DocumentFragment>
+`;

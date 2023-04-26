@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import ContactForm from '@components/contactForm/ContactForm';
 
 const Contact = () => {
@@ -13,7 +14,11 @@ const Contact = () => {
 
       <Container>
         <Title>Sazinieties ar mums!</Title>
-        <ContactForm />
+        <GoogleReCaptchaProvider
+          reCaptchaKey={process.env.GOOGLE_RECAPTCHA_SITE_KEY}
+        >
+          <ContactForm />
+        </GoogleReCaptchaProvider>
       </Container>
     </>
   );
