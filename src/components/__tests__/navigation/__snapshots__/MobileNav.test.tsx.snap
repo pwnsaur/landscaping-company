@@ -1,3 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MobileNav component matches the snapshot 1`] = `<DocumentFragment />`;
+exports[`MobileNav component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-97ba968b-0 hlbtWE"
+  >
+    <div
+      class="sc-97ba968b-1 fJjHLw"
+    />
+    <nav
+      class="sc-97ba968b-2 UhhCi"
+    >
+      <a
+        class="sc-a1402bc8-0 NAwpH"
+        href="/"
+      >
+        Sākums
+      </a>
+      <a
+        class="sc-a1402bc8-0 NAwpH"
+        href="/services"
+      >
+        Pakalpojumi
+      </a>
+      <a
+        class="sc-a1402bc8-0 NAwpH"
+        href="/projects"
+      >
+        Projekti
+      </a>
+      <a
+        class="sc-a1402bc8-0 NAwpH"
+        href="/about"
+      >
+        Par mums
+      </a>
+      <a
+        class="sc-a1402bc8-0 NAwpH"
+        href="/contacts"
+      >
+        Kontakti
+      </a>
+    </nav>
+  </div>
+</DocumentFragment>
+`;

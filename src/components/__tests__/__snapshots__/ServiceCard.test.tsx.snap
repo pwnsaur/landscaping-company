@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServiceCard renders correctly 1`] = `
+[
+  <hr
+    className="sc-f889ee52-0 kGXvte"
+  />,
+  <div
+    className="sc-f889ee52-1 dIwqvs"
+  >
+    <a
+      className="sc-f889ee52-4 zVuoe"
+      href="/services/service"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      <img
+        alt="cover-image"
+        className="sc-f889ee52-3 cLnRwW"
+        data-nimg="1"
+        decoding="async"
+        height={270}
+        loading="lazy"
+        onError={[Function]}
+        onLoad={[Function]}
+        src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50"
+        srcSet="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=50 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50 2x"
+        style={
+          {
+            "color": "transparent",
+          }
+        }
+        width={480}
+      />
+      <div
+        className="sc-f889ee52-6 ifxsTg"
+      >
+        <h2
+          className="sc-f889ee52-2 eKnWwk"
+        >
+          Service
+        </h2>
+        <p
+          className="sc-f889ee52-5 ixJtdy"
+        >
+          service
+        </p>
+      </div>
+    </a>
+  </div>,
+]
+`;

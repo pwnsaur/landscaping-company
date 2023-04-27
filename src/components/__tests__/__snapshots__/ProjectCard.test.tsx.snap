@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProjectCard renders correctly 1`] = `
+<div
+  className="sc-17c684df-1 gtilHR"
+>
+  <a
+    href="/projects/fifteenth-project"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="sc-17c684df-0 eLMYjF"
+      height={270}
+    />
+    <h3
+      className="sc-17c684df-4 gWtXxm"
+    >
+      Fifteenth Project
+    </h3>
+  </a>
+</div>
+`;
