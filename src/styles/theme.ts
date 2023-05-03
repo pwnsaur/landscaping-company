@@ -1,15 +1,13 @@
 export const theme = {
   colors: {
-    background: '#ededed',
     black: '#1a1a1a',
+    background: '#ededed',
     darkGreen: '#21412a',
+    lightGreen: '#05ac05',
     title: '#39412f',
-    primary: '#3498db',
-    secondary: 'green',
     text: '#333',
-    textLight: '#888',
-    error: 'red',
-    success: 'green',
+    error: '#ff3333',
+    success: '#42ba96',
   },
   fonts: {
     primary: 'Nunito, sans-serif',
@@ -21,6 +19,6 @@ export const theme = {
   },
   fontWeights: {
     normal: 400,
-    bold: 700,
+    bold: 600,
   },
 };

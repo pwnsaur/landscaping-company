@@ -1,15 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Service Page matches the snapshot 1`] = `
+exports[`Service page should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-4bb96bce-0 hvClZS"
+  .c0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 3rem 5rem;
+}
+
+.c2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.c1 {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 1rem 0;
+}
+
+.c3 {
+  margin: 1rem 0;
+  width: 80%;
+}
+
+<div
+    class="c0"
   >
-    <h1
-      class="sc-4bb96bce-1 fkdHKU"
+    <img
+      alt="cover image"
+      class="c1"
+      data-nimg="1"
+      decoding="async"
+      height="1080"
+      src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1920&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=75 2x"
+      style="color: transparent;"
+      width="1920"
+    />
+    <h2
+      class="c2"
     >
-      A short description of types of services we offer to our clients
-    </h1>
+      Service
+    </h2>
+    <div
+      class="c3"
+    >
+      <p />
+    </div>
   </div>
 </DocumentFragment>
 `;

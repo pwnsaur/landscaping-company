@@ -2,8 +2,26 @@
 
 exports[`Input component matches the snapshot 1`] = `
 <DocumentFragment>
-  <input
-    class="sc-d818ba39-0 eRbIoZ"
+  .c0 {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 15px 0;
+  width: 100%;
+  outline: none;
+}
+
+.c0:focus {
+  border-color: #05ac05;
+}
+
+.c0 ::placeholder {
+  color: #aaa;
+}
+
+<input
+    class="c0"
     id=""
     placeholder=""
     type=""

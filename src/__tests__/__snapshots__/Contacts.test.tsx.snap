@@ -2,19 +2,121 @@
 
 exports[`Contacts Page matches the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-b7c06410-0 jskDjs"
+  .c4 {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin: 1.5rem 0 2.5rem;
+  width: 100%;
+  height: 10rem;
+  resize: none;
+  outline: none;
+}
+
+.c4:focus {
+  border-color: green;
+}
+
+.c4 ::placeholder {
+  color: #aaa;
+}
+
+.c3 {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 15px 0;
+  width: 100%;
+  outline: none;
+}
+
+.c3:focus {
+  border-color: #05ac05;
+}
+
+.c3 ::placeholder {
+  color: #aaa;
+}
+
+.c5 {
+  padding: 0.5rem;
+  min-width: 5rem;
+  background-color: #21412a;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.c5:hover {
+  background-color: #05ac05;
+}
+
+.c5:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.c6 {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background-color: #ff3333;
+  color: #333;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.c7 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.c2 {
+  width: 100%;
+  margin: 2rem auto 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.c0 {
+  text-align: center;
+  padding: 5vh 0 5vh;
+  max-width: 25rem;
+  width: 80%;
+}
+
+.c1 {
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+<div
+    class="c0"
   >
     <h2
-      class="sc-b7c06410-1 gLjiBS"
+      class="c1"
     >
       Sazinieties ar mums!
     </h2>
     <form
-      class="sc-d58b5085-0 crBvDy"
+      class="c2"
     >
       <input
-        class="sc-d818ba39-0 eRbIoZ"
+        class="c3"
         id="name"
         placeholder="Vārds, uzvārds"
         required=""
@@ -22,7 +124,7 @@ exports[`Contacts Page matches the snapshot 1`] = `
         value=""
       />
       <input
-        class="sc-d818ba39-0 eRbIoZ"
+        class="c3"
         id="email"
         placeholder="Epasts"
         required=""
@@ -30,7 +132,7 @@ exports[`Contacts Page matches the snapshot 1`] = `
         value=""
       />
       <input
-        class="sc-d818ba39-0 eRbIoZ"
+        class="c3"
         id="phone"
         placeholder="Tālrunis"
         required=""
@@ -38,22 +140,22 @@ exports[`Contacts Page matches the snapshot 1`] = `
         value=""
       />
       <textarea
-        class="sc-7afd0231-0 fvmyhU"
+        class="c4"
         id="message"
         placeholder="Ievadiet ziņojumu"
         required=""
       />
       <button
-        class="sc-47e554e4-0 bQNqoZ"
+        class="c5"
       >
         Sūtīt
       </button>
     </form>
     <div
-      class="sc-ca49ea0e-0 kcJRji"
+      class="c6"
     >
       <p
-        class="sc-ca49ea0e-1 cRdoJo"
+        class="c7"
       />
     </div>
   </div>

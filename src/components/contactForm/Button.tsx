@@ -18,34 +18,20 @@ const Button = ({ children, disabled, onClick }: ButtonProps) => {
 const StyledButton = styled.button`
   padding: 0.5rem;
   min-width: 5rem;
-  background-color: green;
+  background-color: ${({ theme }) => theme.colors.darkGreen};
   color: white;
   border: none;
-  font-size: 1rem;
-  cursor: pointer;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   transition: background-color 0.2s;
+  cursor: pointer;
 
   &:hover {
-    background-color: #05ac05;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px green;
+    background-color: ${({ theme }) => theme.colors.lightGreen};
   }
 
   &:disabled {
     background-color: grey;
     cursor: not-allowed;
-  }
-
-  &:hover:not(:disabled) {
-    background-color: #05ac05;
-  }
-
-  &:focus:not(:disabled) {
-    outline: none;
-    box-shadow: 0 0 0 2px green;
   }
 `;
 

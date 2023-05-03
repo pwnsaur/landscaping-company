@@ -9,7 +9,7 @@ describe('Footer Component', () => {
 });
 
 describe('Footer copyright', () => {
-  test('say my name', () => {
+  test('text is correct', () => {
     render(<Footer />);
     const copyrightText = screen.getByText(/Copyright 2023 Hackerman/i);
     expect(copyrightText).toBeInTheDocument();

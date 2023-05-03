@@ -1,15 +1,113 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Services Page matches the snapshot without data 1`] = `
+exports[`Projects page should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-4bb96bce-0 hvClZS"
+  .c2 {
+  border: none;
+  height: 1px;
+  background-color: black;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.c3 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.c7 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 400;
+  margin: auto;
+}
+
+.c5 {
+  max-width: 40%;
+  height: auto;
+}
+
+.c4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.c8 {
+  margin: 10px 20px;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 8vh 3vw;
+}
+
+.c1 {
+  max-width: 20em;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 500;
+  padding-bottom: 3rem;
+}
+
+<div
+    class="c0"
   >
     <h1
-      class="sc-4bb96bce-1 fkdHKU"
+      class="c1"
     >
       A short description of types of services we offer to our clients
     </h1>
+    <hr
+      class="c2"
+    />
+    <div
+      class="c3"
+    >
+      <a
+        class="c4"
+        href="/services/service"
+      >
+        <img
+          alt="cover-image"
+          class="c5"
+          data-nimg="1"
+          decoding="async"
+          height="270"
+          src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50"
+          srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=50 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50 2x"
+          style="color: transparent;"
+          width="480"
+        />
+        <div
+          class="c6"
+        >
+          <h2
+            class="c7"
+          >
+            Service
+          </h2>
+          <p
+            class="c8"
+          >
+            service
+          </p>
+        </div>
+      </a>
+    </div>
   </div>
 </DocumentFragment>
 `;
