@@ -5,7 +5,11 @@ import ZoomedImage from '@components/ZoomedImage';
 import React, { useState } from 'react';
 import useIsMobile from '@/utils/hooks/useIsMobile';
 
-const ImageContainer = ({ images }: { images: Asset[] | undefined }) => {
+type Props = {
+  images: Asset[] | undefined;
+};
+
+const ImageContainer = ({ images }: Props) => {
   const [zoomedImage, setZoomedImage] = useState<{
     src: string;
     width: number;

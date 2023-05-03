@@ -2,32 +2,117 @@
 
 exports[`NavItems component matches the snapshot 1`] = `
 <DocumentFragment>
-  <a
-    class="sc-a1402bc8-0 NAwpH"
+  .c0 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  height: 4rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  transition: color 0.3s ease-in-out;
+}
+
+.c0:hover {
+  color: #696767;
+  text-decoration: none;
+}
+
+<a
+    class="c0"
     href="/"
   >
     Sākums
   </a>
-  <a
-    class="sc-a1402bc8-0 NAwpH"
+  .c0 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  height: 4rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  transition: color 0.3s ease-in-out;
+}
+
+.c0:hover {
+  color: #696767;
+  text-decoration: none;
+}
+
+<a
+    class="c0"
     href="/services"
   >
     Pakalpojumi
   </a>
-  <a
-    class="sc-a1402bc8-0 NAwpH"
+  .c0 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  height: 4rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  transition: color 0.3s ease-in-out;
+}
+
+.c0:hover {
+  color: #696767;
+  text-decoration: none;
+}
+
+<a
+    class="c0"
     href="/projects"
   >
     Projekti
   </a>
-  <a
-    class="sc-a1402bc8-0 NAwpH"
+  .c0 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  height: 4rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  transition: color 0.3s ease-in-out;
+}
+
+.c0:hover {
+  color: #696767;
+  text-decoration: none;
+}
+
+<a
+    class="c0"
     href="/about"
   >
     Par mums
   </a>
-  <a
-    class="sc-a1402bc8-0 NAwpH"
+  .c0 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  height: 4rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  transition: color 0.3s ease-in-out;
+}
+
+.c0:hover {
+  color: #696767;
+  text-decoration: none;
+}
+
+<a
+    class="c0"
     href="/contacts"
   >
     Kontakti

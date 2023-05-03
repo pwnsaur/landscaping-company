@@ -34,7 +34,7 @@ const ProjectCard = ({
             />
           </ImageContainer>
         ) : (
-          <Placeholder
+          <StyledPlaceholder
             height={coverImage.fields.file.details.image!.height / 4}
           />
         )}
@@ -46,7 +46,7 @@ const ProjectCard = ({
 
 export default ProjectCard;
 
-const Placeholder = styled.div<{ height: number }>`
+const StyledPlaceholder = styled.div<{ height: number }>`
   width: 100%;
   height: ${({ height }) => `${height}px`};
   background-color: #eee;

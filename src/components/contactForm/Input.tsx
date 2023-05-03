@@ -35,13 +35,13 @@ const StyledInput = styled.input`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   margin: 15px 0;
   width: 100%;
   outline: none;
 
   &:focus {
-    border-color: green;
+    border-color: ${({ theme }) => theme.colors.lightGreen};
   }
 
   ::placeholder {

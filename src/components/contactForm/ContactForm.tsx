@@ -1,7 +1,7 @@
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useContactForm from '@utils/hooks/useContactForm';
 import useEmailSubmit from '@utils/hooks/useEmailSubmit';
 import Textarea from '@components/contactForm/Textarea';

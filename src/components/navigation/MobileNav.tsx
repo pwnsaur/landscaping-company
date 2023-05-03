@@ -34,7 +34,7 @@ const MobileNav = ({ isOpen, isVisible, handleItemClick }: MobileNavProps) => {
   return (
     <Container>
       <TransparentContainer onClick={handleItemClick}></TransparentContainer>
-      <StyledMobileNav $isOpen={isOpen}>
+      <StyledMobileNav $isOpen={isOpen} data-testid='mobile-nav'>
         <NavItems />
       </StyledMobileNav>
     </Container>
