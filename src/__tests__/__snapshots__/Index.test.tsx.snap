@@ -2,24 +2,89 @@
 
 exports[`Home Page matches the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-74d08598-0 jDxDJK"
+  .c5 {
+  min-width: 9rem;
+  height: 3rem;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: #ededed;
+  border: 2px solid #21412a;
+  color: #21412a;
+}
+
+.c5:hover {
+  background-color: #21412a;
+  border-color: #ededed;
+  color: #ededed;
+}
+
+.c0 {
+  position: relative;
+  background-image: url(/img.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position: top center;
+  width: 100%;
+  min-height: 100vh;
+  margin-bottom: -5rem;
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 141px);
+}
+
+.c2 {
+  font-size: 4rem;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+}
+
+.c3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20rem;
+  background-color: #ededed;
+}
+
+.c4 {
+  display: block;
+  width: 70%;
+  padding: 2rem 6rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+<div
+    class="c0"
     id="parallax"
   >
     <div
-      class="sc-74d08598-1 iiQpzl"
+      class="c1"
     >
       <h1
-        class="sc-74d08598-2 bThYiT"
+        class="c2"
       >
         The Company
       </h1>
     </div>
     <div
-      class="sc-74d08598-3 gzbVnk"
+      class="c3"
     >
       <div
-        class="sc-74d08598-4 hyFtMO"
+        class="c4"
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, officiis. Illo assumenda velit ratione enim, quaerat inventore nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus voluptates provident sit?
       </div>
@@ -27,17 +92,17 @@ exports[`Home Page matches the snapshot 1`] = `
         href="/projects"
       >
         <button
-          class="sc-990c1ae-0 czPovO"
+          class="c5"
         >
           Projekti
         </button>
       </a>
     </div>
     <div
-      class="sc-74d08598-3 gzbVnk"
+      class="c3"
     >
       <div
-        class="sc-74d08598-4 hyFtMO"
+        class="c4"
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque dolorum minus quisquam sint sunt ad sit vero, eos repudiandae in doloribus est porro veniam enim fugiat ipsam laborum at?
       </div>
@@ -45,7 +110,7 @@ exports[`Home Page matches the snapshot 1`] = `
         href="/services"
       >
         <button
-          class="sc-990c1ae-0 czPovO"
+          class="c5"
         >
           Pakalpojumi
         </button>

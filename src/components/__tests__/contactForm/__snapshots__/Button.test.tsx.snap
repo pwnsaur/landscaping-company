@@ -1,9 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component matches the snapshot 1`] = `
+exports[`Button component matches the snapshot for enabled state 1`] = `
 <DocumentFragment>
-  <button
-    class="sc-47e554e4-0 bQNqoZ"
+  .c0 {
+  padding: 0.5rem;
+  min-width: 5rem;
+  background-color: #21412a;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.c0:hover {
+  background-color: #05ac05;
+}
+
+.c0:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+<button
+    class="c0"
   >
     Click me!
   </button>

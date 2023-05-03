@@ -2,8 +2,21 @@
 
 exports[`SplashScreen component matches the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-648b7200-0 lsqJg"
+  .c0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ededed;
+  z-index: 6;
+}
+
+<div
+    class="c0"
   >
     <h1>
       Loading, be patient pls!

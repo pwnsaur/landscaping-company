@@ -1,9 +1,43 @@
+import 'jest-styled-components';
 import { render } from '@/utils/test-utils';
-import Service from '@/pages/services';
+import Service, {
+  getStaticPaths,
+  getStaticProps,
+} from '@/pages/services/[slug]';
+import { createMockService } from '@/components/__mocks__/mockService';
+import useIsMobile from '@/utils/hooks/useIsMobile';
 
-describe('Service Page', () => {
-  test('matches the snapshot', () => {
-    const { asFragment } = render(<Service services={[]} />);
+jest.mock('../../utils/hooks/useIsMobile');
+
+const mockService = createMockService();
+
+describe('Service page', () => {
+  test('should render correctly', () => {
+    const { asFragment } = render(<Service service={mockService} />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('should have correct styling for desktop', () => {
+    (useIsMobile as jest.Mock).mockReturnValue(false);
+
+    const { container } = render(<Service service={mockService} />);
+    const projectContainer = container.firstChild;
+    expect(projectContainer).toHaveStyleRule('width', '70%');
+  });
+
+  test('should have correct styling for mobile', () => {
+    (useIsMobile as jest.Mock).mockReturnValue(true);
+
+    const { container } = render(<Service service={mockService} />);
+    const projectContainer = container.firstChild;
+    expect(projectContainer).toHaveStyleRule('width', '100%');
+  });
+
+  test('should export getStaticPaths function', () => {
+    expect(getStaticPaths).toBeDefined();
+  });
+
+  test('should export getStaticProps function', () => {
+    expect(getStaticProps).toBeDefined();
   });
 });

@@ -2,41 +2,89 @@
 
 exports[`MobileNav component matches the snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-97ba968b-0 hlbtWE"
+  .c3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  height: 4rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  transition: color 0.3s ease-in-out;
+}
+
+.c3:hover {
+  color: #696767;
+  text-decoration: none;
+}
+
+.c0 {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.c1 {
+  flex-grow: 1;
+  height: 100%;
+  background-color: transparent;
+}
+
+.c2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 70%;
+  position: fixed;
+  background-color: #228b22;
+  height: 100%;
+  padding-top: 5rem;
+  animation: kIDQyd 0.1s ease-in-out forwards;
+  z-index: 5;
+}
+
+<div
+    class="c0"
   >
     <div
-      class="sc-97ba968b-1 fJjHLw"
+      class="c1"
     />
     <nav
-      class="sc-97ba968b-2 UhhCi"
+      class="c2"
+      data-testid="mobile-nav"
     >
       <a
-        class="sc-a1402bc8-0 NAwpH"
+        class="c3"
         href="/"
       >
         Sākums
       </a>
       <a
-        class="sc-a1402bc8-0 NAwpH"
+        class="c3"
         href="/services"
       >
         Pakalpojumi
       </a>
       <a
-        class="sc-a1402bc8-0 NAwpH"
+        class="c3"
         href="/projects"
       >
         Projekti
       </a>
       <a
-        class="sc-a1402bc8-0 NAwpH"
+        class="c3"
         href="/about"
       >
         Par mums
       </a>
       <a
-        class="sc-a1402bc8-0 NAwpH"
+        class="c3"
         href="/contacts"
       >
         Kontakti

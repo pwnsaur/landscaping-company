@@ -1,9 +1,18 @@
-import { render } from '@/utils/test-utils';
-import Projects from '@/pages/projects';
+import { render } from '@testing-library/react';
+import { TypeProject } from '@/types/contentfulTypes';
+import Projects, { getStaticProps } from '@/pages/projects';
+import { createMockProject } from '@/components/__mocks__/mockProject';
 
-describe('Projects Page', () => {
-  test('matches the snapshot without data', () => {
-    const { asFragment } = render(<Projects projects={[]} />);
+const mockProject = createMockProject();
+const mockProjects: TypeProject[] = [mockProject];
+
+describe('Projects page', () => {
+  it('should render correctly', () => {
+    const { asFragment } = render(<Projects projects={mockProjects} />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('should export getStaticProps function', () => {
+    expect(getStaticProps).toBeDefined();
   });
 });

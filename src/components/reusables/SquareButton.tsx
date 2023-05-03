@@ -18,14 +18,14 @@ const SqareButton = ({ name, destination, isInverted }: SqareButtonProps) => {
 export default SqareButton;
 
 const Button = styled.button<{ $inverted?: boolean }>`
-  min-width: 6rem;
+  min-width: 9rem;
   height: 3rem;
   padding: 0 1rem;
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 
   ${({ theme, $inverted }) => {
     const { background, darkGreen } = theme.colors;

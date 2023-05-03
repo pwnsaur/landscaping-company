@@ -1,26 +1,22 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { createMockService } from '../__mocks__/mockService';
+import { createMockService } from '@/components/__mocks__/mockService';
 import ServiceCard from '@/components/ServiceCard';
-import renderer from 'react-test-renderer';
 
-const mockProject = createMockService();
+const mockService = createMockService();
 
 describe('ServiceCard', () => {
   test('renders correctly', () => {
-    const { getByText } = render(
-      <ServiceCard service={mockProject} priority={false} />
+    const { getByText, asFragment } = render(
+      <ServiceCard service={mockService} priority={false} />
     );
 
-    expect(getByText(mockProject.fields.title)).toBeInTheDocument();
+    expect(getByText(mockService.fields.title)).toBeInTheDocument();
 
-    if (mockProject.fields.excerpt) {
-      expect(getByText(mockProject.fields.excerpt)).toBeInTheDocument();
+    if (mockService.fields.excerpt) {
+      expect(getByText(mockService.fields.excerpt)).toBeInTheDocument();
     }
 
-    const tree = renderer
-      .create(<ServiceCard service={mockProject} priority={false} />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

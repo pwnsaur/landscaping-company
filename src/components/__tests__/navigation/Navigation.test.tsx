@@ -1,5 +1,11 @@
-import { render } from '@/utils/test-utils';
+import { render, fireEvent, screen } from '@/utils/test-utils';
 import Navigation from '@/components/navigation/Navigation';
+import MobileNav from '@/components/navigation/MobileNav';
+import useIsMobile from '@/utils/hooks/useIsMobile';
+
+jest.mock('../../../utils/hooks/useIsMobile');
+
+const mockUseIsMobile = useIsMobile as jest.Mock;
 
 jest.mock('next/router', () => ({
   useRouter: () => ({
@@ -14,5 +20,14 @@ describe('Navigation component', () => {
   test('matches the snapshot', () => {
     const { asFragment } = render(<Navigation />);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('renders mobile navigation when in mobile view', () => {
+    mockUseIsMobile.mockReturnValue(true);
+    render(
+      <MobileNav isOpen={true} isVisible={true} handleItemClick={() => {}} />
+    );
+
+    expect(screen.getByTestId('mobile-nav')).toBeInTheDocument();
   });
 });

@@ -42,7 +42,7 @@ const Project = ({ project }: { project: TypeProject }) => {
 export { getStaticPaths, getStaticProps };
 export default Project;
 
-const ProjectContainer = styled.div`
+export const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

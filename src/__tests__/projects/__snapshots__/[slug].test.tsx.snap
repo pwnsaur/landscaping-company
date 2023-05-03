@@ -1,9 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Project Page matches the snapshot 1`] = `
+exports[`Project page should render correctly 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-7f6941fa-0 gKwPOZ"
-  />
+  .c4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  width: 100%;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 3rem 5rem;
+}
+
+.c2 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 400;
+  margin: 1rem 0;
+}
+
+.c1 {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.c3 {
+  margin: 1rem 0;
+  width: 80%;
+}
+
+<div
+    class="c0"
+  >
+    <img
+      alt="cover image"
+      class="c1"
+      data-nimg="1"
+      decoding="async"
+      height="720"
+      src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=50"
+      srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1920&q=50 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=50 2x"
+      style="color: transparent;"
+      width="1280"
+    />
+    <h3
+      class="c2"
+    >
+      Fifteenth Project
+    </h3>
+    <div
+      class="c3"
+    />
+    <div
+      class="c4"
+    />
+  </div>
 </DocumentFragment>
 `;

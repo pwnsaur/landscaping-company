@@ -1,53 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ServiceCard renders correctly 1`] = `
-[
-  <hr
-    className="sc-f889ee52-0 kGXvte"
-  />,
-  <div
-    className="sc-f889ee52-1 dIwqvs"
+<DocumentFragment>
+  .c0 {
+  border: none;
+  height: 1px;
+  background-color: black;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+<hr
+    class="c0"
+  />
+  .c0 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.c4 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 400;
+  margin: auto;
+}
+
+.c2 {
+  max-width: 40%;
+  height: auto;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.c5 {
+  margin: 10px 20px;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.c3 {
+  width: 100%;
+}
+
+<div
+    class="c0"
   >
     <a
-      className="sc-f889ee52-4 zVuoe"
+      class="c1"
       href="/services/service"
-      onClick={[Function]}
-      onMouseEnter={[Function]}
-      onTouchStart={[Function]}
     >
       <img
         alt="cover-image"
-        className="sc-f889ee52-3 cLnRwW"
+        class="c2"
         data-nimg="1"
         decoding="async"
-        height={270}
+        height="270"
         loading="lazy"
-        onError={[Function]}
-        onLoad={[Function]}
         src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50"
-        srcSet="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=50 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50 2x"
-        style={
-          {
-            "color": "transparent",
-          }
-        }
-        width={480}
+        srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=50 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50 2x"
+        style="color: transparent;"
+        width="480"
       />
       <div
-        className="sc-f889ee52-6 ifxsTg"
+        class="c3"
       >
         <h2
-          className="sc-f889ee52-2 eKnWwk"
+          class="c4"
         >
           Service
         </h2>
         <p
-          className="sc-f889ee52-5 ixJtdy"
+          class="c5"
         >
           service
         </p>
       </div>
     </a>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
