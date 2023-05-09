@@ -1,10 +1,10 @@
-import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
-import useIsMobile from '@utils/hooks/useIsMobile';
 import Layout from '@components/Layout';
-import ErrorBoundary from '@utils/ErrorBoundary';
 import GlobalStyles from '@styles/globalStyles';
 import { theme } from '@styles/theme';
+import ErrorBoundary from '@utils/ErrorBoundary';
+import useIsMobile from '@utils/hooks/useIsMobile';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'styled-components';
 
 export default function App({ Component, pageProps }: AppProps) {
   const isMobile = useIsMobile();

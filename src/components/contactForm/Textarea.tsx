@@ -31,8 +31,7 @@ export default Textarea;
 const StyledTextarea = styled.textarea`
   padding: 1rem;
   border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   margin: 1.5rem 0 2.5rem;
   width: 100%;
   height: 10rem;
@@ -40,7 +39,7 @@ const StyledTextarea = styled.textarea`
   outline: none;
 
   &:focus {
-    border-color: green;
+    border-color: ${({ theme }) => theme.colors.lightGreen};
   }
 
   ::placeholder {

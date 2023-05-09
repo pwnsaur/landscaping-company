@@ -1,6 +1,8 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { FormData } from '@/types/contentfulTypes';
 import axios from 'axios';
+import { NextApiRequest, NextApiResponse } from 'next';
+
+import { FormData } from '@/types/contactForm';
+
 const nodemailer = (await import('nodemailer')).default;
 
 const verifyRecaptcha = async (recaptchaToken: string) => {
@@ -18,7 +20,7 @@ const verifyRecaptcha = async (recaptchaToken: string) => {
   return recaptchaResponse.data.success && recaptchaResponse.data.score > 0.8;
 };
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const mailHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { name, email, phone, message, recaptcha } = req.body as FormData & {
     recaptcha: string;
   };
@@ -56,7 +58,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     html: htmlMessage,
   };
 
-  let transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE,
     auth: {
       user: process.env.EMAIL_ADDRESS,
@@ -69,12 +71,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(250).json({
       success: `Message delivered to ${info.accepted}`,
     });
-  } catch (err: any) {
-    res.status(500).json({
-      error: `Error sending email: ${err.message}`,
-      details: err,
-    });
+  } catch (err) {
+    if (err instanceof Error) {
+      res.status(500).json({
+        error: `Error sending email: ${err.message}`,
+        details: err,
+      });
+    } else {
+      res.status(500).json({
+        error: 'An unexpected error occurred',
+      });
+    }
   }
 };
 
-export default handler;
+export default mailHandler;

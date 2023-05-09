@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react';
-import { TypeProject } from '@/types/contentfulTypes';
-import Projects, { getStaticProps } from '@/pages/projects';
+
 import { createMockProject } from '@/components/__mocks__/mockProject';
+import Projects, { getStaticProps } from '@/pages/projects';
+import { TypeProject } from '@/types/contentfulTypes';
 
 const mockProject = createMockProject();
 const mockProjects: TypeProject[] = [mockProject];

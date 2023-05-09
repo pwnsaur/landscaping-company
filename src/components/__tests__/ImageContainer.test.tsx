@@ -1,6 +1,7 @@
-import { fireEvent, render, screen } from '@/utils/test-utils';
 import ImageContainer from '@/components/ImageContainer';
 import useIsMobile from '@/utils/hooks/useIsMobile';
+import { fireEvent, render, screen } from '@/utils/test-utils';
+
 import { createMockAsset } from '../__mocks__/mockAsset';
 
 jest.mock('../../utils/hooks/useIsMobile', () => jest.fn());

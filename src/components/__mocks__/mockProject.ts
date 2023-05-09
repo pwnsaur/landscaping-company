@@ -1,7 +1,8 @@
-import { Entry } from 'contentful';
-import { TypeProjectFields } from '@/types/contentfulTypes';
-import { BLOCKS } from '@contentful/rich-text-types';
 import { createMockAsset } from '@components/__mocks__/mockAsset';
+import { BLOCKS } from '@contentful/rich-text-types';
+import { Entry } from 'contentful';
+
+import { TypeProjectFields } from '@/types/contentfulTypes';
 
 export const createMockProject = (): Entry<TypeProjectFields> => {
   return {

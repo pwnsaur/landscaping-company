@@ -1,5 +1,6 @@
-import React from 'react';
 import { render } from '@testing-library/react';
+import React from 'react';
+
 import { createMockProject } from '@/components/__mocks__/mockProject';
 import ProjectCard from '@/components/ProjectCard';
 

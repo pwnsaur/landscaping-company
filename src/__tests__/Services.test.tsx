@@ -1,7 +1,8 @@
 import { render } from '@testing-library/react';
-import { TypeService } from '@/types/contentfulTypes';
-import Services, { getStaticProps } from '@/pages/services';
+
 import { createMockService } from '@/components/__mocks__/mockService';
+import Services, { getStaticProps } from '@/pages/services';
+import { TypeService } from '@/types/contentfulTypes';
 
 const mockService = createMockService();
 const mockServices: TypeService[] = [mockService];

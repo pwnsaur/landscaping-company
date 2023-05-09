@@ -1,11 +1,12 @@
-import Image from 'next/image';
-import styled from 'styled-components';
-import { NextSeo } from 'next-seo';
-import { Document } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { TypeProject } from '@/types/contentfulTypes';
-import { getStaticData } from '@pages/api/getStaticDataSlug';
 import ImageContainer from '@components/ImageContainer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Document } from '@contentful/rich-text-types';
+import { getStaticData } from '@pages/api/getStaticDataSlug';
+import Image from 'next/image';
+import { NextSeo } from 'next-seo';
+import styled from 'styled-components';
+
+import { TypeProject } from '@/types/contentfulTypes';
 
 const { getStaticPaths, getStaticProps } = getStaticData('project');
 
@@ -59,8 +60,12 @@ export const ProjectContainer = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  font-weight: 400;
+  font-size: ${({ theme }) => `
+    clamp(${theme.normalClamp.min},
+      ${theme.normalClamp.preferred},
+      ${theme.normalClamp.max})
+  `};
+  font-weight: ${({ theme }) => theme.fontWeights.normal};
   margin: 1rem 0;
 `;
 

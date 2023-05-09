@@ -1,5 +1,5 @@
-import { render } from '@/utils/test-utils';
 import SquareButton from '@/components/reusables/SquareButton';
+import { render } from '@/utils/test-utils';
 
 describe('SquareButton component', () => {
   test('matches the snapshot', () => {

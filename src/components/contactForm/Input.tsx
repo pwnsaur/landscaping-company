@@ -34,7 +34,6 @@ export default Input;
 const StyledInput = styled.input`
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
   font-size: ${({ theme }) => theme.fontSizes.normal};
   margin: 15px 0;
   width: 100%;

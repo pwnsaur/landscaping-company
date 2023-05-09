@@ -1,6 +1,6 @@
-import { render } from '@/utils/test-utils';
 import About from '@/pages/about';
 import useIsMobile from '@/utils/hooks/useIsMobile';
+import { render } from '@/utils/test-utils';
 
 jest.mock('../utils/hooks/useIsMobile');
 

@@ -1,5 +1,5 @@
-import { render } from '@/utils/test-utils';
 import Contacts from '@/pages/contacts';
+import { render } from '@/utils/test-utils';
 
 describe('Contacts Page', () => {
   test('matches the snapshot', () => {

@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import Link from 'next/link';
+import styled, { css } from 'styled-components';
 
 interface SqareButtonProps {
   name: string;

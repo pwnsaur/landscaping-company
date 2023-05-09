@@ -1,5 +1,5 @@
-import { render } from '@/utils/test-utils';
 import SubmitModal from '@/components/contactForm/SubmitModal';
+import { render } from '@/utils/test-utils';
 
 describe('SubmitModal component', () => {
   test('matches the snapshot on success', () => {

@@ -1,6 +1,7 @@
-import { render } from '@/utils/test-utils';
-import Textarea from '@/components/contactForm/Textarea';
 import { ChangeEvent } from 'react';
+
+import Textarea from '@/components/contactForm/Textarea';
+import { render } from '@/utils/test-utils';
 
 describe('Textarea component', () => {
   test('matches the snapshot', () => {

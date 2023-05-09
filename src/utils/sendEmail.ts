@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormData } from '@/types/contentfulTypes';
+
+import { FormData } from '@/types/contactForm';
 
 type ServerResponse = {
   messageId: string;

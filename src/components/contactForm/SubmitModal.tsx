@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { useEffect } from 'react';
+import styled from 'styled-components';
 
 interface ModalProps {
   isOpen: boolean;
@@ -45,7 +45,7 @@ const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
 `;
 
 const Message = styled.p`
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   font-weight: bold;
   margin: 0;
   padding: 0;

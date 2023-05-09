@@ -1,9 +1,10 @@
+import backgroundTall from '@assets/backgroundTall.jpg';
 import Image from 'next/image';
-import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
+
 import SqareButton from '@/components/reusables/SquareButton';
-import backgroundTall from '@assets/backgroundTall.jpg';
 import SplashScreen from '@/components/SplashScreen';
 import useSplashScreen from '@/utils/hooks/useSplashScreen';
 
@@ -85,7 +86,7 @@ const TitleContainer = styled.div`
 const Title = styled.h1`
   font-size: 4rem;
   text-align: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   text-transform: uppercase;
   ${({ theme }) => theme.isMobile && `font-size: 2.5rem;`}
 `;

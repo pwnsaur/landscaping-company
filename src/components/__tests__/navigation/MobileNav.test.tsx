@@ -1,5 +1,5 @@
-import { render } from '@/utils/test-utils';
 import MobileNav from '@/components/navigation/MobileNav';
+import { render } from '@/utils/test-utils';
 
 describe('MobileNav component', () => {
   test('matches the snapshot', () => {

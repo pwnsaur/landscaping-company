@@ -22,11 +22,3 @@ export interface TypeServiceFields {
 }
 
 export type TypeService = Entry<TypeServiceFields>;
-
-export type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  recaptcha?: string;
-};

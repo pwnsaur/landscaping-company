@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
-import { MouseEvent } from 'react';
 import NavItems from '@components/navigation/NavItems';
+import { MouseEvent } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 const slideIn = keyframes`
   0% {
@@ -66,8 +66,7 @@ const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
   justify-content: flex-start;
   width: 70%;
   position: fixed;
-  /* background-color: ${({ theme }) => theme.colors.background}; */
-  background-color: #228b22;
+  background-color: ${({ theme }) => theme.colors.lightGreen};
   height: 100%;
   padding-top: 5rem;
   animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.1s ease-in-out

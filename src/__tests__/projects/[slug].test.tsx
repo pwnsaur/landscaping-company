@@ -1,11 +1,12 @@
 import 'jest-styled-components';
-import { render, screen, within } from '@/utils/test-utils';
+
+import { createMockProject } from '@/components/__mocks__/mockProject';
 import Project, {
   getStaticPaths,
   getStaticProps,
 } from '@/pages/projects/[slug]';
-import { createMockProject } from '@/components/__mocks__/mockProject';
 import useIsMobile from '@/utils/hooks/useIsMobile';
+import { render, screen, within } from '@/utils/test-utils';
 
 jest.mock('../../utils/hooks/useIsMobile');
 

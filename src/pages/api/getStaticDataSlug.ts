@@ -1,7 +1,8 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { ParsedUrlQuery } from 'querystring';
-import { TypeProjectFields, TypeServiceFields } from '@/types/contentfulTypes';
 import { client } from '@pages/api/client';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { ParsedUrlQuery } from 'querystring';
+
+import { TypeProjectFields, TypeServiceFields } from '@/types/contentfulTypes';
 
 type ContentType = 'project' | 'service';
 

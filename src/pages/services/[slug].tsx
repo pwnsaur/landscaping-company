@@ -1,10 +1,11 @@
-import Image from 'next/image';
-import styled from 'styled-components';
-import { NextSeo } from 'next-seo';
-import { Document } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { TypeService } from '@/types/contentfulTypes';
+import { Document } from '@contentful/rich-text-types';
 import { getStaticData } from '@pages/api/getStaticDataSlug';
+import Image from 'next/image';
+import { NextSeo } from 'next-seo';
+import styled from 'styled-components';
+
+import { TypeService } from '@/types/contentfulTypes';
 
 const { getStaticPaths, getStaticProps } = getStaticData('service');
 
@@ -59,8 +60,8 @@ const ServiceContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   margin-bottom: 1rem;
 `;
 

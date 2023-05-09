@@ -1,5 +1,5 @@
-import { render } from '@/utils/test-utils';
 import Home from '@/pages/index';
+import { render } from '@/utils/test-utils';
 
 describe('Home Page', () => {
   test('matches the snapshot', () => {

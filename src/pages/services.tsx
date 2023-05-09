@@ -1,8 +1,9 @@
-import styled from 'styled-components';
-import { NextSeo } from 'next-seo';
-import { TypeService } from '@/types/contentfulTypes';
 import ServiceCard from '@components/ServiceCard';
 import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
+import { NextSeo } from 'next-seo';
+import styled from 'styled-components';
+
+import { TypeService } from '@/types/contentfulTypes';
 
 export const getStaticProps = getStaticPropsPage('service');
 
@@ -37,15 +38,19 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: ${({ theme }) => theme.width.wide};
   padding: 8vh 3vw;
 `;
 
 const Title = styled.h1`
-  max-width: 20em;
+  max-width: ${({ theme }) => theme.width.narrow};
   text-align: center;
   text-transform: uppercase;
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  font-weight: 500;
+  font-size: ${({ theme }) => `
+    clamp(${theme.normalClamp.min},
+      ${theme.normalClamp.preferred},
+      ${theme.normalClamp.max})
+  `};
+  font-weight: ${({ theme }) => theme.fontWeights.normal};
   padding-bottom: 3rem;
 `;

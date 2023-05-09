@@ -1,6 +1,7 @@
-import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
+
 import cato from '@/assets/cato.jpg';
 
 const About = () => {
@@ -71,13 +72,13 @@ const RightDiv = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 1.2rem;
+  font-size: ${({ theme }) => theme.fontSizes.larger};
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 `;
 
 const Paragraph = styled.p`
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   line-height: 1.5;
   margin-bottom: 1.25rem;
 `;

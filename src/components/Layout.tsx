@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import Footer from '@components/Footer';
 import Navigation from '@components/navigation/Navigation';
+import styled from 'styled-components';
 
 type Props = {
   children: JSX.Element | JSX.Element[];

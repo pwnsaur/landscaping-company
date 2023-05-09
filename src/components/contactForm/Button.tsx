@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   padding: 0.5rem;
   min-width: 5rem;
   background-color: ${({ theme }) => theme.colors.darkGreen};
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   border: none;
   font-size: ${({ theme }) => theme.fontSizes.normal};
   transition: background-color 0.2s;
@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   }
 
   &:disabled {
-    background-color: grey;
+    color: ${({ theme }) => theme.colors.grey};
     cursor: not-allowed;
   }
 `;
