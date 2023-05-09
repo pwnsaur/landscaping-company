@@ -88,7 +88,7 @@ const Header = styled.header`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  max-width: ${({ theme }) => theme.width.default};
+  max-width: ${({ theme }) => theme.width.normal};
   ${({ theme }) => theme.isMobile && `flex-direction: row;`}
 `;
 

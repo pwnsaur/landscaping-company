@@ -39,6 +39,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   max-width: ${({ theme }) => theme.width.wide};
+  max-width: 48rem;
   padding: 8vh 3vw;
 `;
 

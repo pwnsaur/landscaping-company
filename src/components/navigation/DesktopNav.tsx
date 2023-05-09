@@ -17,5 +17,5 @@ const StyledDesktopNav = styled.nav`
   justify-content: space-around;
   width: 100%;
   height: 100%;
-  max-width: ${({ theme }) => theme.width.default};
+  max-width: ${({ theme }) => theme.width.normal};
 `;

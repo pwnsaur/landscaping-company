@@ -9,6 +9,7 @@ exports[`SquareButton component matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1rem;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   background-color: #ededed;

@@ -5,7 +5,6 @@ exports[`Textarea component matches the snapshot 1`] = `
   .c0 {
   padding: 1rem;
   border: 1px solid #ccc;
-  border-radius: 0.5rem;
   font-size: 1rem;
   margin: 1.5rem 0 2.5rem;
   width: 100%;
@@ -15,10 +14,22 @@ exports[`Textarea component matches the snapshot 1`] = `
 }
 
 .c0:focus {
-  border-color: green;
+  border-color: #05ac05;
 }
 
-.c0 ::placeholder {
+.c0::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.c0::-moz-placeholder {
+  color: #aaa;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.c0::placeholder {
   color: #aaa;
 }
 

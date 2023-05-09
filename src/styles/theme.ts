@@ -37,7 +37,7 @@ export const theme = {
   },
   width: {
     narrow: '25rem',
-    default: '48rem',
+    normal: '48rem',
     wide: '75rem',
   },
 };

@@ -9,6 +9,7 @@ exports[`Home Page matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1rem;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   background-color: #ededed;
@@ -35,8 +36,17 @@ exports[`Home Page matches the snapshot 1`] = `
 }
 
 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
   min-height: calc(100vh - 141px);
@@ -45,13 +55,22 @@ exports[`Home Page matches the snapshot 1`] = `
 .c2 {
   font-size: 4rem;
   text-align: center;
-  color: white;
+  color: #fff;
   text-transform: uppercase;
 }
 
 .c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
   margin-bottom: 20rem;

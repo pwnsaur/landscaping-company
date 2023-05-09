@@ -6,7 +6,7 @@ import Project, {
   getStaticProps,
 } from '@/pages/projects/[slug]';
 import useIsMobile from '@/utils/hooks/useIsMobile';
-import { render, screen, within } from '@/utils/test-utils';
+import { render } from '@/utils/test-utils';
 
 jest.mock('../../utils/hooks/useIsMobile');
 

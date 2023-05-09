@@ -6,9 +6,10 @@ exports[`Button component matches the snapshot for enabled state 1`] = `
   padding: 0.5rem;
   min-width: 5rem;
   background-color: #21412a;
-  color: white;
+  color: #fff;
   border: none;
   font-size: 1rem;
+  -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
   cursor: pointer;
 }
@@ -18,7 +19,7 @@ exports[`Button component matches the snapshot for enabled state 1`] = `
 }
 
 .c0:disabled {
-  background-color: grey;
+  color: #696767;
   cursor: not-allowed;
 }
 
