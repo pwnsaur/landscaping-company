@@ -1,5 +1,5 @@
-import { render } from '@/utils/test-utils';
 import Button from '@/components/contactForm/Button';
+import { render } from '@/utils/test-utils';
 
 describe('Button component', () => {
   test('matches the snapshot for enabled state', () => {

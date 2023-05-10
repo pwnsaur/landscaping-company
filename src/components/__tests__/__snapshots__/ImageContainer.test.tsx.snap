@@ -4,9 +4,12 @@ exports[`ImageContainer component matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(16rem,1fr));
   width: 100%;
   gap: 1rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-top: 2rem;
 }

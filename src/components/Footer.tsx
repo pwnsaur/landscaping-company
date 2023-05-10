@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import SqareButton from '@/components/reusables/SquareButton';
 
 const Footer = () => {
@@ -22,11 +23,10 @@ const FooterContainer = styled.footer`
   margin: auto 0 0;
   padding-top: 5rem;
   background-color: ${({ theme }) => theme.colors.darkGreen};
-  /* z-index: 1; */
 `;
 
 const FooterText = styled.p`
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   margin-bottom: 1rem;
   margin-top: auto;
 `;

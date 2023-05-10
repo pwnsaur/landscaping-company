@@ -1,5 +1,6 @@
-import { FormData } from '@/types/contentfulTypes';
 import { useState } from 'react';
+
+import { FormData } from '@/types/contactForm';
 import sendEmail from '@/utils/sendEmail';
 
 const useEmailSubmit = () => {

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { TypeService } from '@/types/contentfulTypes';
 
 const ServiceCard = ({
@@ -40,7 +41,7 @@ export default ServiceCard;
 const Break = styled.hr`
   border: none;
   height: 1px;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.black};
   margin: 1rem 0;
   width: 100%;
 `;
@@ -54,15 +55,18 @@ const Card = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  font-weight: 400;
+  font-size: ${({ theme }) => `
+    clamp(${theme.normalClamp.min},
+      ${theme.normalClamp.preferred},
+      ${theme.normalClamp.max})
+  `};
+  font-weight: ${({ theme }) => theme.fontWeights.normal};
   margin: auto;
 `;
 
 const StyledImage = styled(Image)`
   max-width: 40%;
   height: auto;
-
   ${({ theme }) =>
     theme.isMobile &&
     `
@@ -80,7 +84,11 @@ const StyledLink = styled(Link)`
 
 const Excerpt = styled.p`
   margin: 10px 20px;
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-size: ${({ theme }) => `
+    clamp(${theme.smallClamp.min},
+      ${theme.smallClamp.preferred},
+      ${theme.smallClamp.max})
+  `};
 `;
 
 const Description = styled.div`

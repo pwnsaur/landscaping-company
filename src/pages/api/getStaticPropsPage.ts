@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+
 import { client } from '@pages/api/client';
 
 export function getStaticPropsPage(content_type: string): GetStaticProps {

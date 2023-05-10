@@ -1,12 +1,13 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import styled from 'styled-components';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
-import useIsMobile from '@/utils/hooks/useIsMobile';
+import styled from 'styled-components';
+
+import logoImage from '@assets/logo.png';
 import DesktopNav from '@components/navigation/DesktopNav';
 import MobileNav from '@components/navigation/MobileNav';
-import logoImage from '@/assets/logo.png';
+import useIsMobile from '@utils/hooks/useIsMobile';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -83,17 +84,18 @@ const Container = styled.div`
 
 const Header = styled.header`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  max-width: 768px;
-  ${({ theme }) => !theme.isMobile && `flex-direction: column;`}
+  max-width: ${({ theme }) => theme.width.normal};
+  ${({ theme }) => theme.isMobile && `flex-direction: row;`}
 `;
 
 const Hamburger = styled.button<{ $isOpen: boolean }>`
   display: block;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.larger};
   margin: 1rem 2rem;
   font-weight: 1000;
   cursor: pointer;

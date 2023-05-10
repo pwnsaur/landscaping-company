@@ -1,6 +1,7 @@
-import { render } from '@/utils/test-utils';
-import Input from '@/components/contactForm/Input';
 import { ChangeEvent } from 'react';
+
+import Input from '@/components/contactForm/Input';
+import { render } from '@/utils/test-utils';
 
 describe('Input component', () => {
   test('matches the snapshot', () => {

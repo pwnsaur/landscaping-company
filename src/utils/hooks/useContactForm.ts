@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FormData } from '@/types/contentfulTypes';
+
+import { FormData } from '@/types/contactForm';
 
 const blankForm: FormData = {
   name: '',

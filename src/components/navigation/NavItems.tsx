@@ -18,8 +18,8 @@ export default NavItems;
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
-  color: black;
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  color: ${({ theme }) => theme.colors.black};
   text-transform: uppercase;
   height: 4rem;
   padding: 0 1rem;
@@ -27,7 +27,6 @@ const StyledLink = styled(Link)`
   transition: color 0.3s ease-in-out;
 
   &:hover {
-    color: #696767;
-    text-decoration: none;
+    color: ${({ theme }) => theme.colors.grey};
   }
 `;

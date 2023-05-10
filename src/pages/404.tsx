@@ -18,6 +18,6 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.superLarge};
+  font-weight: ${({ theme }) => theme.fontWeights.superBold};
 `;

@@ -1,5 +1,5 @@
-import { render, screen } from '@/utils/test-utils';
 import Footer from '@/components/Footer';
+import { render, screen } from '@/utils/test-utils';
 
 describe('Footer Component', () => {
   test('matches the snapshot', () => {

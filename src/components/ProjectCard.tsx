@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+
 import { TypeProject } from '@/types/contentfulTypes';
 import useOnScreen from '@/utils/hooks/useOnScreen';
 
@@ -48,14 +49,14 @@ export default ProjectCard;
 const StyledPlaceholder = styled.div<{ height: number }>`
   width: 100%;
   height: ${({ height }) => `${height}px`};
-  background-color: #eee;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 const StyledCard = styled.div`
   position: relative;
   height: fit-content;
   text-align: center;
-  background-color: #ededed;
+  background-color: ${({ theme }) => theme.colors.background};
   transition: transform 0.2s ease-in-out;
 
   &:hover {
@@ -79,8 +80,12 @@ const StyledImage = styled(Image)`
 `;
 
 const Title = styled.h3`
-  font-size: clamp(0.8rem, 1.1vw, 1rem);
-  font-weight: 500;
+  font-size: ${({ theme }) => `
+    clamp(${theme.smallClamp.min},
+      ${theme.smallClamp.preferred},
+      ${theme.smallClamp.max})
+  `};
+  font-weight: ${({ theme }) => theme.fontWeights.normal};
   margin: 0.6rem;
   text-transform: uppercase;
 `;

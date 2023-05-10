@@ -1,5 +1,5 @@
-import { render } from '@/utils/test-utils';
 import ZoomedImage from '@/components/ZoomedImage';
+import { render } from '@/utils/test-utils';
 
 describe('ZoomedImage component', () => {
   test('matches the snapshot', () => {

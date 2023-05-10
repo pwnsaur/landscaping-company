@@ -5,7 +5,7 @@ exports[`ServiceCard renders correctly 1`] = `
   .c0 {
   border: none;
   height: 1px;
-  background-color: black;
+  background-color: #1a1a1a;
   margin: 1rem 0;
   width: 100%;
 }
@@ -14,7 +14,13 @@ exports[`ServiceCard renders correctly 1`] = `
     class="c0"
   />
   .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
   margin: 0 auto;
@@ -22,7 +28,7 @@ exports[`ServiceCard renders correctly 1`] = `
 }
 
 .c4 {
-  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 400;
   margin: auto;
 }
@@ -33,15 +39,23 @@ exports[`ServiceCard renders correctly 1`] = `
 }
 
 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
 }
 
 .c5 {
   margin: 10px 20px;
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
 }
 
 .c3 {

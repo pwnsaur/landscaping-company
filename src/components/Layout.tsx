@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Footer from '@components/Footer';
 import Navigation from '@components/navigation/Navigation';
 

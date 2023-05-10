@@ -5,13 +5,19 @@ exports[`Projects page should render correctly 1`] = `
   .c2 {
   border: none;
   height: 1px;
-  background-color: black;
+  background-color: #1a1a1a;
   margin: 1rem 0;
   width: 100%;
 }
 
 .c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
   margin: 0 auto;
@@ -19,7 +25,7 @@ exports[`Projects page should render correctly 1`] = `
 }
 
 .c7 {
-  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 400;
   margin: auto;
 }
@@ -30,15 +36,23 @@ exports[`Projects page should render correctly 1`] = `
 }
 
 .c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
 }
 
 .c8 {
   margin: 10px 20px;
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
 }
 
 .c6 {
@@ -46,20 +60,29 @@ exports[`Projects page should render correctly 1`] = `
 }
 
 .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
+  max-width: 48rem;
   padding: 8vh 3vw;
 }
 
 .c1 {
-  max-width: 20em;
+  max-width: 25rem;
   text-align: center;
   text-transform: uppercase;
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  font-weight: 500;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 400;
   padding-bottom: 3rem;
 }
 

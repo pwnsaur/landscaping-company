@@ -1,6 +1,7 @@
-import styled from 'styled-components';
 import { NextSeo } from 'next-seo';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import styled from 'styled-components';
+
 import ContactForm from '@components/contactForm/ContactForm';
 
 const Contact = () => {
@@ -29,7 +30,7 @@ export default Contact;
 const Container = styled.div`
   text-align: center;
   padding: 5vh 0 5vh;
-  max-width: 25rem;
+  max-width: ${({ theme }) => theme.width.narrow};
   width: 80%;
 
   ${({ theme }) =>
@@ -41,7 +42,11 @@ const Container = styled.div`
 
 const Title = styled.h2`
   text-transform: uppercase;
-  font-size: clamp(1.2rem, 2vw, 2rem);
-  font-weight: 500;
+  font-size: ${({ theme }) => `
+    clamp(${theme.normalClamp.min},
+      ${theme.normalClamp.preferred},
+      ${theme.normalClamp.max})
+  `};
+  font-weight: ${({ theme }) => theme.fontWeights.normal};
   margin: 1rem 0;
 `;

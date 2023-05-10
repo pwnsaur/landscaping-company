@@ -3,13 +3,21 @@
 exports[`About Page matches the snapshot in desktop view 1`] = `
 <DocumentFragment>
   .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 4em;
 }
 
 .c1 {
   min-width: 40%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
   align-self: center;
 }
 
@@ -75,15 +83,25 @@ exports[`About Page matches the snapshot in desktop view 1`] = `
 exports[`About Page matches the snapshot in mobile view 1`] = `
 <DocumentFragment>
   .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 4em;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin: 0.5rem;
 }
 
 .c1 {
   min-width: 40%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
   align-self: center;
   max-width: 70%;
 }

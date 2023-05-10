@@ -1,5 +1,6 @@
-import type * as CFRichTextTypes from '@contentful/rich-text-types';
 import type { Asset, Entry, EntryFields } from 'contentful';
+
+import type * as CFRichTextTypes from '@contentful/rich-text-types';
 
 export interface TypeProjectFields {
   title: EntryFields.Symbol;
@@ -22,11 +23,3 @@ export interface TypeServiceFields {
 }
 
 export type TypeService = Entry<TypeServiceFields>;
-
-export type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  recaptcha?: string;
-};
