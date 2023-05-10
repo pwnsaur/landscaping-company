@@ -30,7 +30,7 @@ export default Textarea;
 
 const StyledTextarea = styled.textarea`
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid ${({ theme }) => theme.colors.borderGrey};
   font-size: ${({ theme }) => theme.fontSizes.normal};
   margin: 1.5rem 0 2.5rem;
   width: 100%;
@@ -43,6 +43,6 @@ const StyledTextarea = styled.textarea`
   }
 
   ::placeholder {
-    color: #aaa;
+    color: ${({ theme }) => theme.colors.placeholder};
   }
 `;

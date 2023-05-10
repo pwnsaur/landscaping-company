@@ -1,4 +1,3 @@
-import backgroundTall from '@assets/backgroundTall.jpg';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 import React, { useEffect } from 'react';
@@ -7,6 +6,7 @@ import styled from 'styled-components';
 import SqareButton from '@/components/reusables/SquareButton';
 import SplashScreen from '@/components/SplashScreen';
 import useSplashScreen from '@/utils/hooks/useSplashScreen';
+import backgroundTall from '@assets/backgroundTall.jpg';
 
 const Home = () => {
   // const loading = useSplashScreen();

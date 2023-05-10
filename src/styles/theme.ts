@@ -5,6 +5,8 @@ export const theme = {
     darkGreen: '#21412a',
     lightGreen: '#05ac05',
     grey: '#696767',
+    borderGrey: '#ccc',
+    placeholder: '#aaa',
     white: '#fff',
     title: '#39412f',
     text: '#333',
@@ -17,8 +19,9 @@ export const theme = {
   fontSizes: {
     small: '0.8rem',
     normal: '1rem',
-    larger: '1.2rem',
-    large: '1.5rem',
+    large: '1.2rem',
+    larger: '1.5rem',
+    superLarge: '3rem',
   },
   smallClamp: {
     min: '0.8rem',

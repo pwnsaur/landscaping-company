@@ -1,9 +1,9 @@
-import ProjectCard from '@components/ProjectCard';
-import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import { TypeProject } from '@/types/contentfulTypes';
+import ProjectCard from '@components/ProjectCard';
+import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
 
 export const getStaticProps = getStaticPropsPage('project');
 

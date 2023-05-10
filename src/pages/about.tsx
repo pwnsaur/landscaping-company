@@ -72,7 +72,7 @@ const RightDiv = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.larger};
+  font-size: ${({ theme }) => theme.fontSizes.large};
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 `;

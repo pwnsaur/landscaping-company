@@ -1,10 +1,10 @@
-import ZoomedImage from '@components/ZoomedImage';
 import { Asset } from 'contentful';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import useIsMobile from '@/utils/hooks/useIsMobile';
+import ZoomedImage from '@components/ZoomedImage';
 
 type Props = {
   images: Asset[] | undefined;

@@ -33,7 +33,7 @@ export default Input;
 
 const StyledInput = styled.input`
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid ${({ theme }) => theme.colors.borderGrey};
   font-size: ${({ theme }) => theme.fontSizes.normal};
   margin: 15px 0;
   width: 100%;
@@ -44,6 +44,6 @@ const StyledInput = styled.input`
   }
 
   ::placeholder {
-    color: #aaa;
+    color: ${({ theme }) => theme.colors.placeholder};
   }
 `;

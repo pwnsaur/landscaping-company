@@ -1,7 +1,8 @@
-import ContactForm from '@components/contactForm/ContactForm';
 import { NextSeo } from 'next-seo';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
+
+import ContactForm from '@components/contactForm/ContactForm';
 
 const Contact = () => {
   return (
