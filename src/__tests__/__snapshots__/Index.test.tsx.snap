@@ -2,64 +2,73 @@
 
 exports[`Home Page matches the snapshot 1`] = `
 <DocumentFragment>
-  .c5 {
-  min-width: 9rem;
-  height: 3rem;
-  padding: 0 1rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1rem;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  background-color: #ededed;
-  border: 2px solid #21412a;
-  color: #21412a;
+  .c1 {
+  height: 100vh;
 }
 
-.c5:hover {
-  background-color: #21412a;
-  border-color: #ededed;
-  color: #ededed;
+.c2 {
+  position: relative;
+  height: 100vh;
 }
 
 .c0 {
   position: relative;
-  background-image: url(/img.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: repeat-y;
-  background-position: top center;
   width: 100%;
-  min-height: 100vh;
-  margin-bottom: -5rem;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  height: 100%;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 100%;
-  min-height: calc(100vh - 141px);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.c2 {
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6 {
+  margin: 4rem 0;
+  text-align: center;
+  min-height: 8rem;
+  background-color: #ededed;
+}
+
+.c7 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.c5 {
+  margin-top: 50vh;
   font-size: 4rem;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -73,31 +82,34 @@ exports[`Home Page matches the snapshot 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 20rem;
-  background-color: #ededed;
-}
-
-.c4 {
-  display: block;
-  width: 70%;
-  padding: 2rem 6rem;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: justify;
+  min-height: calc(100vh + 255px);
 }
 
 <div
     class="c0"
-    id="parallax"
   >
     <div
       class="c1"
     >
-      <h1
-        class="c2"
+      <div
+        style="will-change: transform; transform: translateY(300px);"
       >
-        The Company
-      </h1>
+        <div
+          class="c2"
+        >
+          <img
+            alt="Background image"
+            data-nimg="1"
+            decoding="async"
+            height="1080"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=3840&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=1920&q=75 1x, /_next/image?url=%2Fimg.jpg&w=3840&q=75 2x"
+            style="color: transparent;"
+            width="1920"
+          />
+        </div>
+      </div>
     </div>
     <div
       class="c3"
@@ -105,35 +117,40 @@ exports[`Home Page matches the snapshot 1`] = `
       <div
         class="c4"
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, officiis. Illo assumenda velit ratione enim, quaerat inventore nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus voluptates provident sit?
-      </div>
-      <a
-        href="/projects"
-      >
-        <button
+        <h1
           class="c5"
         >
-          Projekti
-        </button>
-      </a>
-    </div>
-    <div
-      class="c3"
-    >
+          The Company
+        </h1>
+      </div>
       <div
-        class="c4"
+        class="c6"
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque dolorum minus quisquam sint sunt ad sit vero, eos repudiandae in doloribus est porro veniam enim fugiat ipsam laborum at?
-      </div>
-      <a
-        href="/services"
-      >
-        <button
-          class="c5"
+        <h1
+          class=""
         >
-          Pakalpojumi
-        </button>
-      </a>
+          Section 1
+        </h1>
+        <div
+          class="c7"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, officiis. Illo assumenda velit ratione enim, quaerat inventore nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus voluptates provident sit?
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <h1
+          class=""
+        >
+          Section 2
+        </h1>
+        <div
+          class="c7"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, officiis. Illo assumenda velit ratione enim, quaerat inventore nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus voluptates provident sit?
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>

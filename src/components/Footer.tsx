@@ -23,6 +23,7 @@ const FooterContainer = styled.footer`
   margin: auto 0 0;
   padding-top: 5rem;
   background-color: ${({ theme }) => theme.colors.darkGreen};
+  z-index: 2;
 `;
 
 const FooterText = styled.p`

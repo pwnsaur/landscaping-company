@@ -53,9 +53,9 @@ const Navigation = () => {
             {isOpen ? 'X' : 'B'}
           </Hamburger>
         )}
-        <LinkLogo href='/'>
+        {/* <LinkLogo href='/'>
           <Logo src={logoImage} alt='logo' width={120} height={70} priority />
-        </LinkLogo>
+        </LinkLogo> */}
         {isMobile ? (
           <MobileNav
             isVisible={isVisible}
