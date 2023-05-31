@@ -1,9 +1,9 @@
+import { render, RenderOptions } from '@testing-library/react';
 import { ReactElement, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from '@/styles/theme';
 import useIsMobile from '@/utils/hooks/useIsMobile';
-import { render, RenderOptions } from '@testing-library/react';
 
 interface TestWrapperProps {
   children: ReactNode;

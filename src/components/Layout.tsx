@@ -1,4 +1,3 @@
-import { ParallaxProvider, Parallax, useParallax } from 'react-scroll-parallax';
 import styled from 'styled-components';
 
 import Footer from '@components/Footer';
@@ -12,9 +11,7 @@ const Layout = ({ children }: Props) => {
   return (
     <Container>
       <Navigation />
-      <ParallaxProvider>
-        <Content>{children}</Content>
-      </ParallaxProvider>
+      <Content>{children}</Content>
       <Footer />
     </Container>
   );
@@ -36,5 +33,5 @@ const Content = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
 `;
