@@ -26,13 +26,13 @@ exports[`Home Page matches the snapshot 1`] = `
 .c0 {
   position: relative;
   width: 100%;
-  min-height: 250svh;
+  min-height: 250vh;
   max-height: 3600px;
   overflow: hidden;
 }
 
 .c2 {
-  min-height: 200svh;
+  min-height: 200vh;
   width: auto;
   object-fit: cover;
   position: absolute;
@@ -107,11 +107,11 @@ exports[`Home Page matches the snapshot 1`] = `
 }
 
 .c6 {
-  top: calc(100svh - 63px);
+  top: calc(100vh - 63px);
 }
 
 .c10 {
-  top: calc(170svh);
+  top: 175vh;
 }
 
 .c8 {

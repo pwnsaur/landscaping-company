@@ -75,13 +75,13 @@ export default Home;
 const Container = styled.div`
   position: relative;
   width: 100%;
-  min-height: 250svh;
+  min-height: 250vh;
   max-height: 3600px;
   overflow: hidden;
 `;
 
 const StyledImage = styled(Image)`
-  min-height: 200svh;
+  min-height: 200vh;
   width: auto;
   object-fit: cover;
   position: absolute;
@@ -134,12 +134,12 @@ const Section = styled.section`
 `;
 
 const SectionOne = styled(Section)`
-  top: calc(100svh - 63px);
+  top: calc(100vh - 63px);
   ${({ theme }) => theme.isMobile && `top: 100vh;`};
 `;
 
 const SectionTwo = styled(Section)`
-  top: calc(170svh);
+  top: 175vh;
 `;
 
 const Spacer = styled.div`
