@@ -74,7 +74,7 @@ exports[`Projects page should render correctly 1`] = `
   width: 100%;
   max-width: 75rem;
   max-width: 48rem;
-  padding: 8vh 3vw;
+  padding: 8vh 3vw 18vh;
 }
 
 .c1 {

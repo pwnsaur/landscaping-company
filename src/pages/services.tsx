@@ -40,7 +40,7 @@ const Container = styled.div`
   width: 100%;
   max-width: ${({ theme }) => theme.width.wide};
   max-width: 48rem;
-  padding: 8vh 3vw;
+  padding: 8vh 3vw 18vh;
   ${({ theme }) => theme.isMobile && `padding: 6rem 2rem;`};
 `;
 

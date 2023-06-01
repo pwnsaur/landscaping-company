@@ -44,18 +44,21 @@ export default About;
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 4em;
+  margin: 5rem 4em;
 
   ${({ theme }) =>
     theme.isMobile &&
     `
       flex-direction: column;
       margin: 0.5rem;
-      margin: 5rem 1rem 2rem;
+      margin: 6rem 1rem 2rem;
   `}
 `;
 
 const LeftDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 40%;
   align-self: center;
 
@@ -67,6 +70,10 @@ const LeftDiv = styled.div`
 `;
 
 const RightDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   max-width: 60%;
   padding: 0 4rem;
 
@@ -94,5 +101,6 @@ const Paragraph = styled.p`
 const StyledImage = styled(Image)`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  max-width: 20rem;
+  object-fit: contain;
 `;
