@@ -38,5 +38,5 @@ const Container = styled.div`
   justify-content: center;
   padding: 1rem 2rem;
   ${({ theme }) => theme.isMobile && `padding: 2rem 1rem;`};
-  margin: 3rem 0;
+  margin: 4rem 0;
 `;

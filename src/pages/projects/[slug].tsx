@@ -8,7 +8,6 @@ import { TypeProject } from '@/types/contentfulTypes';
 import ImageContainer from '@components/ImageContainer';
 import { getStaticData } from '@pages/api/getStaticDataSlug';
 
-
 const { getStaticPaths, getStaticProps } = getStaticData('project');
 
 const Project = ({ project }: { project: TypeProject }) => {
@@ -56,7 +55,7 @@ export const ProjectContainer = styled.div`
     `
       width: 100%;
       padding: 0 1rem;
-      margin: 0;
+      margin: 6rem 0;
   `}
 `;
 

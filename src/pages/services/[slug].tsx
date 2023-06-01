@@ -55,7 +55,7 @@ const ServiceContainer = styled.div`
     `
       width: 100%;
       padding: 0 1rem;
-      margin: 0;
+      margin: 5rem 0;
   `}
 `;
 
