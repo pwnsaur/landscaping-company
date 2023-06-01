@@ -57,7 +57,7 @@ exports[`Navigation component matches the snapshot 1`] = `
   align-items: center;
   width: 100%;
   background-color: #ededed;
-  z-index: 1;
+  z-index: 3;
 }
 
 .c1 {

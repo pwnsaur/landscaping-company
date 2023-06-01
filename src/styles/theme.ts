@@ -24,8 +24,8 @@ export const theme = {
     superLarge: '3rem',
   },
   smallClamp: {
-    min: '0.8rem',
-    preferred: '1.2vw',
+    min: '1rem',
+    preferred: '0.8vw',
     max: '1.2rem',
   },
   normalClamp: {

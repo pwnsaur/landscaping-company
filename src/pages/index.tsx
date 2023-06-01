@@ -75,14 +75,18 @@ export default Home;
 const Container = styled.div`
   position: relative;
   width: 100%;
-  min-height: 250vh;
+  min-height: 250svh;
   max-height: 3600px;
   overflow: hidden;
 `;
 
 const StyledImage = styled(Image)`
-  min-height: 200vh;
+  min-height: 200svh;
   width: auto;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 const Background = styled.div`
@@ -108,8 +112,8 @@ const Foreground = styled.div`
 const Title = styled.h1`
   position: absolute;
   top: 40vh;
-  font-size: 3.5rem;
-  color: #fff;
+  font-size: ${({ theme }) => theme.fontSizes.superLarge};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const Section = styled.section`
@@ -117,11 +121,12 @@ const Section = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   min-height: 7rem;
   padding: 1rem;
   box-sizing: border-box;
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   z-index: 1;
   background-color: ${({ theme }) => theme.colors.background};
   ${({ theme }) => theme.isMobile && `flex-direction: column;`};
@@ -129,15 +134,12 @@ const Section = styled.section`
 `;
 
 const SectionOne = styled(Section)`
-  justify-content: space-evenly;
-  top: calc(100vh - 65px);
-  margin-top: 1px;
+  top: calc(100svh - 63px);
+  ${({ theme }) => theme.isMobile && `top: 100vh;`};
 `;
 
 const SectionTwo = styled(Section)`
-  justify-content: space-around;
-  top: calc(170vh);
-  margin-top: 20px;
+  top: calc(170svh);
 `;
 
 const Spacer = styled.div`

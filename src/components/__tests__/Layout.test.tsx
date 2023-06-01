@@ -11,7 +11,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Layout component', () => {
-  xtest('matches the snapshot', () => {
+  test('matches the snapshot', () => {
     const { asFragment } = render(
       <Layout>
         <div>Would you test me? Id test me.</div>

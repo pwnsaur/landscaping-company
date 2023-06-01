@@ -15,7 +15,14 @@ const About = () => {
 
       <Container>
         <LeftDiv>
-          <StyledImage src={cato} alt='cato' priority quality={50} />
+          <StyledImage
+            src={cato}
+            alt='cato'
+            height={2688}
+            width={1920}
+            priority
+            quality={40}
+          />
         </LeftDiv>
         <RightDiv>
           <Heading>Hey it&#39;s us</Heading>
@@ -44,6 +51,7 @@ const Container = styled.div`
     `
       flex-direction: column;
       margin: 0.5rem;
+      margin: 5rem 1rem 2rem;
   `}
 `;
 

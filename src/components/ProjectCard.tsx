@@ -35,7 +35,7 @@ const ProjectCard = ({
           </ImageContainer>
         ) : (
           <StyledPlaceholder
-            height={coverImage.fields.file.details.image!.height / 4}
+            height={coverImage.fields.file.details.image!.height / 5}
           />
         )}
         <Title>{title}</Title>

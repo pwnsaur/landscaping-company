@@ -52,7 +52,7 @@ exports[`Projects page should render correctly 1`] = `
 
 .c8 {
   margin: 10px 20px;
-  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+  font-size: clamp(1rem, 0.8vw, 1.2rem);
 }
 
 .c6 {
@@ -82,7 +82,7 @@ exports[`Projects page should render correctly 1`] = `
   text-align: center;
   text-transform: uppercase;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
-  font-weight: 400;
+  font-weight: 600;
   padding-bottom: 3rem;
 }
 

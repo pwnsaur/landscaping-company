@@ -36,7 +36,7 @@ exports[`Projects page should render correctly 1`] = `
 }
 
 .c4 {
-  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+  font-size: clamp(1rem, 0.8vw, 1.2rem);
   font-weight: 400;
   margin: 0.6rem;
   text-transform: uppercase;

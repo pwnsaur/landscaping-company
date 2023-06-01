@@ -55,7 +55,7 @@ exports[`ServiceCard renders correctly 1`] = `
 
 .c5 {
   margin: 10px 20px;
-  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+  font-size: clamp(1rem, 0.8vw, 1.2rem);
 }
 
 .c3 {
