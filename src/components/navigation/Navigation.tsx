@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import logoImage from '@assets/logo.png';
 import DesktopNav from '@components/navigation/DesktopNav';
+import HamburgerIcon from '@components/navigation/HamburgerIcon';
 import MobileNav from '@components/navigation/MobileNav';
 import useIsMobile from '@utils/hooks/useIsMobile';
 
@@ -48,11 +49,7 @@ const Navigation = () => {
   return (
     <Container>
       <Header>
-        {isMobile && (
-          <Hamburger onClick={toggleMenu} $isOpen={isOpen}>
-            {isOpen ? 'X' : 'B'}
-          </Hamburger>
-        )}
+        {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
         {/* <LinkLogo href='/'>
           <Logo src={logoImage} alt='logo' width={120} height={70} priority />
         </LinkLogo> */}
@@ -90,18 +87,6 @@ const Header = styled.header`
   max-width: ${({ theme }) => theme.width.normal};
   ${({ theme }) => theme.isMobile && `flex-direction: row;`}
   ${({ theme }) => theme.isMobile && `height: 0`}
-`;
-
-const Hamburger = styled.button<{ $isOpen: boolean }>`
-  display: block;
-  background: none;
-  border: none;
-  font-size: ${({ theme }) => theme.fontSizes.larger};
-  margin: 1rem 2rem;
-  font-weight: 1000;
-  cursor: pointer;
-  position: ${({ $isOpen }) => ($isOpen ? 'fixed' : 'static')};
-  z-index: 3;
 `;
 
 const Logo = styled(Image)`
