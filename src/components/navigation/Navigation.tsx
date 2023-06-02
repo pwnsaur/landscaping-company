@@ -101,7 +101,6 @@ const Hamburger = styled.button<{ $isOpen: boolean }>`
   font-weight: 1000;
   cursor: pointer;
   position: ${({ $isOpen }) => ($isOpen ? 'fixed' : 'static')};
-  /* top: ${({ $isOpen }) => ($isOpen ? '1.5rem' : 'auto')}; */
   z-index: 3;
 `;
 

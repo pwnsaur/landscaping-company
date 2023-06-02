@@ -46,10 +46,7 @@ const Home = () => {
         <Foreground>
           <Title>THE COMPANY</Title>
           <SectionOne>
-            <SqareButton
-              destination='services'
-              name='Pakalpojumi'
-            ></SqareButton>
+            <SqareButton destination='services' name='Pakalpojumi' />
             <Spacer />
             <StyledText>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -62,7 +59,7 @@ const Home = () => {
               mauris nisl interdum lectus, in convallis mauris nisl a nunc.
             </StyledText>
             <Spacer />
-            <SqareButton destination='projects' name='Projekti'></SqareButton>
+            <SqareButton destination='projects' name='Projekti' />
           </SectionTwo>
         </Foreground>
       </Container>

@@ -79,7 +79,7 @@ exports[`About Page matches the snapshot in desktop view 1`] = `
       class="c1"
     >
       <img
-        alt="cato"
+        alt="a cute cato"
         class="c2"
         data-nimg="1"
         decoding="async"
@@ -196,7 +196,7 @@ exports[`About Page matches the snapshot in mobile view 1`] = `
       class="c1"
     >
       <img
-        alt="cato"
+        alt="a cute cato"
         class="c2"
         data-nimg="1"
         decoding="async"

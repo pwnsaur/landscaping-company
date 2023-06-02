@@ -17,7 +17,7 @@ const About = () => {
         <LeftDiv>
           <StyledImage
             src={cato}
-            alt='cato'
+            alt='a cute cato'
             height={2688}
             width={1920}
             priority
