@@ -37,6 +37,7 @@ const Container = styled.div`
     theme.isMobile &&
     `
       width: 90%;
+      margin-top: 2rem;
   `}
 `;
 

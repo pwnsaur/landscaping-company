@@ -33,5 +33,4 @@ const Content = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-bottom: 5rem;
 `;

@@ -18,7 +18,7 @@ export default NavItems;
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSizes.large};
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   color: ${({ theme }) => theme.colors.black};
   text-transform: uppercase;
   height: 4rem;

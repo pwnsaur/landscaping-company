@@ -2,7 +2,7 @@
 
 exports[`Navigation component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c5 {
+  .c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11,7 +11,7 @@ exports[`Navigation component matches the snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #1a1a1a;
   text-transform: uppercase;
   height: 4rem;
@@ -21,11 +21,11 @@ exports[`Navigation component matches the snapshot 1`] = `
   transition: color 0.3s ease-in-out;
 }
 
-.c5:hover {
+.c3:hover {
   color: #696767;
 }
 
-.c4 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57,7 +57,7 @@ exports[`Navigation component matches the snapshot 1`] = `
   align-items: center;
   width: 100%;
   background-color: #ededed;
-  z-index: 1;
+  z-index: 3;
 }
 
 .c1 {
@@ -76,71 +76,41 @@ exports[`Navigation component matches the snapshot 1`] = `
   max-width: 48rem;
 }
 
-.c3 {
-  height: 100%;
-  width: auto;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  margin: 1rem auto 1rem;
-}
-
 <div
     class="c0"
   >
     <header
       class="c1"
     >
-      <a
-        class="c2"
-        href="/"
-      >
-        <img
-          alt="logo"
-          class="c3"
-          data-nimg="1"
-          decoding="async"
-          height="70"
-          src="/_next/image?url=%2Fimg.jpg&w=256&q=75"
-          srcset="/_next/image?url=%2Fimg.jpg&w=128&q=75 1x, /_next/image?url=%2Fimg.jpg&w=256&q=75 2x"
-          style="color: transparent;"
-          width="120"
-        />
-      </a>
       <nav
-        class="c4"
+        class="c2"
       >
         <a
-          class="c5"
+          class="c3"
           href="/"
         >
           Sākums
         </a>
         <a
-          class="c5"
+          class="c3"
           href="/services"
         >
           Pakalpojumi
         </a>
         <a
-          class="c5"
+          class="c3"
           href="/projects"
         >
           Projekti
         </a>
         <a
-          class="c5"
+          class="c3"
           href="/about"
         >
           Par mums
         </a>
         <a
-          class="c5"
+          class="c3"
           href="/contacts"
         >
           Kontakti

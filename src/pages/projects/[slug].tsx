@@ -1,13 +1,12 @@
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Document } from '@contentful/rich-text-types';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import { TypeProject } from '@/types/contentfulTypes';
 import ImageContainer from '@components/ImageContainer';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Document } from '@contentful/rich-text-types';
 import { getStaticData } from '@pages/api/getStaticDataSlug';
-
 
 const { getStaticPaths, getStaticProps } = getStaticData('project');
 
@@ -56,7 +55,7 @@ export const ProjectContainer = styled.div`
     `
       width: 100%;
       padding: 0 1rem;
-      margin: 0;
+      margin: 6rem 0;
   `}
 `;
 

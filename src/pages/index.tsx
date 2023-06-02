@@ -1,28 +1,28 @@
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
-import React, { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import SqareButton from '@/components/reusables/SquareButton';
-import SplashScreen from '@/components/SplashScreen';
-import useSplashScreen from '@/utils/hooks/useSplashScreen';
-import backgroundTall from '@assets/backgroundTall.jpg';
+import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
 
 const Home = () => {
-  // const loading = useSplashScreen();
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const yPos = window.pageYOffset;
-      document.getElementById('parallax')!.style.backgroundPositionY = `${
-        yPos * -0.75
-      }px`;
+      const scrollTop = window.pageYOffset;
+      const maxScrollTop =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollFraction = scrollTop / maxScrollTop;
+      const parallaxOffset = 400 * scrollFraction;
+      if (imageRef.current) {
+        imageRef.current.style.transform = `translateY(${parallaxOffset}px)`;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -32,29 +32,36 @@ const Home = () => {
         titleTemplate='Brasika | %s'
         description='Sākums'
       />
-
-      {/* {loading && <SplashScreen />} */}
-      <Container id='parallax'>
-        <TitleContainer>
-          <Title>The Company</Title>
-        </TitleContainer>
-        <Section>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            officiis. Illo assumenda velit ratione enim, quaerat inventore
-            nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus
-            voluptates provident sit?
-          </Text>
-          <SqareButton name='Projekti' destination='projects' />
-        </Section>
-        <Section>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque
-            dolorum minus quisquam sint sunt ad sit vero, eos repudiandae in
-            doloribus est porro veniam enim fugiat ipsam laborum at?
-          </Text>
-          <SqareButton name='Pakalpojumi' destination='services' />
-        </Section>
+      <Container>
+        <Background ref={imageRef}>
+          <StyledImage
+            src={bacgroundImageThree}
+            alt='Background Image'
+            width={2400}
+            height={3600}
+            quality={50}
+            priority
+          />
+        </Background>
+        <Foreground>
+          <Title>THE COMPANY</Title>
+          <SectionOne>
+            <SqareButton destination='services' name='Pakalpojumi' />
+            <Spacer />
+            <StyledText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              tincidunt luctus libero, a pharetra ipsum consequat eu.
+            </StyledText>
+          </SectionOne>
+          <SectionTwo>
+            <StyledText>
+              Mauris id risus felis. Sed semper, mauris at consequat tincidunt,
+              mauris nisl interdum lectus, in convallis mauris nisl a nunc.
+            </StyledText>
+            <Spacer />
+            <SqareButton destination='projects' name='Projekti' />
+          </SectionTwo>
+        </Foreground>
       </Container>
     </>
   );
@@ -64,48 +71,80 @@ export default Home;
 
 const Container = styled.div`
   position: relative;
-  background-image: url(${backgroundTall.src});
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: repeat-y;
-  background-position: top center;
   width: 100%;
-  min-height: 100vh;
-  margin-bottom: -5rem;
+  min-height: 250vh;
+  max-height: 3600px;
+  overflow: hidden;
 `;
 
-const TitleContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const StyledImage = styled(Image)`
+  min-height: 200vh;
+  width: auto;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
+const Background = styled.div`
+  position: absolute;
+  top: -65px;
+  left: 0;
   width: 100%;
-  min-height: calc(100vh - 141px);
-  ${({ theme }) => theme.isMobile && `min-height: calc(100vh - 109px);`}
+  height: 100%;
+`;
+
+const Foreground = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 const Title = styled.h1`
-  font-size: 4rem;
-  text-align: center;
+  position: absolute;
+  top: 40vh;
+  font-size: ${({ theme }) => theme.fontSizes.superLarge};
   color: ${({ theme }) => theme.colors.white};
-  text-transform: uppercase;
-  ${({ theme }) => theme.isMobile && `font-size: 2.5rem;`}
 `;
 
-const Section = styled.div`
+const Section = styled.section`
+  position: absolute;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
-  margin-bottom: 20rem;
+  min-height: 7rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
+  z-index: 1;
   background-color: ${({ theme }) => theme.colors.background};
+  ${({ theme }) => theme.isMobile && `flex-direction: column;`};
+  ${({ theme }) => theme.isMobile && `padding: 1.5rem 0;`};
 `;
 
-const Text = styled.div`
-  display: block;
-  width: 70%;
-  padding: 2rem 6rem;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: justify;
-  ${({ theme }) => theme.isMobile && `width: 100%;`}
+const SectionOne = styled(Section)`
+  top: calc(100vh - 63px);
+  ${({ theme }) => theme.isMobile && `top: 100vh;`};
+`;
+
+const SectionTwo = styled(Section)`
+  top: 175vh;
+`;
+
+const Spacer = styled.div`
+  height: 2rem;
+`;
+
+const StyledText = styled.p`
+  max-width: 50%;
+  text-align: center;
+  ${({ theme }) => theme.isMobile && `max-width: 90%;`}
 `;

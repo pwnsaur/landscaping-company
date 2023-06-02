@@ -11,10 +11,22 @@ exports[`About Page matches the snapshot in desktop view 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin: 4em;
+  margin: 5rem 4em;
 }
 
 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   min-width: 40%;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -22,6 +34,21 @@ exports[`About Page matches the snapshot in desktop view 1`] = `
 }
 
 .c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   max-width: 60%;
   padding: 0 4rem;
 }
@@ -41,7 +68,8 @@ exports[`About Page matches the snapshot in desktop view 1`] = `
 .c2 {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  max-width: 20rem;
+  object-fit: contain;
 }
 
 <div
@@ -51,15 +79,15 @@ exports[`About Page matches the snapshot in desktop view 1`] = `
       class="c1"
     >
       <img
-        alt="cato"
+        alt="a cute cato"
         class="c2"
         data-nimg="1"
         decoding="async"
-        height="40"
-        src="/_next/image?url=%2Fimg.jpg&w=96&q=50"
-        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=50 1x, /_next/image?url=%2Fimg.jpg&w=96&q=50 2x"
+        height="2688"
+        src="/_next/image?url=%2Fimg.jpg&w=3840&q=40"
+        srcset="/_next/image?url=%2Fimg.jpg&w=1920&q=40 1x, /_next/image?url=%2Fimg.jpg&w=3840&q=40 2x"
         style="color: transparent;"
-        width="40"
+        width="1920"
       />
     </div>
     <div
@@ -91,14 +119,27 @@ exports[`About Page matches the snapshot in mobile view 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin: 4em;
+  margin: 5rem 4em;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   margin: 0.5rem;
+  margin: 6rem 1rem 2rem;
 }
 
 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   min-width: 40%;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -107,6 +148,21 @@ exports[`About Page matches the snapshot in mobile view 1`] = `
 }
 
 .c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   max-width: 60%;
   padding: 0 4rem;
   max-width: 100%;
@@ -129,7 +185,8 @@ exports[`About Page matches the snapshot in mobile view 1`] = `
 .c2 {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  max-width: 20rem;
+  object-fit: contain;
 }
 
 <div
@@ -139,15 +196,15 @@ exports[`About Page matches the snapshot in mobile view 1`] = `
       class="c1"
     >
       <img
-        alt="cato"
+        alt="a cute cato"
         class="c2"
         data-nimg="1"
         decoding="async"
-        height="40"
-        src="/_next/image?url=%2Fimg.jpg&w=96&q=50"
-        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=50 1x, /_next/image?url=%2Fimg.jpg&w=96&q=50 2x"
+        height="2688"
+        src="/_next/image?url=%2Fimg.jpg&w=3840&q=40"
+        srcset="/_next/image?url=%2Fimg.jpg&w=1920&q=40 1x, /_next/image?url=%2Fimg.jpg&w=3840&q=40 2x"
         style="color: transparent;"
-        width="40"
+        width="1920"
       />
     </div>
     <div

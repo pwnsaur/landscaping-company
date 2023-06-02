@@ -40,7 +40,8 @@ const Container = styled.div`
   width: 100%;
   max-width: ${({ theme }) => theme.width.wide};
   max-width: 48rem;
-  padding: 8vh 3vw;
+  padding: 8vh 3vw 18vh;
+  ${({ theme }) => theme.isMobile && `padding: 6rem 2rem;`};
 `;
 
 const Title = styled.h1`
@@ -52,6 +53,6 @@ const Title = styled.h1`
       ${theme.normalClamp.preferred},
       ${theme.normalClamp.max})
   `};
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   padding-bottom: 3rem;
 `;

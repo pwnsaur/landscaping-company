@@ -53,9 +53,9 @@ const Navigation = () => {
             {isOpen ? 'X' : 'B'}
           </Hamburger>
         )}
-        <LinkLogo href='/'>
+        {/* <LinkLogo href='/'>
           <Logo src={logoImage} alt='logo' width={120} height={70} priority />
-        </LinkLogo>
+        </LinkLogo> */}
         {isMobile ? (
           <MobileNav
             isVisible={isVisible}
@@ -79,7 +79,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background};
-  z-index: 1;
+  z-index: 3;
 `;
 
 const Header = styled.header`
@@ -89,6 +89,7 @@ const Header = styled.header`
   width: 100%;
   max-width: ${({ theme }) => theme.width.normal};
   ${({ theme }) => theme.isMobile && `flex-direction: row;`}
+  ${({ theme }) => theme.isMobile && `height: 0`}
 `;
 
 const Hamburger = styled.button<{ $isOpen: boolean }>`
@@ -100,7 +101,6 @@ const Hamburger = styled.button<{ $isOpen: boolean }>`
   font-weight: 1000;
   cursor: pointer;
   position: ${({ $isOpen }) => ($isOpen ? 'fixed' : 'static')};
-  top: ${({ $isOpen }) => ($isOpen ? '1.5rem' : 'auto')};
   z-index: 3;
 `;
 

@@ -1,10 +1,10 @@
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Document } from '@contentful/rich-text-types';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import { TypeService } from '@/types/contentfulTypes';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Document } from '@contentful/rich-text-types';
 import { getStaticData } from '@pages/api/getStaticDataSlug';
 
 const { getStaticPaths, getStaticProps } = getStaticData('service');
@@ -55,7 +55,7 @@ const ServiceContainer = styled.div`
     `
       width: 100%;
       padding: 0 1rem;
-      margin: 0;
+      margin: 5rem 0;
   `}
 `;
 

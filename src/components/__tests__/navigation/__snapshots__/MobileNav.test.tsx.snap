@@ -11,7 +11,7 @@ exports[`MobileNav component matches the snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #1a1a1a;
   text-transform: uppercase;
   height: 4rem;

@@ -44,6 +44,7 @@ exports[`Footer Component matches the snapshot 1`] = `
   margin: auto 0 0;
   padding-top: 5rem;
   background-color: #21412a;
+  z-index: 2;
 }
 
 .c2 {

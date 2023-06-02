@@ -2,7 +2,7 @@
 
 exports[`Home Page matches the snapshot 1`] = `
 <DocumentFragment>
-  .c5 {
+  .c7 {
   min-width: 9rem;
   height: 3rem;
   padding: 0 1rem;
@@ -17,7 +17,7 @@ exports[`Home Page matches the snapshot 1`] = `
   color: #21412a;
 }
 
-.c5:hover {
+.c7:hover {
   background-color: #21412a;
   border-color: #ededed;
   color: #ededed;
@@ -25,115 +25,172 @@ exports[`Home Page matches the snapshot 1`] = `
 
 .c0 {
   position: relative;
-  background-image: url(/img.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: repeat-y;
-  background-position: top center;
   width: 100%;
-  min-height: 100vh;
-  margin-bottom: -5rem;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  min-height: calc(100vh - 141px);
+  min-height: 250vh;
+  max-height: 3600px;
+  overflow: hidden;
 }
 
 .c2 {
-  font-size: 4rem;
-  text-align: center;
-  color: #fff;
-  text-transform: uppercase;
+  min-height: 200vh;
+  width: auto;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.c1 {
+  position: absolute;
+  top: -65px;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .c3 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 20rem;
-  background-color: #ededed;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
 }
 
 .c4 {
-  display: block;
-  width: 70%;
-  padding: 2rem 6rem;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: justify;
+  position: absolute;
+  top: 40vh;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.c5 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  width: 100%;
+  min-height: 7rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  z-index: 1;
+  background-color: #ededed;
+}
+
+.c6 {
+  top: calc(100vh - 63px);
+}
+
+.c10 {
+  top: 175vh;
+}
+
+.c8 {
+  height: 2rem;
+}
+
+.c9 {
+  max-width: 50%;
+  text-align: center;
 }
 
 <div
     class="c0"
-    id="parallax"
   >
     <div
       class="c1"
     >
-      <h1
+      <img
+        alt="Background Image"
         class="c2"
+        data-nimg="1"
+        decoding="async"
+        height="3600"
+        src="/_next/image?url=%2Fimg.jpg&w=3840&q=50"
+        srcset="/_next/image?url=%2Fimg.jpg&w=3840&q=50 1x"
+        style="color: transparent;"
+        width="2400"
+      />
+    </div>
+    <div
+      class="c3"
+    >
+      <h1
+        class="c4"
       >
-        The Company
+        THE COMPANY
       </h1>
-    </div>
-    <div
-      class="c3"
-    >
-      <div
-        class="c4"
+      <section
+        class="c5 c6"
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, officiis. Illo assumenda velit ratione enim, quaerat inventore nostrum sequi vel nihil, tempore maxime ad. Quibusdam rerum ducimus voluptates provident sit?
-      </div>
-      <a
-        href="/projects"
-      >
-        <button
-          class="c5"
+        <a
+          href="/services"
         >
-          Projekti
-        </button>
-      </a>
-    </div>
-    <div
-      class="c3"
-    >
-      <div
-        class="c4"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit itaque dolorum minus quisquam sint sunt ad sit vero, eos repudiandae in doloribus est porro veniam enim fugiat ipsam laborum at?
-      </div>
-      <a
-        href="/services"
-      >
-        <button
-          class="c5"
+          <button
+            class="c7"
+          >
+            Pakalpojumi
+          </button>
+        </a>
+        <div
+          class="c8"
+        />
+        <p
+          class="c9"
         >
-          Pakalpojumi
-        </button>
-      </a>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt luctus libero, a pharetra ipsum consequat eu.
+        </p>
+      </section>
+      <section
+        class="c5 c10"
+      >
+        <p
+          class="c9"
+        >
+          Mauris id risus felis. Sed semper, mauris at consequat tincidunt, mauris nisl interdum lectus, in convallis mauris nisl a nunc.
+        </p>
+        <div
+          class="c8"
+        />
+        <a
+          href="/projects"
+        >
+          <button
+            class="c7"
+          >
+            Projekti
+          </button>
+        </a>
+      </section>
     </div>
   </div>
 </DocumentFragment>
