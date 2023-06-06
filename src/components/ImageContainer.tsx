@@ -85,7 +85,7 @@ const ImageContainer = ({ images }: Props) => {
           previous={() => navigateImage(-1)}
           next={() => navigateImage(1)}
           zoomedImageIndex={zoomedImageIndex}
-          images={images}
+          imagesLength={images.length}
         />
       )}
     </>

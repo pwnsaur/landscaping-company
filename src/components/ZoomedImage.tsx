@@ -12,7 +12,7 @@ interface ZoomedImageProps {
   previous: () => void;
   next: () => void;
   zoomedImageIndex: number;
-  images?: Asset[];
+  imagesLength: number;
 }
 
 const ZoomedImage = ({
@@ -24,15 +24,15 @@ const ZoomedImage = ({
   previous,
   next,
   zoomedImageIndex,
-  images = [],
+  imagesLength = 0,
 }: ZoomedImageProps) => {
   const [leftDisabled, setLeftDisabled] = useState(false);
   const [rightDisabled, setRightDisabled] = useState(false);
 
   useEffect(() => {
     setLeftDisabled(zoomedImageIndex === 0);
-    setRightDisabled(zoomedImageIndex === images.length - 1);
-  }, [zoomedImageIndex, images]);
+    setRightDisabled(zoomedImageIndex === imagesLength - 1);
+  }, [zoomedImageIndex, imagesLength]);
 
   const aspectRatio = height / width;
 
