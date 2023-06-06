@@ -2,25 +2,13 @@
 
 exports[`ZoomedImage component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c2 {
-  width: 100%;
-  height: auto;
-}
-
-.c1 {
-  position: relative;
-  max-width: 80%;
-  max-height: 80%;
-  padding-bottom: calc(80% * NaN);
-}
-
-.c0 {
-  position: fixed;
-  top: 0;
-  left: 0;
+  .c5 {
+  object-fit: contain;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,0.8);
+}
+
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33,19 +21,109 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 5rem;
+  width: calc(100% - 140px);
+  height: auto;
+  max-height: 100%;
+  aspect-ratio: NaN;
+}
+
+.c0 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.8);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 1rem;
   z-index: 6;
+}
+
+.c3 {
+  position: absolute;
+  z-index: 7;
+  top: 50%;
+  color: #1a1a1a;
+  background: transparent;
+  border: none;
+  font-size: 3rem;
+  font-weight: 600;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.c3[disabled] {
+  color: #ccc;
+  cursor: default;
+}
+
+.c1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.c1:not([disabled]):hover {
+  background: rgba(200,200,200,0.6);
+}
+
+.c1:not([disabled]) {
+  background: rgba(200,200,200,0.3);
+}
+
+.c1[disabled] {
+  cursor: default;
+}
+
+.c2 {
+  left: 0;
+}
+
+.c6 {
+  right: 0;
 }
 
 <div
     class="c0"
   >
     <div
-      class="c1"
+      class="c1 c2"
+    >
+      <button
+        class="c3"
+      >
+        &lt;
+      </button>
+    </div>
+    <div
+      class="c4"
     >
       <img
         alt="meow"
-        class="c2"
+        class="c5"
         data-nimg="1"
         decoding="async"
         height="0"
@@ -55,6 +133,15 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
         style="color: transparent;"
         width="0"
       />
+    </div>
+    <div
+      class="c1 c6"
+    >
+      <button
+        class="c3"
+      >
+        &gt;
+      </button>
     </div>
   </div>
 </DocumentFragment>
