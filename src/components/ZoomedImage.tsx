@@ -24,7 +24,7 @@ const ZoomedImage = ({
   previous,
   next,
   zoomedImageIndex,
-  imagesLength = 0,
+  imagesLength,
 }: ZoomedImageProps) => {
   const [leftDisabled, setLeftDisabled] = useState(false);
   const [rightDisabled, setRightDisabled] = useState(false);
