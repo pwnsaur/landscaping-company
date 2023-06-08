@@ -18,10 +18,10 @@ export default NavItems;
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSizes.normal};
+  font-size: ${({ theme }) => theme.fontSizes.large};
   color: ${({ theme }) => theme.colors.black};
   text-transform: uppercase;
-  height: 4rem;
+  height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
   transition: color 0.3s ease-in-out;

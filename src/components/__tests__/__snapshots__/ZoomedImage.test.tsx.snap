@@ -70,6 +70,10 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
   cursor: default;
 }
 
+.c3::selection {
+  background: none;
+}
+
 .c1 {
   position: absolute;
   top: 0;

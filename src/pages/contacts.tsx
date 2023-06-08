@@ -49,5 +49,5 @@ const Title = styled.h2`
       ${theme.normalClamp.max})
   `};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
-  margin: 1rem 0;
+  margin: 3rem 0;
 `;

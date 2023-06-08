@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -13,6 +14,8 @@ import useIsMobile from '@utils/hooks/useIsMobile';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isNavBarVisible, setisNavBarVisible] = useState(true);
 
   const isMobile = useIsMobile();
   const router = useRouter();
@@ -33,6 +36,20 @@ const Navigation = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setisNavBarVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < 70
+      );
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
+  useEffect(() => {
     const handleRouteChange = () => handleMenuItemClick();
     router.events.on('routeChangeStart', handleRouteChange);
     return () => router.events.off('routeChangeStart', handleRouteChange);
@@ -42,17 +59,21 @@ const Navigation = () => {
     handleMenuItemClick();
   }, [isMobile, handleMenuItemClick]);
 
-  // useEffect(() => {
-  //   document.body.style.overflow = isOpen ? 'hidden' : '';
-  // }, [isOpen]);
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }, [isOpen]);
 
   return (
-    <Container>
+    <Container
+      initial={{ y: 0 }}
+      animate={{ y: isNavBarVisible ? 0 : -142 }}
+      transition={{ ease: 'easeInOut', duration: 0.3 }}
+    >
       <Header>
         {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
-        {/* <LinkLogo href='/'>
+        <LinkLogo href='/'>
           <Logo src={logoImage} alt='logo' width={120} height={70} priority />
-        </LinkLogo> */}
+        </LinkLogo>
         {isMobile ? (
           <MobileNav
             isVisible={isVisible}
@@ -69,14 +90,17 @@ const Navigation = () => {
 
 export default Navigation;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background};
+  /* background-color: magenta; */
   z-index: 3;
+  position: sticky;
+  top: 0;
 `;
 
 const Header = styled.header`
@@ -85,8 +109,7 @@ const Header = styled.header`
   justify-content: space-between;
   width: 100%;
   max-width: ${({ theme }) => theme.width.normal};
-  ${({ theme }) => theme.isMobile && `flex-direction: row;`}
-  ${({ theme }) => theme.isMobile && `height: 0`}
+  ${({ theme }) => theme.isMobile && `flex-direction: row;`};
 `;
 
 const Logo = styled(Image)`
