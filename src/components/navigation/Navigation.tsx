@@ -37,6 +37,20 @@ const Navigation = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setisNavBarVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < 70
+      );
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
+  useEffect(() => {
     const handleRouteChange = () => handleMenuItemClick();
     router.events.on('routeChangeStart', handleRouteChange);
     return () => router.events.off('routeChangeStart', handleRouteChange);
@@ -108,6 +122,7 @@ const Container = styled(motion.div)`
   align-items: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background};
+  /* background-color: magenta; */
   z-index: 3;
   position: sticky;
   top: 0;
