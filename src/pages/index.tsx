@@ -121,7 +121,7 @@ const Section = styled.section`
   justify-content: space-evenly;
   width: 100%;
   min-height: 7rem;
-  padding: 1rem;
+  padding: 1rem 6rem;
   box-sizing: border-box;
   font-size: ${({ theme }) => theme.fontSizes.normal};
   z-index: 1;

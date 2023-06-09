@@ -5,20 +5,20 @@ import NavItems from '@components/navigation/NavItems';
 
 const slideIn = keyframes`
   0% {
-    transform: translateX(-100%);
+    transform: translateY(-100%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 `;
 
 const slideOut = keyframes`
   0% {
-    transform: translateX(0);
+    transform: translateY(0);
     visibility: visible;
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateY(-100%);
     visibility: hidden;
   }
 `;
@@ -65,12 +65,12 @@ const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 70%;
+  width: 100%;
   position: fixed;
-  background-color: ${({ theme }) => theme.colors.lightGreen};
+  background-color: ${({ theme }) => theme.colors.background};
   height: 100%;
   padding-top: 5rem;
-  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.1s ease-in-out
+  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.3s ease-in-out
     forwards;
   z-index: 5;
 `;

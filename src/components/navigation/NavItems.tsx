@@ -29,4 +29,10 @@ const StyledLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.colors.grey};
   }
+
+  ${({ theme }) =>
+    theme.isMobile &&
+    `
+      margin: 1rem;
+  `}
 `;

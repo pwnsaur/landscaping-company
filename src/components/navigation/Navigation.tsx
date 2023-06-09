@@ -20,6 +20,7 @@ const Navigation = () => {
   const isMobile = useIsMobile();
   const router = useRouter();
 
+  //mobile menu
   const handleMenuItemClick = useCallback(() => {
     setIsOpen(false);
     setIsVisible(false);
@@ -31,10 +32,21 @@ const Navigation = () => {
       () => {
         setIsVisible(!isOpen);
       },
-      !isOpen ? 0 : 100
+      !isOpen ? 0 : 300
     );
   };
 
+  useEffect(() => {
+    const handleRouteChange = () => handleMenuItemClick();
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => router.events.off('routeChangeStart', handleRouteChange);
+  }, [router.events, handleMenuItemClick]);
+
+  useEffect(() => {
+    handleMenuItemClick();
+  }, [isMobile, handleMenuItemClick]);
+
+  //navbar hide
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -49,18 +61,17 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
+  //scrollbar compensation
   useEffect(() => {
-    const handleRouteChange = () => handleMenuItemClick();
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => router.events.off('routeChangeStart', handleRouteChange);
-  }, [router.events, handleMenuItemClick]);
-
-  useEffect(() => {
-    handleMenuItemClick();
-  }, [isMobile, handleMenuItemClick]);
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const scrollBarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
   }, [isOpen]);
 
   return (
@@ -97,7 +108,6 @@ const Container = styled(motion.div)`
   align-items: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background};
-  /* background-color: magenta; */
   z-index: 3;
   position: sticky;
   top: 0;

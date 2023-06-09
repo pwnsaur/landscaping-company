@@ -99,7 +99,7 @@ exports[`Home Page matches the snapshot 1`] = `
   justify-content: space-evenly;
   width: 100%;
   min-height: 7rem;
-  padding: 1rem;
+  padding: 1rem 6rem;
   box-sizing: border-box;
   font-size: 1rem;
   z-index: 1;

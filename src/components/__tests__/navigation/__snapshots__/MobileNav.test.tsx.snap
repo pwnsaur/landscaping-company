@@ -66,13 +66,13 @@ exports[`MobileNav component matches the snapshot 1`] = `
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  width: 70%;
+  width: 100%;
   position: fixed;
-  background-color: #05ac05;
+  background-color: #ededed;
   height: 100%;
   padding-top: 5rem;
-  -webkit-animation: kIDQyd 0.1s ease-in-out forwards;
-  animation: kIDQyd 0.1s ease-in-out forwards;
+  -webkit-animation: cwHLtx 0.3s ease-in-out forwards;
+  animation: cwHLtx 0.3s ease-in-out forwards;
   z-index: 5;
 }
 
