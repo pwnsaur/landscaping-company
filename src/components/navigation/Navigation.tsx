@@ -20,6 +20,7 @@ const Navigation = () => {
   const isMobile = useIsMobile();
   const router = useRouter();
 
+  //mobile menu
   const handleMenuItemClick = useCallback(() => {
     setIsOpen(false);
     setIsVisible(false);
@@ -31,7 +32,7 @@ const Navigation = () => {
       () => {
         setIsVisible(!isOpen);
       },
-      !isOpen ? 0 : 100
+      !isOpen ? 0 : 300
     );
   };
 
@@ -59,8 +60,32 @@ const Navigation = () => {
     handleMenuItemClick();
   }, [isMobile, handleMenuItemClick]);
 
+  //navbar hide
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setisNavBarVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < 70
+      );
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
+  //scrollbar compensation
+  useEffect(() => {
+    if (isOpen) {
+      const scrollBarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
   }, [isOpen]);
 
   return (

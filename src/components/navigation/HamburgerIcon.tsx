@@ -17,7 +17,7 @@ const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => (
 export default HamburgerIcon;
 
 const StyledHamburgerIcon = styled.div<{ open: boolean }>`
-  width: 40px;
+  width: 45px;
   height: 28px;
   position: ${({ open }) => (open ? 'fixed' : 'static')};
   transform: rotate(0deg);
