@@ -139,7 +139,7 @@ exports[`Contacts Page matches the snapshot 1`] = `
   text-transform: uppercase;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 400;
-  margin: 1rem 0;
+  margin: 3rem 0;
 }
 
 <div

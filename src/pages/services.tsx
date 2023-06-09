@@ -54,5 +54,6 @@ const Title = styled.h1`
       ${theme.normalClamp.max})
   `};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
+  margin-top: 2rem;
   padding-bottom: 3rem;
 `;

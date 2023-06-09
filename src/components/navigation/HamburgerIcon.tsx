@@ -17,8 +17,8 @@ const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => (
 export default HamburgerIcon;
 
 const StyledHamburgerIcon = styled.div<{ open: boolean }>`
-  width: 50px;
-  height: 45px;
+  width: 40px;
+  height: 28px;
   position: ${({ open }) => (open ? 'fixed' : 'static')};
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
@@ -29,10 +29,10 @@ const StyledHamburgerIcon = styled.div<{ open: boolean }>`
   span {
     display: block;
     position: absolute;
-    height: 8px;
+    height: 5px;
     width: 100%;
     background: ${({ theme }) => theme.colors.black};
-    border-radius: 8px;
+    border-radius: 5px;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
@@ -44,11 +44,11 @@ const StyledHamburgerIcon = styled.div<{ open: boolean }>`
 
     &:nth-child(2),
     &:nth-child(3) {
-      top: 16px;
+      top: 12px;
     }
 
     &:nth-child(4) {
-      top: 32px;
+      top: 24px;
     }
   }
 
@@ -56,7 +56,7 @@ const StyledHamburgerIcon = styled.div<{ open: boolean }>`
     open &&
     `
     span:nth-child(1) {
-      top: 18px;
+      top: 12px;
       width: 0%;
       left: 50%;
     }
@@ -70,7 +70,7 @@ const StyledHamburgerIcon = styled.div<{ open: boolean }>`
     }
 
     span:nth-child(4) {
-      top: 18px;
+      top: 12px;
       width: 0%;
       left: 50%;
     }

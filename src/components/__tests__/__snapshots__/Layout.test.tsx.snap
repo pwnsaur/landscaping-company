@@ -2,7 +2,7 @@
 
 exports[`Layout component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c7 {
+  .c9 {
   min-width: 9rem;
   height: 3rem;
   padding: 0 1rem;
@@ -17,13 +17,13 @@ exports[`Layout component matches the snapshot 1`] = `
   color: #ededed;
 }
 
-.c7:hover {
+.c9:hover {
   background-color: #ededed;
   border-color: #21412a;
   color: #21412a;
 }
 
-.c6 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -47,13 +47,13 @@ exports[`Layout component matches the snapshot 1`] = `
   z-index: 2;
 }
 
-.c8 {
+.c10 {
   color: #fff;
   margin-bottom: 1rem;
   margin-top: auto;
 }
 
-.c4 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -62,21 +62,21 @@ exports[`Layout component matches the snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #1a1a1a;
   text-transform: uppercase;
-  height: 4rem;
+  height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
   -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 
-.c4:hover {
+.c6:hover {
   color: #696767;
 }
 
-.c3 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -109,6 +109,9 @@ exports[`Layout component matches the snapshot 1`] = `
   width: 100%;
   background-color: #ededed;
   z-index: 3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .c2 {
@@ -125,6 +128,20 @@ exports[`Layout component matches the snapshot 1`] = `
   justify-content: space-between;
   width: 100%;
   max-width: 48rem;
+}
+
+.c4 {
+  height: 100%;
+  width: auto;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  margin: 1rem auto 1rem;
 }
 
 .c0 {
@@ -148,7 +165,7 @@ exports[`Layout component matches the snapshot 1`] = `
   background-color: #ededed;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -165,39 +182,56 @@ exports[`Layout component matches the snapshot 1`] = `
   >
     <div
       class="c1"
+      style="transform: none;"
     >
       <header
         class="c2"
       >
-        <nav
+        <a
           class="c3"
+          href="/"
+        >
+          <img
+            alt="logo"
+            class="c4"
+            data-nimg="1"
+            decoding="async"
+            height="70"
+            src="/_next/image?url=%2Fimg.jpg&w=256&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=128&q=75 1x, /_next/image?url=%2Fimg.jpg&w=256&q=75 2x"
+            style="color: transparent;"
+            width="120"
+          />
+        </a>
+        <nav
+          class="c5"
         >
           <a
-            class="c4"
+            class="c6"
             href="/"
           >
             Sākums
           </a>
           <a
-            class="c4"
+            class="c6"
             href="/services"
           >
             Pakalpojumi
           </a>
           <a
-            class="c4"
+            class="c6"
             href="/projects"
           >
             Projekti
           </a>
           <a
-            class="c4"
+            class="c6"
             href="/about"
           >
             Par mums
           </a>
           <a
-            class="c4"
+            class="c6"
             href="/contacts"
           >
             Kontakti
@@ -206,26 +240,26 @@ exports[`Layout component matches the snapshot 1`] = `
       </header>
     </div>
     <div
-      class="c5"
+      class="c7"
     >
       <div>
         Would you test me? Id test me.
       </div>
     </div>
     <footer
-      class="c6"
+      class="c8"
     >
       <a
         href="/contacts"
       >
         <button
-          class="c7"
+          class="c9"
         >
           Sazināties
         </button>
       </a>
       <p
-        class="c8"
+        class="c10"
       >
         Copyright 2023 Hackerman
       </p>

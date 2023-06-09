@@ -111,6 +111,10 @@ const Arrow = styled.button`
     color: ${({ theme }) => theme.colors.borderGrey};
     cursor: default;
   }
+
+  ::selection {
+    background: none;
+  }
 `;
 
 const ArrowContainer = styled.div<{ disabled: boolean }>`

@@ -71,6 +71,7 @@ export default Home;
 
 const Container = styled.div`
   position: relative;
+  margin-top: -80px;
   width: 100%;
   min-height: 250vh;
   max-height: 3600px;
@@ -88,7 +89,6 @@ const StyledImage = styled(Image)`
 
 const Background = styled.div`
   position: absolute;
-  top: -65px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -108,7 +108,7 @@ const Foreground = styled.div`
 
 const Title = styled.h1`
   position: absolute;
-  top: 40vh;
+  top: 45vh;
   font-size: ${({ theme }) => theme.fontSizes.superLarge};
   color: ${({ theme }) => theme.colors.white};
 `;
@@ -131,7 +131,7 @@ const Section = styled.section`
 `;
 
 const SectionOne = styled(Section)`
-  top: calc(100vh - 63px);
+  top: calc(100vh);
   ${({ theme }) => theme.isMobile && `top: 100vh;`};
 `;
 
