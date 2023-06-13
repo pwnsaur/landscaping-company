@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SplashScreen component matches the snapshot 1`] = `
+exports[`LoadingScreen component matches the snapshot 1`] = `
 <DocumentFragment>
   .c1 {
   background-color: #333;

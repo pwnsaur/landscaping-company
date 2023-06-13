@@ -9,17 +9,17 @@ const dotFade = keyframes`
   }
 `;
 
-const SplashScreen = () => {
+const LoadingScreen = () => {
   return (
-    <SplashContainer>
+    <LoadingContainer>
       <Dot />
       <Dot />
       <Dot />
-    </SplashContainer>
+    </LoadingContainer>
   );
 };
 
-export default SplashScreen;
+export default LoadingScreen;
 
 const Dot = styled.div`
   background-color: #333;
@@ -38,7 +38,7 @@ const Dot = styled.div`
   }
 `;
 
-const SplashContainer = styled.div`
+const LoadingContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
