@@ -1,28 +1,21 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const useSplashScreen = () => {
-  const [loading, setLoading] = useState(true);
+export const useSplashScreen = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(router.pathname === '/');
 
   useEffect(() => {
-    const handleStart = () => setLoading(true);
-    const handleComplete = () => setLoading(false);
+    let timeout: NodeJS.Timeout;
 
-    if (router.isReady) setLoading(false);
-
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleComplete);
+    if (loading) {
+      timeout = setTimeout(() => setLoading(false), 1000);
+    }
 
     return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleComplete);
+      if (timeout) clearTimeout(timeout);
     };
-  }, [router]);
+  }, [loading]);
 
   return loading;
 };
-
-export default useSplashScreen;

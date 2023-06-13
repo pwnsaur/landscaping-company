@@ -1,14 +1,42 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const dotFade = keyframes`
+  0%, 80%, 100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+`;
 
 const SplashScreen = () => {
   return (
     <SplashContainer>
-      <h1>Loading, be patient pls!</h1>
+      <Dot />
+      <Dot />
+      <Dot />
     </SplashContainer>
   );
 };
 
 export default SplashScreen;
+
+const Dot = styled.div`
+  background-color: #333;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 1rem;
+  animation: ${dotFade} 1.4s infinite ease-in-out both;
+
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+`;
 
 const SplashContainer = styled.div`
   position: fixed;
@@ -21,4 +49,5 @@ const SplashContainer = styled.div`
   justify-content: center;
   background-color: #ededed;
   z-index: 6;
+  overflow-x: hidden;
 `;
