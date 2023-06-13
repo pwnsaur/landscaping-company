@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
+import LoadingScreen from '@/components/LoadingScreen';
 import { useLoading } from '@/utils/hooks/useLoading';
 import Layout from '@components/Layout';
-import SplashScreen from '@components/SplashScreen';
 import GlobalStyles from '@styles/globalStyles';
 import { theme } from '@styles/theme';
 import ErrorBoundary from '@utils/ErrorBoundary';
@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ErrorBoundary>
       <ThemeProvider theme={{ ...theme, isMobile }}>
-        {loading && <SplashScreen />}
+        {loading && <LoadingScreen />}
         <Layout>
           <GlobalStyles />
           <Component {...pageProps} />

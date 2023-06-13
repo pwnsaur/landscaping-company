@@ -1,4 +1,4 @@
-import SplashScreen from '@/components/SplashScreen';
+import SplashScreen from '@/components/LoadingScreen';
 import { render } from '@/utils/test-utils';
 
 describe('SplashScreen component', () => {
