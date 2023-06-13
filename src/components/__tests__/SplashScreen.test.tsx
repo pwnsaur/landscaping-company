@@ -1,9 +1,9 @@
-import SplashScreen from '@/components/SplashScreen';
+import LoadingScreen from '@/components/LoadingScreen';
 import { render } from '@/utils/test-utils';
 
-describe('SplashScreen component', () => {
+describe('LoadingScreen component', () => {
   test('matches the snapshot', () => {
-    const { asFragment } = render(<SplashScreen />);
+    const { asFragment } = render(<LoadingScreen />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
