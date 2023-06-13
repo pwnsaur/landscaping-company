@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
-export const useSplashScreen = () => {
+export const useLoading = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(router.pathname === '/');
 
