@@ -115,9 +115,11 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
   >
     <div
       class="c1 c2"
+      disabled=""
     >
       <button
         class="c3"
+        disabled=""
       >
         &lt;
       </button>
