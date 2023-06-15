@@ -12,6 +12,14 @@ describe('ZoomedImage component', () => {
         close={function (): void {
           throw new Error('Function not implemented.');
         }}
+        previous={function (): void {
+          throw new Error('Function not implemented.');
+        }}
+        next={function (): void {
+          throw new Error('Function not implemented.');
+        }}
+        zoomedImageIndex={0}
+        imagesLength={0}
       />
     );
     expect(asFragment()).toMatchSnapshot();

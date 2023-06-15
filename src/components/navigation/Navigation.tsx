@@ -17,6 +17,10 @@ const Navigation = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isNavBarVisible, setisNavBarVisible] = useState(true);
 
+  const [startUpwardsScrollPos, setStartUpwardsScrollPos] = useState<
+    number | null
+  >(null);
+
   const isMobile = useIsMobile();
   const router = useRouter();
 
@@ -37,20 +41,6 @@ const Navigation = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setisNavBarVisible(
-        prevScrollPos > currentScrollPos || currentScrollPos < 70
-      );
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos]);
-
-  useEffect(() => {
     const handleRouteChange = () => handleMenuItemClick();
     router.events.on('routeChangeStart', handleRouteChange);
     return () => router.events.off('routeChangeStart', handleRouteChange);
@@ -63,17 +53,30 @@ const Navigation = () => {
   //navbar hide
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setisNavBarVisible(
-        prevScrollPos > currentScrollPos || currentScrollPos < 70
-      );
+      const currentScrollPos = window.scrollY;
+
+      if (currentScrollPos <= 100) {
+        setisNavBarVisible(true);
+        setStartUpwardsScrollPos(null);
+      } else if (prevScrollPos > currentScrollPos) {
+        if (startUpwardsScrollPos === null) {
+          setStartUpwardsScrollPos(prevScrollPos);
+        } else if (startUpwardsScrollPos - currentScrollPos >= 100) {
+          setisNavBarVisible(true);
+          setStartUpwardsScrollPos(null);
+        }
+      } else if (prevScrollPos < currentScrollPos) {
+        setisNavBarVisible(false);
+        setStartUpwardsScrollPos(null);
+      }
+
       setPrevScrollPos(currentScrollPos);
     };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos]);
+  }, [prevScrollPos, startUpwardsScrollPos]);
 
   //scrollbar compensation
   useEffect(() => {
@@ -97,7 +100,14 @@ const Navigation = () => {
       <Header>
         {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
         <LinkLogo href='/'>
-          <Logo src={logoImage} alt='logo' width={120} height={70} priority />
+          <Logo
+            src={logoImage}
+            alt='logo'
+            width={120}
+            height={70}
+            quality={50}
+            priority
+          />
         </LinkLogo>
         {isMobile ? (
           <MobileNav
@@ -122,7 +132,6 @@ const Container = styled(motion.div)`
   align-items: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background};
-  /* background-color: magenta; */
   z-index: 3;
   position: sticky;
   top: 0;
