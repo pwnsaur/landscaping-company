@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projects page should render correctly 1`] = `
+<DocumentFragment>
+  .c2 {
+  border: none;
+  height: 1px;
+  background-color: #1a1a1a;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.c7 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 400;
+  margin: auto;
+}
+
+.c5 {
+  max-width: 40%;
+  height: auto;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.c8 {
+  margin: 10px 20px;
+  font-size: clamp(1rem, 0.8vw, 1.2rem);
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 75rem;
+  max-width: 48rem;
+  padding: 8vh 3vw 18vh;
+}
+
+.c1 {
+  max-width: 25rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+<div
+    class="c0"
+  >
+    <h1
+      class="c1"
+    >
+      A short description of types of services we offer to our clients
+    </h1>
+    <hr
+      class="c2"
+    />
+    <div
+      class="c3"
+    >
+      <a
+        class="c4"
+        href="/services/service"
+      >
+        <img
+          alt="cover-image"
+          class="c5"
+          data-nimg="1"
+          decoding="async"
+          height="270"
+          src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50"
+          srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=50 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50 2x"
+          style="color: transparent;"
+          width="480"
+        />
+        <div
+          class="c6"
+        >
+          <h2
+            class="c7"
+          >
+            Service
+          </h2>
+          <p
+            class="c8"
+          >
+            service
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

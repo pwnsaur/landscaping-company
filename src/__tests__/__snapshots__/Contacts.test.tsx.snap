@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contacts Page matches the snapshot 1`] = `
+<DocumentFragment>
+  .c5 {
+  padding: 0.5rem;
+  min-width: 5rem;
+  background-color: #21412a;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.c5:hover {
+  background-color: #05ac05;
+}
+
+.c5:disabled {
+  color: #696767;
+  cursor: not-allowed;
+}
+
+.c3 {
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin: 15px 0;
+  width: 100%;
+  outline: none;
+}
+
+.c3:focus {
+  border-color: #05ac05;
+}
+
+.c3::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.c3::-moz-placeholder {
+  color: #aaa;
+}
+
+.c3:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.c3::placeholder {
+  color: #aaa;
+}
+
+.c6 {
+  display: none;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background-color: #ff3333;
+  color: #333;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.c7 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.c4 {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin: 1.5rem 0 2.5rem;
+  width: 100%;
+  height: 10rem;
+  resize: none;
+  outline: none;
+}
+
+.c4:focus {
+  border-color: #05ac05;
+}
+
+.c4::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.c4::-moz-placeholder {
+  color: #aaa;
+}
+
+.c4:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.c4::placeholder {
+  color: #aaa;
+}
+
+.c2 {
+  width: 100%;
+  margin: 2rem auto 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 {
+  text-align: center;
+  padding: 5vh 0 5vh;
+  max-width: 25rem;
+  width: 80%;
+}
+
+.c1 {
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 400;
+  margin: 3rem 0;
+}
+
+<div
+    class="c0"
+  >
+    <h2
+      class="c1"
+    >
+      Sazinieties ar mums!
+    </h2>
+    <form
+      class="c2"
+    >
+      <input
+        class="c3"
+        id="name"
+        placeholder="Vārds, uzvārds"
+        required=""
+        type="text"
+        value=""
+      />
+      <input
+        class="c3"
+        id="email"
+        placeholder="Epasts"
+        required=""
+        type="email"
+        value=""
+      />
+      <input
+        class="c3"
+        id="phone"
+        placeholder="Tālrunis"
+        required=""
+        type="tel"
+        value=""
+      />
+      <textarea
+        class="c4"
+        id="message"
+        placeholder="Ievadiet ziņojumu"
+        required=""
+      />
+      <button
+        class="c5"
+      >
+        Sūtīt
+      </button>
+    </form>
+    <div
+      class="c6"
+    >
+      <p
+        class="c7"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

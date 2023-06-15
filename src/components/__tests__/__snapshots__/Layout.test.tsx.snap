@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component matches the snapshot 1`] = `
+<DocumentFragment>
+  .c9 {
+  min-width: 9rem;
+  height: 3rem;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: #21412a;
+  border: 2px solid #ededed;
+  color: #ededed;
+}
+
+.c9:hover {
+  background-color: #ededed;
+  border-color: #21412a;
+  color: #21412a;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 15rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto 0 0;
+  padding-top: 5rem;
+  background-color: #21412a;
+  z-index: 2;
+}
+
+.c10 {
+  color: #fff;
+  margin-bottom: 1rem;
+  margin-top: auto;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  height: 3rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.c6:hover {
+  color: #696767;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  max-width: 48rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  background-color: #ededed;
+  z-index: 3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 48rem;
+}
+
+.c4 {
+  height: 100%;
+  width: auto;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  margin: 1rem auto 1rem;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #ededed;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+      style="transform: none;"
+    >
+      <header
+        class="c2"
+      >
+        <a
+          class="c3"
+          href="/"
+        >
+          <img
+            alt="logo"
+            class="c4"
+            data-nimg="1"
+            decoding="async"
+            height="70"
+            src="/_next/image?url=%2Fimg.jpg&w=256&q=50"
+            srcset="/_next/image?url=%2Fimg.jpg&w=128&q=50 1x, /_next/image?url=%2Fimg.jpg&w=256&q=50 2x"
+            style="color: transparent;"
+            width="120"
+          />
+        </a>
+        <nav
+          class="c5"
+        >
+          <a
+            class="c6"
+            href="/"
+          >
+            Sākums
+          </a>
+          <a
+            class="c6"
+            href="/services"
+          >
+            Pakalpojumi
+          </a>
+          <a
+            class="c6"
+            href="/projects"
+          >
+            Projekti
+          </a>
+          <a
+            class="c6"
+            href="/about"
+          >
+            Par mums
+          </a>
+          <a
+            class="c6"
+            href="/contacts"
+          >
+            Kontakti
+          </a>
+        </nav>
+      </header>
+    </div>
+    <div
+      class="c7"
+    >
+      <div>
+        Would you test me? Id test me.
+      </div>
+    </div>
+    <footer
+      class="c8"
+    >
+      <a
+        href="/contacts"
+      >
+        <button
+          class="c9"
+        >
+          Sazināties
+        </button>
+      </a>
+      <p
+        class="c10"
+      >
+        Copyright 2023 Hackerman
+      </p>
+    </footer>
+  </div>
+</DocumentFragment>
+`;

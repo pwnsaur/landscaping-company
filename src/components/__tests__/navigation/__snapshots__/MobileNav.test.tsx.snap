@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileNav component matches the snapshot 1`] = `
+<DocumentFragment>
+  .c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  height: 3rem;
+  padding: 0 1rem;
+  white-space: nowrap;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.c3:hover {
+  color: #696767;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.c1 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  height: 100%;
+  background-color: transparent;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  width: 100%;
+  position: fixed;
+  background-color: #ededed;
+  height: 100%;
+  padding-top: 5rem;
+  -webkit-animation: cwHLtx 0.3s ease-in-out forwards;
+  animation: cwHLtx 0.3s ease-in-out forwards;
+  z-index: 5;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1"
+    />
+    <nav
+      class="c2"
+      data-testid="mobile-nav"
+    >
+      <a
+        class="c3"
+        href="/"
+      >
+        Sākums
+      </a>
+      <a
+        class="c3"
+        href="/services"
+      >
+        Pakalpojumi
+      </a>
+      <a
+        class="c3"
+        href="/projects"
+      >
+        Projekti
+      </a>
+      <a
+        class="c3"
+        href="/about"
+      >
+        Par mums
+      </a>
+      <a
+        class="c3"
+        href="/contacts"
+      >
+        Kontakti
+      </a>
+    </nav>
+  </div>
+</DocumentFragment>
+`;

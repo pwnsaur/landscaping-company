@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin: 15px 0;
+  width: 100%;
+  outline: none;
+}
+
+.c0:focus {
+  border-color: #05ac05;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.c0::-moz-placeholder {
+  color: #aaa;
+}
+
+.c0:-ms-input-placeholder {
+  color: #aaa;
+}
+
+.c0::placeholder {
+  color: #aaa;
+}
+
+<input
+    class="c0"
+    id=""
+    placeholder=""
+    type=""
+    value=""
+  />
+</DocumentFragment>
+`;

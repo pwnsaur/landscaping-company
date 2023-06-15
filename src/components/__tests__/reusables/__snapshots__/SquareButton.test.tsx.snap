@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SquareButton component matches the snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  min-width: 9rem;
+  height: 3rem;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: #ededed;
+  border: 2px solid #21412a;
+  color: #21412a;
+}
+
+.c0:hover {
+  background-color: #21412a;
+  border-color: #ededed;
+  color: #ededed;
+}
+
+<a
+    href="/services"
+  >
+    <button
+      class="c0"
+    >
+      podziņa
+    </button>
+  </a>
+</DocumentFragment>
+`;
