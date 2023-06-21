@@ -6,9 +6,9 @@ import styled from 'styled-components';
 
 import { TypeProject } from '@/types/contentfulTypes';
 import ImageContainer from '@components/ImageContainer';
-import { getStaticData } from '@pages/api/getStaticDataSlug';
+import { getServerData } from '@pages/api/getStaticDataSlug';
 
-const { getStaticPaths, getStaticProps } = getStaticData('project');
+const { getServerSideProps } = getServerData('project');
 
 const Project = ({ project }: { project: TypeProject }) => {
   const { content, coverImage, date, excerpt, title, images } = project.fields;
@@ -40,7 +40,7 @@ const Project = ({ project }: { project: TypeProject }) => {
   );
 };
 
-export { getStaticPaths, getStaticProps };
+export { getServerSideProps };
 export default Project;
 
 export const ProjectContainer = styled.div`

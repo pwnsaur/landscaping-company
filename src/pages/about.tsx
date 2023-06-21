@@ -1,8 +1,12 @@
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import cato from '@/assets/cato.jpg';
+import { getServerSideProps as getProps } from '@/utils/getServerSideProps';
+
+export const getServerSideProps = getProps;
 
 const About = () => {
   return (
@@ -18,8 +22,8 @@ const About = () => {
           <StyledImage
             src={cato}
             alt='a cute cato'
-            height={2688}
-            width={1920}
+            height={2688 / 4}
+            width={1920 / 4}
             priority
             quality={40}
           />

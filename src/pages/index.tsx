@@ -1,17 +1,23 @@
+import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
-import { useEffect, useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import SqareButton from '@/components/reusables/SquareButton';
+import { getServerSideProps as getProps } from '@/utils/getServerSideProps';
+import useIsMobile from '@/utils/hooks/useIsMobile';
 import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
+import { isMobileUserAgent } from '@utils/userAgent';
+
+export const getServerSideProps = getProps;
 
 const Home = () => {
   const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
+      const scrollTop = window.scrollY;
       const maxScrollTop =
         document.documentElement.scrollHeight - window.innerHeight;
       const scrollFraction = scrollTop / maxScrollTop;
