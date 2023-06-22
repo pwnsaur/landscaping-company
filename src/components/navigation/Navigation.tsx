@@ -2,14 +2,13 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 
 import logoImage from '@assets/logo.png';
 import DesktopNav from '@components/navigation/DesktopNav';
 import HamburgerIcon from '@components/navigation/HamburgerIcon';
 import MobileNav from '@components/navigation/MobileNav';
-import useIsMobile from '@utils/hooks/useIsMobile';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -17,12 +16,13 @@ const Navigation = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isNavBarVisible, setisNavBarVisible] = useState(true);
 
+  const theme = useContext(ThemeContext);
+  const isMobile = theme.isMobile;
+  const router = useRouter();
+
   const [startUpwardsScrollPos, setStartUpwardsScrollPos] = useState<
     number | null
   >(null);
-
-  const isMobile = useIsMobile();
-  const router = useRouter();
 
   //mobile menu
   const handleMenuItemClick = useCallback(() => {

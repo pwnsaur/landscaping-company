@@ -5,7 +5,7 @@ import { TypeProject } from '@/types/contentfulTypes';
 import ProjectCard from '@components/ProjectCard';
 import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
 
-export const getStaticProps = getStaticPropsPage('project');
+export const getServerSideProps = getStaticPropsPage('project');
 
 const Projects = ({ projects }: { projects: TypeProject[] }) => {
   return (

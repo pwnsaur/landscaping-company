@@ -2,8 +2,9 @@ import 'jest-styled-components';
 
 import { createMockService } from '@/components/__mocks__/mockService';
 import Service, {
-  getStaticPaths,
-  getStaticProps,
+  // getStaticPaths,
+  // getStaticProps,
+  getServerSideProps,
 } from '@/pages/services/[slug]';
 import useIsMobile from '@/utils/hooks/useIsMobile';
 import { render } from '@/utils/test-utils';
@@ -35,10 +36,10 @@ describe('Service page', () => {
   });
 
   test('should export getStaticPaths function', () => {
-    expect(getStaticPaths).toBeDefined();
+    expect(getServerSideProps).toBeDefined();
   });
 
   test('should export getStaticProps function', () => {
-    expect(getStaticProps).toBeDefined();
+    expect(getServerSideProps).toBeDefined();
   });
 });

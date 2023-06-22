@@ -1,16 +1,19 @@
-import type { AppProps } from 'next/app';
+import type { AppContext, AppInitialProps, AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
 import LoadingScreen from '@/components/LoadingScreen';
+import { getInitialPropsUtil } from '@/utils/getInitialPropsUtil';
 import { useLoading } from '@/utils/hooks/useLoading';
 import Layout from '@components/Layout';
 import GlobalStyles from '@styles/globalStyles';
 import { theme } from '@styles/theme';
 import ErrorBoundary from '@utils/ErrorBoundary';
-import useIsMobile from '@utils/hooks/useIsMobile';
 
-export default function App({ Component, pageProps }: AppProps) {
-  const isMobile = useIsMobile();
+function App({
+  Component,
+  pageProps,
+  isMobile,
+}: AppProps & AppInitialProps & { isMobile: boolean }) {
   const loading = useLoading();
 
   return (
@@ -25,3 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
     </ErrorBoundary>
   );
 }
+
+App.getInitialProps = getInitialPropsUtil;
+
+export default App;

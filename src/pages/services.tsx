@@ -5,7 +5,7 @@ import { TypeService } from '@/types/contentfulTypes';
 import ServiceCard from '@components/ServiceCard';
 import { getStaticPropsPage } from '@pages/api/getStaticPropsPage';
 
-export const getStaticProps = getStaticPropsPage('service');
+export const getServerSideProps = getStaticPropsPage('service');
 
 const Services = ({ services }: { services: TypeService[] }) => {
   return (

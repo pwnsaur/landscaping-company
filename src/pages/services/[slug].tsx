@@ -5,9 +5,9 @@ import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 
 import { TypeService } from '@/types/contentfulTypes';
-import { getStaticData } from '@pages/api/getStaticDataSlug';
+import { getServerData } from '@pages/api/getStaticDataSlug';
 
-const { getStaticPaths, getStaticProps } = getStaticData('service');
+const { getServerSideProps } = getServerData('service');
 
 const Service = ({ service }: { service: TypeService }) => {
   const { coverImage, description, title, excerpt } = service.fields;
@@ -40,7 +40,7 @@ const Service = ({ service }: { service: TypeService }) => {
   );
 };
 
-export { getStaticPaths, getStaticProps };
+export { getServerSideProps };
 export default Service;
 
 const ServiceContainer = styled.div`

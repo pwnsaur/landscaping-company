@@ -1,5 +1,5 @@
 import { createMockService } from '@/components/__mocks__/mockService';
-import Services, { getStaticProps } from '@/pages/services';
+import Services, { getServerSideProps } from '@/pages/services';
 import { TypeService } from '@/types/contentfulTypes';
 import { render } from '@/utils/test-utils';
 
@@ -13,6 +13,6 @@ describe('Projects page', () => {
   });
 
   test('should export getStaticProps function', () => {
-    expect(getStaticProps).toBeDefined();
+    expect(getServerSideProps).toBeDefined();
   });
 });

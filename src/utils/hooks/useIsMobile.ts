@@ -1,8 +1,17 @@
-import useWindowSize from '@utils/hooks/useWindowSize';
+import { useEffect, useState } from 'react';
+
+import { isMobileUserAgent } from '@utils/userAgent';
 
 const useIsMobile = (): boolean => {
-  const { width } = useWindowSize();
-  const isMobile = (width || 1920) <= 666;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const userAgent = window.navigator.userAgent;
+      const isMobileClient = isMobileUserAgent(userAgent);
+      setIsMobile(isMobileClient);
+    }
+  }, []);
 
   return isMobile;
 };

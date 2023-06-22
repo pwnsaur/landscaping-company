@@ -1,28 +1,13 @@
 import { ParsedUrlQuery } from 'querystring';
 
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
-import { TypeProjectFields, TypeServiceFields } from '@/types/contentfulTypes';
 import { client } from '@pages/api/client';
 
 type ContentType = 'project' | 'service';
 
-export function getStaticData(content_type: ContentType) {
-  const getStaticPaths: GetStaticPaths = async () => {
-    const res = await client.getEntries<TypeProjectFields | TypeServiceFields>({
-      content_type,
-    });
-
-    const paths = res.items.map((item) => {
-      return {
-        params: { slug: item.fields.slug },
-      };
-    });
-
-    return { paths, fallback: false };
-  };
-
-  const getStaticProps: GetStaticProps = async ({
+export function getServerData(content_type: ContentType) {
+  const getServerSideProps: GetServerSideProps = async ({
     params = {},
   }: {
     params?: ParsedUrlQuery;
@@ -43,9 +28,8 @@ export function getStaticData(content_type: ContentType) {
 
     return {
       props: { [content_type]: items[0] },
-      revalidate: 1,
     };
   };
 
-  return { getStaticPaths, getStaticProps };
+  return { getServerSideProps };
 }

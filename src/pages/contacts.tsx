@@ -1,8 +1,13 @@
+import { GetServerSideProps } from 'next';
 import { NextSeo } from 'next-seo';
+import { useEffect, useState } from 'react';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
 
+import { getServerSideProps as getProps } from '@/utils/getServerSideProps';
 import ContactForm from '@components/contactForm/ContactForm';
+
+export const getServerSideProps = getProps;
 
 const Contact = () => {
   return (

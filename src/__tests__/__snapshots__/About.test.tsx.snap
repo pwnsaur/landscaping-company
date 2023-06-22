@@ -83,11 +83,11 @@ exports[`About Page matches the snapshot in desktop view 1`] = `
         class="c2"
         data-nimg="1"
         decoding="async"
-        height="2688"
-        src="/_next/image?url=%2Fimg.jpg&w=3840&q=40"
-        srcset="/_next/image?url=%2Fimg.jpg&w=1920&q=40 1x, /_next/image?url=%2Fimg.jpg&w=3840&q=40 2x"
+        height="672"
+        src="/_next/image?url=%2Fimg.jpg&w=1080&q=40"
+        srcset="/_next/image?url=%2Fimg.jpg&w=640&q=40 1x, /_next/image?url=%2Fimg.jpg&w=1080&q=40 2x"
         style="color: transparent;"
-        width="1920"
+        width="480"
       />
     </div>
     <div
@@ -200,11 +200,11 @@ exports[`About Page matches the snapshot in mobile view 1`] = `
         class="c2"
         data-nimg="1"
         decoding="async"
-        height="2688"
-        src="/_next/image?url=%2Fimg.jpg&w=3840&q=40"
-        srcset="/_next/image?url=%2Fimg.jpg&w=1920&q=40 1x, /_next/image?url=%2Fimg.jpg&w=3840&q=40 2x"
+        height="672"
+        src="/_next/image?url=%2Fimg.jpg&w=1080&q=40"
+        srcset="/_next/image?url=%2Fimg.jpg&w=640&q=40 1x, /_next/image?url=%2Fimg.jpg&w=1080&q=40 2x"
         style="color: transparent;"
-        width="1920"
+        width="480"
       />
     </div>
     <div
