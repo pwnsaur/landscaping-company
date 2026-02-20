@@ -1,27 +1,36 @@
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+const SPLASH_DURATION_MS = 1000;
 
 export const useLoading = () => {
   const pathname = usePathname();
-  const [loading, setLoading] = useState(pathname === '/');
+  const [loading, setLoading] = useState(false);
+  const hasDecided = useRef(false);
 
   useEffect(() => {
+    if (hasDecided.current) {
+      return;
+    }
+
+    hasDecided.current = true;
+
+    // Show the splash only when the initial route is home.
     if (pathname !== '/') {
       setLoading(false);
       return;
     }
 
-    let timeout: NodeJS.Timeout;
     setLoading(true);
 
-    if (loading) {
-      timeout = setTimeout(() => setLoading(false), 1000);
-    }
+    const timeout = window.setTimeout(() => {
+      setLoading(false);
+    }, SPLASH_DURATION_MS);
 
     return () => {
-      if (timeout) clearTimeout(timeout);
+      window.clearTimeout(timeout);
     };
-  }, [loading, pathname]);
+  }, [pathname]);
 
   return loading;
 };
