@@ -16,7 +16,7 @@ const Navigation = () => {
   const [isNavBarVisible, setisNavBarVisible] = useState(true);
 
   const theme = useContext(ThemeContext);
-  const isMobile = theme.isMobile;
+  const isMobile = Boolean(theme?.isMobile);
   const pathname = usePathname();
 
   const [startUpwardsScrollPos, setStartUpwardsScrollPos] = useState<

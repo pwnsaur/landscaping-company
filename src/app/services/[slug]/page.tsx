@@ -6,11 +6,13 @@ import { notFound } from 'next/navigation';
 import styled from 'styled-components';
 
 import { getServiceBySlug } from '@/lib/contentfulData';
+import { theme } from '@/styles/theme';
+import { getAssetImageData } from '@/utils/contentfulAsset';
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export const metadata: Metadata = {
@@ -19,7 +21,8 @@ export const metadata: Metadata = {
 };
 
 const ServicePage = async ({ params }: Props) => {
-  const service = await getServiceBySlug(params.slug);
+  const { slug } = await params;
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     notFound();
@@ -27,17 +30,20 @@ const ServicePage = async ({ params }: Props) => {
 
   const { coverImage, description, title } = service.fields;
   const descriptionDocument = description as Document;
+  const coverImageData = getAssetImageData(coverImage);
 
   return (
     <ServiceContainer>
-      <CoverImage
-        src={`https:${coverImage.fields.file.url}`}
-        alt='cover image'
-        width={coverImage.fields.file.details.image!.width}
-        height={coverImage.fields.file.details.image!.height}
-        priority
-        quality={75}
-      />
+      {coverImageData && (
+        <CoverImage
+          src={coverImageData.src}
+          alt='cover image'
+          width={coverImageData.width}
+          height={coverImageData.height}
+          priority
+          quality={75}
+        />
+      )}
       <Title>{title}</Title>
       <Description>{documentToReactComponents(descriptionDocument)}</Description>
     </ServiceContainer>
@@ -53,18 +59,16 @@ const ServiceContainer = styled.div`
   width: 70%;
   margin: 3rem 5rem;
 
-  ${({ theme }) =>
-    theme.isMobile &&
-    `
-      width: 100%;
-      padding: 0 1rem;
-      margin: 5rem 0;
-  `}
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 5rem 0;
+  }
 `;
 
 const Title = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.larger};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${theme.fontSizes.larger};
+  font-weight: ${theme.fontWeights.bold};
   margin-bottom: 1rem;
 `;
 

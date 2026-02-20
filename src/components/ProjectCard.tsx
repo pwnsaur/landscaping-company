@@ -6,6 +6,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import { TypeProject } from '@/types/contentfulTypes';
+import { getAssetImageData } from '@/utils/contentfulAsset';
 import useOnScreen from '@/utils/hooks/useOnScreen';
 
 const ProjectCard = ({
@@ -16,6 +17,7 @@ const ProjectCard = ({
   priority: boolean;
 }) => {
   const { coverImage, slug, title } = project.fields;
+  const coverImageData = getAssetImageData(coverImage);
 
   const ref = useRef<HTMLDivElement>(null);
   const onScreen = useOnScreen(ref);
@@ -24,21 +26,21 @@ const ProjectCard = ({
   return (
     <StyledCard ref={ref}>
       <Link href={`/projects/${slug}`}>
-        {shouldLoadImage ? (
+        {coverImageData && shouldLoadImage ? (
           <ImageContainer>
             <StyledImage
-              src={`https:${coverImage.fields.file.url}`}
+              src={coverImageData.src}
               alt='cover-image'
-              height={coverImage.fields.file.details.image!.height / 4}
-              width={coverImage.fields.file.details.image!.width / 4}
+              height={coverImageData.height / 4}
+              width={coverImageData.width / 4}
               quality={50}
               priority={priority}
             />
           </ImageContainer>
+        ) : coverImageData ? (
+          <StyledPlaceholder height={coverImageData.height / 5} />
         ) : (
-          <StyledPlaceholder
-            height={coverImage.fields.file.details.image!.height / 5}
-          />
+          <StyledPlaceholder height={200} />
         )}
         <Title>{title}</Title>
       </Link>

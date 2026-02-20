@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ServiceCard renders correctly 1`] = `
 <DocumentFragment>
@@ -10,17 +10,19 @@ exports[`ServiceCard renders correctly 1`] = `
   width: 100%;
 }
 
+@media (max-width:768px) {
+
+}
+
+@media (max-width:768px) {
+
+}
+
 <hr
     class="c0"
   />
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
   margin: 0 auto;
@@ -28,7 +30,7 @@ exports[`ServiceCard renders correctly 1`] = `
 }
 
 .c4 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp( 1.2rem,2vw,1.5rem );
   font-weight: 400;
   margin: auto;
 }
@@ -39,27 +41,32 @@ exports[`ServiceCard renders correctly 1`] = `
 }
 
 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   width: 100%;
 }
 
 .c5 {
   margin: 10px 20px;
-  font-size: clamp(1rem, 0.8vw, 1.2rem);
+  font-size: clamp( 1rem,0.8vw,1.2rem );
 }
 
 .c3 {
   width: 100%;
+}
+
+@media (max-width:768px) {
+  .c2 {
+    max-width: 100%;
+    margin: 0 1rem 2rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c1 {
+    flex-direction: column;
+  }
 }
 
 <div
@@ -76,8 +83,8 @@ exports[`ServiceCard renders correctly 1`] = `
         decoding="async"
         height="270"
         loading="lazy"
-        src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50"
-        srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=50 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=50 2x"
+        src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=75 2x"
         style="color: transparent;"
         width="480"
       />

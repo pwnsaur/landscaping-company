@@ -1,10 +1,15 @@
 import { getContentfulClient } from '@/lib/contentfulClient';
-import { TypeProject, TypeProjectFields, TypeService, TypeServiceFields } from '@/types/contentfulTypes';
+import {
+  TypeProject,
+  TypeProjectSkeleton,
+  TypeService,
+  TypeServiceSkeleton,
+} from '@/types/contentfulTypes';
 
 export const getServices = async (): Promise<TypeService[]> => {
   try {
     const client = getContentfulClient();
-    const { items } = await client.getEntries<TypeServiceFields>({
+    const { items } = await client.getEntries<TypeServiceSkeleton>({
       content_type: 'service',
     });
     return items as TypeService[];
@@ -17,7 +22,7 @@ export const getServices = async (): Promise<TypeService[]> => {
 export const getProjects = async (): Promise<TypeProject[]> => {
   try {
     const client = getContentfulClient();
-    const { items } = await client.getEntries<TypeProjectFields>({
+    const { items } = await client.getEntries<TypeProjectSkeleton>({
       content_type: 'project',
     });
     return items as TypeProject[];
@@ -32,7 +37,7 @@ export const getServiceBySlug = async (
 ): Promise<TypeService | null> => {
   try {
     const client = getContentfulClient();
-    const { items } = await client.getEntries<TypeServiceFields>({
+    const { items } = await client.getEntries<TypeServiceSkeleton>({
       content_type: 'service',
       'fields.slug': slug,
       limit: 1,
@@ -49,7 +54,7 @@ export const getProjectBySlug = async (
 ): Promise<TypeProject | null> => {
   try {
     const client = getContentfulClient();
-    const { items } = await client.getEntries<TypeProjectFields>({
+    const { items } = await client.getEntries<TypeProjectSkeleton>({
       content_type: 'project',
       'fields.slug': slug,
       limit: 1,

@@ -2,9 +2,10 @@
 
 import { Asset } from 'contentful';
 import Image from 'next/image';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 
+import { getAssetImageData } from '@/utils/contentfulAsset';
 import useIsMobile from '@/utils/hooks/useIsMobile';
 import ZoomedImage from '@components/ZoomedImage';
 
@@ -15,6 +16,27 @@ type Props = {
 const ImageContainer = ({ images }: Props) => {
   const [zoomedImageIndex, setZoomedImageIndex] = useState<number | null>(null);
   const isMobile = useIsMobile();
+  const imagesWithData = useMemo(
+    () =>
+      (images ?? [])
+        .map((asset) => {
+          const imageData = getAssetImageData(asset);
+          return imageData ? { id: asset.sys.id, imageData } : null;
+        })
+        .filter(
+          (
+            image
+          ): image is {
+            id: string;
+            imageData: {
+              src: string;
+              width: number;
+              height: number;
+            };
+          } => image !== null
+        ),
+    [images]
+  );
 
   const handleClick = (index: number) => {
     if (!isMobile) {
@@ -30,17 +52,26 @@ const ImageContainer = ({ images }: Props) => {
 
   const navigateImage = useCallback(
     (direction: number) => {
-      if (!images || zoomedImageIndex === null) {
+      if (!imagesWithData.length || zoomedImageIndex === null) {
         return;
       }
 
       const newIndex = zoomedImageIndex + direction;
-      if (newIndex >= 0 && newIndex < images.length) {
+      if (newIndex >= 0 && newIndex < imagesWithData.length) {
         setZoomedImageIndex(newIndex);
       }
     },
-    [images, zoomedImageIndex]
+    [imagesWithData, zoomedImageIndex]
   );
+
+  useEffect(() => {
+    if (
+      zoomedImageIndex !== null &&
+      (zoomedImageIndex < 0 || zoomedImageIndex >= imagesWithData.length)
+    ) {
+      setZoomedImageIndex(null);
+    }
+  }, [imagesWithData.length, zoomedImageIndex]);
 
   useEffect(() => {
     const handleKeydown = (e: KeyboardEvent) => {
@@ -65,29 +96,29 @@ const ImageContainer = ({ images }: Props) => {
   return (
     <>
       <Container>
-        {images?.map((image, index) => (
-          <ImageWrapper key={image.sys.id} onClick={() => handleClick(index)}>
+        {imagesWithData.map((image, index) => (
+          <ImageWrapper key={image.id} onClick={() => handleClick(index)}>
             <StyledImage
-              src={`https:${image.fields.file.url}`}
+              src={image.imageData.src}
               alt='project image'
-              height={image.fields.file.details.image!.height / 4}
-              width={image.fields.file.details.image!.width / 4}
+              height={image.imageData.height / 4}
+              width={image.imageData.width / 4}
               quality={50}
             />
           </ImageWrapper>
         ))}
       </Container>
-      {zoomedImageIndex !== null && !isMobile && images && (
+      {zoomedImageIndex !== null && !isMobile && imagesWithData[zoomedImageIndex] && (
         <ZoomedImage
-          src={`https:${images[zoomedImageIndex].fields.file.url}`}
+          src={imagesWithData[zoomedImageIndex].imageData.src}
           alt='zoomed image'
-          width={images[zoomedImageIndex].fields.file.details.image!.width}
-          height={images[zoomedImageIndex].fields.file.details.image!.height}
+          width={imagesWithData[zoomedImageIndex].imageData.width}
+          height={imagesWithData[zoomedImageIndex].imageData.height}
           close={handleClose}
           previous={() => navigateImage(-1)}
           next={() => navigateImage(1)}
           zoomedImageIndex={zoomedImageIndex}
-          imagesLength={images.length}
+          imagesLength={imagesWithData.length}
         />
       )}
     </>

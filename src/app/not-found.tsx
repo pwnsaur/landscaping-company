@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { theme } from '@/styles/theme';
+
 const NotFound = () => {
   return (
     <Container>
@@ -18,6 +20,6 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: ${({ theme }) => theme.fontSizes.superLarge};
-  font-weight: ${({ theme }) => theme.fontWeights.superBold};
+  font-size: ${theme.fontSizes.superLarge};
+  font-weight: ${theme.fontWeights.superBold};
 `;

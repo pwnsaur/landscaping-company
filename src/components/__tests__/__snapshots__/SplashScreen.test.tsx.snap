@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`LoadingScreen component matches the snapshot 1`] = `
 <DocumentFragment>
@@ -8,17 +8,14 @@ exports[`LoadingScreen component matches the snapshot 1`] = `
   width: 1.5rem;
   height: 1.5rem;
   margin: 1rem;
-  -webkit-animation: gODovF 1.4s infinite ease-in-out both;
-  animation: gODovF 1.4s infinite ease-in-out both;
+  animation: hTtFcr 1.4s infinite ease-in-out both;
 }
 
 .c1:nth-child(2) {
-  -webkit-animation-delay: 0.2s;
   animation-delay: 0.2s;
 }
 
 .c1:nth-child(3) {
-  -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
 
@@ -28,17 +25,8 @@ exports[`LoadingScreen component matches the snapshot 1`] = `
   left: 0;
   right: 0;
   bottom: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   background-color: #ededed;
   z-index: 6;

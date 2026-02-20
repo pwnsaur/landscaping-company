@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from 'react';
 
-const useOnScreen = (ref: RefObject<HTMLElement>): boolean => {
+const useOnScreen = (ref: RefObject<HTMLElement | null>): boolean => {
   const [isIntersecting, setIntersecting] = useState(false);
   const threshold = 0.1;
 

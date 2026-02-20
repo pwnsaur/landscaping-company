@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ContactForm component matches the snapshot 1`] = `
 <DocumentFragment>
@@ -9,7 +9,6 @@ exports[`ContactForm component matches the snapshot 1`] = `
   color: #fff;
   border: none;
   font-size: 1rem;
-  -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
   cursor: pointer;
 }
@@ -36,19 +35,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
   border-color: #05ac05;
 }
 
-.c1::-webkit-input-placeholder {
-  color: #aaa;
-}
-
-.c1::-moz-placeholder {
-  color: #aaa;
-}
-
-.c1:-ms-input-placeholder {
-  color: #aaa;
-}
-
-.c1::placeholder {
+.c1 ::placeholder {
   color: #aaa;
 }
 
@@ -67,35 +54,15 @@ exports[`ContactForm component matches the snapshot 1`] = `
   border-color: #05ac05;
 }
 
-.c2::-webkit-input-placeholder {
-  color: #aaa;
-}
-
-.c2::-moz-placeholder {
-  color: #aaa;
-}
-
-.c2:-ms-input-placeholder {
-  color: #aaa;
-}
-
-.c2::placeholder {
+.c2 ::placeholder {
   color: #aaa;
 }
 
 .c0 {
   width: 100%;
   margin: 2rem auto 1rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -140,13 +107,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
   </form>
   .c0 {
   display: none;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: fixed;
   bottom: 0;
@@ -155,7 +116,6 @@ exports[`ContactForm component matches the snapshot 1`] = `
   height: 3rem;
   background-color: #ff3333;
   color: #333;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   z-index: 5;
 }

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Input component matches the snapshot 1`] = `
 <DocumentFragment>
@@ -15,19 +15,7 @@ exports[`Input component matches the snapshot 1`] = `
   border-color: #05ac05;
 }
 
-.c0::-webkit-input-placeholder {
-  color: #aaa;
-}
-
-.c0::-moz-placeholder {
-  color: #aaa;
-}
-
-.c0:-ms-input-placeholder {
-  color: #aaa;
-}
-
-.c0::placeholder {
+.c0 ::placeholder {
   color: #aaa;
 }
 

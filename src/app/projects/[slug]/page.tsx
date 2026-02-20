@@ -6,12 +6,14 @@ import { notFound } from 'next/navigation';
 import styled from 'styled-components';
 
 import { getProjectBySlug } from '@/lib/contentfulData';
+import { theme } from '@/styles/theme';
+import { getAssetImageData, getResolvedAssets } from '@/utils/contentfulAsset';
 import ImageContainer from '@components/ImageContainer';
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export const metadata: Metadata = {
@@ -20,7 +22,8 @@ export const metadata: Metadata = {
 };
 
 const ProjectPage = async ({ params }: Props) => {
-  const project = await getProjectBySlug(params.slug);
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();
@@ -28,20 +31,24 @@ const ProjectPage = async ({ params }: Props) => {
 
   const { content, coverImage, title, images } = project.fields;
   const contentDocument = content as Document;
+  const coverImageData = getAssetImageData(coverImage);
+  const projectImages = getResolvedAssets(images);
 
   return (
     <ProjectContainer>
-      <CoverImage
-        src={`https:${coverImage.fields.file.url}`}
-        alt='cover image'
-        width={coverImage.fields.file.details.image!.width / 1.5}
-        height={coverImage.fields.file.details.image!.height / 1.5}
-        quality={50}
-        priority
-      />
+      {coverImageData && (
+        <CoverImage
+          src={coverImageData.src}
+          alt='cover image'
+          width={coverImageData.width / 1.5}
+          height={coverImageData.height / 1.5}
+          quality={50}
+          priority
+        />
+      )}
       <Title>{title}</Title>
       <Description>{documentToReactComponents(contentDocument)}</Description>
-      <ImageContainer images={images} />
+      <ImageContainer images={projectImages} />
     </ProjectContainer>
   );
 };
@@ -55,22 +62,20 @@ const ProjectContainer = styled.div`
   width: 70%;
   margin: 3rem 5rem;
 
-  ${({ theme }) =>
-    theme.isMobile &&
-    `
-      width: 100%;
-      padding: 0 1rem;
-      margin: 6rem 0;
-  `}
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 6rem 0;
+  }
 `;
 
 const Title = styled.h3`
-  font-size: ${({ theme }) => `
-    clamp(${theme.normalClamp.min},
-      ${theme.normalClamp.preferred},
-      ${theme.normalClamp.max})
-  `};
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
+  font-size: clamp(
+    ${theme.normalClamp.min},
+    ${theme.normalClamp.preferred},
+    ${theme.normalClamp.max}
+  );
+  font-weight: ${theme.fontWeights.normal};
   margin: 1rem 0;
 `;
 

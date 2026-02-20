@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ProjectCard renders correctly 1`] = `
 <DocumentFragment>
@@ -10,24 +10,18 @@ exports[`ProjectCard renders correctly 1`] = `
 
 .c0 {
   position: relative;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   text-align: center;
   background-color: #ededed;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  -webkit-transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
 }
 
 .c0:hover {
-  -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
   transform: scale(1.02);
 }
 
 .c2 {
-  font-size: clamp(1rem, 0.8vw, 1.2rem);
+  font-size: clamp(1rem,       0.8vw,       1.2rem);
   font-weight: 400;
   margin: 0.6rem;
   text-transform: uppercase;

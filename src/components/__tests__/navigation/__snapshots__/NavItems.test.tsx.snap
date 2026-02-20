@@ -1,15 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`NavItems component matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -17,7 +11,6 @@ exports[`NavItems component matches the snapshot 1`] = `
   height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 
@@ -32,13 +25,7 @@ exports[`NavItems component matches the snapshot 1`] = `
     Sākums
   </a>
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -46,7 +33,6 @@ exports[`NavItems component matches the snapshot 1`] = `
   height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 
@@ -61,13 +47,7 @@ exports[`NavItems component matches the snapshot 1`] = `
     Pakalpojumi
   </a>
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -75,7 +55,6 @@ exports[`NavItems component matches the snapshot 1`] = `
   height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 
@@ -90,13 +69,7 @@ exports[`NavItems component matches the snapshot 1`] = `
     Projekti
   </a>
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -104,7 +77,6 @@ exports[`NavItems component matches the snapshot 1`] = `
   height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 
@@ -119,13 +91,7 @@ exports[`NavItems component matches the snapshot 1`] = `
     Par mums
   </a>
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -133,7 +99,6 @@ exports[`NavItems component matches the snapshot 1`] = `
   height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 

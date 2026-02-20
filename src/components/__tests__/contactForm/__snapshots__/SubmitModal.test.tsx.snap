@@ -1,19 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`SubmitModal component matches the snapshot on success 1`] = `
 <DocumentFragment>
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: fixed;
   bottom: 0;
@@ -22,7 +13,6 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
   height: 3rem;
   background-color: #42ba96;
   color: #333;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   z-index: 5;
 }
@@ -47,17 +37,8 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
 exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
 <DocumentFragment>
   .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: fixed;
   bottom: 0;
@@ -66,7 +47,6 @@ exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
   height: 3rem;
   background-color: #ff3333;
   color: #333;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   z-index: 5;
 }

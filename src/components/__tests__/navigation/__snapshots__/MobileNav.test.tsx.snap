@@ -1,15 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`MobileNav component matches the snapshot 1`] = `
 <DocumentFragment>
   .c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -17,7 +11,6 @@ exports[`MobileNav component matches the snapshot 1`] = `
   height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 
@@ -26,13 +19,7 @@ exports[`MobileNav component matches the snapshot 1`] = `
 }
 
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   position: fixed;
   top: 0;
@@ -42,37 +29,22 @@ exports[`MobileNav component matches the snapshot 1`] = `
 }
 
 .c1 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
   height: 100%;
   background-color: transparent;
 }
 
 .c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   width: 100%;
   position: fixed;
   background-color: #ededed;
   height: 100%;
   padding-top: 5rem;
-  -webkit-animation: cwHLtx 0.3s ease-in-out forwards;
-  animation: cwHLtx 0.3s ease-in-out forwards;
+  animation: fyfhkX 0.3s ease-in-out forwards;
   z-index: 5;
 }
 

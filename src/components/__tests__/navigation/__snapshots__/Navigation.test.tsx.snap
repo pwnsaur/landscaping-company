@@ -1,15 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Navigation component matches the snapshot 1`] = `
 <DocumentFragment>
   .c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2rem;
   color: #1a1a1a;
@@ -17,7 +11,6 @@ exports[`Navigation component matches the snapshot 1`] = `
   height: 3rem;
   padding: 0 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
 }
 
@@ -26,13 +19,7 @@ exports[`Navigation component matches the snapshot 1`] = `
 }
 
 .c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-around;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: space-around;
   justify-content: space-around;
   width: 100%;
   height: 100%;
@@ -40,46 +27,22 @@ exports[`Navigation component matches the snapshot 1`] = `
 }
 
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   background-color: #ededed;
   z-index: 3;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
   transform: translateY(0);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  -webkit-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
 }
 
 .c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
   max-width: 48rem;
@@ -91,9 +54,6 @@ exports[`Navigation component matches the snapshot 1`] = `
 }
 
 .c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   height: 100%;
   margin: 1rem auto 1rem;
@@ -115,8 +75,8 @@ exports[`Navigation component matches the snapshot 1`] = `
           data-nimg="1"
           decoding="async"
           height="70"
-          src="/_next/image?url=%2Fimg.jpg&w=256&q=50"
-          srcset="/_next/image?url=%2Fimg.jpg&w=128&q=50 1x, /_next/image?url=%2Fimg.jpg&w=256&q=50 2x"
+          src="/_next/image?url=%2Fimg.jpg&w=256&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=128&q=75 1x, /_next/image?url=%2Fimg.jpg&w=256&q=75 2x"
           style="color: transparent;"
           width="120"
         />

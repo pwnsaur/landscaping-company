@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import cato from '@/assets/cato.jpg';
+import { theme } from '@/styles/theme';
 
 export const metadata: Metadata = {
   title: 'Par mums',
@@ -43,13 +44,10 @@ const Container = styled.div`
   justify-content: space-between;
   margin: 5rem 4em;
 
-  ${({ theme }) =>
-    theme.isMobile &&
-    `
-      flex-direction: column;
-      margin: 0.5rem;
-      margin: 6rem 1rem 2rem;
-  `}
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin: 6rem 1rem 2rem;
+  }
 `;
 
 const LeftDiv = styled.div`
@@ -59,11 +57,9 @@ const LeftDiv = styled.div`
   min-width: 40%;
   align-self: center;
 
-  ${({ theme }) =>
-    theme.isMobile &&
-    `
-      max-width: 70%;
-  `}
+  @media (max-width: 768px) {
+    max-width: 70%;
+  }
 `;
 
 const RightDiv = styled.div`
@@ -74,23 +70,21 @@ const RightDiv = styled.div`
   max-width: 60%;
   padding: 0 4rem;
 
-  ${({ theme }) =>
-    theme.isMobile &&
-    `
-      max-width: 100%;
-      padding: 1rem;
-      text-align: center;
-  `}
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
 `;
 
 const Heading = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.large};
+  font-size: ${theme.fontSizes.large};
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 `;
 
 const Paragraph = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.normal};
+  font-size: ${theme.fontSizes.normal};
   line-height: 1.5;
   margin-bottom: 1.25rem;
 `;

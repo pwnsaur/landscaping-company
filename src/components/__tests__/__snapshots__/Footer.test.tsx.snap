@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Footer Component matches the snapshot 1`] = `
 <DocumentFragment>
@@ -9,7 +9,6 @@ exports[`Footer Component matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1rem;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   background-color: #21412a;
@@ -24,22 +23,11 @@ exports[`Footer Component matches the snapshot 1`] = `
 }
 
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
   height: 15rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   margin: auto 0 0;
   padding-top: 5rem;

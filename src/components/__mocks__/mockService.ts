@@ -1,23 +1,19 @@
 import { BLOCKS } from '@contentful/rich-text-types';
-import { Entry } from 'contentful';
 
-import { TypeServiceFields } from '@/types/contentfulTypes';
+import { TypeService } from '@/types/contentfulTypes';
 import { createMockAsset } from '@components/__mocks__/mockAsset';
 
 
-export const createMockService = (): Entry<TypeServiceFields> => {
+export const createMockService = (): TypeService => {
   return {
     sys: {
       id: '1',
       type: 'Entry',
       createdAt: '2023-04-27T12:00:00Z',
       updatedAt: '2023-04-27T12:00:00Z',
-      locale: 'en-US',
       contentType: {
         sys: {
           id: 'service',
-          type: 'Link',
-          linkType: 'ContentType',
         },
       },
     },
@@ -35,7 +31,5 @@ export const createMockService = (): Entry<TypeServiceFields> => {
     metadata: {
       tags: [],
     },
-    toPlainObject: () => ({} as Entry<TypeServiceFields>),
-    update: () => Promise.resolve({} as Entry<TypeServiceFields>),
-  };
+  } as unknown as TypeService;
 };

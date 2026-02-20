@@ -1,25 +1,26 @@
-import type * as CFRichTextTypes from '@contentful/rich-text-types';
-import type { Asset, Entry, EntryFields } from 'contentful';
+import type { Entry, EntryFieldTypes, EntrySkeletonType } from 'contentful';
 
 
 export interface TypeProjectFields {
-  title: EntryFields.Symbol;
-  slug: EntryFields.Symbol;
-  content: CFRichTextTypes.Block | CFRichTextTypes.Inline;
-  excerpt?: EntryFields.Symbol;
-  coverImage: Asset;
-  date: EntryFields.Date;
-  images?: Asset[];
+  title: EntryFieldTypes.Symbol;
+  slug: EntryFieldTypes.Symbol;
+  content: EntryFieldTypes.RichText;
+  excerpt?: EntryFieldTypes.Symbol;
+  coverImage: EntryFieldTypes.AssetLink;
+  date: EntryFieldTypes.Date;
+  images?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink>;
 }
 
-export type TypeProject = Entry<TypeProjectFields>;
+export type TypeProjectSkeleton = EntrySkeletonType<TypeProjectFields, 'project'>;
+export type TypeProject = Entry<TypeProjectSkeleton, undefined>;
 
 export interface TypeServiceFields {
-  title: EntryFields.Symbol;
-  slug: EntryFields.Symbol;
-  description: CFRichTextTypes.Block | CFRichTextTypes.Inline;
-  excerpt?: EntryFields.Symbol;
-  coverImage: Asset;
+  title: EntryFieldTypes.Symbol;
+  slug: EntryFieldTypes.Symbol;
+  description: EntryFieldTypes.RichText;
+  excerpt?: EntryFieldTypes.Symbol;
+  coverImage: EntryFieldTypes.AssetLink;
 }
 
-export type TypeService = Entry<TypeServiceFields>;
+export type TypeServiceSkeleton = EntrySkeletonType<TypeServiceFields, 'service'>;
+export type TypeService = Entry<TypeServiceSkeleton, undefined>;

@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
-import { ThemeProvider } from 'styled-components';
+import '@fontsource-variable/nunito';
 
 import AppShell from '@/components/AppShell';
-import StyledComponentsRegistry from '@/lib/StyledComponentsRegistry';
-import GlobalStyles from '@/styles/globalStyles';
-import { theme } from '@/styles/theme';
+import Providers from '@/components/Providers';
 import { isMobileUserAgent } from '@/utils/userAgent';
 
 type Props = {
@@ -20,19 +18,17 @@ export const metadata: Metadata = {
   description: 'Brasika',
 };
 
-const RootLayout = ({ children }: Props) => {
-  const userAgent = headers().get('user-agent') || '';
+const RootLayout = async ({ children }: Props) => {
+  const headerStore = await headers();
+  const userAgent = headerStore.get('user-agent') || '';
   const isMobile = isMobileUserAgent(userAgent);
 
   return (
     <html lang='lv'>
       <body>
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={{ ...theme, isMobile }}>
-            <GlobalStyles />
-            <AppShell>{children}</AppShell>
-          </ThemeProvider>
-        </StyledComponentsRegistry>
+        <Providers isMobile={isMobile}>
+          <AppShell>{children}</AppShell>
+        </Providers>
       </body>
     </html>
   );

@@ -2,7 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { theme } from '@/styles/theme';
 import { TypeService } from '@/types/contentfulTypes';
+import { getAssetImageData } from '@/utils/contentfulAsset';
 
 const ServiceCard = ({
   service,
@@ -11,21 +13,24 @@ const ServiceCard = ({
   service: TypeService;
   priority: boolean;
 }) => {
-  const { coverImage, slug, title, description, excerpt } = service.fields;
+  const { coverImage, slug, title, excerpt } = service.fields;
+  const coverImageData = getAssetImageData(coverImage);
 
   return (
     <>
       <Break />
       <Card>
         <StyledLink href={`/services/${slug}`}>
-          <StyledImage
-            src={`https:${coverImage.fields.file.url}`}
-            alt='cover-image'
-            height={coverImage.fields.file.details.image!.height / 4}
-            width={coverImage.fields.file.details.image!.width / 4}
-            quality={50}
-            priority={priority}
-          />
+          {coverImageData && (
+            <StyledImage
+              src={coverImageData.src}
+              alt='cover-image'
+              height={coverImageData.height / 4}
+              width={coverImageData.width / 4}
+              quality={50}
+              priority={priority}
+            />
+          )}
           <Description>
             <Title>{title}</Title>
             <Excerpt>{excerpt}</Excerpt>
@@ -41,7 +46,7 @@ export default ServiceCard;
 const Break = styled.hr`
   border: none;
   height: 1px;
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: ${theme.colors.black};
   margin: 1rem 0;
   width: 100%;
 `;
@@ -55,23 +60,23 @@ const Card = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: ${({ theme }) => `
-    clamp(${theme.normalClamp.min},
-      ${theme.normalClamp.preferred},
-      ${theme.normalClamp.max})
-  `};
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
+  font-size: clamp(
+    ${theme.normalClamp.min},
+    ${theme.normalClamp.preferred},
+    ${theme.normalClamp.max}
+  );
+  font-weight: ${theme.fontWeights.normal};
   margin: auto;
 `;
 
 const StyledImage = styled(Image)`
   max-width: 40%;
   height: auto;
-  ${({ theme }) =>
-    theme.isMobile &&
-    `
-      max-width: 100%;
-      margin: 0 1rem 2rem;`}
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin: 0 1rem 2rem;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -79,16 +84,19 @@ const StyledLink = styled(Link)`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  ${({ theme }) => theme.isMobile && `flex-direction: column;`}
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Excerpt = styled.p`
   margin: 10px 20px;
-  font-size: ${({ theme }) => `
-    clamp(${theme.smallClamp.min},
-      ${theme.smallClamp.preferred},
-      ${theme.smallClamp.max})
-  `};
+  font-size: clamp(
+    ${theme.smallClamp.min},
+    ${theme.smallClamp.preferred},
+    ${theme.smallClamp.max}
+  );
 `;
 
 const Description = styled.div`

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import styled from 'styled-components';
 
 import { getServices } from '@/lib/contentfulData';
+import { theme } from '@/styles/theme';
 import ServiceCard from '@components/ServiceCard';
 
 export const metadata: Metadata = {
@@ -29,22 +30,25 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: ${({ theme }) => theme.width.wide};
+  max-width: ${theme.width.wide};
   max-width: 48rem;
   padding: 8vh 3vw 18vh;
-  ${({ theme }) => theme.isMobile && `padding: 6rem 2rem;`}
+
+  @media (max-width: 768px) {
+    padding: 6rem 2rem;
+  }
 `;
 
 const Title = styled.h1`
-  max-width: ${({ theme }) => theme.width.narrow};
+  max-width: ${theme.width.narrow};
   text-align: center;
   text-transform: uppercase;
-  font-size: ${({ theme }) => `
-    clamp(${theme.normalClamp.min},
-      ${theme.normalClamp.preferred},
-      ${theme.normalClamp.max})
-  `};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: clamp(
+    ${theme.normalClamp.min},
+    ${theme.normalClamp.preferred},
+    ${theme.normalClamp.max}
+  );
+  font-weight: ${theme.fontWeights.bold};
   margin-top: 2rem;
   padding-bottom: 3rem;
 `;

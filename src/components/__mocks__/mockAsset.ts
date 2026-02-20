@@ -7,14 +7,6 @@ export const createMockAsset = (): Asset => {
       type: 'Asset',
       createdAt: '2023-04-27T12:00:00Z',
       updatedAt: '2023-04-27T12:00:00Z',
-      locale: 'en-US',
-      contentType: {
-        sys: {
-          id: 'asset',
-          type: 'Link',
-          linkType: 'ContentType',
-        },
-      },
     },
     fields: {
       title: 'jonathan-kemper-kYl3Yp2hwtQ-unsplash',
@@ -35,6 +27,5 @@ export const createMockAsset = (): Asset => {
     metadata: {
       tags: [],
     },
-    toPlainObject: () => ({} as Asset),
-  };
+  } as unknown as Asset;
 };
