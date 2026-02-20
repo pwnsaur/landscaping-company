@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom';
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
