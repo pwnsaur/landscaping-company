@@ -1,12 +1,18 @@
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 export const useLoading = () => {
-  const router = useRouter();
-  const [loading, setLoading] = useState(router.pathname === '/');
+  const pathname = usePathname();
+  const [loading, setLoading] = useState(pathname === '/');
 
   useEffect(() => {
+    if (pathname !== '/') {
+      setLoading(false);
+      return;
+    }
+
     let timeout: NodeJS.Timeout;
+    setLoading(true);
 
     if (loading) {
       timeout = setTimeout(() => setLoading(false), 1000);
@@ -15,7 +21,7 @@ export const useLoading = () => {
     return () => {
       if (timeout) clearTimeout(timeout);
     };
-  }, [loading]);
+  }, [loading, pathname]);
 
   return loading;
 };

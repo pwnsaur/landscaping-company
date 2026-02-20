@@ -112,6 +112,12 @@ exports[`Layout component matches the snapshot 1`] = `
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .c2 {
@@ -182,7 +188,6 @@ exports[`Layout component matches the snapshot 1`] = `
   >
     <div
       class="c1"
-      style="transform: none;"
     >
       <header
         class="c2"

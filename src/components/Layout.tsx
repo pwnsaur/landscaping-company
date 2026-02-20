@@ -1,10 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
 
 import Footer from '@components/Footer';
 import Navigation from '@components/navigation/Navigation';
 
 type Props = {
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
 };
 
 const Layout = ({ children }: Props) => {

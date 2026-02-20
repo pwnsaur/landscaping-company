@@ -1,3 +1,5 @@
+'use client';
+
 import { Asset } from 'contentful';
 import Image from 'next/image';
 import React, { useEffect, useState, useCallback } from 'react';

@@ -7,13 +7,8 @@ jest.mock('../../../utils/hooks/useIsMobile');
 
 const mockUseIsMobile = useIsMobile as jest.Mock;
 
-jest.mock('next/router', () => ({
-  useRouter: () => ({
-    events: {
-      on: jest.fn(),
-      off: jest.fn(),
-    },
-  }),
+jest.mock('next/navigation', () => ({
+  usePathname: () => '/',
 }));
 
 describe('Navigation component', () => {

@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
@@ -18,7 +17,7 @@ const Navigation = () => {
 
   const theme = useContext(ThemeContext);
   const isMobile = theme.isMobile;
-  const router = useRouter();
+  const pathname = usePathname();
 
   const [startUpwardsScrollPos, setStartUpwardsScrollPos] = useState<
     number | null
@@ -41,14 +40,8 @@ const Navigation = () => {
   };
 
   useEffect(() => {
-    const handleRouteChange = () => handleMenuItemClick();
-    router.events.on('routeChangeStart', handleRouteChange);
-    return () => router.events.off('routeChangeStart', handleRouteChange);
-  }, [router.events, handleMenuItemClick]);
-
-  useEffect(() => {
     handleMenuItemClick();
-  }, [isMobile, handleMenuItemClick]);
+  }, [isMobile, pathname, handleMenuItemClick]);
 
   //navbar hide
   useEffect(() => {
@@ -92,11 +85,7 @@ const Navigation = () => {
   }, [isOpen]);
 
   return (
-    <Container
-      initial={{ y: 0 }}
-      animate={{ y: isNavBarVisible ? 0 : -142 }}
-      transition={{ ease: 'easeInOut', duration: 0.3 }}
-    >
+    <Container $isNavBarVisible={isNavBarVisible}>
       <Header>
         {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
         <LinkLogo href='/'>
@@ -125,7 +114,7 @@ const Navigation = () => {
 
 export default Navigation;
 
-const Container = styled(motion.div)`
+const Container = styled.div<{ $isNavBarVisible: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,6 +124,9 @@ const Container = styled(motion.div)`
   z-index: 3;
   position: sticky;
   top: 0;
+  transform: ${({ $isNavBarVisible }) =>
+    $isNavBarVisible ? 'translateY(0)' : 'translateY(-142px)'};
+  transition: transform 0.3s ease-in-out;
 `;
 
 const Header = styled.header`

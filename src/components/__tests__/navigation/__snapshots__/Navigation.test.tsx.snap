@@ -61,6 +61,12 @@ exports[`Navigation component matches the snapshot 1`] = `
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .c1 {
@@ -95,7 +101,6 @@ exports[`Navigation component matches the snapshot 1`] = `
 
 <div
     class="c0"
-    style="transform: none;"
   >
     <header
       class="c1"

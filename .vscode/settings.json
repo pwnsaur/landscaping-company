@@ -2,5 +2,7 @@
   "console-ninja.toolsToEnableSupportAutomaticallyFor": {
     "next.js": false,
     "jest": false
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

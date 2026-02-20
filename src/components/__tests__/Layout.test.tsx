@@ -1,13 +1,8 @@
 import Layout from '@/components/Layout';
 import { render } from '@/utils/test-utils';
 
-jest.mock('next/router', () => ({
-  useRouter: () => ({
-    events: {
-      on: jest.fn(),
-      off: jest.fn(),
-    },
-  }),
+jest.mock('next/navigation', () => ({
+  usePathname: () => '/',
 }));
 
 describe('Layout component', () => {
