@@ -8,138 +8,302 @@ import SqareButton from '@/components/reusables/SquareButton';
 import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
 
 const HomePageClient = () => {
-  const imageRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const parallaxLayerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const maxScrollTop =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrollFraction = scrollTop / maxScrollTop;
-      const parallaxOffset = 400 * scrollFraction;
+    const hero = heroRef.current;
+    const layer = parallaxLayerRef.current;
 
-      if (imageRef.current) {
-        imageRef.current.style.transform = `translateY(${parallaxOffset}px)`;
-      }
+    if (!hero || !layer) {
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    let rafId = 0;
+
+    const updateParallax = () => {
+      rafId = 0;
+
+      const heroRect = hero.getBoundingClientRect();
+      const travelRange = hero.offsetHeight + window.innerHeight;
+      const progress = Math.min(
+        Math.max((window.innerHeight - heroRect.top) / travelRange, 0),
+        1
+      );
+
+      const translateY = progress * 110;
+      const scale = 1.08 + progress * 0.08;
+      const opacity = 1 - progress * 0.35;
+
+      layer.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
+      layer.style.opacity = `${opacity}`;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const requestUpdate = () => {
+      if (rafId) {
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(updateParallax);
+    };
+
+    requestUpdate();
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    return () => {
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   return (
-    <Container>
-      <Background ref={imageRef}>
-        <StyledImage
-          src={bacgroundImageThree}
-          alt='Background image'
-          width={2400}
-          height={3600}
-          quality={50}
-          priority
-        />
-      </Background>
-      <Foreground>
-        <Title>THE COMPANY</Title>
-        <SectionOne>
+    <Page>
+      <Hero ref={heroRef}>
+        <ParallaxLayer ref={parallaxLayerRef}>
+          <StyledImage
+            src={bacgroundImageThree}
+            alt='Brasika landscaping'
+            fill
+            quality={60}
+            priority
+          />
+        </ParallaxLayer>
+        <HeroShade />
+        <HeroGlow />
+
+        <HeroContent>
+          <Eyebrow>B R A S I K A</Eyebrow>
+          <Title>Ainavas, kas izskatas dabiski un kalpo ilgi</Title>
+          <Lead>
+            Projektejam, veidojam un kopjam teritorijas ar skaidru planu, tiru
+            izpildi un minimalu troksni klienta ikdiena.
+          </Lead>
+          <HeroActions>
+            <SqareButton destination='services' name='Pakalpojumi' />
+            <SqareButton destination='projects' name='Projekti' />
+          </HeroActions>
+        </HeroContent>
+
+        <ScrollHint>ritiniet uz leju</ScrollHint>
+      </Hero>
+
+      <Panels>
+        <Panel>
+          <PanelTitle>no idejas lidz gatavam darbam</PanelTitle>
+          <PanelText>
+            No pirmas apskates lidz pabeigtam projektam strada viena komanda.
+            Tu redzi skaidru gaitu, terminu un rezultatu bez liekas
+            improvizacijas.
+          </PanelText>
           <SqareButton destination='services' name='Pakalpojumi' />
-          <Spacer />
-          <StyledText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            tincidunt luctus libero, a pharetra ipsum consequat eu.
-          </StyledText>
-        </SectionOne>
-        <SectionTwo>
-          <StyledText>
-            Mauris id risus felis. Sed semper, mauris at consequat tincidunt,
-            mauris nisl interdum lectus, in convallis mauris nisl a nunc.
-          </StyledText>
-          <Spacer />
-          <SqareButton destination='projects' name='Projekti' />
-        </SectionTwo>
-      </Foreground>
-    </Container>
+        </Panel>
+
+        <Panel $accent>
+          <PanelTitle>darbi, kurus vari apskatit</PanelTitle>
+          <PanelText>
+            Realizeti pagalmi, celi un apzalumosanas risinajumi ar dazadu
+            merogu un raksturu. Skaties projektus un atrodi sev atbilstosu
+            virzienu.
+          </PanelText>
+          <SqareButton destination='projects' name='Projekti' isInverted />
+        </Panel>
+      </Panels>
+    </Page>
   );
 };
 
 export default HomePageClient;
 
-const Container = styled.div`
-  position: relative;
-  margin-top: -80px;
+const Page = styled.main`
   width: 100%;
-  min-height: 250vh;
-  max-height: 3600px;
-  overflow: hidden;
+  margin-top: -84px;
+  background: linear-gradient(180deg, #0f1d15 0%, #183128 42%, #ededed 76%);
+  overflow: clip;
+
+  @media (max-width: 768px) {
+    margin-top: -72px;
+  }
+`;
+
+const Hero = styled.section`
+  position: relative;
+  min-height: 130svh;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding: 0 1rem 8rem;
+
+  @media (max-width: 768px) {
+    min-height: 112svh;
+    padding: 0 1rem 4rem;
+  }
+`;
+
+const ParallaxLayer = styled.div`
+  position: absolute;
+  inset: -8%;
+  transform: translate3d(0, 0, 0) scale(1.08);
+  will-change: transform, opacity;
+  transition: opacity 0.2s linear;
+  filter: saturate(0.95) contrast(1.1);
 `;
 
 const StyledImage = styled(Image)`
-  min-height: 200vh;
-  width: auto;
   object-fit: cover;
+`;
+
+const HeroShade = styled.div`
   position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 10, 7, 0.68) 0%,
+      rgba(9, 20, 14, 0.6) 28%,
+      rgba(9, 20, 14, 0.25) 70%,
+      rgba(9, 20, 14, 0.05) 100%
+    ),
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.22), transparent 40%);
+`;
+
+const HeroGlow = styled.div`
+  position: absolute;
+  top: 18%;
   left: 50%;
+  width: min(72rem, 88vw);
+  height: min(32rem, 56vw);
   transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(236, 244, 236, 0.42) 0%,
+    rgba(236, 244, 236, 0) 66%
+  );
+  pointer-events: none;
 `;
 
-const Background = styled.div`
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
-
-const Foreground = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const HeroContent = styled.div`
+  position: relative;
+  width: min(58rem, 92vw);
+  color: ${({ theme }) => theme.colors.white};
   text-align: center;
+  z-index: 2;
+  padding: 2.5rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(
+    150deg,
+    rgba(10, 22, 16, 0.6) 0%,
+    rgba(12, 25, 18, 0.44) 100%
+  );
+  backdrop-filter: blur(6px);
+  box-shadow: 0 22px 90px rgba(5, 13, 9, 0.35);
+
+  @media (max-width: 768px) {
+    padding: 1.6rem 1.1rem;
+  }
+`;
+
+const Eyebrow = styled.p`
+  letter-spacing: 0.42rem;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  margin-bottom: 0.9rem;
+  opacity: 0.9;
 `;
 
 const Title = styled.h1`
-  position: absolute;
-  top: 45vh;
-  font-size: ${({ theme }) => theme.fontSizes.superLarge};
-  color: ${({ theme }) => theme.colors.white};
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: ${({ theme }) => theme.fontWeights.superBold};
+  font-size: clamp(2rem, 5vw, 4.6rem);
 `;
 
-const Section = styled.section`
-  position: absolute;
+const Lead = styled.p`
+  max-width: 42rem;
+  margin: 0 auto;
+  font-size: clamp(1rem, 1.6vw, 1.28rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.94);
+`;
+
+const HeroActions = styled.div`
+  margin-top: 1.8rem;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  min-height: 7rem;
-  padding: 1rem 6rem;
-  box-sizing: border-box;
-  font-size: ${({ theme }) => theme.fontSizes.normal};
-  z-index: 1;
-  background-color: ${({ theme }) => theme.colors.background};
-  ${({ theme }) => theme.isMobile && `flex-direction: column;`}
-  ${({ theme }) => theme.isMobile && `padding: 1.5rem 0;`}
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 `;
 
-const SectionOne = styled(Section)`
-  top: calc(100vh);
-  ${({ theme }) => theme.isMobile && `top: 100vh;`}
+const ScrollHint = styled.p`
+  position: absolute;
+  bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-size: 0.66rem;
+  z-index: 2;
 `;
 
-const SectionTwo = styled(Section)`
-  top: 175vh;
+const Panels = styled.section`
+  width: min(75rem, 94vw);
+  margin: -6rem auto 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  position: relative;
+  z-index: 3;
+
+  @media (max-width: 768px) {
+    margin: -3rem auto 3.5rem;
+    grid-template-columns: 1fr;
+  }
 `;
 
-const Spacer = styled.div`
-  height: 2rem;
+const Panel = styled.article<{ $accent?: boolean }>`
+  min-height: 18rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  border: 1px solid
+    ${({ $accent }) =>
+      $accent ? 'rgba(237, 237, 237, 0.25)' : 'rgba(57, 65, 47, 0.18)'};
+  background: ${({ $accent, theme }) =>
+    $accent
+      ? `linear-gradient(165deg, ${theme.colors.darkGreen} 0%, #12261b 100%)`
+      : 'linear-gradient(160deg, rgba(255, 255, 255, 0.97) 0%, #f2f2f2 100%)'};
+  color: ${({ $accent, theme }) =>
+    $accent ? theme.colors.white : theme.colors.title};
+  box-shadow: ${({ $accent }) =>
+    $accent
+      ? '0 18px 54px rgba(10, 21, 15, 0.28)'
+      : '0 18px 46px rgba(31, 44, 34, 0.09)'};
+
+  @media (max-width: 768px) {
+    min-height: 14rem;
+    padding: 1.5rem;
+  }
 `;
 
-const StyledText = styled.p`
-  max-width: 50%;
-  text-align: center;
-  ${({ theme }) => theme.isMobile && `max-width: 90%;`}
+const PanelTitle = styled.h2`
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+  font-size: clamp(1.2rem, 2vw, 1.72rem);
+  margin-bottom: 0.9rem;
+`;
+
+const PanelText = styled.p`
+  max-width: 44ch;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 `;
