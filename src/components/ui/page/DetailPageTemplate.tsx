@@ -7,6 +7,7 @@ import {
   ContentContainer,
   PageShell,
   PlainSection,
+  SectionStack,
 } from '@/components/ui/layout/primitives';
 import { MediaFrame, SoftPanel } from '@/components/ui/surfaces/primitives';
 import {
@@ -49,41 +50,43 @@ const DetailPageTemplate = ({
 }: DetailPageTemplateProps) => {
   return (
     <PageShell $surface='detail' $variant='detail'>
-      <ContentContainer $size='content'>
-        <Header>
-          <BackLink href={backHref}>{backLabel}</BackLink>
-          <Title>{title}</Title>
-          {lead && <Lead>{lead}</Lead>}
-          {meta && <Meta>{meta}</Meta>}
-        </Header>
-      </ContentContainer>
-
-      <ContentContainer $size='content'>
-        <ContentGrid $hasMedia={Boolean(coverImage)}>
-          {coverImage && (
-            <Media>
-              <CoverImageElement
-                src={coverImage.src}
-                alt={coverImage.alt}
-                fill
-                quality={70}
-                priority
-                sizes='(max-width: 900px) 92vw, 42vw'
-              />
-            </Media>
-          )}
-          <Description>{body}</Description>
-        </ContentGrid>
-      </ContentContainer>
-
-      {sections.map((section) => (
-        <ContentContainer key={section.title} $size='content'>
-          <PlainSection $mt={theme.components.detail.sectionTop}>
-            <SectionTitle>{section.title}</SectionTitle>
-            {section.content}
-          </PlainSection>
+      <TemplateStack $gap={theme.layout.rhythm.section}>
+        <ContentContainer $size='content'>
+          <Header>
+            <BackLink href={backHref}>{backLabel}</BackLink>
+            <Title>{title}</Title>
+            {lead && <Lead>{lead}</Lead>}
+            {meta && <Meta>{meta}</Meta>}
+          </Header>
         </ContentContainer>
-      ))}
+
+        <ContentContainer $size='content'>
+          <ContentGrid $hasMedia={Boolean(coverImage)}>
+            {coverImage && (
+              <Media>
+                <CoverImageElement
+                  src={coverImage.src}
+                  alt={coverImage.alt}
+                  fill
+                  quality={70}
+                  priority
+                  sizes='(max-width: 900px) 92vw, 42vw'
+                />
+              </Media>
+            )}
+            <Description>{body}</Description>
+          </ContentGrid>
+        </ContentContainer>
+
+        {sections.map((section) => (
+          <ContentContainer key={section.title} $size='content'>
+            <PlainSection>
+              <SectionTitle>{section.title}</SectionTitle>
+              {section.content}
+            </PlainSection>
+          </ContentContainer>
+        ))}
+      </TemplateStack>
     </PageShell>
   );
 };
@@ -92,7 +95,11 @@ export default DetailPageTemplate;
 
 const Header = styled.header`
   text-align: center;
-  margin-bottom: ${theme.components.detail.headerBottom};
+  margin-bottom: 0;
+`;
+
+const TemplateStack = styled(SectionStack)`
+  width: 100%;
 `;
 
 const BackLink = styled(ActionLink).attrs({

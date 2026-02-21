@@ -266,7 +266,7 @@ const Eyebrow = styled.p`
   letter-spacing: ${({ theme }) => theme.components.home.eyebrowTracking};
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.typography.label};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  margin-bottom: ${({ theme }) => theme.components.home.heroEyebrowBottom};
   opacity: 0.9;
 `;
 
@@ -274,7 +274,7 @@ const Title = styled(DisplayTitle)`
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.fontWeights.superBold};
   color: ${({ theme }) => theme.colors.white};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
+  margin-bottom: ${({ theme }) => theme.components.home.heroTitleBottom};
 `;
 
 const Lead = styled(LeadText)`
@@ -285,10 +285,10 @@ const Lead = styled(LeadText)`
 `;
 
 const HeroActions = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.lg};
+  margin-top: ${({ theme }) => theme.components.home.heroActionsTop};
   display: flex;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: ${({ theme }) => theme.components.home.heroActionsGap};
   flex-wrap: wrap;
 `;
 
@@ -328,7 +328,7 @@ const Panels = styled.section`
 
 const Panel = styled.article<{ $accent?: boolean }>`
   min-height: ${({ theme }) => theme.components.home.panelMinHeight};
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.components.home.panelPadding};
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -345,7 +345,7 @@ const Panel = styled.article<{ $accent?: boolean }>`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     min-height: ${({ theme }) => theme.components.home.panelMinHeightCompact};
-    padding: ${({ theme }) => theme.spacing.lg};
+    padding: ${({ theme }) => theme.components.home.panelPaddingCompact};
   }
 `;
 
@@ -354,11 +354,11 @@ const PanelTitle = styled.h2`
   letter-spacing: ${({ theme }) => theme.components.home.panelTitleTracking};
   font-size: ${({ theme }) => theme.components.home.panelTitleSize};
   color: inherit;
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  margin-bottom: ${({ theme }) => theme.components.home.panelTitleBottom};
 `;
 
 const PanelText = styled.p`
   max-width: ${({ theme }) => theme.components.home.panelTextMaxWidth};
   line-height: 1.6;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: ${({ theme }) => theme.components.home.panelTextBottom};
 `;

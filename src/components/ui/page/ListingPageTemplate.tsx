@@ -8,7 +8,7 @@ import {
   ContentContainer,
   DarkCtaPanel,
   PageShell,
-  PlainSection,
+  SectionStack,
 } from '@/components/ui/layout/primitives';
 import {
   Eyebrow,
@@ -48,26 +48,26 @@ const ListingPageTemplate = <T,>({
 }: ListingPageTemplateProps<T>) => {
   return (
     <PageShell $surface='page' $variant='listing'>
-      <ContentContainer $size='content' $viewport='compact'>
-        <HeaderBlock>
-          <Eyebrow>{eyebrow}</Eyebrow>
-          <PageTitle>{title}</PageTitle>
-          <PageLead>{lead}</PageLead>
-        </HeaderBlock>
-      </ContentContainer>
-
-      {items.length > 0 ? (
-        <ContentContainer $size='wide'>
-          <CardGrid>{items.map(renderItem)}</CardGrid>
+      <TemplateStack $gap={theme.components.listing.sectionGap}>
+        <ContentContainer $size='content' $viewport='compact'>
+          <HeaderBlock>
+            <Eyebrow>{eyebrow}</Eyebrow>
+            <PageTitle>{title}</PageTitle>
+            <PageLead>{lead}</PageLead>
+          </HeaderBlock>
         </ContentContainer>
-      ) : (
-        <ContentContainer $size='narrow'>
-          <CenteredPanel>{emptyStateText}</CenteredPanel>
-        </ContentContainer>
-      )}
 
-      <ContentContainer $size='wide'>
-        <PlainSection $mt={theme.components.listing.ctaTop}>
+        {items.length > 0 ? (
+          <ContentContainer $size='wide'>
+            <CardGrid>{items.map(renderItem)}</CardGrid>
+          </ContentContainer>
+        ) : (
+          <ContentContainer $size='narrow'>
+            <CenteredPanel>{emptyStateText}</CenteredPanel>
+          </ContentContainer>
+        )}
+
+        <CtaContainer $size='wide'>
           <DarkCtaPanel>
             <CtaTitle>{cta.title}</CtaTitle>
             <CtaText>{cta.text}</CtaText>
@@ -75,8 +75,8 @@ const ListingPageTemplate = <T,>({
               {cta.label}
             </CtaLink>
           </DarkCtaPanel>
-        </PlainSection>
-      </ContentContainer>
+        </CtaContainer>
+      </TemplateStack>
     </PageShell>
   );
 };
@@ -84,7 +84,15 @@ const ListingPageTemplate = <T,>({
 export default ListingPageTemplate;
 
 const HeaderBlock = styled(PageHeader)`
-  margin-bottom: ${theme.components.listing.headerBottom};
+  margin-bottom: 0;
+`;
+
+const TemplateStack = styled(SectionStack)`
+  width: 100%;
+`;
+
+const CtaContainer = styled(ContentContainer)`
+  margin-top: ${theme.components.listing.cardsToCtaTop};
 `;
 
 const CtaTitle = styled(SectionTitle)`
@@ -92,7 +100,7 @@ const CtaTitle = styled(SectionTitle)`
 `;
 
 const CtaText = styled(SectionText)`
-  margin: ${theme.spacing.sm} auto ${theme.spacing.lg};
+  margin: ${theme.layout.rhythm.tight} auto ${theme.layout.rhythm.related};
   max-width: ${theme.components.listing.ctaTextMaxWidth};
   color: ${theme.colors.textInverseSoft};
 `;

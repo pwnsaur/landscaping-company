@@ -64,7 +64,7 @@ const AboutPage = () => {
       </ContentContainer>
 
       <ContentContainer $size='wide'>
-        <PlainSection $mt={theme.components.about.sectionTop}>
+        <PlainSection $mt={theme.components.about.heroToSectionsTop}>
           <AboutCardGrid $min={theme.components.about.sectionCardMinWidth}>
             <SectionCard>
               <SectionTitle>Ko mes daram</SectionTitle>
@@ -88,7 +88,7 @@ const AboutPage = () => {
       </ContentContainer>
 
       <ContentContainer $size='wide'>
-        <PlainSection $mt={theme.components.about.sectionTop}>
+        <PlainSection $mt={theme.components.about.betweenSectionsTop}>
           <ValuesTitle>Principi, pie kuriem turamies</ValuesTitle>
           <AboutCardGrid $min={theme.components.about.valueCardMinWidth}>
             <ValueCard>
@@ -149,7 +149,7 @@ const HeroContent = styled(SoftPanel)`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: ${theme.spacing.xl};
+  padding: ${theme.components.about.heroPanelPadding};
 `;
 
 const Eyebrow = styled(SharedEyebrow)``;
@@ -159,14 +159,14 @@ const Title = styled(DisplayTitle)`
 `;
 
 const Lead = styled(LeadText)`
-  margin-top: ${theme.spacing.md};
+  margin-top: ${theme.components.about.leadTop};
   max-width: 52ch;
 `;
 
 const Actions = styled.div`
-  margin-top: ${theme.spacing.lg};
+  margin-top: ${theme.components.about.actionsTop};
   display: flex;
-  gap: ${theme.spacing.sm};
+  gap: ${theme.components.about.actionsGap};
   flex-wrap: wrap;
 `;
 
@@ -181,23 +181,23 @@ const SectionCard = styled(MutedPanel)`
 const SectionTitle = styled(SharedSectionTitle)``;
 
 const SectionText = styled(SharedSectionText)`
-  margin-top: ${theme.spacing.sm};
+  margin-top: ${theme.components.about.sectionTextTop};
   line-height: 1.7;
 `;
 
 const ValuesTitle = styled(SharedSectionTitle)`
   letter-spacing: ${theme.typography.trackingWide};
-  margin-bottom: ${theme.spacing.sm};
+  margin-bottom: ${theme.components.about.valuesTitleBottom};
 `;
 
 const ValueCard = styled(SoftPanel)`
-  padding: ${theme.spacing.lg} ${theme.spacing.md};
+  padding: ${theme.components.about.valueCardPadding};
 `;
 
 const ValueName = styled(FeatureTitle)``;
 
 const ValueText = styled(BodyText)`
-  margin-top: ${theme.spacing.xs};
+  margin-top: ${theme.components.about.valueTextTop};
 `;
 
 const StyledImage = styled(Image)`

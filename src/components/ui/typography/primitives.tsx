@@ -11,7 +11,7 @@ export const Eyebrow = styled.p`
   letter-spacing: ${theme.typography.eyebrowTracking};
   font-size: ${theme.typography.label};
   color: ${theme.semantic.text.subtle};
-  margin-bottom: ${theme.spacing.sm};
+  margin-bottom: ${theme.layout.rhythm.tight};
 `;
 
 export const PageTitle = styled.h1`
@@ -26,7 +26,7 @@ export const PageTitle = styled.h1`
 
 export const PageLead = styled.p`
   max-width: ${theme.typography.leadMaxWidth};
-  margin: ${theme.spacing.md} auto 0;
+  margin: ${theme.layout.rhythm.related} auto 0;
   font-size: ${theme.typography.bodyLarge};
   line-height: ${theme.typography.lineHeightRelaxed};
   color: ${theme.semantic.text.primary};

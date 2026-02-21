@@ -63,7 +63,9 @@ const CollectionCard = ({
 export default CollectionCard;
 
 const Card = styled.div`
+  display: flex;
   width: 100%;
+  height: 100%;
   border: 1px solid ${theme.semantic.border.subtle};
   background: ${theme.gradients.panelLight};
   box-shadow: ${theme.shadows.medium};
@@ -82,6 +84,7 @@ const StyledLink = styled(Link).attrs({
 })`
   display: flex;
   flex-direction: column;
+  flex: 1;
   width: 100%;
   height: 100%;
   color: inherit;
@@ -108,8 +111,11 @@ const StyledImage = styled(Image)`
 `;
 
 const Description = styled.div`
-  display: grid;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  min-height: ${theme.components.card.descriptionMinHeight};
   gap: ${theme.components.card.descriptionGap};
   padding: ${theme.components.card.descriptionPadding};
 `;
@@ -127,19 +133,25 @@ const Title = styled.h2`
   font-size: ${theme.components.card.titleSize};
   font-weight: ${theme.fontWeights.bold};
   color: ${theme.colors.title};
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: ${theme.components.card.titleLines};
+  -webkit-box-orient: vertical;
 `;
 
 const Excerpt = styled.p`
+  flex: 1;
   line-height: ${theme.typography.lineHeightBody};
   color: ${theme.semantic.text.primary};
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: ${theme.components.card.excerptLines};
   -webkit-box-orient: vertical;
 `;
 
 const Action = styled.span`
-  margin-top: ${theme.spacing.xxs};
+  margin-top: auto;
+  padding-top: ${theme.components.card.actionTopSpacing};
   text-transform: uppercase;
   letter-spacing: ${theme.components.card.actionTracking};
   font-size: ${theme.components.card.actionSize};

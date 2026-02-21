@@ -75,17 +75,20 @@ export const ContentContainer = styled.section<{
 export const SectionStack = styled.section<{ $gap?: string }>`
   display: flex;
   flex-direction: column;
-  gap: ${({ $gap }) => $gap || theme.spacing.md};
+  width: 100%;
+  gap: ${({ $gap }) => $gap || theme.layout.rhythm.related};
 `;
 
 export const CardGrid = styled.section<{ $min?: string }>`
   width: 100%;
   display: grid;
+  align-items: stretch;
   grid-template-columns: repeat(
     auto-fit,
     minmax(${({ $min }) => $min || theme.layout.grid.cardMinWidth}, 1fr)
   );
-  gap: ${theme.layout.grid.gap};
+  column-gap: ${theme.layout.grid.columnGap};
+  row-gap: ${theme.layout.grid.rowGap};
 `;
 
 export const CenteredPanel = styled.section`

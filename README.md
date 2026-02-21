@@ -159,10 +159,16 @@ Current maturity:
 - image optimizer cache floor is increased to 31 days (`images.minimumCacheTTL`) for stronger repeat-visit performance
 - home hero source image was downscaled/compressed to reduce transfer cost while preserving visual quality
 - home lower panels now use positive section offsets and dedicated gap tokens, avoiding panel collisions with surrounding sections
-- about page section/card spacing is tokenized (`components.about.sectionTop/sectionGap`) for cleaner separation and consistent visual rhythm
+- about page semantic spacing is tokenized (`components.about.heroToSectionsTop/betweenSectionsTop/sectionGap`) for clearer section hierarchy and cleaner visual rhythm
 - about hero image now uses cover-fit (no side blank bands), and the adjacent intro panel stretches to the same visual height as the media frame
 - contacts info/form columns now use stretch-height panel layout for cleaner side-by-side balance on desktop
 - home hero action buttons now use inverse styling on dark media surfaces, and panel titles inherit local surface color to preserve contrast
+- semantic spacing rhythm is now explicit in design tokens (`layout.rhythm.tight/related/section`) and shared primitives/components use it for lighter section-to-section breathing room without over-expanding intra-section density
+- listing cards now use a stable flex-content structure (title clamp + excerpt flex + action pinned to bottom), so action labels keep consistent vertical placement across varying content lengths
+- grid spacing now differentiates horizontal/vertical rhythm (`layout.grid.columnGap/rowGap`) with more generous row spacing for a lighter, cleaner flow
+- listing/detail templates now use stack-based section flow (`SectionStack`) driven by semantic rhythm tokens instead of ad-hoc per-block top margins
+- listing pages now apply stronger semantic separation between card grids and downstream CTA blocks (`components.listing.sectionGap/cardsToCtaTop`)
+- home/about/contacts page spacing is further tokenized (headings, actions, panel paddings, intra-section offsets), reducing magic values and making future spacing adjustments centralized
 
 ## Key implementation patterns
 

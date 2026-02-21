@@ -124,13 +124,13 @@ const InfoTitle = styled(SharedSectionTitle)``;
 const InfoList = styled.ul`
   display: grid;
   gap: ${({ theme }) => theme.components.contacts.listGap};
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: ${({ theme }) => theme.components.contacts.listTop};
 `;
 
 const InfoItem = styled.li`
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.components.contacts.itemGap};
   align-items: start;
 `;
 
@@ -152,7 +152,7 @@ const ItemText = styled(BodyText)`
 `;
 
 const InfoLinks = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.lg};
+  margin-top: ${({ theme }) => theme.components.contacts.linksTop};
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${({ theme }) => theme.components.contacts.actionGap};
@@ -180,12 +180,12 @@ const FormPanel = styled(SoftPanel)`
 const FormTitle = styled(SharedSectionTitle)``;
 
 const FormIntro = styled(BodyText)`
-  margin-top: ${({ theme }) => theme.spacing.sm};
+  margin-top: ${({ theme }) => theme.components.contacts.formIntroTop};
   line-height: 1.6;
 `;
 
 const MissingKey = styled.p`
-  margin-top: ${({ theme }) => theme.spacing.md};
+  margin-top: ${({ theme }) => theme.components.contacts.missingKeyTop};
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
   border: 1px solid ${({ theme }) => theme.colors.dangerBorder};
   background: ${({ theme }) => theme.colors.dangerSurface};
