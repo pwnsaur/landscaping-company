@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback, useContext, useEffect, useState } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import { useCallback, useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import logoImage from '@assets/logo.png';
 import DesktopNav from '@components/navigation/DesktopNav';
 import HamburgerIcon from '@components/navigation/HamburgerIcon';
 import MobileNav from '@components/navigation/MobileNav';
+import useIsMobile from '@utils/hooks/useIsMobile';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,8 +16,7 @@ const Navigation = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isNavBarVisible, setisNavBarVisible] = useState(true);
 
-  const theme = useContext(ThemeContext);
-  const isMobile = Boolean(theme?.isMobile);
+  const isMobile = useIsMobile();
   const pathname = usePathname();
   const currentPath = pathname || '/';
 
@@ -43,6 +43,13 @@ const Navigation = () => {
   useEffect(() => {
     handleMenuItemClick();
   }, [isMobile, pathname, handleMenuItemClick]);
+
+  useEffect(() => {
+    if (!isMobile && (isOpen || isVisible)) {
+      setIsOpen(false);
+      setIsVisible(false);
+    }
+  }, [isMobile, isOpen, isVisible]);
 
   //navbar hide
   useEffect(() => {

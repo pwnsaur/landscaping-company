@@ -24,6 +24,8 @@ const verifyRecaptcha = async (recaptchaToken: string) => {
   return recaptchaResponse.data.success && recaptchaResponse.data.score > 0.8;
 };
 
+export const runtime = 'nodejs';
+
 export const POST = async (request: Request) => {
   const body = (await request.json()) as SendMailPayload;
   const { name, email, phone, message, recaptcha } = body;
@@ -79,14 +81,15 @@ export const POST = async (request: Request) => {
       {
         success: `Message delivered to ${info.accepted}`,
       },
-      { status: 250 }
+      { status: 200 }
     );
   } catch (err) {
+    console.error('[send-mail] Failed to send email', err);
+
     if (err instanceof Error) {
       return NextResponse.json(
         {
           error: `Error sending email: ${err.message}`,
-          details: err,
         },
         { status: 500 }
       );

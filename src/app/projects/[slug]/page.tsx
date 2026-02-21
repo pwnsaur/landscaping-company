@@ -23,6 +23,18 @@ export const metadata: Metadata = {
   description: 'Projekts',
 };
 
+export const revalidate = 900;
+export const dynamicParams = true;
+
+export const generateStaticParams = async () => {
+  const projects = await getProjects();
+
+  return projects
+    .map((project) => project.fields.slug)
+    .filter((slug): slug is string => typeof slug === 'string' && slug.length > 0)
+    .map((slug) => ({ slug }));
+};
+
 const ProjectPage = async ({ params }: Props) => {
   const { slug } = await params;
   const [project, projects] = await Promise.all([

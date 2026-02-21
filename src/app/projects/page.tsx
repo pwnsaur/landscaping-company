@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description: 'Projekti',
 };
 
+export const revalidate = 900;
+
 const ProjectsPage = async () => {
   const projects = await getProjects();
 

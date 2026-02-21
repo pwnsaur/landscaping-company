@@ -8,13 +8,12 @@ import { theme } from '@/styles/theme';
 
 type Props = {
   children: React.ReactNode;
-  isMobile: boolean;
 };
 
-const Providers = ({ children, isMobile }: Props) => {
+const Providers = ({ children }: Props) => {
   return (
     <StyledComponentsRegistry>
-      <ThemeProvider theme={{ ...theme, isMobile }}>
+      <ThemeProvider theme={theme}>
         <GlobalStyles />
         {children}
       </ThemeProvider>

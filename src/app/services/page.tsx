@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description: 'Pakalpojumi',
 };
 
+export const revalidate = 900;
+
 const ServicesPage = async () => {
   const services = await getServices();
 

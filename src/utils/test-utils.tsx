@@ -3,18 +3,13 @@ import { ReactElement, ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from '@/styles/theme';
-import useIsMobile from '@/utils/hooks/useIsMobile';
 
 interface TestWrapperProps {
   children: ReactNode;
 }
 
 const TestWrapper = ({ children }: TestWrapperProps) => {
-  const isMobile = useIsMobile();
-
-  return (
-    <ThemeProvider theme={{ ...theme, isMobile }}>{children}</ThemeProvider>
-  );
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
 const customRender = (

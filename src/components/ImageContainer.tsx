@@ -150,5 +150,9 @@ const ImageWrapper = styled.div`
   width: 100%;
   padding-top: 66%;
   overflow: hidden;
-  ${({ theme }) => !theme.isMobile && `cursor: pointer;`}
+  cursor: zoom-in;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    cursor: default;
+  }
 `;

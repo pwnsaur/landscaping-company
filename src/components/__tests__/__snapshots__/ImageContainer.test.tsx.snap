@@ -25,7 +25,13 @@ exports[`ImageContainer component matches the snapshot 1`] = `
   width: 100%;
   padding-top: 66%;
   overflow: hidden;
-  cursor: pointer;
+  cursor: zoom-in;
+}
+
+@media (max-width:768px) {
+  .c1 {
+    cursor: default;
+  }
 }
 
 <div

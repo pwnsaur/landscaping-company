@@ -22,6 +22,18 @@ export const metadata: Metadata = {
   description: 'Pakalpojums',
 };
 
+export const revalidate = 900;
+export const dynamicParams = true;
+
+export const generateStaticParams = async () => {
+  const services = await getServices();
+
+  return services
+    .map((service) => service.fields.slug)
+    .filter((slug): slug is string => typeof slug === 'string' && slug.length > 0)
+    .map((slug) => ({ slug }));
+};
+
 const ServicePage = async ({ params }: Props) => {
   const { slug } = await params;
   const [service, services] = await Promise.all([
