@@ -224,6 +224,7 @@ Required for reCAPTCHA:
 
 - `GOOGLE_RECAPTCHA_SECRET_KEY` (server-side secret)
 - `NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY` (client-side key)
+- `GOOGLE_RECAPTCHA_SITE_KEY` (legacy client fallback still supported)
 
 Required for on-demand ISR:
 

@@ -17,7 +17,9 @@ import {
 import ContactForm from '@components/contactForm/ContactForm';
 
 const ContactsPageClient = () => {
-  const recaptchaKey = process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY;
+  const recaptchaKey =
+    process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY ||
+    process.env.GOOGLE_RECAPTCHA_SITE_KEY;
 
   return (
     <PageShell $surface='page'>
@@ -80,8 +82,8 @@ const ContactsPageClient = () => {
             ) : (
               <MissingKey>
                 Trūkst reCAPTCHA atslēga
-                (NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY), tādēļ forma šobrīd
-                nav aktīva.
+                (NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY vai
+                GOOGLE_RECAPTCHA_SITE_KEY), tādēļ forma šobrīd nav aktīva.
               </MissingKey>
             )}
           </FormPanel>
