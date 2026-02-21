@@ -19,6 +19,7 @@ export const getContentfulClient = () => {
     space: CONTENTFUL_SPACE_ID,
     environment: 'master',
     accessToken: CONTENTFUL_ACCESS_TOKEN,
+    proxy: false,
   });
 
   return cachedClient;

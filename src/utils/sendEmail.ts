@@ -1,21 +1,12 @@
-import axios, { AxiosResponse } from 'axios';
-
 import { FormData } from '@/types/contactForm';
 
-type ServerResponse = {
-  messageId: string;
-  response: string;
-};
-
-type SendEmailFn = (
-  formData: FormData
-) => Promise<AxiosResponse<ServerResponse>>;
-
-const sendEmail: SendEmailFn = async (formData: FormData) => {
-  return axios({
-    method: 'post',
-    url: '/api/send-mail',
-    data: formData,
+const sendEmail = async (formData: FormData): Promise<Response> => {
+  return fetch('/api/send-mail', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
   });
 };
 

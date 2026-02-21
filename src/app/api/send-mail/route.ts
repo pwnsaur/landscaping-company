@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { NextResponse } from 'next/server';
 
 import { FormData } from '@/types/contactForm';
@@ -10,18 +9,33 @@ type SendMailPayload = FormData & {
 };
 
 const verifyRecaptcha = async (recaptchaToken: string) => {
-  const recaptchaResponse = await axios.post(
+  const params = new URLSearchParams({
+    secret: process.env.GOOGLE_RECAPTCHA_SECRET_KEY || '',
+    response: recaptchaToken,
+  });
+
+  const recaptchaResponse = await fetch(
     'https://www.google.com/recaptcha/api/siteverify',
-    {},
     {
-      params: {
-        secret: process.env.GOOGLE_RECAPTCHA_SECRET_KEY,
-        response: recaptchaToken,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
+      body: params,
+      cache: 'no-store',
     }
   );
 
-  return recaptchaResponse.data.success && recaptchaResponse.data.score > 0.8;
+  if (!recaptchaResponse.ok) {
+    return false;
+  }
+
+  const data = (await recaptchaResponse.json()) as {
+    success?: boolean;
+    score?: number;
+  };
+
+  return Boolean(data.success) && (data.score || 0) > 0.8;
 };
 
 export const runtime = 'nodejs';
