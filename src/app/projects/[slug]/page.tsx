@@ -10,7 +10,6 @@ import ProjectCard from '@/components/ProjectCard';
 import { getProjectBySlug, getProjects } from '@/lib/contentfulData';
 import { theme } from '@/styles/theme';
 import { getAssetImageData, getResolvedAssets } from '@/utils/contentfulAsset';
-import { contentfulImageLoader } from '@/utils/contentfulImageLoader';
 import ImageContainer from '@components/ImageContainer';
 
 type Props = {
@@ -62,7 +61,6 @@ const ProjectPage = async ({ params }: Props) => {
               fill
               quality={70}
               priority
-              loader={contentfulImageLoader}
               sizes='(max-width: 900px) 92vw, 42vw'
             />
           </Media>

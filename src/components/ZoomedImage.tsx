@@ -3,8 +3,6 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { contentfulImageLoader } from '@/utils/contentfulImageLoader';
-
 interface ZoomedImageProps {
   src: string;
   alt: string;
@@ -56,7 +54,6 @@ const ZoomedImage = ({
           width={width}
           height={height}
           quality={70}
-          loader={contentfulImageLoader}
           sizes='(max-width: 768px) calc(100vw - 2rem), calc(100vw - 140px)'
         />
       </ImageWrapper>

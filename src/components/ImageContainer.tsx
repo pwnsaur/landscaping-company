@@ -6,7 +6,6 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 
 import { getAssetImageData } from '@/utils/contentfulAsset';
-import { contentfulImageLoader } from '@/utils/contentfulImageLoader';
 import useIsMobile from '@/utils/hooks/useIsMobile';
 import ZoomedImage from '@components/ZoomedImage';
 
@@ -104,7 +103,6 @@ const ImageContainer = ({ images }: Props) => {
               alt='project image'
               fill
               quality={60}
-              loader={contentfulImageLoader}
               sizes='(max-width: 768px) 94vw, (max-width: 1280px) 46vw, 31vw'
             />
           </ImageWrapper>
