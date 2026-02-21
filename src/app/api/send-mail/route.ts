@@ -113,7 +113,11 @@ const resolveMailConfig = () => {
     'SMTP_PASSWORD',
     'SMTP_PASS'
   );
-  const service = readEnv('EMAIL_SERVICE')?.toLowerCase();
+  const rawService = readEnv('EMAIL_SERVICE')?.toLowerCase();
+  const service =
+    rawService === 'google' || rawService === 'googlemail'
+      ? 'gmail'
+      : rawService;
   const host = readEnv('SMTP_HOST');
   const port = Number(readEnv('SMTP_PORT') || 587);
   const secure =
@@ -122,8 +126,11 @@ const resolveMailConfig = () => {
     port === 465;
   const to = readEnv('EMAIL_TO') || user;
   const from = readEnv('EMAIL_FROM') || user;
+  const isGmailTransport = service === 'gmail' || host === 'smtp.gmail.com';
+  const normalizedPass =
+    pass && isGmailTransport ? pass.replace(/\s+/g, '') : pass;
 
-  if (!user || !pass || !to || !from) {
+  if (!user || !normalizedPass || !to || !from) {
     return null;
   }
 
@@ -137,7 +144,7 @@ const resolveMailConfig = () => {
 
   return {
     user,
-    pass,
+    pass: normalizedPass,
     service,
     host,
     port,
@@ -151,6 +158,19 @@ const mapMailError = (error: unknown) => {
   const typed = error as MailError;
   const code = typed?.code || '';
   const responseCode = typed?.responseCode;
+  const response = typed?.response || '';
+
+  if (
+    code === 'EAUTH' &&
+    (responseCode === 534 ||
+      response.toLowerCase().includes('application-specific password required'))
+  ) {
+    return {
+      code: 'mail_app_password_required',
+      message:
+        'Google kontam nepieciešama App Password parole (nevis parastā konta parole).',
+    };
+  }
 
   if (code === 'EAUTH' || responseCode === 535 || responseCode === 534) {
     return {
