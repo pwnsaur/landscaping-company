@@ -18,6 +18,11 @@ type RecaptchaVerifyResponse = {
   action?: string;
 };
 
+type MailError = Error & {
+  code?: string;
+  responseCode?: number;
+};
+
 const RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
 const RECAPTCHA_ACTION = 'contact_form_submit';
 const RECAPTCHA_MIN_SCORE = 0.5;
@@ -55,26 +60,107 @@ const verifyRecaptcha = async (recaptchaToken: string, clientIp?: string) => {
     params.set('remoteip', clientIp);
   }
 
-  const recaptchaResponse = await fetch(RECAPTCHA_VERIFY_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: params,
-    cache: 'no-store',
-  });
+  try {
+    const recaptchaResponse = await fetch(RECAPTCHA_VERIFY_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params,
+      cache: 'no-store',
+    });
 
-  if (!recaptchaResponse.ok) {
+    if (!recaptchaResponse.ok) {
+      return false;
+    }
+
+    const data = (await recaptchaResponse.json()) as RecaptchaVerifyResponse;
+
+    return (
+      Boolean(data.success) &&
+      (data.score ?? 0) >= RECAPTCHA_MIN_SCORE &&
+      data.action === RECAPTCHA_ACTION
+    );
+  } catch (error) {
+    console.error('[send-mail] Failed to verify recaptcha', error);
     return false;
   }
+};
 
-  const data = (await recaptchaResponse.json()) as RecaptchaVerifyResponse;
+const resolveMailConfig = () => {
+  const user =
+    process.env.EMAIL_ADDRESS ||
+    process.env.SMTP_USER ||
+    process.env.SMTP_USERNAME;
+  const pass =
+    process.env.EMAIL_PASSWORD ||
+    process.env.EMAIL_APP_PASSWORD ||
+    process.env.SMTP_PASSWORD ||
+    process.env.SMTP_PASS;
+  const service = process.env.EMAIL_SERVICE;
+  const host = process.env.SMTP_HOST;
+  const port = Number(process.env.SMTP_PORT || 587);
+  const secure =
+    process.env.SMTP_SECURE === 'true' ||
+    process.env.SMTP_TLS === 'true' ||
+    port === 465;
+  const to = process.env.EMAIL_TO || user;
+  const from = process.env.EMAIL_FROM || user;
 
-  return (
-    Boolean(data.success) &&
-    (data.score ?? 0) >= RECAPTCHA_MIN_SCORE &&
-    data.action === RECAPTCHA_ACTION
-  );
+  if (!user || !pass || !to || !from) {
+    return null;
+  }
+
+  if (!service && !host) {
+    return null;
+  }
+
+  if (!Number.isFinite(port)) {
+    return null;
+  }
+
+  return {
+    user,
+    pass,
+    service,
+    host,
+    port,
+    secure,
+    to,
+    from,
+  };
+};
+
+const mapMailError = (error: unknown) => {
+  const typed = error as MailError;
+  const code = typed?.code || '';
+  const responseCode = typed?.responseCode;
+
+  if (code === 'EAUTH' || responseCode === 535 || responseCode === 534) {
+    return {
+      code: 'mail_auth_failed',
+      message:
+        'E-pasta servera autorizācija neizdevās. Lūdzu pārbaudi Vercel e-pasta iestatījumus.',
+    };
+  }
+
+  if (
+    code === 'ENOTFOUND' ||
+    code === 'ECONNECTION' ||
+    code === 'ETIMEDOUT' ||
+    code === 'ESOCKET'
+  ) {
+    return {
+      code: 'mail_transport_unavailable',
+      message:
+        'Neizdevās sasniegt e-pasta serveri. Lūdzu mēģini vēlreiz pēc brīža.',
+    };
+  }
+
+  return {
+    code: 'mail_send_failed',
+    message: 'Ziņojumu neizdevās nosūtīt. Mēģini vēlreiz.',
+  };
 };
 
 const asEmailHtml = ({
@@ -202,31 +288,44 @@ export const POST = async (request: Request) => {
     );
   }
 
-  const { EMAIL_ADDRESS, EMAIL_PASSWORD, EMAIL_SERVICE } = process.env;
-
-  if (!EMAIL_ADDRESS || !EMAIL_PASSWORD || !EMAIL_SERVICE) {
+  const mailConfig = resolveMailConfig();
+  if (!mailConfig) {
     console.error('[send-mail] Missing email env configuration');
     return jsonResponse(
       {
         success: false,
-        message: 'Servera konfigurācijas kļūda. Lūdzu mēģini vēlāk.',
+        message:
+          'Servera e-pasta konfigurācija nav pilnīga. Lūdzu mēģini vēlāk.',
+        code: 'mail_config_missing',
       },
       500
     );
   }
 
-  const transporter = nodemailer.createTransport({
-    service: EMAIL_SERVICE,
+  const transportBase = {
     auth: {
-      user: EMAIL_ADDRESS,
-      pass: EMAIL_PASSWORD,
+      user: mailConfig.user,
+      pass: mailConfig.pass,
     },
-  });
+  };
+
+  const transporter =
+    mailConfig.host || !mailConfig.service
+      ? nodemailer.createTransport({
+          host: mailConfig.host,
+          port: mailConfig.port,
+          secure: mailConfig.secure,
+          ...transportBase,
+        })
+      : nodemailer.createTransport({
+          service: mailConfig.service,
+          ...transportBase,
+        });
 
   try {
     await transporter.sendMail({
-      from: `"Kontaktforma" <${EMAIL_ADDRESS}>`,
-      to: EMAIL_ADDRESS,
+      from: `"Kontaktforma" <${mailConfig.from}>`,
+      to: mailConfig.to,
       replyTo: normalizedFields.email,
       subject: `Jauns pieprasījums no ${normalizedFields.name}`,
       text: asEmailText(normalizedFields),
@@ -240,13 +339,18 @@ export const POST = async (request: Request) => {
       },
       200
     );
-  } catch (error) {
-    console.error('[send-mail] Failed to send email', error);
+  } catch (error: unknown) {
+    const mapped = mapMailError(error);
+    console.error('[send-mail] Failed to send email', {
+      mappedCode: mapped.code,
+      error,
+    });
 
     return jsonResponse(
       {
         success: false,
-        message: 'Ziņojumu neizdevās nosūtīt. Mēģini vēlreiz.',
+        message: mapped.message,
+        code: mapped.code,
       },
       500
     );
