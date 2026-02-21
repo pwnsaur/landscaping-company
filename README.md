@@ -216,16 +216,14 @@ Required for contact mail:
 - `EMAIL_SERVICE`
 - `EMAIL_ADDRESS`
 - `EMAIL_PASSWORD`
-- optional SMTP-based alternative:
-- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`/`SMTP_TLS`, `SMTP_USER`/`SMTP_USERNAME`, `SMTP_PASSWORD`/`SMTP_PASS`
 - optional routing/sender overrides:
-- `EMAIL_TO`, `EMAIL_FROM`, `EMAIL_APP_PASSWORD`
+- `EMAIL_TO`, `EMAIL_FROM`
+- for Gmail/Google Workspace, `EMAIL_PASSWORD` must be an App Password (16 chars)
 
 Required for reCAPTCHA:
 
 - `GOOGLE_RECAPTCHA_SECRET_KEY` (server-side secret)
 - `NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY` (client-side key)
-- `GOOGLE_RECAPTCHA_SITE_KEY` (legacy client fallback still supported)
 
 Required for on-demand ISR:
 

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 import {
+  ContactFormApiErrorCode,
   ContactFormApiResponse,
   ContactFormPayload,
 } from '@/types/contactForm';
@@ -29,6 +30,7 @@ const RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
 const RECAPTCHA_ACTION = 'contact_form_submit';
 const RECAPTCHA_MIN_SCORE = 0.5;
 const MIN_FORM_FILL_TIME_MS = 1200;
+const MAX_FORM_FILL_TIME_MS = 2 * 60 * 60 * 1000;
 
 export const runtime = 'nodejs';
 
@@ -106,39 +108,20 @@ const resolveMailConfig = () => {
     return undefined;
   };
 
-  const user = readEnv('EMAIL_ADDRESS', 'SMTP_USER', 'SMTP_USERNAME');
-  const pass = readEnv(
-    'EMAIL_PASSWORD',
-    'EMAIL_APP_PASSWORD',
-    'SMTP_PASSWORD',
-    'SMTP_PASS'
-  );
+  const user = readEnv('EMAIL_ADDRESS');
+  const pass = readEnv('EMAIL_PASSWORD');
   const rawService = readEnv('EMAIL_SERVICE')?.toLowerCase();
   const service =
     rawService === 'google' || rawService === 'googlemail'
       ? 'gmail'
       : rawService;
-  const host = readEnv('SMTP_HOST');
-  const port = Number(readEnv('SMTP_PORT') || 587);
-  const secure =
-    readEnv('SMTP_SECURE') === 'true' ||
-    readEnv('SMTP_TLS') === 'true' ||
-    port === 465;
   const to = readEnv('EMAIL_TO') || user;
   const from = readEnv('EMAIL_FROM') || user;
-  const isGmailTransport = service === 'gmail' || host === 'smtp.gmail.com';
+  const isGmailTransport = service === 'gmail';
   const normalizedPass =
     pass && isGmailTransport ? pass.replace(/\s+/g, '') : pass;
 
-  if (!user || !normalizedPass || !to || !from) {
-    return null;
-  }
-
-  if (!service && !host) {
-    return null;
-  }
-
-  if (!Number.isFinite(port)) {
+  if (!user || !normalizedPass || !service || !to || !from) {
     return null;
   }
 
@@ -146,15 +129,14 @@ const resolveMailConfig = () => {
     user,
     pass: normalizedPass,
     service,
-    host,
-    port,
-    secure,
     to,
     from,
   };
 };
 
-const mapMailError = (error: unknown) => {
+const mapMailError = (
+  error: unknown
+): { code: ContactFormApiErrorCode; message: string } => {
   const typed = error as MailError;
   const code = typed?.code || '';
   const responseCode = typed?.responseCode;
@@ -273,8 +255,22 @@ export const POST = async (request: Request) => {
   }
 
   if (
-    typeof payload.formStartedAt === 'number' &&
-    Date.now() - payload.formStartedAt < MIN_FORM_FILL_TIME_MS
+    typeof payload.formStartedAt !== 'number' ||
+    !Number.isFinite(payload.formStartedAt)
+  ) {
+    return jsonResponse(
+      {
+        success: false,
+        message: 'Pieprasījumu neizdevās apstrādāt.',
+      },
+      400
+    );
+  }
+
+  const formFillTimeMs = Date.now() - payload.formStartedAt;
+  if (
+    formFillTimeMs < MIN_FORM_FILL_TIME_MS ||
+    formFillTimeMs > MAX_FORM_FILL_TIME_MS
   ) {
     return jsonResponse(
       {
@@ -345,19 +341,10 @@ export const POST = async (request: Request) => {
     },
   };
 
-  // Keep backward compatibility with legacy configuration:
-  // if EMAIL_SERVICE is provided, prefer it even if stray SMTP_* vars exist.
-  const transporter = mailConfig.service
-    ? nodemailer.createTransport({
-        service: mailConfig.service,
-        ...transportBase,
-      })
-    : nodemailer.createTransport({
-        host: mailConfig.host,
-        port: mailConfig.port,
-        secure: mailConfig.secure,
-        ...transportBase,
-      });
+  const transporter = nodemailer.createTransport({
+    service: mailConfig.service,
+    ...transportBase,
+  });
 
   try {
     await transporter.sendMail({
