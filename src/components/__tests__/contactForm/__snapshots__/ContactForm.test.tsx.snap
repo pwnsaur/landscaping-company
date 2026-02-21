@@ -92,20 +92,30 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c4 {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .c6 {
-  margin-top: 0.75rem;
   line-height: 1.55;
   font-size: 0.84rem;
   max-width: 60ch;
   color: #333;
 }
 
-@media (max-width:660px) {
+@media (max-width:768px) {
   .c1 {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width:660px) {
+  .c4 {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
@@ -190,6 +200,10 @@ exports[`ContactForm component matches the snapshot 1`] = `
   font-weight: 600;
   margin: 0;
   text-align: center;
+}
+
+@media (max-width:768px) {
+
 }
 
 @media (max-width:660px) {

@@ -14,7 +14,6 @@ import {
   PageTitle,
   SectionTitle as SharedSectionTitle,
 } from '@/components/ui/typography/primitives';
-import { theme } from '@/styles/theme';
 import ContactForm from '@components/contactForm/ContactForm';
 
 const ContactsPageClient = () => {
@@ -24,7 +23,7 @@ const ContactsPageClient = () => {
 
   return (
     <PageShell $surface='page'>
-      <ContentContainer $size='content'>
+      <ContentContainer $size='wide'>
         <Hero>
           <Eyebrow>Kontakti</Eyebrow>
           <PageTitle>Pastasti par teritoriju un mes ieteiksim nakamos solus</PageTitle>
@@ -35,7 +34,7 @@ const ContactsPageClient = () => {
         </Hero>
       </ContentContainer>
 
-      <ContentContainer $size='content'>
+      <ContentContainer $size='wide'>
         <ContentGrid>
           <InfoPanel>
             <InfoTitle>Ka notiek sadarbiba</InfoTitle>
@@ -94,44 +93,55 @@ const ContactsPageClient = () => {
 export default ContactsPageClient;
 
 const Hero = styled(PageHeader)`
-  margin-bottom: ${theme.spacing.xl};
+  margin-bottom: ${({ theme }) => theme.components.contacts.heroBottom};
 `;
 
 const ContentGrid = styled.section`
   display: grid;
   grid-template-columns: ${({ theme }) =>
     `${theme.components.contacts.infoGridLeft} ${theme.components.contacts.infoGridRight}`};
-  gap: ${theme.layout.grid.gap};
+  align-items: start;
+  gap: ${({ theme }) => theme.components.contacts.gridGap};
 
-  @media (max-width: ${theme.breakpoints.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: 1fr;
   }
 `;
 
-const InfoPanel = styled(SoftPanel)``;
+const InfoPanel = styled(SoftPanel)`
+  padding: ${({ theme }) => theme.components.contacts.panelPadding};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.components.contacts.panelPaddingCompact};
+  }
+`;
 
 const InfoTitle = styled(SharedSectionTitle)``;
 
 const InfoList = styled.ul`
   display: grid;
-  gap: ${theme.spacing.sm};
-  margin-top: ${theme.spacing.md};
+  gap: ${({ theme }) => theme.components.contacts.listGap};
+  margin-top: ${({ theme }) => theme.spacing.md};
 `;
 
 const InfoItem = styled.li`
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: ${theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.sm};
   align-items: start;
 `;
 
 const ItemStep = styled.span`
-  min-width: 2rem;
+  min-width: ${({ theme }) => theme.components.contacts.stepSize};
+  min-height: ${({ theme }) => theme.components.contacts.stepSize};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: ${theme.spacing.xxs};
-  border: 1px solid ${theme.colors.lineStrong};
-  font-size: ${theme.typography.label};
-  color: ${theme.colors.darkGreen};
+  border: 1px solid ${({ theme }) => theme.colors.lineStrong};
+  border-radius: ${({ theme }) => theme.radii.full};
+  font-size: ${({ theme }) => theme.typography.label};
+  color: ${({ theme }) => theme.colors.darkGreen};
 `;
 
 const ItemText = styled(BodyText)`
@@ -139,35 +149,49 @@ const ItemText = styled(BodyText)`
 `;
 
 const InfoLinks = styled.div`
-  margin-top: ${theme.spacing.lg};
-  display: flex;
-  gap: ${theme.spacing.sm};
-  flex-wrap: wrap;
+  margin-top: ${({ theme }) => theme.spacing.lg};
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: ${({ theme }) => theme.components.contacts.actionGap};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+  }
+
+  a {
+    width: 100%;
+  }
 `;
 
-const FormPanel = styled(SoftPanel)``;
+const FormPanel = styled(SoftPanel)`
+  padding: ${({ theme }) => theme.components.contacts.panelPadding};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: ${({ theme }) => theme.components.contacts.panelPaddingCompact};
+  }
+`;
 
 const FormTitle = styled(SharedSectionTitle)``;
 
 const FormIntro = styled(BodyText)`
-  margin-top: ${theme.spacing.sm};
+  margin-top: ${({ theme }) => theme.spacing.sm};
   line-height: 1.6;
 `;
 
 const MissingKey = styled.p`
-  margin-top: ${theme.spacing.md};
-  padding: ${theme.spacing.sm} ${theme.spacing.md};
-  border: 1px solid ${theme.colors.dangerBorder};
-  background: ${theme.colors.dangerSurface};
-  color: ${theme.colors.errorText};
+  margin-top: ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
+  border: 1px solid ${({ theme }) => theme.colors.dangerBorder};
+  background: ${({ theme }) => theme.colors.dangerSurface};
+  color: ${({ theme }) => theme.colors.errorText};
   line-height: 1.5;
-  font-size: 0.93rem;
-  border-radius: ${theme.radii.md};
+  font-size: ${({ theme }) => theme.fontSizes.normal};
+  border-radius: ${({ theme }) => theme.radii.md};
   overflow-wrap: anywhere;
 
   code {
     font-family: monospace;
-    background: ${theme.colors.dangerCodeBg};
-    padding: 0.06rem ${theme.spacing.xxs};
+    background: ${({ theme }) => theme.colors.dangerCodeBg};
+    padding: ${({ theme }) => `0.06rem ${theme.spacing.xxs}`};
   }
 `;

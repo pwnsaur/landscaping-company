@@ -145,6 +145,9 @@ Current maturity:
 - parallax is guarded for reduced-motion/mobile and only updates while hero is near viewport
 - app shell content now uses a full-height flex layout (`Content` is `flex: 1`) so page backgrounds extend cleanly down to the footer
 - footer no longer uses `margin-top: auto`, preventing unintended empty vertical gaps above footer in flex layouts
+- home image layer now renders at page scope (not only hero scope) so visual continuity reaches the footer transition
+- home content layering keeps nav hit-area above hero/panel stacks to avoid click blocking on the sticky header
+- contacts page spacing/sizing is tokenized (`components.contacts.*`) with improved tablet/mobile stacking behavior
 
 ## Key implementation patterns
 
@@ -155,6 +158,7 @@ Current maturity:
 - Home parallax loop is `requestAnimationFrame` + `IntersectionObserver` throttled to reduce unnecessary scroll work
 - Home hero keeps content higher in viewport and uses safe-area-aware bottom offsets for better device fit
 - Home scroll hint is viewport-anchored and auto-fades once user starts scrolling
+- Contact form action row now reflows responsively and form field row collapses earlier on tablet widths
 
 ## Testing
 
@@ -209,6 +213,7 @@ Required for on-demand ISR:
 - Styling system foundations are in place and broadly adopted across pages/components.
 - Landing page hero/panels received a stability pass (softer parallax, simpler vertical flow, mobile-safe defaults).
 - Landing page shell/spacing now avoids blank zones before footer and keeps hero callouts visible on small displays.
+- Contacts page card/form sizing and responsive layout were tightened for more consistent structure across breakpoints.
 - Tests/build are green after style-system refactors and test harness cleanup.
 
 ## Living document protocol

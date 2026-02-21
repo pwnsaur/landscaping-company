@@ -51,7 +51,7 @@ const FooterContainer = styled.footer`
   align-items: center;
   width: 100%;
   margin: 0;
-  padding-top: ${({ theme }) => theme.spacing.xxl};
+  padding-top: ${({ theme }) => theme.spacing.xl};
   background: ${({ theme }) => theme.gradients.footer};
   z-index: ${({ theme }) => theme.zIndex.nav};
 `;

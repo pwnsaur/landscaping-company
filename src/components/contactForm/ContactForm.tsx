@@ -130,19 +130,27 @@ const Row = styled.div`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${({ theme }) => theme.spacing.sm};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     grid-template-columns: 1fr;
   }
 `;
 
 const ActionRow = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.xxs};
+  margin-top: ${({ theme }) => theme.spacing.xs};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${({ theme }) => theme.spacing.sm};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `;
 
 const FormHint = styled.p`
-  margin-top: ${({ theme }) => theme.spacing.sm};
   line-height: 1.55;
-  font-size: 0.84rem;
+  font-size: ${({ theme }) => theme.components.contacts.formHintSize};
   max-width: 60ch;
   color: ${({ theme }) => theme.colors.text};
 `;

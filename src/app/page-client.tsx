@@ -112,18 +112,19 @@ const HomePageClient = () => {
 
   return (
     <Page>
+      <ParallaxLayer ref={parallaxLayerRef}>
+        <StyledImage
+          src={bacgroundImageThree}
+          alt='Brasika landscaping'
+          fill
+          quality={60}
+          sizes='(max-width: 768px) 130vw, 116vw'
+          placeholder='blur'
+          priority
+        />
+      </ParallaxLayer>
+
       <Hero ref={heroRef}>
-        <ParallaxLayer ref={parallaxLayerRef}>
-          <StyledImage
-            src={bacgroundImageThree}
-            alt='Brasika landscaping'
-            fill
-            quality={60}
-            sizes='(max-width: 768px) 130vw, 116vw'
-            placeholder='blur'
-            priority
-          />
-        </ParallaxLayer>
         <HeroShade />
         <HeroGlow />
 
@@ -171,6 +172,7 @@ const HomePageClient = () => {
 export default HomePageClient;
 
 const Page = styled.main`
+  position: relative;
   width: 100%;
   margin-top: ${({ theme }) => `calc(${theme.layout.nav.heightDesktop} * -1)`};
   background: ${({ theme }) => theme.gradients.homePage};
@@ -183,6 +185,7 @@ const Page = styled.main`
 
 const Hero = styled.section`
   position: relative;
+  z-index: 1;
   min-height: ${({ theme }) => theme.components.home.heroMinHeight};
   display: flex;
   align-items: center;
@@ -207,6 +210,7 @@ const ParallaxLayer = styled.div`
   position: absolute;
   inset: -6%;
   transform: translate3d(0, 0, 0) scale(1.03);
+  z-index: 0;
   will-change: transform, opacity;
   transition: opacity ${({ theme }) => theme.motion.normal} linear;
   filter: saturate(0.95) contrast(1.1);
@@ -244,7 +248,7 @@ const HeroContent = styled.div`
   width: ${({ theme }) => theme.components.home.heroContentWidth};
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
-  z-index: ${({ theme }) => theme.zIndex.floating};
+  z-index: 2;
   padding: ${({ theme }) => theme.components.home.heroContentPadding};
   margin-bottom: clamp(0.75rem, 2.4vh, 2rem);
   border: 1px solid ${({ theme }) => theme.colors.lineOnDarkSoft};
@@ -313,7 +317,7 @@ const Panels = styled.section`
   grid-template-columns: 1fr 1fr;
   gap: ${({ theme }) => theme.layout.grid.gap};
   position: relative;
-  z-index: ${({ theme }) => theme.zIndex.overlay};
+  z-index: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin: ${({ theme }) =>
