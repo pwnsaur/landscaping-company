@@ -216,6 +216,10 @@ Required for contact mail:
 - `EMAIL_SERVICE`
 - `EMAIL_ADDRESS`
 - `EMAIL_PASSWORD`
+- optional SMTP-based alternative:
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`/`SMTP_TLS`, `SMTP_USER`/`SMTP_USERNAME`, `SMTP_PASSWORD`/`SMTP_PASS`
+- optional routing/sender overrides:
+- `EMAIL_TO`, `EMAIL_FROM`, `EMAIL_APP_PASSWORD`
 
 Required for reCAPTCHA:
 

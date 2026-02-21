@@ -19,4 +19,5 @@ export type ContactFormApiResponse = {
   success: boolean;
   message: string;
   errors?: ContactFormErrors;
+  code?: string;
 };
