@@ -4,15 +4,15 @@ exports[`ServiceCard renders correctly 1`] = `
 <DocumentFragment>
   .c0 {
   width: 100%;
-  border: 1px solid rgba(57,65,47,0.16);
-  background: linear-gradient(160deg,rgba(255,255,255,0.98) 0%,#f4f4f4 100%);
-  box-shadow: 0 18px 42px rgba(23,34,26,0.1);
+  border: 1px solid rgba(57, 65, 47, 0.16);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, #f4f4f4 100%);
+  box-shadow: 0 18px 42px rgba(23, 34, 26, 0.1);
   transition: transform 0.2s ease,box-shadow 0.2s ease;
 }
 
 .c0:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 44px rgba(18,29,21,0.14);
+  box-shadow: 0 24px 44px rgba(18, 29, 21, 0.14);
 }
 
 .c1 {
@@ -45,7 +45,7 @@ exports[`ServiceCard renders correctly 1`] = `
   text-transform: uppercase;
   letter-spacing: 0.14rem;
   font-size: 0.72rem;
-  color: rgba(57,65,47,0.72);
+  color: rgba(57, 65, 47, 0.72);
 }
 
 .c6 {

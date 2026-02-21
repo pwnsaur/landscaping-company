@@ -101,11 +101,9 @@ const PageShell = styled.main`
   align-items: center;
   width: 100%;
   padding: 6.2rem 1.2rem 5rem;
-  background:
-    radial-gradient(circle at 85% 0%, rgba(57, 65, 47, 0.14), transparent 32%),
-    linear-gradient(180deg, #f4f4f4 0%, #ededed 100%);
+  background: ${theme.gradients.pageDetail};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${theme.breakpoints.md}) {
     padding: 5.3rem 1rem 4rem;
   }
 `;
@@ -121,8 +119,8 @@ const BackLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.08rem;
   font-size: 0.78rem;
-  color: rgba(33, 65, 42, 0.86);
-  border-bottom: 1px solid rgba(33, 65, 42, 0.35);
+  color: ${theme.colors.darkGreen};
+  border-bottom: 1px solid ${theme.colors.lineStrong};
   padding-bottom: 0.2rem;
 `;
 
@@ -148,7 +146,7 @@ const Meta = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.08rem;
   font-size: 0.75rem;
-  color: rgba(57, 65, 47, 0.72);
+  color: ${theme.colors.textSubtle};
 `;
 
 const ContentGrid = styled.section`
@@ -157,7 +155,7 @@ const ContentGrid = styled.section`
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 1.2rem;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -166,10 +164,10 @@ const Media = styled.div`
   position: relative;
   min-height: 24rem;
   overflow: hidden;
-  border: 1px solid rgba(57, 65, 47, 0.15);
-  box-shadow: 0 20px 46px rgba(22, 33, 25, 0.12);
+  border: 1px solid ${theme.colors.lineSoft};
+  box-shadow: ${theme.shadows.raised};
 
-  @media (max-width: 900px) {
+  @media (max-width: ${theme.breakpoints.tablet}) {
     min-height: 16rem;
   }
 `;
@@ -180,9 +178,9 @@ const CoverImage = styled(Image)`
 
 const Description = styled.article`
   padding: 1.4rem 1.5rem;
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, #f4f4f4 100%);
-  box-shadow: 0 18px 38px rgba(21, 31, 24, 0.08);
+  border: 1px solid ${theme.colors.lineSoft};
+  background: ${theme.gradients.panelLight};
+  box-shadow: ${theme.shadows.panel};
   color: ${theme.colors.text};
   line-height: 1.7;
 

@@ -54,7 +54,8 @@ const List = styled.ul<{ $mobile?: boolean }>`
   display: flex;
   flex-direction: ${({ $mobile }) => ($mobile ? 'column' : 'row')};
   align-items: ${({ $mobile }) => ($mobile ? 'stretch' : 'center')};
-  gap: ${({ $mobile }) => ($mobile ? '0.4rem' : '0.3rem')};
+  gap: ${({ theme, $mobile }) =>
+    $mobile ? theme.spacing.xs : theme.spacing.xxs};
   list-style: none;
   margin: 0;
   padding: 0;
@@ -75,15 +76,18 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
     $active ? theme.colors.darkGreen : theme.colors.title};
   text-transform: uppercase;
   min-height: ${({ $mobile }) => ($mobile ? '2.8rem' : '2.35rem')};
-  padding: ${({ $mobile }) => ($mobile ? '0.7rem 0.95rem' : '0.55rem 0.85rem')};
+  padding: ${({ theme, $mobile }) =>
+    $mobile
+      ? `${theme.spacing.sm} ${theme.spacing.md}`
+      : `${theme.spacing.xs} ${theme.spacing.sm}`};
   white-space: nowrap;
   border: 1px solid
-    ${({ $active }) => ($active ? 'rgba(33, 65, 42, 0.35)' : 'transparent')};
-  background: ${({ $active, $mobile }) =>
+    ${({ theme, $active }) => ($active ? theme.colors.lineStrong : 'transparent')};
+  background: ${({ theme, $active, $mobile }) =>
     $active
-      ? 'rgba(33, 65, 42, 0.09)'
+      ? theme.colors.interactiveActive
       : $mobile
-        ? 'rgba(255, 255, 255, 0.42)'
+        ? theme.colors.glowSoft
         : 'transparent'};
   transition:
     color 0.2s ease,
@@ -93,13 +97,13 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
 
   &:hover {
     color: ${({ theme }) => theme.colors.darkGreen};
-    border-color: rgba(33, 65, 42, 0.3);
-    background: rgba(33, 65, 42, 0.08);
+    border-color: ${({ theme }) => theme.colors.lineStrong};
+    background: ${({ theme }) => theme.colors.interactiveSoft};
     transform: translateY(-1px);
   }
 
   &:focus-visible {
-    outline: 2px solid rgba(33, 65, 42, 0.38);
+    outline: 2px solid ${({ theme }) => theme.colors.lineStrong};
     outline-offset: 2px;
   }
 `;

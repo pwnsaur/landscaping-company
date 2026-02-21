@@ -46,10 +46,8 @@ const FooterContainer = styled.footer`
   align-items: center;
   width: 100%;
   margin: auto 0 0;
-  padding-top: 3rem;
-  background:
-    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.08), transparent 32%),
-    linear-gradient(160deg, #1d3d29 0%, #142d1f 100%);
+  padding-top: ${({ theme }) => theme.spacing.xxl};
+  background: ${({ theme }) => theme.gradients.footer};
   z-index: 2;
 `;
 
@@ -57,16 +55,16 @@ const FooterInner = styled.div`
   width: min(75rem, 96vw);
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.85fr) minmax(0, 1fr);
-  gap: 1.1rem;
-  padding: 0 0 2rem;
+  gap: ${({ theme }) => theme.spacing.md};
+  padding: 0 0 ${({ theme }) => theme.spacing.xl};
 
-  @media (max-width: 980px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
 `;
 
 const BrandBlock = styled.section`
-  padding-right: 1rem;
+  padding-right: ${({ theme }) => theme.spacing.md};
 `;
 
 const BrandTitle = styled.h2`
@@ -77,10 +75,10 @@ const BrandTitle = styled.h2`
 `;
 
 const BrandText = styled.p`
-  margin-top: 0.75rem;
+  margin-top: ${({ theme }) => theme.spacing.sm};
   max-width: 40ch;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.88);
+  color: ${({ theme }) => theme.colors.glowSurface};
 `;
 
 const LinksColumn = styled.nav`
@@ -92,9 +90,9 @@ const LinksColumn = styled.nav`
 const LinksTitle = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.12rem;
-  font-size: 0.74rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0.35rem;
+  font-size: ${({ theme }) => theme.typography.label};
+  color: ${({ theme }) => theme.colors.textInverseSoft};
+  margin-bottom: ${({ theme }) => theme.spacing.xxs};
 `;
 
 const FooterLink = styled(Link)`
@@ -102,7 +100,7 @@ const FooterLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: 0.86rem;
-  color: rgba(255, 255, 255, 0.94);
+  color: ${({ theme }) => theme.colors.textInverse};
   border-bottom: 1px solid transparent;
   transition:
     color 0.2s ease,
@@ -110,14 +108,14 @@ const FooterLink = styled(Link)`
 
   &:hover {
     color: ${({ theme }) => theme.colors.white};
-    border-color: rgba(255, 255, 255, 0.55);
+    border-color: ${({ theme }) => theme.colors.lineOnDarkStrong};
   }
 `;
 
 const ActionCard = styled.section`
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(12, 25, 18, 0.3);
-  padding: 1.1rem 1.05rem;
+  border: 1px solid ${({ theme }) => theme.colors.lineOnDarkSoft};
+  background: ${({ theme }) => theme.colors.surfaceDarkSoft};
+  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.md}`};
 `;
 
 const ActionTitle = styled.h3`
@@ -128,19 +126,19 @@ const ActionTitle = styled.h3`
 `;
 
 const ActionText = styled.p`
-  margin-top: 0.45rem;
+  margin-top: ${({ theme }) => theme.spacing.xs};
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.88);
+  color: ${({ theme }) => theme.colors.glowSurface};
 `;
 
 const ActionLink = styled(Link)`
-  margin-top: 0.9rem;
+  margin-top: ${({ theme }) => theme.spacing.sm};
   display: inline-block;
-  padding: 0.62rem 1rem;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
   text-transform: uppercase;
   letter-spacing: 0.07rem;
   font-size: 0.82rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid ${({ theme }) => theme.colors.lineOnDarkStrong};
   color: ${({ theme }) => theme.colors.white};
   transition:
     background-color 0.2s ease,
@@ -154,13 +152,13 @@ const ActionLink = styled(Link)`
 
 const BottomBar = styled.div`
   width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 0.95rem 1rem 1.1rem;
+  border-top: 1px solid ${({ theme }) => theme.colors.lineOnDarkMuted};
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md} ${theme.spacing.md}`};
 `;
 
 const FooterText = styled.p`
   width: min(75rem, 96vw);
-  color: rgba(255, 255, 255, 0.78);
+  color: ${({ theme }) => theme.colors.textInverseMuted};
   font-size: 0.83rem;
   letter-spacing: 0.03rem;
 `;

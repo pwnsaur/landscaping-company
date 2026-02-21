@@ -99,12 +99,9 @@ const PageShell = styled.main`
   align-items: center;
   width: 100%;
   padding: 6.5rem 1.2rem 6rem;
-  background:
-    radial-gradient(circle at 14% 0%, rgba(33, 65, 42, 0.18), transparent 35%),
-    radial-gradient(circle at 86% 14%, rgba(57, 65, 47, 0.12), transparent 33%),
-    linear-gradient(180deg, #f3f3f3 0%, #ededed 100%);
+  background: ${theme.gradients.page};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${theme.breakpoints.md}) {
     padding: 5.5rem 1rem 4.5rem;
   }
 `;
@@ -116,7 +113,7 @@ const Hero = styled.section`
   align-items: stretch;
   margin-bottom: 2rem;
 
-  @media (max-width: 920px) {
+  @media (max-width: ${theme.breakpoints.lg}) {
     flex-direction: column;
   }
 `;
@@ -125,11 +122,11 @@ const HeroMedia = styled.div`
   position: relative;
   flex: 1;
   min-height: 28rem;
-  border: 1px solid rgba(57, 65, 47, 0.16);
+  border: 1px solid ${theme.colors.lineSoft};
   overflow: hidden;
-  box-shadow: 0 20px 46px rgba(22, 33, 25, 0.12);
+  box-shadow: ${theme.shadows.raised};
 
-  @media (max-width: 920px) {
+  @media (max-width: ${theme.breakpoints.lg}) {
     min-height: 16rem;
   }
 `;
@@ -140,16 +137,16 @@ const HeroContent = styled.div`
   justify-content: center;
   flex: 1;
   padding: 1.6rem;
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, #f4f4f4 100%);
-  box-shadow: 0 18px 38px rgba(21, 31, 24, 0.08);
+  border: 1px solid ${theme.colors.lineSoft};
+  background: ${theme.gradients.panelLight};
+  box-shadow: ${theme.shadows.panel};
 `;
 
 const Eyebrow = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-size: 0.76rem;
-  color: rgba(57, 65, 47, 0.72);
+  color: ${theme.colors.textSubtle};
   margin-bottom: 0.7rem;
 `;
 
@@ -191,7 +188,7 @@ const PrimaryLink = styled(Link)`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(28, 54, 37, 0.18);
+    box-shadow: ${theme.shadows.softLift};
   }
 `;
 
@@ -201,12 +198,12 @@ const SecondaryLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.07rem;
   font-size: 0.84rem;
-  border: 1px solid rgba(33, 65, 42, 0.5);
+  border: 1px solid ${theme.colors.lineAccent};
   color: ${theme.colors.darkGreen};
   transition: background-color 0.2s ease;
 
   &:hover {
-    background: rgba(33, 65, 42, 0.08);
+    background: ${theme.colors.interactiveSoft};
   }
 `;
 
@@ -219,8 +216,8 @@ const Sections = styled.section`
 `;
 
 const SectionCard = styled.article`
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid ${theme.colors.lineSoft};
+  background: ${theme.colors.surfaceElevatedMuted};
   padding: 1.35rem 1.25rem;
 `;
 
@@ -256,8 +253,8 @@ const ValuesGrid = styled.div`
 `;
 
 const ValueCard = styled.article`
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, #f4f4f4 100%);
+  border: 1px solid ${theme.colors.lineSoft};
+  background: ${theme.gradients.panelLight};
   padding: 1.25rem 1.2rem;
 `;
 

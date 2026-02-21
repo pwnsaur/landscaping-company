@@ -59,12 +59,9 @@ const PageShell = styled.main`
   align-items: center;
   width: 100%;
   padding: 6.5rem 1.4rem 7rem;
-  background:
-    radial-gradient(circle at 14% 0%, rgba(33, 65, 42, 0.18), transparent 35%),
-    radial-gradient(circle at 86% 14%, rgba(57, 65, 47, 0.12), transparent 33%),
-    linear-gradient(180deg, #f3f3f3 0%, #ededed 100%);
+  background: ${theme.gradients.page};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${theme.breakpoints.md}) {
     padding: 5.5rem 1rem 4.5rem;
   }
 `;
@@ -79,7 +76,7 @@ const Eyebrow = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-size: 0.76rem;
-  color: rgba(57, 65, 47, 0.72);
+  color: ${theme.colors.textSubtle};
   margin-bottom: 0.7rem;
 `;
 
@@ -113,8 +110,8 @@ const EmptyState = styled.section`
   text-align: center;
   line-height: 1.7;
   color: ${theme.colors.text};
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid ${theme.colors.lineSoft};
+  background: ${theme.colors.surfaceElevatedSoft};
   padding: 1.5rem 1.2rem;
 `;
 
@@ -123,8 +120,8 @@ const CtaPanel = styled.section`
   width: min(75rem, 96vw);
   padding: 1.8rem 1.4rem;
   text-align: center;
-  border: 1px solid rgba(33, 65, 42, 0.2);
-  background: linear-gradient(155deg, #1d3c27 0%, #153021 100%);
+  border: 1px solid ${theme.colors.lineStrong};
+  background: ${theme.gradients.panelDark};
   color: ${theme.colors.white};
 `;
 
@@ -138,7 +135,7 @@ const CtaText = styled.p`
   margin: 0.7rem auto 1.2rem;
   max-width: 44ch;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: ${theme.colors.textInverseSoft};
 `;
 
 const CtaLink = styled(Link)`
@@ -147,7 +144,7 @@ const CtaLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.08rem;
   font-size: 0.86rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid ${theme.colors.lineOnDarkStrong};
   color: ${theme.colors.white};
   transition:
     background-color 0.2s ease,

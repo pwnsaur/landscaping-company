@@ -128,10 +128,10 @@ export default HomePageClient;
 const Page = styled.main`
   width: 100%;
   margin-top: -84px;
-  background: linear-gradient(180deg, #0f1d15 0%, #183128 42%, #ededed 76%);
+  background: ${({ theme }) => theme.gradients.homePage};
   overflow: clip;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin-top: -72px;
   }
 `;
@@ -144,7 +144,7 @@ const Hero = styled.section`
   justify-content: center;
   padding: 0 1rem 8rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     min-height: 112svh;
     padding: 0 1rem 4rem;
   }
@@ -166,15 +166,7 @@ const StyledImage = styled(Image)`
 const HeroShade = styled.div`
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(4, 10, 7, 0.68) 0%,
-      rgba(9, 20, 14, 0.6) 28%,
-      rgba(9, 20, 14, 0.25) 70%,
-      rgba(9, 20, 14, 0.05) 100%
-    ),
-    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.22), transparent 40%);
+  background: ${({ theme }) => theme.gradients.heroShade};
 `;
 
 const HeroGlow = styled.div`
@@ -184,11 +176,7 @@ const HeroGlow = styled.div`
   width: min(72rem, 88vw);
   height: min(32rem, 56vw);
   transform: translateX(-50%);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(236, 244, 236, 0.42) 0%,
-    rgba(236, 244, 236, 0) 66%
-  );
+  background: ${({ theme }) => theme.gradients.heroGlow};
   pointer-events: none;
 `;
 
@@ -199,16 +187,12 @@ const HeroContent = styled.div`
   text-align: center;
   z-index: 2;
   padding: 2.5rem 1.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: linear-gradient(
-    150deg,
-    rgba(10, 22, 16, 0.6) 0%,
-    rgba(12, 25, 18, 0.44) 100%
-  );
+  border: 1px solid ${({ theme }) => theme.colors.lineOnDarkSoft};
+  background: ${({ theme }) => theme.gradients.heroPanel};
   backdrop-filter: blur(6px);
-  box-shadow: 0 22px 90px rgba(5, 13, 9, 0.35);
+  box-shadow: ${({ theme }) => theme.shadows.heroPanel};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: 1.6rem 1.1rem;
   }
 `;
@@ -226,7 +210,7 @@ const Title = styled.h1`
   line-height: 1.1;
   margin-bottom: 1rem;
   font-weight: ${({ theme }) => theme.fontWeights.superBold};
-  font-size: clamp(2rem, 5vw, 4.6rem);
+  font-size: ${({ theme }) => theme.typography.display};
 `;
 
 const Lead = styled.p`
@@ -234,7 +218,7 @@ const Lead = styled.p`
   margin: 0 auto;
   font-size: clamp(1rem, 1.6vw, 1.28rem);
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.94);
+  color: ${({ theme }) => theme.colors.textInverse};
 `;
 
 const HeroActions = styled.div`
@@ -248,7 +232,7 @@ const HeroActions = styled.div`
 const ScrollHint = styled.p`
   position: absolute;
   bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: ${({ theme }) => theme.colors.textInverseSoft};
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   font-size: 0.66rem;
@@ -264,7 +248,7 @@ const Panels = styled.section`
   position: relative;
   z-index: 3;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin: -3rem auto 3.5rem;
     grid-template-columns: 1fr;
   }
@@ -278,20 +262,16 @@ const Panel = styled.article<{ $accent?: boolean }>`
   align-items: start;
   justify-content: space-between;
   border: 1px solid
-    ${({ $accent }) =>
-      $accent ? 'rgba(237, 237, 237, 0.25)' : 'rgba(57, 65, 47, 0.18)'};
+    ${({ theme, $accent }) =>
+      $accent ? theme.colors.lineOnDarkSoft : theme.colors.lineSoft};
   background: ${({ $accent, theme }) =>
-    $accent
-      ? `linear-gradient(165deg, ${theme.colors.darkGreen} 0%, #12261b 100%)`
-      : 'linear-gradient(160deg, rgba(255, 255, 255, 0.97) 0%, #f2f2f2 100%)'};
+    $accent ? theme.gradients.panelDark : theme.gradients.panelLight};
   color: ${({ $accent, theme }) =>
     $accent ? theme.colors.white : theme.colors.title};
-  box-shadow: ${({ $accent }) =>
-    $accent
-      ? '0 18px 54px rgba(10, 21, 15, 0.28)'
-      : '0 18px 46px rgba(31, 44, 34, 0.09)'};
+  box-shadow: ${({ theme, $accent }) =>
+    $accent ? theme.shadows.darkStrong : theme.shadows.darkSoft};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     min-height: 14rem;
     padding: 1.5rem;
   }

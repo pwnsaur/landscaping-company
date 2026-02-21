@@ -38,13 +38,15 @@ const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
   transform: translateX(-50%);
   width: min(32rem, calc(100vw - 2rem));
   min-height: 3rem;
-  padding: 0.55rem 0.85rem;
+  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.sm}`};
   background-color: ${({ theme, $isError }) =>
     $isError ? theme.colors.error : theme.colors.success};
   color: ${({ theme }) => theme.colors.white};
+  border-radius: ${({ theme }) => theme.radii.md};
   border: 1px solid
-    ${({ $isError }) => ($isError ? 'rgba(142, 32, 32, 0.65)' : 'rgba(26, 103, 74, 0.6)')};
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    ${({ theme, $isError }) =>
+      $isError ? theme.colors.errorBorder : theme.colors.successBorder};
+  box-shadow: ${({ theme }) => theme.shadows.modal};
   z-index: 7;
 `;
 

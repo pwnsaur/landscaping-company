@@ -27,14 +27,14 @@ const StyledHamburgerIcon = styled.button<{ open: boolean }>`
   height: 2.7rem;
   position: ${({ open }) => (open ? 'fixed' : 'static')};
   top: ${({ open }) => (open ? '1.25rem' : 'auto')};
-  left: ${({ open }) => (open ? '1rem' : 'auto')};
+  left: ${({ open, theme }) => (open ? theme.spacing.md : 'auto')};
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid rgba(57, 65, 47, 0.34);
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 0.1rem;
+  border: 1px solid ${({ theme }) => theme.colors.lineStrong};
+  background: ${({ theme }) => theme.colors.glowSoft};
+  border-radius: ${({ theme }) => theme.radii.sm};
   transform: rotate(0deg);
   transition: 0.28s ease-in-out;
   cursor: pointer;
@@ -42,7 +42,7 @@ const StyledHamburgerIcon = styled.button<{ open: boolean }>`
   z-index: 8;
 
   &:focus-visible {
-    outline: 2px solid rgba(33, 65, 42, 0.45);
+    outline: 2px solid ${({ theme }) => theme.colors.lineStrong};
     outline-offset: 2px;
   }
 

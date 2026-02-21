@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
 
-import { theme } from '@/styles/theme';
 import ContactForm from '@components/contactForm/ContactForm';
 
 const ContactsPageClient = () => {
@@ -77,12 +76,9 @@ const PageShell = styled.main`
   align-items: center;
   width: 100%;
   padding: 6.5rem 1.2rem 6rem;
-  background:
-    radial-gradient(circle at 14% 0%, rgba(33, 65, 42, 0.18), transparent 35%),
-    radial-gradient(circle at 86% 14%, rgba(57, 65, 47, 0.12), transparent 33%),
-    linear-gradient(180deg, #f3f3f3 0%, #ededed 100%);
+  background: ${({ theme }) => theme.gradients.page};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: 5.5rem 1rem 4.5rem;
   }
 `;
@@ -97,7 +93,7 @@ const Eyebrow = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-size: 0.76rem;
-  color: rgba(57, 65, 47, 0.72);
+  color: ${({ theme }) => theme.colors.textSubtle};
   margin-bottom: 0.7rem;
 `;
 
@@ -107,8 +103,8 @@ const Title = styled.h1`
   text-transform: uppercase;
   line-height: 1.14;
   font-size: clamp(1.55rem, 4.2vw, 3.05rem);
-  font-weight: ${theme.fontWeights.bold};
-  color: ${theme.colors.title};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.title};
 `;
 
 const Lead = styled.p`
@@ -116,7 +112,7 @@ const Lead = styled.p`
   margin: 1.1rem auto 0;
   font-size: clamp(1rem, 1.5vw, 1.18rem);
   line-height: 1.7;
-  color: ${theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const ContentGrid = styled.section`
@@ -125,23 +121,23 @@ const ContentGrid = styled.section`
   grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
   gap: 1rem;
 
-  @media (max-width: 940px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
 `;
 
 const InfoPanel = styled.section`
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.94) 0%, #f1f1f1 100%);
+  border: 1px solid ${({ theme }) => theme.colors.lineSoft};
+  background: ${({ theme }) => theme.gradients.panelLight};
   padding: 1.45rem 1.35rem;
-  box-shadow: 0 16px 36px rgba(22, 33, 25, 0.09);
+  box-shadow: ${({ theme }) => theme.shadows.panel};
 `;
 
 const InfoTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: clamp(1.02rem, 2.1vw, 1.45rem);
-  color: ${theme.colors.title};
+  color: ${({ theme }) => theme.colors.title};
 `;
 
 const InfoList = styled.ul`
@@ -161,14 +157,14 @@ const ItemStep = styled.span`
   min-width: 2rem;
   text-align: center;
   padding: 0.18rem 0.25rem;
-  border: 1px solid rgba(33, 65, 42, 0.32);
+  border: 1px solid ${({ theme }) => theme.colors.lineStrong};
   font-size: 0.73rem;
-  color: ${theme.colors.darkGreen};
+  color: ${({ theme }) => theme.colors.darkGreen};
 `;
 
 const ItemText = styled.p`
   line-height: 1.6;
-  color: ${theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const InfoLinks = styled.div`
@@ -184,19 +180,19 @@ const InfoLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: 0.8rem;
-  border: 1px solid rgba(33, 65, 42, 0.4);
-  color: ${theme.colors.darkGreen};
+  border: 1px solid ${({ theme }) => theme.colors.lineStrong};
+  color: ${({ theme }) => theme.colors.darkGreen};
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: rgba(33, 65, 42, 0.08);
+    background-color: ${({ theme }) => theme.colors.interactiveSoft};
   }
 `;
 
 const FormPanel = styled.section`
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, #f4f4f4 100%);
-  box-shadow: 0 18px 38px rgba(21, 31, 24, 0.08);
+  border: 1px solid ${({ theme }) => theme.colors.lineSoft};
+  background: ${({ theme }) => theme.gradients.panelLight};
+  box-shadow: ${({ theme }) => theme.shadows.panel};
   padding: 1.45rem 1.35rem;
 `;
 
@@ -204,28 +200,28 @@ const FormTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: clamp(1.05rem, 2.1vw, 1.5rem);
-  color: ${theme.colors.title};
+  color: ${({ theme }) => theme.colors.title};
 `;
 
 const FormIntro = styled.p`
   margin-top: 0.65rem;
   line-height: 1.6;
-  color: ${theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const MissingKey = styled.p`
   margin-top: 1rem;
   padding: 0.8rem 0.9rem;
-  border: 1px solid rgba(255, 51, 51, 0.3);
-  background: rgba(255, 51, 51, 0.08);
-  color: #8e2020;
+  border: 1px solid ${({ theme }) => theme.colors.dangerBorder};
+  background: ${({ theme }) => theme.colors.dangerSurface};
+  color: ${({ theme }) => theme.colors.errorText};
   line-height: 1.5;
   font-size: 0.93rem;
   border-radius: 0.35rem;
   overflow-wrap: anywhere;
   code {
     font-family: monospace;
-    background: rgba(255, 255, 255, 0.7);
+    background: ${({ theme }) => theme.colors.dangerCodeBg};
     padding: 0.06rem 0.25rem;
   }
 `;

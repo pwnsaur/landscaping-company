@@ -9,7 +9,7 @@ exports[`Layout component matches the snapshot 1`] = `
   width: 100%;
   margin: auto 0 0;
   padding-top: 3rem;
-  background: radial-gradient(circle at 10% 0%,rgba(255,255,255,0.08),transparent 32%),linear-gradient(160deg,#1d3d29 0%,#142d1f 100%);
+  background: radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.08), transparent 32%),linear-gradient(160deg, #1d3d29 0%, #142d1f 100%);
   z-index: 2;
 }
 
@@ -17,7 +17,7 @@ exports[`Layout component matches the snapshot 1`] = `
   width: min(75rem,96vw);
   display: grid;
   grid-template-columns: minmax(0,1.1fr) minmax(0,0.85fr) minmax(0,1fr);
-  gap: 1.1rem;
+  gap: 1rem;
   padding: 0 0 2rem;
 }
 
@@ -36,7 +36,7 @@ exports[`Layout component matches the snapshot 1`] = `
   margin-top: 0.75rem;
   max-width: 40ch;
   line-height: 1.7;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .c18 {
@@ -48,9 +48,9 @@ exports[`Layout component matches the snapshot 1`] = `
 .c19 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
-  font-size: 0.74rem;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 0.35rem;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
 }
 
 .c20 {
@@ -58,20 +58,20 @@ exports[`Layout component matches the snapshot 1`] = `
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: 0.86rem;
-  color: rgba(255,255,255,0.94);
+  color: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease,border-color 0.2s ease;
 }
 
 .c20:hover {
   color: #fff;
-  border-color: rgba(255,255,255,0.55);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .c21 {
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(12,25,18,0.3);
-  padding: 1.1rem 1.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(12, 25, 18, 0.3);
+  padding: 1rem 1rem;
 }
 
 .c22 {
@@ -82,19 +82,19 @@ exports[`Layout component matches the snapshot 1`] = `
 }
 
 .c23 {
-  margin-top: 0.45rem;
+  margin-top: 0.5rem;
   line-height: 1.65;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .c24 {
-  margin-top: 0.9rem;
+  margin-top: 0.75rem;
   display: inline-block;
-  padding: 0.62rem 1rem;
+  padding: 0.75rem 1rem;
   text-transform: uppercase;
   letter-spacing: 0.07rem;
   font-size: 0.82rem;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   color: #fff;
   transition: background-color 0.2s ease,color 0.2s ease;
 }
@@ -106,13 +106,13 @@ exports[`Layout component matches the snapshot 1`] = `
 
 .c25 {
   width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.14);
-  padding: 0.95rem 1rem 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.75rem 1rem 1rem;
 }
 
 .c26 {
   width: min(75rem,96vw);
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.83rem;
   letter-spacing: 0.03rem;
 }
@@ -121,7 +121,7 @@ exports[`Layout component matches the snapshot 1`] = `
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -141,22 +141,22 @@ exports[`Layout component matches the snapshot 1`] = `
   color: #21412a;
   text-transform: uppercase;
   min-height: 2.35rem;
-  padding: 0.55rem 0.85rem;
+  padding: 0.5rem 0.75rem;
   white-space: nowrap;
-  border: 1px solid rgba(33, 65, 42, 0.35);
+  border: 1px solid rgba(33, 65, 42, 0.34);
   background: rgba(33, 65, 42, 0.09);
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 
 .c10:hover {
   color: #21412a;
-  border-color: rgba(33,65,42,0.3);
-  background: rgba(33,65,42,0.08);
+  border-color: rgba(33, 65, 42, 0.34);
+  background: rgba(33, 65, 42, 0.08);
   transform: translateY(-1px);
 }
 
 .c10:focus-visible {
-  outline: 2px solid rgba(33,65,42,0.38);
+  outline: 2px solid rgba(33, 65, 42, 0.34);
   outline-offset: 2px;
 }
 
@@ -170,7 +170,7 @@ exports[`Layout component matches the snapshot 1`] = `
   color: #39412f;
   text-transform: uppercase;
   min-height: 2.35rem;
-  padding: 0.55rem 0.85rem;
+  padding: 0.5rem 0.75rem;
   white-space: nowrap;
   border: 1px solid transparent;
   background: transparent;
@@ -179,13 +179,13 @@ exports[`Layout component matches the snapshot 1`] = `
 
 .c11:hover {
   color: #21412a;
-  border-color: rgba(33,65,42,0.3);
-  background: rgba(33,65,42,0.08);
+  border-color: rgba(33, 65, 42, 0.34);
+  background: rgba(33, 65, 42, 0.08);
   transform: translateY(-1px);
 }
 
 .c11:focus-visible {
-  outline: 2px solid rgba(33,65,42,0.38);
+  outline: 2px solid rgba(33, 65, 42, 0.34);
   outline-offset: 2px;
 }
 
@@ -202,10 +202,10 @@ exports[`Layout component matches the snapshot 1`] = `
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: rgba(248,248,248,0.9);
+  background: linear-gradient(150deg, rgba(250, 250, 248, 0.9) 0%, rgba(236, 238, 233, 0.88) 100%);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(57,65,47,0.12);
-  box-shadow: 0 8px 24px rgba(23,34,26,0.08);
+  border-bottom: 1px solid rgba(57, 65, 47, 0.16);
+  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
   z-index: 6;
   position: sticky;
   top: 0;
@@ -217,10 +217,10 @@ exports[`Layout component matches the snapshot 1`] = `
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.9rem;
+  gap: 1rem;
   width: 100%;
   max-width: 75rem;
-  padding: 0.85rem 1rem;
+  padding: 0.75rem 1rem;
 }
 
 .c3 {
@@ -241,9 +241,9 @@ exports[`Layout component matches the snapshot 1`] = `
 }
 
 .c6 {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   letter-spacing: 0.24rem;
-  color: rgba(57,65,47,0.82);
+  color: #5a6254;
   text-transform: uppercase;
   white-space: nowrap;
 }

@@ -37,9 +37,10 @@ export default Input;
 const StyledInput = styled.input`
   width: 100%;
   min-height: 2.9rem;
-  padding: 0.7rem 0.85rem;
-  border: 1px solid rgba(57, 65, 47, 0.24);
-  background: rgba(255, 255, 255, 0.88);
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.sm}`};
+  border: 1px solid ${({ theme }) => theme.colors.lineSoft};
+  border-radius: ${({ theme }) => theme.radii.sm};
+  background: ${({ theme }) => theme.colors.glowSoft};
   font-size: ${({ theme }) => theme.fontSizes.normal};
   line-height: 1.4;
   outline: none;
@@ -49,10 +50,10 @@ const StyledInput = styled.input`
 
   &:focus {
     border-color: ${({ theme }) => theme.colors.darkGreen};
-    box-shadow: 0 0 0 3px rgba(33, 65, 42, 0.12);
+    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.focusRing};
   }
 
   ::placeholder {
-    color: rgba(57, 65, 47, 0.6);
+    color: ${({ theme }) => theme.colors.textMuted};
   }
 `;

@@ -22,7 +22,7 @@ const LoadingScreen = () => {
 export default LoadingScreen;
 
 const Dot = styled.div`
-  background-color: #333;
+  background-color: ${({ theme }) => theme.colors.text};
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
@@ -47,7 +47,7 @@ const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ededed;
+  background-color: ${({ theme }) => theme.colors.background};
   z-index: 6;
   overflow-x: hidden;
 `;

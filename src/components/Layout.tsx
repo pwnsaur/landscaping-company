@@ -27,7 +27,7 @@ const Container = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.surfaceSoft};
 `;
 
 const Content = styled.div`

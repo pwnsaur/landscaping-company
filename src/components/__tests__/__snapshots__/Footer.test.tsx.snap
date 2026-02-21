@@ -9,7 +9,7 @@ exports[`Footer Component matches the snapshot 1`] = `
   width: 100%;
   margin: auto 0 0;
   padding-top: 3rem;
-  background: radial-gradient(circle at 10% 0%,rgba(255,255,255,0.08),transparent 32%),linear-gradient(160deg,#1d3d29 0%,#142d1f 100%);
+  background: radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.08), transparent 32%),linear-gradient(160deg, #1d3d29 0%, #142d1f 100%);
   z-index: 2;
 }
 
@@ -17,7 +17,7 @@ exports[`Footer Component matches the snapshot 1`] = `
   width: min(75rem,96vw);
   display: grid;
   grid-template-columns: minmax(0,1.1fr) minmax(0,0.85fr) minmax(0,1fr);
-  gap: 1.1rem;
+  gap: 1rem;
   padding: 0 0 2rem;
 }
 
@@ -36,7 +36,7 @@ exports[`Footer Component matches the snapshot 1`] = `
   margin-top: 0.75rem;
   max-width: 40ch;
   line-height: 1.7;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .c5 {
@@ -48,9 +48,9 @@ exports[`Footer Component matches the snapshot 1`] = `
 .c6 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
-  font-size: 0.74rem;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 0.35rem;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
 }
 
 .c7 {
@@ -58,20 +58,20 @@ exports[`Footer Component matches the snapshot 1`] = `
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: 0.86rem;
-  color: rgba(255,255,255,0.94);
+  color: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease,border-color 0.2s ease;
 }
 
 .c7:hover {
   color: #fff;
-  border-color: rgba(255,255,255,0.55);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .c8 {
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(12,25,18,0.3);
-  padding: 1.1rem 1.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(12, 25, 18, 0.3);
+  padding: 1rem 1rem;
 }
 
 .c9 {
@@ -82,19 +82,19 @@ exports[`Footer Component matches the snapshot 1`] = `
 }
 
 .c10 {
-  margin-top: 0.45rem;
+  margin-top: 0.5rem;
   line-height: 1.65;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .c11 {
-  margin-top: 0.9rem;
+  margin-top: 0.75rem;
   display: inline-block;
-  padding: 0.62rem 1rem;
+  padding: 0.75rem 1rem;
   text-transform: uppercase;
   letter-spacing: 0.07rem;
   font-size: 0.82rem;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   color: #fff;
   transition: background-color 0.2s ease,color 0.2s ease;
 }
@@ -106,13 +106,13 @@ exports[`Footer Component matches the snapshot 1`] = `
 
 .c12 {
   width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.14);
-  padding: 0.95rem 1rem 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.75rem 1rem 1rem;
 }
 
 .c13 {
   width: min(75rem,96vw);
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.83rem;
   letter-spacing: 0.03rem;
 }

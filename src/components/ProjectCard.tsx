@@ -55,16 +55,16 @@ export default ProjectCard;
 
 const Card = styled.div`
   width: 100%;
-  border: 1px solid rgba(57, 65, 47, 0.16);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, #f4f4f4 100%);
-  box-shadow: 0 18px 42px rgba(23, 34, 26, 0.1);
+  border: 1px solid ${theme.colors.lineSoft};
+  background: ${theme.gradients.panelLight};
+  box-shadow: ${theme.shadows.medium};
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 24px 44px rgba(18, 29, 21, 0.14);
+    box-shadow: ${theme.shadows.strong};
   }
 `;
 
@@ -82,16 +82,14 @@ const Media = styled.div`
   min-height: 14rem;
   overflow: hidden;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${theme.breakpoints.md}) {
     min-height: 12rem;
   }
 `;
 
 const Placeholder = styled.div`
   min-height: 14rem;
-  background:
-    radial-gradient(circle at 24% 20%, rgba(62, 80, 59, 0.45), transparent 54%),
-    linear-gradient(160deg, #364a3c 0%, #213129 100%);
+  background: ${theme.gradients.placeholder};
 `;
 
 const StyledImage = styled(Image)`
@@ -109,7 +107,7 @@ const Meta = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.14rem;
   font-size: 0.72rem;
-  color: rgba(57, 65, 47, 0.72);
+  color: ${theme.colors.textSubtle};
 `;
 
 const Title = styled.h2`

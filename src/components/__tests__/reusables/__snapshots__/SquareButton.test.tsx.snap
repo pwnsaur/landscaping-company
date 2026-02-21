@@ -9,17 +9,21 @@ exports[`SquareButton component matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1rem;
+  letter-spacing: 0.04rem;
+  border-radius: 0.15rem;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  background-color: #ededed;
-  border: 2px solid #21412a;
+  background-color: #fff;
+  border: 1px solid #21412a;
   color: #21412a;
+  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
 }
 
 .c0:hover {
+  transform: translateY(-1px);
   background-color: #21412a;
-  border-color: #ededed;
-  color: #ededed;
+  border-color: #fff;
+  color: #fff;
 }
 
 <a

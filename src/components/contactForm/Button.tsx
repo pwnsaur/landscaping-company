@@ -16,13 +16,15 @@ const Button = ({ children, type, disabled, onClick }: ButtonProps) => {
 };
 
 const StyledButton = styled.button`
-  padding: 0.65rem 1.2rem;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
   min-width: 8.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
   background-color: ${({ theme }) => theme.colors.darkGreen};
   color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.darkGreen};
+  border-radius: ${({ theme }) => theme.radii.sm};
+  box-shadow: ${({ theme }) => theme.shadows.soft};
   font-size: ${({ theme }) => theme.fontSizes.normal};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   transition:
@@ -39,8 +41,8 @@ const StyledButton = styled.button`
 
   &:disabled {
     transform: none;
-    background-color: rgba(33, 65, 42, 0.35);
-    border-color: rgba(33, 65, 42, 0.28);
+    background-color: ${({ theme }) => theme.colors.interactiveMuted};
+    border-color: ${({ theme }) => theme.colors.interactiveMutedBorder};
     color: ${({ theme }) => theme.colors.grey};
     cursor: not-allowed;
   }

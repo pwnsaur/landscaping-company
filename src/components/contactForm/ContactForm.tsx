@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
 
-import { theme } from '@/styles/theme';
 import Button from '@components/contactForm/Button';
 import Input from '@components/contactForm/Input';
 import SubmitModal from '@components/contactForm/SubmitModal';
@@ -120,30 +119,30 @@ export default ContactForm;
 
 const Form = styled.form`
   width: 100%;
-  margin: 1.2rem auto 0;
+  margin: ${({ theme }) => `${theme.spacing.lg} auto 0`};
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: ${({ theme }) => theme.spacing.sm};
 `;
 
 const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: ${({ theme }) => theme.spacing.sm};
 
-  @media (max-width: 660px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     grid-template-columns: 1fr;
   }
 `;
 
 const ActionRow = styled.div`
-  margin-top: 0.2rem;
+  margin-top: ${({ theme }) => theme.spacing.xxs};
 `;
 
 const FormHint = styled.p`
-  margin-top: 0.8rem;
+  margin-top: ${({ theme }) => theme.spacing.sm};
   line-height: 1.55;
   font-size: 0.84rem;
   max-width: 60ch;
-  color: ${theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 `;

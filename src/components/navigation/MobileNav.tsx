@@ -68,7 +68,7 @@ const Container = styled.div`
 const Backdrop = styled.div`
   flex-grow: 1;
   height: 100%;
-  background-color: rgba(3, 11, 8, 0.42);
+  background-color: ${({ theme }) => theme.colors.overlayBackdrop};
   backdrop-filter: blur(2px);
 `;
 
@@ -82,10 +82,10 @@ const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
   right: 0;
   top: 0;
   height: 100%;
-  padding: 5.7rem 1rem 1.3rem;
-  background: linear-gradient(170deg, rgba(252, 252, 252, 0.98) 0%, #ececec 100%);
-  border-left: 1px solid rgba(57, 65, 47, 0.22);
-  box-shadow: -18px 0 42px rgba(13, 22, 16, 0.2);
+  padding: 5.7rem ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.md};
+  background: ${({ theme }) => theme.gradients.nav};
+  border-left: 1px solid ${({ theme }) => theme.colors.lineSoft};
+  box-shadow: ${({ theme }) => theme.shadows.sidePanel};
   animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.27s ease-out
     forwards;
 `;
@@ -93,7 +93,7 @@ const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
 const PanelTitle = styled.p`
   text-transform: uppercase;
   letter-spacing: 0.16rem;
-  font-size: 0.72rem;
-  color: rgba(57, 65, 47, 0.72);
-  margin-bottom: 0.95rem;
+  font-size: ${({ theme }) => theme.typography.label};
+  color: ${({ theme }) => theme.colors.textMuted};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;

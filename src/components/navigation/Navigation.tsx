@@ -36,7 +36,7 @@ const Navigation = () => {
       () => {
         setIsVisible(!isOpen);
       },
-      !isOpen ? 0 : 300
+      !isOpen ? 0 : 300,
     );
   };
 
@@ -125,10 +125,10 @@ const Container = styled.div<{ $isNavBarVisible: boolean }>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: rgba(248, 248, 248, 0.9);
+  background: ${({ theme }) => theme.gradients.nav};
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(57, 65, 47, 0.12);
-  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.lineSoft};
+  box-shadow: ${({ theme }) => theme.shadows.soft};
   z-index: 6;
   position: sticky;
   top: 0;
@@ -141,10 +141,10 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.9rem;
+  gap: ${({ theme }) => theme.spacing.md};
   width: 100%;
   max-width: ${({ theme }) => theme.width.wide};
-  padding: 0.85rem 1rem;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
 `;
 
 const BrandRow = styled.div`
@@ -160,18 +160,18 @@ const Logo = styled(Image)`
 const LinkLogo = styled(Link)`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: ${({ theme }) => theme.spacing.xs};
   height: 100%;
 `;
 
 const BrandText = styled.span`
-  font-size: 0.78rem;
+  font-size: ${({ theme }) => theme.typography.label};
   letter-spacing: 0.24rem;
-  color: rgba(57, 65, 47, 0.82);
+  color: ${({ theme }) => theme.colors.textMuted};
   text-transform: uppercase;
   white-space: nowrap;
 
-  @media (max-width: 480px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     display: none;
   }
 `;

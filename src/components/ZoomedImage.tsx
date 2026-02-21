@@ -94,7 +94,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: ${({ theme }) => theme.colors.overlayLight};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,11 +134,11 @@ const ArrowContainer = styled.div<{ disabled: boolean }>`
   cursor: pointer;
 
   &:not([disabled]):hover {
-    background: rgba(200, 200, 200, 0.6);
+    background: ${({ theme }) => theme.colors.overlayHoverStrong};
   }
 
   &:not([disabled]) {
-    background: rgba(200, 200, 200, 0.3);
+    background: ${({ theme }) => theme.colors.overlayHoverSoft};
   }
 
   &[disabled] {
