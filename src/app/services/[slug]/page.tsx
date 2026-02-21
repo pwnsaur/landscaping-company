@@ -10,6 +10,7 @@ import ServiceCard from '@/components/ServiceCard';
 import { getServiceBySlug, getServices } from '@/lib/contentfulData';
 import { theme } from '@/styles/theme';
 import { getAssetImageData } from '@/utils/contentfulAsset';
+import { contentfulImageLoader } from '@/utils/contentfulImageLoader';
 
 type Props = {
   params: Promise<{
@@ -56,7 +57,8 @@ const ServicePage = async ({ params }: Props) => {
               alt={`${title} cover`}
               fill
               priority
-              quality={75}
+              quality={70}
+              loader={contentfulImageLoader}
               sizes='(max-width: 900px) 92vw, 42vw'
             />
           </Media>

@@ -21,8 +21,9 @@ const AboutPage = () => {
             alt='komandas darbs objekta'
             fill
             priority
-            quality={75}
+            quality={65}
             sizes='(max-width: 920px) 94vw, 44vw'
+            placeholder='blur'
           />
         </HeroMedia>
 

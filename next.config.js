@@ -8,7 +8,11 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    qualities: [50, 75],
+    formats: ['image/avif', 'image/webp'],
+    qualities: [50, 60, 65, 70, 75],
+    minimumCacheTTL: 86400,
+    deviceSizes: [640, 750, 828, 960, 1080, 1200, 1536, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
         protocol: 'https',

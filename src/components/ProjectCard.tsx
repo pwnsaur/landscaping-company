@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { theme } from '@/styles/theme';
 import { TypeProject } from '@/types/contentfulTypes';
 import { getAssetImageData } from '@/utils/contentfulAsset';
+import { contentfulImageLoader } from '@/utils/contentfulImageLoader';
 
 const ProjectCard = ({
   project,
@@ -29,8 +30,9 @@ const ProjectCard = ({
               src={coverImageData.src}
               alt={`${title} cover`}
               fill
-              quality={75}
+              quality={65}
               priority={priority}
+              loader={contentfulImageLoader}
               sizes='(max-width: 920px) 94vw, (max-width: 1280px) 46vw, 31vw'
             />
           </Media>

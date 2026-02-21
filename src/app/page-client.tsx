@@ -73,7 +73,9 @@ const HomePageClient = () => {
             src={bacgroundImageThree}
             alt='Brasika landscaping'
             fill
-            quality={60}
+            quality={50}
+            sizes='100vw'
+            placeholder='blur'
             priority
           />
         </ParallaxLayer>

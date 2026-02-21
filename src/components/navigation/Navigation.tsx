@@ -95,6 +95,7 @@ const Navigation = () => {
             width={120}
             height={70}
             quality={50}
+            sizes='120px'
             priority
           />
         </LinkLogo>
