@@ -68,8 +68,10 @@ export const ContentContainer = styled.section<{
   $size?: ContainerSize;
   $viewport?: ViewportWidth;
 }>`
-  width: ${({ $size = 'content', $viewport = 'default' }) =>
+  width: 100%;
+  max-width: ${({ $size = 'content', $viewport = 'default' }) =>
     `min(${containerWidth[$size]}, ${viewportWidth[$viewport]})`};
+  margin-inline: auto;
 `;
 
 export const SectionStack = styled.section<{ $gap?: string }>`
@@ -85,7 +87,10 @@ export const CardGrid = styled.section<{ $min?: string }>`
   align-items: stretch;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(${({ $min }) => $min || theme.layout.grid.cardMinWidth}, 1fr)
+    minmax(
+      min(100%, ${({ $min }) => $min || theme.layout.grid.cardMinWidth}),
+      1fr
+    )
   );
   column-gap: ${theme.layout.grid.columnGap};
   row-gap: ${theme.layout.grid.rowGap};

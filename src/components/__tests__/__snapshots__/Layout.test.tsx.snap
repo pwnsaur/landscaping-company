@@ -30,7 +30,9 @@ exports[`Layout component matches the snapshot 1`] = `
 }
 
 .c14 {
-  width: min(75rem, 96vw);
+  width: 100%;
+  max-width: min(75rem, 96vw);
+  margin-inline: auto;
 }
 
 .c13 {

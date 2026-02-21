@@ -30,7 +30,9 @@ exports[`Footer Component matches the snapshot 1`] = `
 }
 
 .c1 {
-  width: min(75rem, 96vw);
+  width: 100%;
+  max-width: min(75rem, 96vw);
+  margin-inline: auto;
 }
 
 .c0 {
