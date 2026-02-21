@@ -136,8 +136,8 @@ const HomePageClient = () => {
             izpildi un minimalu troksni klienta ikdiena.
           </Lead>
           <HeroActions>
-            <SquareButton destination='services' name='Pakalpojumi' />
-            <SquareButton destination='projects' name='Projekti' />
+            <SquareButton destination='services' name='Pakalpojumi' isInverted />
+            <SquareButton destination='projects' name='Projekti' isInverted />
           </HeroActions>
         </HeroContent>
 
@@ -315,7 +315,7 @@ const Panels = styled.section`
     `${theme.components.home.panelsTop} auto ${theme.components.home.panelsBottom}`};
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: ${({ theme }) => theme.layout.grid.gap};
+  gap: ${({ theme }) => theme.components.home.panelsGap};
   position: relative;
   z-index: 1;
 
@@ -353,6 +353,7 @@ const PanelTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: ${({ theme }) => theme.components.home.panelTitleTracking};
   font-size: ${({ theme }) => theme.components.home.panelTitleSize};
+  color: inherit;
   margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 

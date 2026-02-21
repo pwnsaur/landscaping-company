@@ -158,6 +158,11 @@ Current maturity:
 - list cards use intent-based route prefetch (`prefetch={false}` on `Link`) to avoid eager viewport prefetch churn on long grids
 - image optimizer cache floor is increased to 31 days (`images.minimumCacheTTL`) for stronger repeat-visit performance
 - home hero source image was downscaled/compressed to reduce transfer cost while preserving visual quality
+- home lower panels now use positive section offsets and dedicated gap tokens, avoiding panel collisions with surrounding sections
+- about page section/card spacing is tokenized (`components.about.sectionTop/sectionGap`) for cleaner separation and consistent visual rhythm
+- about hero image now uses cover-fit (no side blank bands), and the adjacent intro panel stretches to the same visual height as the media frame
+- contacts info/form columns now use stretch-height panel layout for cleaner side-by-side balance on desktop
+- home hero action buttons now use inverse styling on dark media surfaces, and panel titles inherit local surface color to preserve contrast
 
 ## Key implementation patterns
 

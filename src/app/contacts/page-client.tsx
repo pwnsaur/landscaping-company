@@ -100,7 +100,7 @@ const ContentGrid = styled.section`
   display: grid;
   grid-template-columns: ${({ theme }) =>
     `${theme.components.contacts.infoGridLeft} ${theme.components.contacts.infoGridRight}`};
-  align-items: start;
+  align-items: stretch;
   gap: ${({ theme }) => theme.components.contacts.gridGap};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -109,6 +109,9 @@ const ContentGrid = styled.section`
 `;
 
 const InfoPanel = styled(SoftPanel)`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   padding: ${({ theme }) => theme.components.contacts.panelPadding};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -164,6 +167,9 @@ const InfoLinks = styled.div`
 `;
 
 const FormPanel = styled(SoftPanel)`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   padding: ${({ theme }) => theme.components.contacts.panelPadding};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

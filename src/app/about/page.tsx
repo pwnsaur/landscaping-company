@@ -64,8 +64,8 @@ const AboutPage = () => {
       </ContentContainer>
 
       <ContentContainer $size='wide'>
-        <PlainSection>
-          <CardGrid $min={theme.components.about.sectionCardMinWidth}>
+        <PlainSection $mt={theme.components.about.sectionTop}>
+          <AboutCardGrid $min={theme.components.about.sectionCardMinWidth}>
             <SectionCard>
               <SectionTitle>Ko mes daram</SectionTitle>
               <SectionText>
@@ -83,14 +83,14 @@ const AboutPage = () => {
                 pirms nakama etapa.
               </SectionText>
             </SectionCard>
-          </CardGrid>
+          </AboutCardGrid>
         </PlainSection>
       </ContentContainer>
 
       <ContentContainer $size='wide'>
-        <PlainSection $mt='2rem'>
+        <PlainSection $mt={theme.components.about.sectionTop}>
           <ValuesTitle>Principi, pie kuriem turamies</ValuesTitle>
-          <CardGrid $min={theme.components.about.valueCardMinWidth}>
+          <AboutCardGrid $min={theme.components.about.valueCardMinWidth}>
             <ValueCard>
               <ValueName>Praktiskums</ValueName>
               <ValueText>
@@ -112,7 +112,7 @@ const AboutPage = () => {
                 sagaidamais rezultats katra etapa.
               </ValueText>
             </ValueCard>
-          </CardGrid>
+          </AboutCardGrid>
         </PlainSection>
       </ContentContainer>
     </PageShell>
@@ -125,7 +125,7 @@ const Hero = styled.section`
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: ${theme.components.about.heroGap};
-  align-items: start;
+  align-items: stretch;
 
   @media (max-width: ${theme.breakpoints.lg}) {
     grid-template-columns: 1fr;
@@ -148,6 +148,7 @@ const HeroContent = styled(SoftPanel)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
   padding: ${theme.spacing.xl};
 `;
 
@@ -167,6 +168,10 @@ const Actions = styled.div`
   display: flex;
   gap: ${theme.spacing.sm};
   flex-wrap: wrap;
+`;
+
+const AboutCardGrid = styled(CardGrid)`
+  gap: ${theme.components.about.sectionGap};
 `;
 
 const SectionCard = styled(MutedPanel)`
@@ -196,6 +201,6 @@ const ValueText = styled(BodyText)`
 `;
 
 const StyledImage = styled(Image)`
-  object-fit: contain;
-  object-position: center top;
+  object-fit: cover;
+  object-position: center;
 `;
