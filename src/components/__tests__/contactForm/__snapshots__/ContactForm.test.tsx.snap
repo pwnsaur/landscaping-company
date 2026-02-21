@@ -2,7 +2,7 @@
 
 exports[`ContactForm component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c2 {
+  .c5 {
   width: 100%;
   min-height: 2.9rem;
   padding: 0.75rem;
@@ -15,16 +15,21 @@ exports[`ContactForm component matches the snapshot 1`] = `
   transition: border-color 0.18s ease,box-shadow 0.18s ease;
 }
 
-.c2:focus {
+.c5:focus {
   border-color: #21412a;
   box-shadow: 0 0 0 3px rgba(33, 65, 42, 0.12);
 }
 
-.c2 ::placeholder {
+.c5[aria-invalid='true'] {
+  border-color: #ff3333;
+  box-shadow: 0 0 0 3px rgba(142,32,32,0.16);
+}
+
+.c5 ::placeholder {
   color: #4d5846;
 }
 
-.c3 {
+.c9 {
   width: 100%;
   min-height: 11rem;
   padding: 0.75rem;
@@ -38,16 +43,21 @@ exports[`ContactForm component matches the snapshot 1`] = `
   transition: border-color 0.18s ease,box-shadow 0.18s ease;
 }
 
-.c3:focus {
+.c9:focus {
   border-color: #21412a;
   box-shadow: 0 0 0 3px rgba(33, 65, 42, 0.12);
 }
 
-.c3 ::placeholder {
+.c9[aria-invalid='true'] {
+  border-color: #ff3333;
+  box-shadow: 0 0 0 3px rgba(142,32,32,0.16);
+}
+
+.c9 ::placeholder {
   color: #4d5846;
 }
 
-.c5 {
+.c14 {
   padding: 0.75rem 1.5rem;
   min-width: 8.5rem;
   text-transform: uppercase;
@@ -63,13 +73,13 @@ exports[`ContactForm component matches the snapshot 1`] = `
   cursor: pointer;
 }
 
-.c5:hover {
+.c14:hover {
   transform: translateY(-1px);
   background-color: transparent;
   color: #21412a;
 }
 
-.c5:disabled {
+.c14:disabled {
   transform: none;
   background-color: rgba(33, 65, 42, 0.35);
   border-color: rgba(33, 65, 42, 0.28);
@@ -77,21 +87,74 @@ exports[`ContactForm component matches the snapshot 1`] = `
   cursor: not-allowed;
 }
 
+.c3 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.c4 {
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #1f271d;
+}
+
+.c6 {
+  min-height: 1.15rem;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #8e2020;
+}
+
+.c7 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.c8 {
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #1f271d;
+}
+
+.c10 {
+  min-height: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.c11 {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #8e2020;
+}
+
+.c12 {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: rgba(47, 54, 42, 0.74);
+}
+
 .c0 {
   width: 100%;
   margin: 1.5rem auto 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.c1 {
+.c2 {
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.c4 {
+.c13 {
   margin-top: 0.5rem;
   display: flex;
   align-items: center;
@@ -99,21 +162,37 @@ exports[`ContactForm component matches the snapshot 1`] = `
   gap: 0.75rem;
 }
 
-.c6 {
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c15 {
   line-height: 1.65;
   font-size: 0.84rem;
   max-width: 60ch;
   color: #2f362a;
 }
 
+.c16 {
+  min-height: 1.25rem;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #2f362a;
+}
+
 @media (max-width:768px) {
-  .c1 {
+  .c2 {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width:660px) {
-  .c4 {
+  .c13 {
     flex-direction: column;
     align-items: stretch;
   }
@@ -121,77 +200,180 @@ exports[`ContactForm component matches the snapshot 1`] = `
 
 <form
     class="c0"
+    novalidate=""
   >
     <div
+      aria-hidden="true"
       class="c1"
     >
+      <label
+        for="website"
+      >
+        Mājaslapa
+      </label>
       <input
-        autocomplete="name"
-        class="c2"
-        id="name"
-        placeholder="Vārds, uzvārds"
-        required=""
+        autocomplete="off"
+        id="website"
+        name="website"
+        tabindex="-1"
         type="text"
         value=""
       />
+    </div>
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="name"
+        >
+          Vārds
+        </label>
+        <input
+          aria-invalid="false"
+          autocomplete="name"
+          class="c5"
+          id="name"
+          maxlength="80"
+          name="name"
+          placeholder="Vārds, uzvārds"
+          required=""
+          type="text"
+          value=""
+        />
+        <p
+          class="c6"
+        />
+      </div>
+      <div
+        class="c3"
+      >
+        <label
+          class="c4"
+          for="email"
+        >
+          E-pasts
+        </label>
+        <input
+          aria-invalid="false"
+          autocomplete="email"
+          class="c5"
+          id="email"
+          inputmode="email"
+          name="email"
+          placeholder="E-pasts"
+          required=""
+          type="email"
+          value=""
+        />
+        <p
+          class="c6"
+        />
+      </div>
+    </div>
+    <div
+      class="c3"
+    >
+      <label
+        class="c4"
+        for="phone"
+      >
+        Tālrunis
+      </label>
       <input
-        autocomplete="email"
-        class="c2"
-        id="email"
-        placeholder="E-pasts"
+        aria-invalid="false"
+        autocomplete="tel"
+        class="c5"
+        id="phone"
+        inputmode="tel"
+        maxlength="32"
+        name="phone"
+        placeholder="Tālrunis"
         required=""
-        type="email"
+        type="tel"
         value=""
       />
+      <p
+        class="c6"
+      />
     </div>
-    <input
-      autocomplete="tel"
-      class="c2"
-      id="phone"
-      placeholder="Tālrunis"
-      required=""
-      type="tel"
-      value=""
-    />
-    <textarea
-      class="c3"
-      id="message"
-      placeholder="Aprakstiet situaciju, velmes un aptuveno teritorijas apjomu"
-      required=""
-    />
     <div
-      class="c4"
+      class="c7"
+    >
+      <label
+        class="c8"
+        for="message"
+      >
+        Ziņojums
+      </label>
+      <textarea
+        aria-invalid="false"
+        class="c9"
+        id="message"
+        maxlength="1500"
+        name="message"
+        placeholder="Aprakstiet situāciju, vēlmes un aptuveno teritorijas apjomu"
+        required=""
+      />
+      <div
+        class="c10"
+      >
+        <p
+          class="c11"
+        />
+        <span
+          class="c12"
+        >
+          0/1500
+        </span>
+      </div>
+    </div>
+    <div
+      class="c13"
     >
       <button
-        class="c5"
+        aria-busy="false"
+        class="c14"
         type="submit"
       >
         Sūtīt
       </button>
       <p
-        class="c6"
+        class="c15"
       >
         Nospiežot sūtīt, piekrīti datu izmantošanai, lai ar tevi sazinātos par pieprasījumu.
       </p>
     </div>
+    <p
+      class="c16"
+      role="status"
+    />
   </form>
   .c0 {
-  display: none;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   position: fixed;
   bottom: 1rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0.5rem);
   width: min(32rem, calc(100vw - 2rem));
   min-height: 3rem;
-  padding: 0.5rem 0.75rem;
-  background-color: #ff3333;
+  padding: 0.5rem 0.75rem 0.5rem;
+  background-color: #42ba96;
   color: #ffffff;
   border-radius: 0.3rem;
-  border: 1px solid rgba(142, 32, 32, 0.65);
+  border: 1px solid rgba(26, 103, 74, 0.6);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
   z-index: 7;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease,transform 0.18s ease;
 }
 
 .c1 {
@@ -199,7 +381,21 @@ exports[`ContactForm component matches the snapshot 1`] = `
   line-height: 1.35;
   font-weight: 600;
   margin: 0;
-  text-align: center;
+  text-align: left;
+  flex: 1;
+}
+
+.c2 {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #ffffff;
+  border-radius: 999px;
+  width: 1.65rem;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 @media (max-width:768px) {
@@ -211,11 +407,21 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 <div
+    aria-hidden="true"
+    aria-live="polite"
     class="c0"
+    role="status"
   >
     <p
       class="c1"
     />
+    <button
+      aria-label="Aizvērt paziņojumu"
+      class="c2"
+      type="button"
+    >
+      ×
+    </button>
   </div>
 </DocumentFragment>
 `;

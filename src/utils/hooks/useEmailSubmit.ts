@@ -1,47 +1,59 @@
-import { useState } from 'react';
-
-import { FormData } from '@/types/contactForm';
+import {
+  ContactFormApiResponse,
+  ContactFormErrors,
+  ContactFormPayload,
+} from '@/types/contactForm';
 import sendEmail from '@/utils/sendEmail';
 
-const useEmailSubmit = () => {
-  const [responseMessage, setResponseMessage] = useState({
-    isSuccessful: false,
-    message: '',
-  });
+type SubmitResult = {
+  isSuccessful: boolean;
+  message: string;
+  errors?: ContactFormErrors;
+};
 
-  const submitEmail = async (formData: FormData) => {
+const REQUEST_TIMEOUT_MS = 15_000;
+
+const useEmailSubmit = () => {
+  const submitEmail = async (formData: ContactFormPayload): Promise<SubmitResult> => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
     try {
-      const req = await sendEmail(formData);
-      if (req.ok) {
-        setResponseMessage({
+      const req = await sendEmail(formData, controller.signal);
+      const body = (await req.json().catch(() => null)) as
+        | ContactFormApiResponse
+        | null;
+
+      if (req.ok && body?.success) {
+        return {
           isSuccessful: true,
-          message: 'Ziņojums nosūtīts, paldies!',
-        });
-        return true;
+          message: body.message || 'Ziņojums nosūtīts, paldies!',
+        };
       }
 
-      const body = (await req.json().catch(() => null)) as
-        | { error?: string }
-        | null;
-      setResponseMessage({
+      return {
         isSuccessful: false,
-        message: body?.error || 'Ziņojumu neizdevās nosūtīt.',
-      });
-      return false;
-    } catch (e) {
-      setResponseMessage({
+        message: body?.message || 'Ziņojumu neizdevās nosūtīt.',
+        errors: body?.errors,
+      };
+    } catch (error) {
+      if (error instanceof Error && error.name === 'AbortError') {
+        return {
+          isSuccessful: false,
+          message: 'Pieprasījums aizņēma pārāk ilgu laiku. Mēģini vēlreiz.',
+        };
+      }
+
+      return {
         isSuccessful: false,
-        message:
-          e instanceof Error && e.message
-            ? e.message
-            : 'Ziņojumu neizdevās nosūtīt.',
-      });
+        message: 'Ziņojumu neizdevās nosūtīt. Mēģini vēlreiz.',
+      };
+    } finally {
+      clearTimeout(timeoutId);
     }
-    return false;
   };
 
   return {
-    responseMessage,
     submitEmail,
   };
 };

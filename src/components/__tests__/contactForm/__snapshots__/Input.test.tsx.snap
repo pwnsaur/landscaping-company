@@ -2,7 +2,7 @@
 
 exports[`Input component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c2 {
   width: 100%;
   min-height: 2.9rem;
   padding: 0.75rem;
@@ -15,21 +15,61 @@ exports[`Input component matches the snapshot 1`] = `
   transition: border-color 0.18s ease,box-shadow 0.18s ease;
 }
 
-.c0:focus {
+.c2:focus {
   border-color: #21412a;
   box-shadow: 0 0 0 3px rgba(33, 65, 42, 0.12);
 }
 
-.c0 ::placeholder {
+.c2[aria-invalid='true'] {
+  border-color: #ff3333;
+  box-shadow: 0 0 0 3px rgba(142,32,32,0.16);
+}
+
+.c2 ::placeholder {
   color: #4d5846;
 }
 
-<input
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.c1 {
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #1f271d;
+}
+
+.c3 {
+  min-height: 1.15rem;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #8e2020;
+}
+
+<div
     class="c0"
-    id=""
-    placeholder=""
-    type=""
-    value=""
-  />
+  >
+    <label
+      class="c1"
+      for="email"
+    >
+      E-pasts
+    </label>
+    <input
+      aria-invalid="false"
+      class="c2"
+      id="email"
+      name="email"
+      placeholder="E-pasts"
+      type="email"
+      value=""
+    />
+    <p
+      class="c3"
+    />
+  </div>
 </DocumentFragment>
 `;

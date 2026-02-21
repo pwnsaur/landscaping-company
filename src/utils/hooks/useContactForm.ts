@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import { FormData } from '@/types/contactForm';
+import { ContactFormFields } from '@/types/contactForm';
+import { isContactFormFieldName } from '@/utils/contactFormValidation';
 
-const blankForm: FormData = {
+const blankForm: ContactFormFields = {
   name: '',
   email: '',
   phone: '',
@@ -10,7 +11,7 @@ const blankForm: FormData = {
 };
 
 const useContactForm = () => {
-  const [formData, setformData] = useState<FormData>(blankForm);
+  const [formData, setFormData] = useState<ContactFormFields>(blankForm);
 
   type HandleChangeFn = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -18,11 +19,15 @@ const useContactForm = () => {
 
   const handleChange: HandleChangeFn = (e) => {
     const { id, value } = e.target;
-    setformData((prevState) => ({ ...prevState, [id]: value }));
+    if (!isContactFormFieldName(id)) {
+      return;
+    }
+
+    setFormData((prevState) => ({ ...prevState, [id]: value }));
   };
 
   const resetForm = () => {
-    setformData(blankForm);
+    setFormData(blankForm);
   };
 
   return { formData, handleChange, resetForm };

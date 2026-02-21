@@ -1,7 +1,19 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
 
+import {
+  ContactFormErrors,
+  ContactFormFieldName,
+} from '@/types/contactForm';
+import {
+  CONTACT_FORM_LIMITS,
+  getContactFieldError,
+  hasContactFormErrors,
+  isContactFormFieldName,
+  normalizeContactFormFields,
+  validateContactFormFields,
+} from '@/utils/contactFormValidation';
 import Button from '@components/contactForm/Button';
 import Input from '@components/contactForm/Input';
 import SubmitModal from '@components/contactForm/SubmitModal';
@@ -9,107 +21,246 @@ import Textarea from '@components/contactForm/Textarea';
 import useContactForm from '@utils/hooks/useContactForm';
 import useEmailSubmit from '@utils/hooks/useEmailSubmit';
 
+const RECAPTCHA_ACTION = 'contact_form_submit';
+const FIELD_ORDER: ContactFormFieldName[] = ['name', 'email', 'phone', 'message'];
+
 const ContactForm = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const [buttonText, setButtonText] = useState('Sūtīt');
-  const [fallbackError, setFallbackError] = useState('');
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    message: '',
+    isError: false,
+  });
+  const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
+  const [formStatus, setFormStatus] = useState({
+    message: '',
+    isError: false,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [website, setWebsite] = useState('');
+  const formStartedAtRef = useRef(Date.now());
 
   const { formData, handleChange, resetForm } = useContactForm();
-  const { responseMessage, submitEmail } = useEmailSubmit();
+  const { submitEmail } = useEmailSubmit();
 
-  const handleModalClose = () => setModalOpen(false);
+  const closeModal = () => {
+    setModalState((prevState) => ({ ...prevState, isOpen: false }));
+  };
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFallbackError('');
-    setDisabled(true);
-    setButtonText('Sūta...');
+  const setStatus = (message: string, isError: boolean) => {
+    setFormStatus({ message, isError });
+  };
 
-    if (!executeRecaptcha) {
-      setFallbackError(
-        'Drošības pārbaude nav gatava. Uzgaidi brīdi un mēģini vēlreiz.'
-      );
-      setModalOpen(true);
-      setDisabled(false);
-      setButtonText('Sūtīt');
+  const openModal = (message: string, isError: boolean) => {
+    setModalState({ isOpen: true, message, isError });
+    setStatus(message, isError);
+  };
+
+  const focusFirstInvalidField = (errors: ContactFormErrors) => {
+    for (const field of FIELD_ORDER) {
+      if (!errors[field]) {
+        continue;
+      }
+
+      document.getElementById(field)?.focus();
+      break;
+    }
+  };
+
+  const handleFieldChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    handleChange(e);
+    const { id, value } = e.target;
+
+    if (!isContactFormFieldName(id) || !formErrors[id]) {
       return;
     }
 
-    const recaptchaToken = await executeRecaptcha('contact_form_submit');
-
-    const isSuccessful = await submitEmail({
+    const nextValues = normalizeContactFormFields({
       ...formData,
-      recaptcha: recaptchaToken,
+      [id]: value,
     });
+    const nextError = getContactFieldError(id, nextValues);
 
-    if (!isSuccessful) {
-      console.log('get rekt robot');
-    } else {
-      resetForm();
+    setFormErrors((prevState) => ({
+      ...prevState,
+      [id]: nextError,
+    }));
+  };
+
+  const handleFieldBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id } = e.target;
+
+    if (!isContactFormFieldName(id)) {
+      return;
     }
 
-    setModalOpen(true);
-    setDisabled(false);
-    setButtonText('Sūtīt');
+    const normalized = normalizeContactFormFields(formData);
+
+    setFormErrors((prevState) => ({
+      ...prevState,
+      [id]: getContactFieldError(id, normalized),
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting) {
+      return;
+    }
+
+    const normalized = normalizeContactFormFields(formData);
+    const validationErrors = validateContactFormFields(normalized);
+
+    setFormErrors(validationErrors);
+
+    if (hasContactFormErrors(validationErrors)) {
+      setStatus('Lūdzu izlabo atzīmētos laukus un mēģini vēlreiz.', true);
+      focusFirstInvalidField(validationErrors);
+      return;
+    }
+
+    setStatus('', false);
+    setIsSubmitting(true);
+
+    try {
+      if (!executeRecaptcha) {
+        openModal(
+          'Drošības pārbaude nav gatava. Uzgaidi brīdi un mēģini vēlreiz.',
+          true
+        );
+        return;
+      }
+
+      const recaptchaToken = await executeRecaptcha(RECAPTCHA_ACTION);
+
+      if (!recaptchaToken) {
+        openModal(
+          'Neizdevās pabeigt drošības pārbaudi. Mēģini vēlreiz pēc brīža.',
+          true
+        );
+        return;
+      }
+
+      const submitResult = await submitEmail({
+        ...normalized,
+        recaptcha: recaptchaToken,
+        website,
+        formStartedAt: formStartedAtRef.current,
+      });
+
+      if (submitResult.errors) {
+        setFormErrors((prevState) => ({
+          ...prevState,
+          ...submitResult.errors,
+        }));
+      }
+
+      openModal(submitResult.message, !submitResult.isSuccessful);
+
+      if (submitResult.isSuccessful) {
+        resetForm();
+        setFormErrors({});
+        setWebsite('');
+        formStartedAtRef.current = Date.now();
+      }
+    } catch {
+      openModal('Ziņojumu neizdevās nosūtīt. Mēģini vēlreiz.', true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} noValidate>
+        <HoneypotField aria-hidden='true'>
+          <label htmlFor='website'>Mājaslapa</label>
+          <input
+            id='website'
+            name='website'
+            type='text'
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            autoComplete='off'
+            tabIndex={-1}
+          />
+        </HoneypotField>
         <Row>
           <Input
             id='name'
+            label='Vārds'
             type='text'
             value={formData.name}
-            onChange={handleChange}
+            onChange={handleFieldChange}
+            onBlur={handleFieldBlur}
             placeholder='Vārds, uzvārds'
             autoComplete='name'
+            maxLength={CONTACT_FORM_LIMITS.nameMax}
+            error={formErrors.name}
             required
           />
           <Input
             id='email'
+            label='E-pasts'
             type='email'
-            onChange={handleChange}
+            onChange={handleFieldChange}
+            onBlur={handleFieldBlur}
             value={formData.email}
             placeholder='E-pasts'
             autoComplete='email'
+            inputMode='email'
+            error={formErrors.email}
             required
           />
         </Row>
         <Input
           id='phone'
+          label='Tālrunis'
           type='tel'
-          onChange={handleChange}
+          onChange={handleFieldChange}
+          onBlur={handleFieldBlur}
           value={formData.phone}
           placeholder='Tālrunis'
           autoComplete='tel'
+          inputMode='tel'
+          maxLength={CONTACT_FORM_LIMITS.phoneMax}
+          error={formErrors.phone}
           required
         />
         <Textarea
           id='message'
-          onChange={handleChange}
+          label='Ziņojums'
+          onChange={handleFieldChange}
+          onBlur={handleFieldBlur}
           value={formData.message}
-          placeholder='Aprakstiet situaciju, velmes un aptuveno teritorijas apjomu'
+          placeholder='Aprakstiet situāciju, vēlmes un aptuveno teritorijas apjomu'
+          maxLength={CONTACT_FORM_LIMITS.messageMax}
+          error={formErrors.message}
           required
         />
         <ActionRow>
-          <Button type='submit' disabled={disabled}>
-            {buttonText}
+          <Button type='submit' disabled={isSubmitting} isLoading={isSubmitting}>
+            {isSubmitting ? 'Sūta...' : 'Sūtīt'}
           </Button>
           <FormHint>
             Nospiežot sūtīt, piekrīti datu izmantošanai, lai ar tevi sazinātos
             par pieprasījumu.
           </FormHint>
         </ActionRow>
+        <FormStatus role={formStatus.isError ? 'alert' : 'status'} $isError={formStatus.isError}>
+          {formStatus.message}
+        </FormStatus>
       </Form>
       <SubmitModal
-        isOpen={modalOpen}
-        message={fallbackError || responseMessage.message}
-        isError={fallbackError ? true : !responseMessage.isSuccessful}
-        onClose={handleModalClose}
+        isOpen={modalState.isOpen}
+        message={modalState.message}
+        isError={modalState.isError}
+        onClose={closeModal}
       />
     </>
   );
@@ -122,13 +273,13 @@ const Form = styled.form`
   margin: ${({ theme }) => `${theme.spacing.lg} auto 0`};
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.md};
 `;
 
 const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${({ theme }) => theme.spacing.md};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     grid-template-columns: 1fr;
@@ -148,9 +299,26 @@ const ActionRow = styled.div`
   }
 `;
 
+const HoneypotField = styled.div`
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+`;
+
 const FormHint = styled.p`
   line-height: ${({ theme }) => theme.typography.lineHeightBody};
   font-size: ${({ theme }) => theme.components.contacts.formHintSize};
   max-width: 60ch;
   color: ${({ theme }) => theme.semantic.text.primary};
+`;
+
+const FormStatus = styled.p<{ $isError: boolean }>`
+  min-height: 1.25rem;
+  margin: 0;
+  font-size: ${({ theme }) => theme.typography.meta};
+  color: ${({ theme, $isError }) =>
+    $isError ? theme.colors.errorText : theme.semantic.text.primary};
 `;

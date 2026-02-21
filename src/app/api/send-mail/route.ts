@@ -1,119 +1,254 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
-import { FormData } from '@/types/contactForm';
+import {
+  ContactFormApiResponse,
+  ContactFormPayload,
+} from '@/types/contactForm';
+import {
+  escapeHtml,
+  hasContactFormErrors,
+  normalizeContactFormFields,
+  validateContactFormFields,
+} from '@/utils/contactFormValidation';
 
-const nodemailer = (await import('nodemailer')).default;
-
-type SendMailPayload = FormData & {
-  recaptcha?: string;
+type RecaptchaVerifyResponse = {
+  success?: boolean;
+  score?: number;
+  action?: string;
 };
 
-const verifyRecaptcha = async (recaptchaToken: string) => {
+const RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
+const RECAPTCHA_ACTION = 'contact_form_submit';
+const RECAPTCHA_MIN_SCORE = 0.5;
+const MIN_FORM_FILL_TIME_MS = 1200;
+
+export const runtime = 'nodejs';
+
+const jsonResponse = (payload: ContactFormApiResponse, status: number) => {
+  return NextResponse.json(payload, { status });
+};
+
+const getClientIp = (request: Request) => {
+  const forwardedFor = request.headers.get('x-forwarded-for');
+  if (!forwardedFor) {
+    return undefined;
+  }
+
+  return forwardedFor.split(',')[0]?.trim();
+};
+
+const verifyRecaptcha = async (recaptchaToken: string, clientIp?: string) => {
+  const secret = process.env.GOOGLE_RECAPTCHA_SECRET_KEY;
+
+  if (!secret) {
+    console.error('[send-mail] Missing GOOGLE_RECAPTCHA_SECRET_KEY');
+    return false;
+  }
+
   const params = new URLSearchParams({
-    secret: process.env.GOOGLE_RECAPTCHA_SECRET_KEY || '',
+    secret,
     response: recaptchaToken,
   });
 
-  const recaptchaResponse = await fetch(
-    'https://www.google.com/recaptcha/api/siteverify',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params,
-      cache: 'no-store',
-    }
-  );
+  if (clientIp) {
+    params.set('remoteip', clientIp);
+  }
+
+  const recaptchaResponse = await fetch(RECAPTCHA_VERIFY_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: params,
+    cache: 'no-store',
+  });
 
   if (!recaptchaResponse.ok) {
     return false;
   }
 
-  const data = (await recaptchaResponse.json()) as {
-    success?: boolean;
-    score?: number;
-  };
+  const data = (await recaptchaResponse.json()) as RecaptchaVerifyResponse;
 
-  return Boolean(data.success) && (data.score || 0) > 0.8;
+  return (
+    Boolean(data.success) &&
+    (data.score ?? 0) >= RECAPTCHA_MIN_SCORE &&
+    data.action === RECAPTCHA_ACTION
+  );
 };
 
-export const runtime = 'nodejs';
+const asEmailHtml = ({
+  name,
+  email,
+  phone,
+  message,
+}: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}) => {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safePhone = escapeHtml(phone);
+  const safeMessage = escapeHtml(message).replace(/\n/g, '<br/>');
+
+  return `
+    <div>
+      <p><strong>Vārds:</strong> ${safeName}</p>
+      <p><strong>E-pasts:</strong> ${safeEmail}</p>
+      <p><strong>Tālrunis:</strong> ${safePhone}</p>
+      <p><strong>Ziņojums:</strong></p>
+      <p>${safeMessage}</p>
+    </div>
+  `;
+};
+
+const asEmailText = ({
+  name,
+  email,
+  phone,
+  message,
+}: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}) => {
+  return [
+    `Vārds: ${name}`,
+    `E-pasts: ${email}`,
+    `Tālrunis: ${phone}`,
+    '',
+    'Ziņojums:',
+    message,
+  ].join('\n');
+};
 
 export const POST = async (request: Request) => {
-  const body = (await request.json()) as SendMailPayload;
-  const { name, email, phone, message, recaptcha } = body;
+  let payload: Partial<ContactFormPayload>;
 
-  if (!recaptcha) {
-    return NextResponse.json(
+  try {
+    payload = (await request.json()) as Partial<ContactFormPayload>;
+  } catch {
+    return jsonResponse(
       {
-        error: 'Missing reCAPTCHA token',
+        success: false,
+        message: 'Nederīgs pieprasījuma formāts.',
       },
-      { status: 400 }
+      400
     );
   }
 
-  const isRecaptchaValid = await verifyRecaptcha(recaptcha);
-
-  if (!isRecaptchaValid) {
-    console.log('get rekt robot');
-    return NextResponse.json(
+  if (typeof payload.website === 'string' && payload.website.trim() !== '') {
+    return jsonResponse(
       {
-        error: 'reCAPTCHA verification failed',
+        success: false,
+        message: 'Pieprasījumu neizdevās apstrādāt.',
       },
-      { status: 400 }
+      400
     );
   }
 
-  const htmlMessage = `
-  <pre>
-    ${message}
+  if (
+    typeof payload.formStartedAt === 'number' &&
+    Date.now() - payload.formStartedAt < MIN_FORM_FILL_TIME_MS
+  ) {
+    return jsonResponse(
+      {
+        success: false,
+        message: 'Pieprasījumu neizdevās apstrādāt.',
+      },
+      400
+    );
+  }
 
-    epasts: ${email}
-    telefona numurs: ${phone}
-  </pre>
-`;
+  const normalizedFields = normalizeContactFormFields(payload);
+  const validationErrors = validateContactFormFields(normalizedFields);
 
-  const mailMessage = {
-    from: email,
-    to: process.env.EMAIL_ADDRESS,
-    subject: `ziņojums no ${name}`,
-    html: htmlMessage,
-  };
+  if (hasContactFormErrors(validationErrors)) {
+    return jsonResponse(
+      {
+        success: false,
+        message: 'Lūdzu pārbaudi ievadīto informāciju.',
+        errors: validationErrors,
+      },
+      422
+    );
+  }
+
+  if (!payload.recaptcha || typeof payload.recaptcha !== 'string') {
+    return jsonResponse(
+      {
+        success: false,
+        message: 'Drošības pārbaude neizdevās. Mēģini vēlreiz.',
+      },
+      400
+    );
+  }
+
+  const recaptchaIsValid = await verifyRecaptcha(
+    payload.recaptcha,
+    getClientIp(request)
+  );
+
+  if (!recaptchaIsValid) {
+    return jsonResponse(
+      {
+        success: false,
+        message: 'Drošības pārbaude neizdevās. Mēģini vēlreiz.',
+      },
+      400
+    );
+  }
+
+  const { EMAIL_ADDRESS, EMAIL_PASSWORD, EMAIL_SERVICE } = process.env;
+
+  if (!EMAIL_ADDRESS || !EMAIL_PASSWORD || !EMAIL_SERVICE) {
+    console.error('[send-mail] Missing email env configuration');
+    return jsonResponse(
+      {
+        success: false,
+        message: 'Servera konfigurācijas kļūda. Lūdzu mēģini vēlāk.',
+      },
+      500
+    );
+  }
 
   const transporter = nodemailer.createTransport({
-    service: process.env.EMAIL_SERVICE,
+    service: EMAIL_SERVICE,
     auth: {
-      user: process.env.EMAIL_ADDRESS,
-      pass: process.env.EMAIL_PASSWORD,
+      user: EMAIL_ADDRESS,
+      pass: EMAIL_PASSWORD,
     },
   });
 
   try {
-    const info = await transporter.sendMail(mailMessage);
-    return NextResponse.json(
+    await transporter.sendMail({
+      from: `"Kontaktforma" <${EMAIL_ADDRESS}>`,
+      to: EMAIL_ADDRESS,
+      replyTo: normalizedFields.email,
+      subject: `Jauns pieprasījums no ${normalizedFields.name}`,
+      text: asEmailText(normalizedFields),
+      html: asEmailHtml(normalizedFields),
+    });
+
+    return jsonResponse(
       {
-        success: `Message delivered to ${info.accepted}`,
+        success: true,
+        message: 'Ziņojums nosūtīts. Sazināsimies ar jums tuvākajā laikā.',
       },
-      { status: 200 }
+      200
     );
-  } catch (err) {
-    console.error('[send-mail] Failed to send email', err);
+  } catch (error) {
+    console.error('[send-mail] Failed to send email', error);
 
-    if (err instanceof Error) {
-      return NextResponse.json(
-        {
-          error: `Error sending email: ${err.message}`,
-        },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json(
+    return jsonResponse(
       {
-        error: 'An unexpected error occurred',
+        success: false,
+        message: 'Ziņojumu neizdevās nosūtīt. Mēģini vēlreiz.',
       },
-      { status: 500 }
+      500
     );
   }
 };
