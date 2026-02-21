@@ -7,12 +7,15 @@ describe('Textarea component', () => {
   test('matches the snapshot', () => {
     const { asFragment } = render(
       <Textarea
-        id={''}
-        value={''}
-        placeholder={''}
+        id='message'
+        label='Ziņojums'
+        value=''
+        placeholder='Jūsu ziņojums'
         onChange={function (event: ChangeEvent<HTMLTextAreaElement>): void {
           throw new Error('Function not implemented.');
         }}
+        maxLength={1500}
+        error=''
       />
     );
     expect(asFragment()).toMatchSnapshot();

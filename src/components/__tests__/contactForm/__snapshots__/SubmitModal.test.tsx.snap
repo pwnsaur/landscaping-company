@@ -4,21 +4,26 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
 <DocumentFragment>
   .c0 {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   position: fixed;
   bottom: 1rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0);
   width: min(32rem, calc(100vw - 2rem));
   min-height: 3rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem;
   background-color: #42ba96;
   color: #ffffff;
   border-radius: 0.3rem;
   border: 1px solid rgba(26, 103, 74, 0.6);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
   z-index: 7;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.18s ease,transform 0.18s ease;
 }
 
 .c1 {
@@ -26,15 +31,39 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
   line-height: 1.35;
   font-weight: 600;
   margin: 0;
-  text-align: center;
+  text-align: left;
+  flex: 1;
+}
+
+.c2 {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #ffffff;
+  border-radius: 999px;
+  width: 1.65rem;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 <div
+    aria-hidden="false"
+    aria-live="polite"
     class="c0"
+    role="status"
   >
     <p
       class="c1"
     />
+    <button
+      aria-label="Aizvērt paziņojumu"
+      class="c2"
+      type="button"
+    >
+      ×
+    </button>
   </div>
 </DocumentFragment>
 `;
@@ -43,21 +72,26 @@ exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
 <DocumentFragment>
   .c0 {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   position: fixed;
   bottom: 1rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0);
   width: min(32rem, calc(100vw - 2rem));
   min-height: 3rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem;
   background-color: #ff3333;
   color: #ffffff;
   border-radius: 0.3rem;
   border: 1px solid rgba(142, 32, 32, 0.65);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
   z-index: 7;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.18s ease,transform 0.18s ease;
 }
 
 .c1 {
@@ -65,15 +99,39 @@ exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
   line-height: 1.35;
   font-weight: 600;
   margin: 0;
-  text-align: center;
+  text-align: left;
+  flex: 1;
+}
+
+.c2 {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #ffffff;
+  border-radius: 999px;
+  width: 1.65rem;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 <div
+    aria-hidden="false"
+    aria-live="assertive"
     class="c0"
+    role="alert"
   >
     <p
       class="c1"
     />
+    <button
+      aria-label="Aizvērt paziņojumu"
+      class="c2"
+      type="button"
+    >
+      ×
+    </button>
   </div>
 </DocumentFragment>
 `;

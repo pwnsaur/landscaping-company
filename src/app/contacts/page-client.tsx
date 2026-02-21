@@ -73,7 +73,10 @@ const ContactsPageClient = () => {
               aizsardzibu pret spamu.
             </FormIntro>
             {recaptchaKey ? (
-              <GoogleReCaptchaProvider reCaptchaKey={recaptchaKey}>
+              <GoogleReCaptchaProvider
+                reCaptchaKey={recaptchaKey}
+                scriptProps={{ async: true, defer: true, appendTo: 'body' }}
+              >
                 <ContactForm />
               </GoogleReCaptchaProvider>
             ) : (

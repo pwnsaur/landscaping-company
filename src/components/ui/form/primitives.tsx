@@ -22,6 +22,12 @@ export const FieldInput = styled.input`
       ${theme.semantic.interactive.focusRing};
   }
 
+  &[aria-invalid='true'] {
+    border-color: ${theme.colors.error};
+    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
+      rgba(142, 32, 32, 0.16);
+  }
+
   ::placeholder {
     color: ${theme.semantic.text.muted};
   }
@@ -46,6 +52,12 @@ export const FieldTextarea = styled.textarea`
     border-color: ${theme.colors.darkGreen};
     box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
       ${theme.semantic.interactive.focusRing};
+  }
+
+  &[aria-invalid='true'] {
+    border-color: ${theme.colors.error};
+    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
+      rgba(142, 32, 32, 0.16);
   }
 
   ::placeholder {

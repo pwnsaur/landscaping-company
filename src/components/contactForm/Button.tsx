@@ -4,12 +4,18 @@ type ButtonProps = {
   type: 'submit';
   children: React.ReactNode;
   disabled: boolean;
+  isLoading?: boolean;
   onClick?: () => void;
 };
 
-const Button = ({ children, type, disabled, onClick }: ButtonProps) => {
+const Button = ({ children, type, disabled, isLoading, onClick }: ButtonProps) => {
   return (
-    <PrimaryButton type={type} onClick={onClick} disabled={disabled}>
+    <PrimaryButton
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      aria-busy={isLoading}
+    >
       {children}
     </PrimaryButton>
   );

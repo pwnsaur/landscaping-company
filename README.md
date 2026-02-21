@@ -103,13 +103,15 @@ Client:
 
 - `src/app/contacts/page-client.tsx`
 - `src/components/contactForm/*`
-- uses `react-google-recaptcha-v3`
+- uses `react-google-recaptcha-v3` with `NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY`
+- form now has shared client/server validation, inline field errors, submission timeout handling, and anti-spam honeypot + fill-time checks
 
 Server:
 
 - `src/app/api/send-mail/route.ts`
-- verifies reCAPTCHA token against Google
-- sends mail via Nodemailer using SMTP/service credentials from env
+- verifies reCAPTCHA token against Google (action + score threshold)
+- validates/sanitizes payload server-side before mail send
+- sends mail via Nodemailer with safe sender/reply-to handling
 
 ## Styling system
 
@@ -148,6 +150,8 @@ Current maturity:
 - home image layer now renders at page scope (not only hero scope) so visual continuity reaches the footer transition
 - home content layering keeps nav hit-area above hero/panel stacks to avoid click blocking on the sticky header
 - contacts page spacing/sizing is tokenized (`components.contacts.*`) with improved tablet/mobile stacking behavior
+- contact form logic and UX are hardened: accessible labels, inline validation errors, submit-state feedback, and resilient server responses
+- contact form now uses shared typed contracts (`ContactFormPayload`, `ContactFormApiResponse`) and shared validation helpers (`src/utils/contactFormValidation.ts`)
 - semantic theme layer (`theme.semantic`) is now used by core primitives for text/surface/border/interactive consistency
 - shared primitives (`typography`, `actions`, `form`, `surfaces`) now consume tokenized sizes/line-heights/tracking instead of local values
 - nav/footer/detail/listing building blocks now map to `components.nav/footer/detail/listing/*` token families
@@ -216,8 +220,8 @@ Required for contact mail:
 Required for reCAPTCHA:
 
 - `GOOGLE_RECAPTCHA_SECRET_KEY` (server-side secret)
-- `NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY` (recommended client-side key)
-- `GOOGLE_RECAPTCHA_SITE_KEY` (legacy fallback, still supported)
+- `NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY` (client-side key)
+- `GOOGLE_RECAPTCHA_SITE_KEY` (legacy client fallback still supported)
 
 Required for on-demand ISR:
 
@@ -238,6 +242,7 @@ Required for on-demand ISR:
 - Landing page hero/panels received a stability pass (softer parallax, simpler vertical flow, mobile-safe defaults).
 - Landing page shell/spacing now avoids blank zones before footer and keeps hero callouts visible on small displays.
 - Contacts page card/form sizing and responsive layout were tightened for more consistent structure across breakpoints.
+- Contact form validation/submission pipeline was hardened (shared validation, anti-spam checks, safer mail handling, clearer user feedback).
 - Design-system consistency pass completed across shared primitives and major shared components (nav/footer/cards/templates/forms).
 - Tests/build are green after style-system refactors and test harness cleanup.
 

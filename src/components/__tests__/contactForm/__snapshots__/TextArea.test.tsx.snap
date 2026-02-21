@@ -2,7 +2,7 @@
 
 exports[`Textarea component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c2 {
   width: 100%;
   min-height: 11rem;
   padding: 0.75rem;
@@ -16,19 +16,82 @@ exports[`Textarea component matches the snapshot 1`] = `
   transition: border-color 0.18s ease,box-shadow 0.18s ease;
 }
 
-.c0:focus {
+.c2:focus {
   border-color: #21412a;
   box-shadow: 0 0 0 3px rgba(33, 65, 42, 0.12);
 }
 
-.c0 ::placeholder {
+.c2[aria-invalid='true'] {
+  border-color: #ff3333;
+  box-shadow: 0 0 0 3px rgba(142,32,32,0.16);
+}
+
+.c2 ::placeholder {
   color: #4d5846;
 }
 
-<textarea
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.c1 {
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #1f271d;
+}
+
+.c3 {
+  min-height: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.c4 {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #8e2020;
+}
+
+.c5 {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: rgba(47, 54, 42, 0.74);
+}
+
+<div
     class="c0"
-    id=""
-    placeholder=""
-  />
+  >
+    <label
+      class="c1"
+      for="message"
+    >
+      Ziņojums
+    </label>
+    <textarea
+      aria-invalid="false"
+      class="c2"
+      id="message"
+      maxlength="1500"
+      name="message"
+      placeholder="Jūsu ziņojums"
+    />
+    <div
+      class="c3"
+    >
+      <p
+        class="c4"
+      />
+      <span
+        class="c5"
+      >
+        0/1500
+      </span>
+    </div>
+  </div>
 </DocumentFragment>
 `;
