@@ -36,12 +36,12 @@ const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
   bottom: ${({ theme }) => theme.components.overlay.toastBottomOffset};
   left: 50%;
   transform: translateX(-50%);
-  width: min(32rem, calc(100vw - 2rem));
-  min-height: 3rem;
+  width: ${({ theme }) => theme.components.overlay.toastWidth};
+  min-height: ${({ theme }) => theme.components.overlay.toastMinHeight};
   padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.sm}`};
   background-color: ${({ theme, $isError }) =>
     $isError ? theme.colors.error : theme.colors.success};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.semantic.text.onAccent};
   border-radius: ${({ theme }) => theme.radii.md};
   border: 1px solid
     ${({ theme, $isError }) =>

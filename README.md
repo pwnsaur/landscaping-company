@@ -116,8 +116,8 @@ Server:
 Theme and tokens:
 
 - `src/styles/palette.ts` - raw color palette
-- `src/styles/system.ts` - semantic layout/motion/z-index/typography tokens
-- `src/styles/theme.ts` - resolved design theme consumed by components
+- `src/styles/system.ts` - token source of truth (layout, motion, z-index, typography, component-level tokens)
+- `src/styles/theme.ts` - resolved theme (legacy flat colors + semantic groups)
 - `src/styles/globalStyles.ts` - global reset + base typography rules
 - `src/styles/media.ts` - media helpers
 
@@ -148,6 +148,13 @@ Current maturity:
 - home image layer now renders at page scope (not only hero scope) so visual continuity reaches the footer transition
 - home content layering keeps nav hit-area above hero/panel stacks to avoid click blocking on the sticky header
 - contacts page spacing/sizing is tokenized (`components.contacts.*`) with improved tablet/mobile stacking behavior
+- semantic theme layer (`theme.semantic`) is now used by core primitives for text/surface/border/interactive consistency
+- shared primitives (`typography`, `actions`, `form`, `surfaces`) now consume tokenized sizes/line-heights/tracking instead of local values
+- nav/footer/detail/listing building blocks now map to `components.nav/footer/detail/listing/*` token families
+- server-rendered primitives keep using imported theme tokens (not runtime `theme` props) to avoid App Router server/client theme-context gaps
+- root layout includes `data-scroll-behavior="smooth"` to match Next.js scroll restoration expectations
+- about hero image uses `placeholder='empty'` to avoid persistent blur artifacts in local dev
+- navigation logo now sets explicit auto dimensions on the `next/image` element to prevent aspect-ratio console warnings
 
 ## Key implementation patterns
 
@@ -159,6 +166,8 @@ Current maturity:
 - Home hero keeps content higher in viewport and uses safe-area-aware bottom offsets for better device fit
 - Home scroll hint is viewport-anchored and auto-fades once user starts scrolling
 - Contact form action row now reflows responsively and form field row collapses earlier on tablet widths
+- Action links/buttons share one tokenized sizing model (`components.action.*`) with consistent hover/focus behavior
+- Form fields and textarea share one tokenized density/focus model (`components.form.*`) for consistent input rhythm
 
 ## Testing
 
@@ -214,6 +223,7 @@ Required for on-demand ISR:
 - Landing page hero/panels received a stability pass (softer parallax, simpler vertical flow, mobile-safe defaults).
 - Landing page shell/spacing now avoids blank zones before footer and keeps hero callouts visible on small displays.
 - Contacts page card/form sizing and responsive layout were tightened for more consistent structure across breakpoints.
+- Design-system consistency pass completed across shared primitives and major shared components (nav/footer/cards/templates/forms).
 - Tests/build are green after style-system refactors and test harness cleanup.
 
 ## Living document protocol

@@ -149,8 +149,8 @@ const ActionRow = styled.div`
 `;
 
 const FormHint = styled.p`
-  line-height: 1.55;
+  line-height: ${({ theme }) => theme.typography.lineHeightBody};
   font-size: ${({ theme }) => theme.components.contacts.formHintSize};
   max-width: 60ch;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.semantic.text.primary};
 `;

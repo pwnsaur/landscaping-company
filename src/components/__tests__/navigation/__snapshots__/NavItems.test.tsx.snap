@@ -53,7 +53,7 @@ exports[`NavItems component matches the snapshot 1`] = `
   width: auto;
   font-size: 0.92rem;
   letter-spacing: 0.05rem;
-  color: #39412f;
+  color: #1f271d;
   text-transform: uppercase;
   min-height: 2.35rem;
   padding: 0.5rem 0.75rem;

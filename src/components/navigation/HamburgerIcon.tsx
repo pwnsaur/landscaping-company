@@ -33,7 +33,7 @@ const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid ${({ theme }) => theme.colors.lineStrong};
+  border: 1px solid ${({ theme }) => theme.semantic.border.strong};
   background: ${({ theme }) => theme.colors.glowSoft};
   border-radius: ${({ theme }) => theme.radii.sm};
   transform: rotate(0deg);
@@ -44,7 +44,7 @@ const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
   z-index: ${({ theme }) => theme.zIndex.floating};
 
   &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.lineStrong};
+    outline: 2px solid ${({ theme }) => theme.semantic.border.strong};
     outline-offset: 2px;
   }
 
@@ -64,16 +64,16 @@ const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
         ${({ theme }) => theme.motion.easing};
 
     &:nth-child(1) {
-      top: 0.86rem;
+      top: ${({ theme }) => theme.components.iconButton.lineTopStart};
     }
 
     &:nth-child(2),
     &:nth-child(3) {
-      top: 1.28rem;
+      top: ${({ theme }) => theme.components.iconButton.lineTopCenter};
     }
 
     &:nth-child(4) {
-      top: 1.7rem;
+      top: ${({ theme }) => theme.components.iconButton.lineTopEnd};
     }
   }
 
@@ -81,7 +81,7 @@ const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
     $open &&
     css`
       span:nth-child(1) {
-        top: 1.28rem;
+        top: ${({ theme }) => theme.components.iconButton.lineTopCenter};
         width: 0%;
       }
 
@@ -94,7 +94,7 @@ const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
       }
 
       span:nth-child(4) {
-        top: 1.28rem;
+        top: ${({ theme }) => theme.components.iconButton.lineTopCenter};
         width: 0%;
       }
     `}

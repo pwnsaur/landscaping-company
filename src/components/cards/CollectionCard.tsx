@@ -64,7 +64,7 @@ export default CollectionCard;
 
 const Card = styled.div`
   width: 100%;
-  border: 1px solid ${theme.colors.lineSoft};
+  border: 1px solid ${theme.semantic.border.subtle};
   background: ${theme.gradients.panelLight};
   box-shadow: ${theme.shadows.medium};
   transition:
@@ -114,22 +114,22 @@ const Description = styled.div`
 
 const Meta = styled.p`
   text-transform: uppercase;
-  letter-spacing: 0.14rem;
+  letter-spacing: ${theme.components.card.metaTracking};
   font-size: ${theme.components.card.metaSize};
-  color: ${theme.colors.textSubtle};
+  color: ${theme.semantic.text.subtle};
 `;
 
 const Title = styled.h2`
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: ${theme.typography.lineHeightHeading};
   font-size: ${theme.components.card.titleSize};
   font-weight: ${theme.fontWeights.bold};
   color: ${theme.colors.title};
 `;
 
 const Excerpt = styled.p`
-  line-height: 1.6;
-  color: ${theme.colors.text};
+  line-height: ${theme.typography.lineHeightBody};
+  color: ${theme.semantic.text.primary};
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 3;
@@ -139,7 +139,7 @@ const Excerpt = styled.p`
 const Action = styled.span`
   margin-top: ${theme.spacing.xxs};
   text-transform: uppercase;
-  letter-spacing: 0.08rem;
+  letter-spacing: ${theme.components.card.actionTracking};
   font-size: ${theme.components.card.actionSize};
   font-weight: ${theme.fontWeights.bold};
   color: ${theme.colors.darkGreen};

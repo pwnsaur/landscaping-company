@@ -22,7 +22,7 @@ exports[`Textarea component matches the snapshot 1`] = `
 }
 
 .c0 ::placeholder {
-  color: #5a6254;
+  color: #4d5846;
 }
 
 <textarea

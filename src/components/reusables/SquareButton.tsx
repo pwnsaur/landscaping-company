@@ -23,10 +23,10 @@ const SquareButton = ({ name, destination, isInverted }: SquareButtonProps) => {
 export default SquareButton;
 
 const Button = styled(ActionLink)`
-  min-width: 9rem;
-  min-height: 3rem;
+  min-width: ${({ theme }) => theme.components.action.squareMinWidth};
+  min-height: ${({ theme }) => theme.components.action.squareMinHeight};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes.normal};
-  letter-spacing: 0.04rem;
+  letter-spacing: ${({ theme }) => theme.components.action.squareTracking};
   box-shadow: ${({ theme }) => theme.shadows.soft};
 `;

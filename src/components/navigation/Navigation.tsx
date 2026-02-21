@@ -103,6 +103,7 @@ const Navigation = () => {
               alt='logo'
               width={120}
               height={70}
+              style={{ width: 'auto', height: 'auto' }}
               quality={50}
               sizes='120px'
               priority
@@ -134,7 +135,7 @@ const Container = styled.div<{ $isNavBarVisible: boolean }>`
   width: 100%;
   background: ${({ theme }) => theme.gradients.nav};
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid ${({ theme }) => theme.colors.lineSoft};
+  border-bottom: 1px solid ${({ theme }) => theme.semantic.border.subtle};
   box-shadow: ${({ theme }) => theme.shadows.soft};
   z-index: ${({ theme }) => theme.zIndex.nav};
   position: sticky;
@@ -176,8 +177,8 @@ const LinkLogo = styled(Link)`
 
 const BrandText = styled.span`
   font-size: ${({ theme }) => theme.typography.label};
-  letter-spacing: 0.24rem;
-  color: ${({ theme }) => theme.colors.textMuted};
+  letter-spacing: ${({ theme }) => theme.components.nav.brandTracking};
+  color: ${({ theme }) => theme.semantic.text.muted};
   text-transform: uppercase;
   white-space: nowrap;
 

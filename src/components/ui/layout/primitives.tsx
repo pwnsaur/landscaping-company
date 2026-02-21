@@ -91,8 +91,8 @@ export const CardGrid = styled.section<{ $min?: string }>`
 export const CenteredPanel = styled.section`
   width: 100%;
   text-align: center;
-  line-height: 1.7;
-  border: 1px solid ${theme.colors.lineSoft};
+  line-height: ${theme.typography.lineHeightRelaxed};
+  border: 1px solid ${theme.semantic.border.subtle};
   background: ${theme.colors.surfaceElevatedSoft};
   padding: ${theme.spacing.lg} ${theme.spacing.md};
 `;
@@ -100,16 +100,16 @@ export const CenteredPanel = styled.section`
 export const DarkCtaPanel = styled.section`
   width: 100%;
   text-align: center;
-  border: 1px solid ${theme.colors.lineStrong};
+  border: 1px solid ${theme.semantic.border.strong};
   background: ${theme.gradients.panelDark};
-  color: ${theme.colors.white};
+  color: ${theme.semantic.text.onAccent};
   padding: ${theme.spacing.xl} ${theme.spacing.lg};
 `;
 
 export const InteractiveLink = styled.a`
   display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 0.08rem;
+  letter-spacing: ${theme.typography.trackingWide};
   transition:
     background-color ${theme.motion.normal} ${theme.motion.easing},
     color ${theme.motion.normal} ${theme.motion.easing};

@@ -67,7 +67,7 @@ const ListingPageTemplate = <T,>({
       )}
 
       <ContentContainer $size='wide'>
-        <PlainSection $mt='2rem'>
+        <PlainSection $mt={theme.components.listing.ctaTop}>
           <DarkCtaPanel>
             <CtaTitle>{cta.title}</CtaTitle>
             <CtaText>{cta.text}</CtaText>
@@ -84,19 +84,19 @@ const ListingPageTemplate = <T,>({
 export default ListingPageTemplate;
 
 const HeaderBlock = styled(PageHeader)`
-  margin-bottom: ${theme.spacing.xl};
+  margin-bottom: ${theme.components.listing.headerBottom};
 `;
 
 const CtaTitle = styled(SectionTitle)`
-  color: ${theme.colors.white};
+  color: ${theme.semantic.text.onAccent};
 `;
 
 const CtaText = styled(SectionText)`
   margin: ${theme.spacing.sm} auto ${theme.spacing.lg};
-  max-width: 44ch;
+  max-width: ${theme.components.listing.ctaTextMaxWidth};
   color: ${theme.colors.textInverseSoft};
 `;
 
 const CtaLink = styled(ActionLink)`
-  min-width: 10.5rem;
+  min-width: ${theme.components.listing.ctaLinkMinWidth};
 `;

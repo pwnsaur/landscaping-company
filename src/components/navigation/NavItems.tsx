@@ -70,23 +70,33 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
   align-items: center;
   justify-content: ${({ $mobile }) => ($mobile ? 'space-between' : 'center')};
   width: ${({ $mobile }) => ($mobile ? '100%' : 'auto')};
-  font-size: ${({ $mobile }) => ($mobile ? '1.15rem' : '0.92rem')};
-  letter-spacing: ${({ $mobile }) => ($mobile ? '0.06rem' : '0.05rem')};
+  font-size: ${({ theme, $mobile }) =>
+    $mobile
+      ? theme.components.nav.linkSizeMobile
+      : theme.components.nav.linkSizeDesktop};
+  letter-spacing: ${({ theme, $mobile }) =>
+    $mobile
+      ? theme.components.nav.linkTrackingMobile
+      : theme.components.nav.linkTrackingDesktop};
   color: ${({ theme, $active }) =>
-    $active ? theme.colors.darkGreen : theme.colors.title};
+    $active ? theme.colors.darkGreen : theme.semantic.text.strong};
   text-transform: uppercase;
-  min-height: ${({ $mobile }) => ($mobile ? '2.8rem' : '2.35rem')};
+  min-height: ${({ theme, $mobile }) =>
+    $mobile
+      ? theme.components.nav.linkHeightMobile
+      : theme.components.nav.linkHeightDesktop};
   padding: ${({ theme, $mobile }) =>
     $mobile
-      ? `${theme.spacing.sm} ${theme.spacing.md}`
-      : `${theme.spacing.xs} ${theme.spacing.sm}`};
+      ? theme.components.nav.linkPaddingMobile
+      : theme.components.nav.linkPaddingDesktop};
   white-space: nowrap;
   border-radius: ${({ theme }) => theme.radii.sm};
   border: 1px solid
-    ${({ theme, $active }) => ($active ? theme.colors.lineStrong : 'transparent')};
+    ${({ theme, $active }) =>
+      $active ? theme.semantic.border.strong : 'transparent'};
   background: ${({ theme, $active, $mobile }) =>
     $active
-      ? theme.colors.interactiveActive
+      ? theme.semantic.interactive.active
       : $mobile
         ? theme.colors.glowSoft
         : 'transparent'};
@@ -101,13 +111,13 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
 
   &:hover {
     color: ${({ theme }) => theme.colors.darkGreen};
-    border-color: ${({ theme }) => theme.colors.lineStrong};
-    background: ${({ theme }) => theme.colors.interactiveSoft};
+    border-color: ${({ theme }) => theme.semantic.border.strong};
+    background: ${({ theme }) => theme.semantic.interactive.ghost};
     transform: translateY(-1px);
   }
 
   &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.lineStrong};
+    outline: 2px solid ${({ theme }) => theme.semantic.border.strong};
     outline-offset: 2px;
   }
 `;

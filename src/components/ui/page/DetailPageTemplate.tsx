@@ -78,7 +78,7 @@ const DetailPageTemplate = ({
 
       {sections.map((section) => (
         <ContentContainer key={section.title} $size='content'>
-          <PlainSection $mt='2.2rem'>
+          <PlainSection $mt={theme.components.detail.sectionTop}>
             <SectionTitle>{section.title}</SectionTitle>
             {section.content}
           </PlainSection>
@@ -92,38 +92,38 @@ export default DetailPageTemplate;
 
 const Header = styled.header`
   text-align: center;
-  margin-bottom: 1.8rem;
+  margin-bottom: ${theme.components.detail.headerBottom};
 `;
 
 const BackLink = styled(ActionLink).attrs({
   $variant: 'outline',
   $size: 'sm',
 })`
-  min-width: 10.4rem;
+  min-width: ${theme.components.detail.backMinWidth};
 `;
 
 const Title = styled(PageTitle)`
-  margin-top: 1rem;
+  margin-top: ${theme.components.detail.titleTop};
 `;
 
 const Lead = styled(PageLead)`
-  margin-top: 0.8rem;
+  margin-top: ${theme.components.detail.leadTop};
   max-width: 56ch;
 `;
 
 const Meta = styled.p`
-  margin-top: 0.7rem;
+  margin-top: ${theme.components.detail.metaTop};
   text-transform: uppercase;
-  letter-spacing: 0.08rem;
-  font-size: 0.75rem;
-  color: ${theme.colors.textSubtle};
+  letter-spacing: ${theme.components.detail.metaTracking};
+  font-size: ${theme.components.detail.metaSize};
+  color: ${theme.semantic.text.subtle};
 `;
 
 const ContentGrid = styled.section<{ $hasMedia: boolean }>`
   display: grid;
   grid-template-columns: ${({ $hasMedia }) =>
     $hasMedia ? 'minmax(0, 0.9fr) minmax(0, 1.1fr)' : '1fr'};
-  gap: ${theme.spacing.md};
+  gap: ${theme.components.detail.gridGap};
 
   @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
@@ -131,10 +131,10 @@ const ContentGrid = styled.section<{ $hasMedia: boolean }>`
 `;
 
 const Media = styled(MediaFrame)`
-  min-height: 24rem;
+  min-height: ${theme.components.detail.mediaMinHeight};
 
   @media (max-width: ${theme.breakpoints.tablet}) {
-    min-height: 16rem;
+    min-height: ${theme.components.detail.mediaMinHeightCompact};
   }
 `;
 
@@ -145,29 +145,32 @@ const CoverImageElement = styled(Image)`
 const Description = styled(SoftPanel).attrs({
   as: 'article',
 })`
-  padding: 1.4rem 1.5rem;
-  color: ${theme.colors.text};
-  line-height: 1.7;
+  padding: ${theme.components.detail.descriptionPadding};
+  color: ${theme.semantic.text.primary};
+  line-height: ${theme.typography.lineHeightRelaxed};
 
   h2,
   h3 {
-    margin: 1.1rem 0 0.65rem;
+    margin: ${theme.components.detail.descriptionHeadingTop} 0
+      ${theme.components.detail.descriptionHeadingBottom};
     color: ${theme.colors.title};
     text-transform: uppercase;
-    letter-spacing: 0.04rem;
+    letter-spacing: ${theme.components.detail.descriptionHeadingTracking};
   }
 
   p {
-    margin: 0.75rem 0;
+    margin: ${theme.components.detail.paragraphSpacing} 0;
   }
 
   ul,
   ol {
-    margin: 0.8rem 0 0.8rem 1.2rem;
+    margin: ${theme.components.detail.listVerticalSpacing} 0
+      ${theme.components.detail.listVerticalSpacing}
+      ${theme.components.detail.listIndent};
   }
 `;
 
 const SectionTitle = styled(SectionHeading)`
-  letter-spacing: 0.08rem;
-  margin-bottom: 0.8rem;
+  letter-spacing: ${theme.components.detail.sectionTitleTracking};
+  margin-bottom: ${theme.components.detail.sectionTitleBottom};
 `;

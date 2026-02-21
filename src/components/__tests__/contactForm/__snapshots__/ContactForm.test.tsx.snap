@@ -21,7 +21,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c2 ::placeholder {
-  color: #5a6254;
+  color: #4d5846;
 }
 
 .c3 {
@@ -44,7 +44,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c3 ::placeholder {
-  color: #5a6254;
+  color: #4d5846;
 }
 
 .c5 {
@@ -53,7 +53,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
   text-transform: uppercase;
   letter-spacing: 0.08rem;
   background-color: #21412a;
-  color: #fff;
+  color: #ffffff;
   border: 1px solid #21412a;
   border-radius: 0.15rem;
   box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
@@ -100,10 +100,10 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c6 {
-  line-height: 1.55;
+  line-height: 1.65;
   font-size: 0.84rem;
   max-width: 60ch;
-  color: #333;
+  color: #2f362a;
 }
 
 @media (max-width:768px) {
@@ -183,11 +183,11 @@ exports[`ContactForm component matches the snapshot 1`] = `
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(32rem,calc(100vw - 2rem));
+  width: min(32rem, calc(100vw - 2rem));
   min-height: 3rem;
   padding: 0.5rem 0.75rem;
   background-color: #ff3333;
-  color: #fff;
+  color: #ffffff;
   border-radius: 0.3rem;
   border: 1px solid rgba(142, 32, 32, 0.65);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);

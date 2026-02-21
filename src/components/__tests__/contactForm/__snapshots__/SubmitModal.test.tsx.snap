@@ -10,11 +10,11 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(32rem,calc(100vw - 2rem));
+  width: min(32rem, calc(100vw - 2rem));
   min-height: 3rem;
   padding: 0.5rem 0.75rem;
   background-color: #42ba96;
-  color: #fff;
+  color: #ffffff;
   border-radius: 0.3rem;
   border: 1px solid rgba(26, 103, 74, 0.6);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
@@ -49,11 +49,11 @@ exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(32rem,calc(100vw - 2rem));
+  width: min(32rem, calc(100vw - 2rem));
   min-height: 3rem;
   padding: 0.5rem 0.75rem;
   background-color: #ff3333;
-  color: #fff;
+  color: #ffffff;
   border-radius: 0.3rem;
   border: 1px solid rgba(142, 32, 32, 0.65);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);

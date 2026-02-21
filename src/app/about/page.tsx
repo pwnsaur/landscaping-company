@@ -38,9 +38,9 @@ const AboutPage = () => {
               alt='komandas darbs objekta'
               fill
               priority
-              quality={65}
+              quality={85}
               sizes='(max-width: 920px) 94vw, 44vw'
-              placeholder='blur'
+              placeholder='empty'
             />
           </HeroMedia>
 
@@ -181,7 +181,7 @@ const SectionText = styled(SharedSectionText)`
 `;
 
 const ValuesTitle = styled(SharedSectionTitle)`
-  letter-spacing: 0.08rem;
+  letter-spacing: ${theme.typography.trackingWide};
   margin-bottom: ${theme.spacing.sm};
 `;
 

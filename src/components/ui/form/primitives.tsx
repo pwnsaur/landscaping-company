@@ -4,9 +4,9 @@ import { theme } from '@/styles/theme';
 
 export const FieldInput = styled.input`
   width: 100%;
-  min-height: 2.9rem;
-  padding: ${theme.spacing.sm};
-  border: 1px solid ${theme.colors.lineSoft};
+  min-height: ${theme.components.form.fieldMinHeight};
+  padding: ${theme.components.form.fieldPadding};
+  border: 1px solid ${theme.semantic.border.subtle};
   border-radius: ${theme.radii.sm};
   background: ${theme.colors.glowSoft};
   font-size: ${theme.fontSizes.normal};
@@ -18,19 +18,20 @@ export const FieldInput = styled.input`
 
   &:focus {
     border-color: ${theme.colors.darkGreen};
-    box-shadow: 0 0 0 3px ${theme.colors.focusRing};
+    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
+      ${theme.semantic.interactive.focusRing};
   }
 
   ::placeholder {
-    color: ${theme.colors.textMuted};
+    color: ${theme.semantic.text.muted};
   }
 `;
 
 export const FieldTextarea = styled.textarea`
   width: 100%;
-  min-height: 11rem;
-  padding: ${theme.spacing.sm};
-  border: 1px solid ${theme.colors.lineSoft};
+  min-height: ${theme.components.form.textareaMinHeight};
+  padding: ${theme.components.form.fieldPadding};
+  border: 1px solid ${theme.semantic.border.subtle};
   border-radius: ${theme.radii.sm};
   background: ${theme.colors.glowSoft};
   font-size: ${theme.fontSizes.normal};
@@ -43,21 +44,22 @@ export const FieldTextarea = styled.textarea`
 
   &:focus {
     border-color: ${theme.colors.darkGreen};
-    box-shadow: 0 0 0 3px ${theme.colors.focusRing};
+    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
+      ${theme.semantic.interactive.focusRing};
   }
 
   ::placeholder {
-    color: ${theme.colors.textMuted};
+    color: ${theme.semantic.text.muted};
   }
 `;
 
 export const PrimaryButton = styled.button`
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
-  min-width: 8.5rem;
+  min-width: ${theme.components.form.buttonMinWidth};
   text-transform: uppercase;
-  letter-spacing: 0.08rem;
+  letter-spacing: ${theme.components.form.buttonTracking};
   background-color: ${theme.colors.darkGreen};
-  color: ${theme.colors.white};
+  color: ${theme.semantic.text.onAccent};
   border: 1px solid ${theme.colors.darkGreen};
   border-radius: ${theme.radii.sm};
   box-shadow: ${theme.shadows.soft};
@@ -77,8 +79,8 @@ export const PrimaryButton = styled.button`
 
   &:disabled {
     transform: none;
-    background-color: ${theme.colors.interactiveMuted};
-    border-color: ${theme.colors.interactiveMutedBorder};
+    background-color: ${theme.semantic.interactive.disabled};
+    border-color: ${theme.semantic.interactive.disabledBorder};
     color: ${theme.colors.grey};
     cursor: not-allowed;
   }

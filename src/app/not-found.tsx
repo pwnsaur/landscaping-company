@@ -34,7 +34,7 @@ const Container = styled.div`
   justify-content: center;
   gap: ${theme.spacing.sm};
   min-height: 50vh;
-  border: 1px solid ${theme.colors.lineSoft};
+  border: 1px solid ${theme.semantic.border.subtle};
   background: ${theme.gradients.panelLight};
   box-shadow: ${theme.shadows.panel};
 `;

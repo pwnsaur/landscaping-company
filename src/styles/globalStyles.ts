@@ -35,6 +35,10 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
+  img {
+    height: auto;
+  }
+
   input,
   button,
   textarea,

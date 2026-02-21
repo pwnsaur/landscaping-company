@@ -45,7 +45,7 @@ exports[`ProjectCard renders correctly 1`] = `
   text-transform: uppercase;
   letter-spacing: 0.14rem;
   font-size: 0.72rem;
-  color: rgba(57, 65, 47, 0.72);
+  color: rgba(47, 54, 42, 0.74);
 }
 
 .c6 {
@@ -57,8 +57,8 @@ exports[`ProjectCard renders correctly 1`] = `
 }
 
 .c7 {
-  line-height: 1.6;
-  color: #333;
+  line-height: 1.65;
+  color: #2f362a;
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 3;

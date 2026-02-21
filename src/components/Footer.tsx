@@ -73,9 +73,9 @@ const BrandBlock = styled.section`
 
 const BrandTitle = styled.h2`
   text-transform: uppercase;
-  letter-spacing: 0.12rem;
+  letter-spacing: ${({ theme }) => theme.components.footer.titleTracking};
   font-size: ${({ theme }) => theme.typography.sectionHeading};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.semantic.text.onAccent};
 `;
 
 const BrandText = styled.p`
@@ -93,7 +93,7 @@ const LinksColumn = styled.nav`
 
 const LinksTitle = styled.p`
   text-transform: uppercase;
-  letter-spacing: 0.12rem;
+  letter-spacing: ${({ theme }) => theme.components.footer.titleTracking};
   font-size: ${({ theme }) => theme.typography.label};
   color: ${({ theme }) => theme.colors.textInverseSoft};
   margin-bottom: ${({ theme }) => theme.spacing.xxs};
@@ -102,7 +102,7 @@ const LinksTitle = styled.p`
 const FooterLink = styled(Link)`
   width: fit-content;
   text-transform: uppercase;
-  letter-spacing: 0.06rem;
+  letter-spacing: ${({ theme }) => theme.components.footer.linkTracking};
   font-size: ${({ theme }) => theme.components.card.actionSize};
   color: ${({ theme }) => theme.colors.textInverse};
   border-bottom: 1px solid transparent;
@@ -125,9 +125,9 @@ const ActionCard = styled.section`
 
 const ActionTitle = styled.h3`
   text-transform: uppercase;
-  letter-spacing: 0.06rem;
+  letter-spacing: ${({ theme }) => theme.components.footer.linkTracking};
   font-size: ${({ theme }) => theme.fontSizes.normal};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.semantic.text.onAccent};
 `;
 
 const ActionText = styled.p`
@@ -155,5 +155,5 @@ const FooterText = styled.p`
   width: 100%;
   color: ${({ theme }) => theme.colors.textInverseMuted};
   font-size: ${({ theme }) => theme.components.card.actionSize};
-  letter-spacing: 0.03rem;
+  letter-spacing: ${({ theme }) => theme.components.footer.footnoteTracking};
 `;

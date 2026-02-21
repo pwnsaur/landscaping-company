@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: Props) => {
   return (
-    <html lang='lv'>
+    <html lang='lv' data-scroll-behavior='smooth'>
       <body>
         <Providers>
           <AppShell>{children}</AppShell>
