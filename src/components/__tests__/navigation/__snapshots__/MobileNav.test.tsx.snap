@@ -2,50 +2,118 @@
 
 exports[`MobileNav component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c3 {
+  .c4 {
   display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  height: 3rem;
-  padding: 0 1rem;
-  white-space: nowrap;
-  transition: color 0.3s ease-in-out;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.c3:hover {
-  color: #696767;
+.c5 {
+  display: flex;
+}
+
+.c6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.15rem;
+  letter-spacing: 0.06rem;
+  color: #21412a;
+  text-transform: uppercase;
+  min-height: 2.8rem;
+  padding: 0.7rem 0.95rem;
+  white-space: nowrap;
+  border: 1px solid rgba(33, 65, 42, 0.35);
+  background: rgba(33, 65, 42, 0.09);
+  transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
+}
+
+.c6:hover {
+  color: #21412a;
+  border-color: rgba(33,65,42,0.3);
+  background: rgba(33,65,42,0.08);
+  transform: translateY(-1px);
+}
+
+.c6:focus-visible {
+  outline: 2px solid rgba(33,65,42,0.38);
+  outline-offset: 2px;
+}
+
+.c7 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.15rem;
+  letter-spacing: 0.06rem;
+  color: #39412f;
+  text-transform: uppercase;
+  min-height: 2.8rem;
+  padding: 0.7rem 0.95rem;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.42);
+  transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
+}
+
+.c7:hover {
+  color: #21412a;
+  border-color: rgba(33,65,42,0.3);
+  background: rgba(33,65,42,0.08);
+  transform: translateY(-1px);
+}
+
+.c7:focus-visible {
+  outline: 2px solid rgba(33,65,42,0.38);
+  outline-offset: 2px;
 }
 
 .c0 {
   display: flex;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 7;
 }
 
 .c1 {
   flex-grow: 1;
   height: 100%;
-  background-color: transparent;
+  background-color: rgba(3,11,8,0.42);
+  backdrop-filter: blur(2px);
 }
 
 .c2 {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
-  width: 100%;
+  width: min(23.5rem,82vw);
   position: fixed;
-  background-color: #ededed;
+  right: 0;
+  top: 0;
   height: 100%;
-  padding-top: 5rem;
-  animation: fyfhkX 0.3s ease-in-out forwards;
-  z-index: 5;
+  padding: 5.7rem 1rem 1.3rem;
+  background: linear-gradient(170deg,rgba(252,252,252,0.98) 0%,#ececec 100%);
+  border-left: 1px solid rgba(57,65,47,0.22);
+  box-shadow: -18px 0 42px rgba(13,22,16,0.2);
+  animation: eTrOWK 0.27s ease-out forwards;
+}
+
+.c3 {
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 0.72rem;
+  color: rgba(57,65,47,0.72);
+  margin-bottom: 0.95rem;
 }
 
 <div
@@ -58,36 +126,66 @@ exports[`MobileNav component matches the snapshot 1`] = `
       class="c2"
       data-testid="mobile-nav"
     >
-      <a
+      <p
         class="c3"
-        href="/"
       >
-        Sākums
-      </a>
-      <a
-        class="c3"
-        href="/services"
+        Navigācija
+      </p>
+      <ul
+        class="c4"
       >
-        Pakalpojumi
-      </a>
-      <a
-        class="c3"
-        href="/projects"
-      >
-        Projekti
-      </a>
-      <a
-        class="c3"
-        href="/about"
-      >
-        Par mums
-      </a>
-      <a
-        class="c3"
-        href="/contacts"
-      >
-        Kontakti
-      </a>
+        <li
+          class="c5"
+        >
+          <a
+            aria-current="page"
+            class="c6"
+            href="/"
+          >
+            Sākums
+          </a>
+        </li>
+        <li
+          class="c5"
+        >
+          <a
+            class="c7"
+            href="/services"
+          >
+            Pakalpojumi
+          </a>
+        </li>
+        <li
+          class="c5"
+        >
+          <a
+            class="c7"
+            href="/projects"
+          >
+            Projekti
+          </a>
+        </li>
+        <li
+          class="c5"
+        >
+          <a
+            class="c7"
+            href="/about"
+          >
+            Par mums
+          </a>
+        </li>
+        <li
+          class="c5"
+        >
+          <a
+            class="c7"
+            href="/contacts"
+          >
+            Kontakti
+          </a>
+        </li>
+      </ul>
     </nav>
   </div>
 </DocumentFragment>

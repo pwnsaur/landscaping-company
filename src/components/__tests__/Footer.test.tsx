@@ -11,7 +11,10 @@ describe('Footer Component', () => {
 describe('Footer copyright', () => {
   test('text is correct', () => {
     render(<Footer />);
-    const copyrightText = screen.getByText(/Copyright 2023 Hackerman/i);
+    const currentYear = new Date().getFullYear();
+    const copyrightText = screen.getByText(
+      new RegExp(`Copyright ${currentYear} Brasika`, 'i')
+    );
     expect(copyrightText).toBeInTheDocument();
   });
 });

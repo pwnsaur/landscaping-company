@@ -20,7 +20,12 @@ describe('Navigation component', () => {
   test('renders mobile navigation when in mobile view', () => {
     mockUseIsMobile.mockReturnValue(true);
     render(
-      <MobileNav isOpen={true} isVisible={true} handleItemClick={() => {}} />
+      <MobileNav
+        currentPath='/'
+        isOpen={true}
+        isVisible={true}
+        handleItemClick={() => {}}
+      />
     );
 
     expect(screen.getByTestId('mobile-nav')).toBeInTheDocument();

@@ -4,113 +4,130 @@ exports[`NavItems component matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  height: 3rem;
-  padding: 0 1rem;
-  white-space: nowrap;
-  transition: color 0.3s ease-in-out;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.c0:hover {
-  color: #696767;
+.c1 {
+  display: flex;
 }
 
-<a
-    class="c0"
-    href="/"
-  >
-    Sākums
-  </a>
-  .c0 {
+.c2 {
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
-  color: #1a1a1a;
+  justify-content: center;
+  width: auto;
+  font-size: 0.92rem;
+  letter-spacing: 0.05rem;
+  color: #21412a;
   text-transform: uppercase;
-  height: 3rem;
-  padding: 0 1rem;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.85rem;
   white-space: nowrap;
-  transition: color 0.3s ease-in-out;
+  border: 1px solid rgba(33, 65, 42, 0.35);
+  background: rgba(33, 65, 42, 0.09);
+  transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 
-.c0:hover {
-  color: #696767;
+.c2:hover {
+  color: #21412a;
+  border-color: rgba(33,65,42,0.3);
+  background: rgba(33,65,42,0.08);
+  transform: translateY(-1px);
 }
 
-<a
-    class="c0"
-    href="/services"
-  >
-    Pakalpojumi
-  </a>
-  .c0 {
+.c2:focus-visible {
+  outline: 2px solid rgba(33,65,42,0.38);
+  outline-offset: 2px;
+}
+
+.c3 {
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
-  color: #1a1a1a;
+  justify-content: center;
+  width: auto;
+  font-size: 0.92rem;
+  letter-spacing: 0.05rem;
+  color: #39412f;
   text-transform: uppercase;
-  height: 3rem;
-  padding: 0 1rem;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.85rem;
   white-space: nowrap;
-  transition: color 0.3s ease-in-out;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 
-.c0:hover {
-  color: #696767;
+.c3:hover {
+  color: #21412a;
+  border-color: rgba(33,65,42,0.3);
+  background: rgba(33,65,42,0.08);
+  transform: translateY(-1px);
 }
 
-<a
+.c3:focus-visible {
+  outline: 2px solid rgba(33,65,42,0.38);
+  outline-offset: 2px;
+}
+
+<ul
     class="c0"
-    href="/projects"
   >
-    Projekti
-  </a>
-  .c0 {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  height: 3rem;
-  padding: 0 1rem;
-  white-space: nowrap;
-  transition: color 0.3s ease-in-out;
-}
-
-.c0:hover {
-  color: #696767;
-}
-
-<a
-    class="c0"
-    href="/about"
-  >
-    Par mums
-  </a>
-  .c0 {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  height: 3rem;
-  padding: 0 1rem;
-  white-space: nowrap;
-  transition: color 0.3s ease-in-out;
-}
-
-.c0:hover {
-  color: #696767;
-}
-
-<a
-    class="c0"
-    href="/contacts"
-  >
-    Kontakti
-  </a>
+    <li
+      class="c1"
+    >
+      <a
+        aria-current="page"
+        class="c2"
+        href="/"
+      >
+        Sākums
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <a
+        class="c3"
+        href="/services"
+      >
+        Pakalpojumi
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <a
+        class="c3"
+        href="/projects"
+      >
+        Projekti
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <a
+        class="c3"
+        href="/about"
+      >
+        Par mums
+      </a>
+    </li>
+    <li
+      class="c1"
+    >
+      <a
+        class="c3"
+        href="/contacts"
+      >
+        Kontakti
+      </a>
+    </li>
+  </ul>
 </DocumentFragment>
 `;

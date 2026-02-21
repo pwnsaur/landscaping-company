@@ -4,61 +4,141 @@ exports[`DesktopNav component matches the snapshot 1`] = `
 <DocumentFragment>
   .c1 {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  height: 3rem;
-  padding: 0 1rem;
-  white-space: nowrap;
-  transition: color 0.3s ease-in-out;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.c1:hover {
-  color: #696767;
+.c2 {
+  display: flex;
+}
+
+.c3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  font-size: 0.92rem;
+  letter-spacing: 0.05rem;
+  color: #21412a;
+  text-transform: uppercase;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.85rem;
+  white-space: nowrap;
+  border: 1px solid rgba(33, 65, 42, 0.35);
+  background: rgba(33, 65, 42, 0.09);
+  transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
+}
+
+.c3:hover {
+  color: #21412a;
+  border-color: rgba(33,65,42,0.3);
+  background: rgba(33,65,42,0.08);
+  transform: translateY(-1px);
+}
+
+.c3:focus-visible {
+  outline: 2px solid rgba(33,65,42,0.38);
+  outline-offset: 2px;
+}
+
+.c4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  font-size: 0.92rem;
+  letter-spacing: 0.05rem;
+  color: #39412f;
+  text-transform: uppercase;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.85rem;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
+}
+
+.c4:hover {
+  color: #21412a;
+  border-color: rgba(33,65,42,0.3);
+  background: rgba(33,65,42,0.08);
+  transform: translateY(-1px);
+}
+
+.c4:focus-visible {
+  outline: 2px solid rgba(33,65,42,0.38);
+  outline-offset: 2px;
 }
 
 .c0 {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  height: 100%;
-  max-width: 48rem;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 <nav
     class="c0"
   >
-    <a
+    <ul
       class="c1"
-      href="/"
     >
-      Sākums
-    </a>
-    <a
-      class="c1"
-      href="/services"
-    >
-      Pakalpojumi
-    </a>
-    <a
-      class="c1"
-      href="/projects"
-    >
-      Projekti
-    </a>
-    <a
-      class="c1"
-      href="/about"
-    >
-      Par mums
-    </a>
-    <a
-      class="c1"
-      href="/contacts"
-    >
-      Kontakti
-    </a>
+      <li
+        class="c2"
+      >
+        <a
+          aria-current="page"
+          class="c3"
+          href="/"
+        >
+          Sākums
+        </a>
+      </li>
+      <li
+        class="c2"
+      >
+        <a
+          class="c4"
+          href="/services"
+        >
+          Pakalpojumi
+        </a>
+      </li>
+      <li
+        class="c2"
+      >
+        <a
+          class="c4"
+          href="/projects"
+        >
+          Projekti
+        </a>
+      </li>
+      <li
+        class="c2"
+      >
+        <a
+          class="c4"
+          href="/about"
+        >
+          Par mums
+        </a>
+      </li>
+      <li
+        class="c2"
+      >
+        <a
+          class="c4"
+          href="/contacts"
+        >
+          Kontakti
+        </a>
+      </li>
+    </ul>
   </nav>
 </DocumentFragment>
 `;

@@ -6,7 +6,13 @@ interface HamburgerIconProps {
 }
 
 const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => (
-  <StyledHamburgerIcon onClick={onClick} open={isOpen}>
+  <StyledHamburgerIcon
+    onClick={onClick}
+    open={isOpen}
+    aria-label={isOpen ? 'Aizvērt navigāciju' : 'Atvērt navigāciju'}
+    aria-expanded={isOpen}
+    aria-controls='mobile-nav'
+  >
     <span></span>
     <span></span>
     <span></span>
@@ -16,39 +22,52 @@ const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => (
 
 export default HamburgerIcon;
 
-const StyledHamburgerIcon = styled.div<{ open: boolean }>`
-  width: 45px;
-  height: 28px;
+const StyledHamburgerIcon = styled.button<{ open: boolean }>`
+  width: 2.7rem;
+  height: 2.7rem;
   position: ${({ open }) => (open ? 'fixed' : 'static')};
+  top: ${({ open }) => (open ? '1.25rem' : 'auto')};
+  left: ${({ open }) => (open ? '1rem' : 'auto')};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(57, 65, 47, 0.34);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0.1rem;
   transform: rotate(0deg);
-  transition: 0.5s ease-in-out;
+  transition: 0.28s ease-in-out;
   cursor: pointer;
-  margin: 2rem;
-  z-index: 4;
+  margin: 0;
+  z-index: 8;
+
+  &:focus-visible {
+    outline: 2px solid rgba(33, 65, 42, 0.45);
+    outline-offset: 2px;
+  }
 
   span {
     display: block;
     position: absolute;
-    height: 5px;
-    width: 100%;
+    height: 2px;
+    width: 1.3rem;
     background: ${({ theme }) => theme.colors.black};
-    border-radius: 5px;
+    border-radius: 2px;
     opacity: 1;
-    left: 0;
     transform: rotate(0deg);
-    transition: 0.25s ease-in-out;
+    transition: 0.24s ease-in-out;
 
     &:nth-child(1) {
-      top: 0px;
+      top: 0.86rem;
     }
 
     &:nth-child(2),
     &:nth-child(3) {
-      top: 12px;
+      top: 1.28rem;
     }
 
     &:nth-child(4) {
-      top: 24px;
+      top: 1.7rem;
     }
   }
 
@@ -56,9 +75,8 @@ const StyledHamburgerIcon = styled.div<{ open: boolean }>`
     open &&
     `
     span:nth-child(1) {
-      top: 12px;
+      top: 1.28rem;
       width: 0%;
-      left: 50%;
     }
 
     span:nth-child(2) {
@@ -70,9 +88,8 @@ const StyledHamburgerIcon = styled.div<{ open: boolean }>`
     }
 
     span:nth-child(4) {
-      top: 12px;
+      top: 1.28rem;
       width: 0%;
-      left: 50%;
     }
   `}
 `;

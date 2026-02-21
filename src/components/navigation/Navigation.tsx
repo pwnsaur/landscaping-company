@@ -18,6 +18,7 @@ const Navigation = () => {
   const theme = useContext(ThemeContext);
   const isMobile = Boolean(theme?.isMobile);
   const pathname = usePathname();
+  const currentPath = pathname || '/';
 
   const [startUpwardsScrollPos, setStartUpwardsScrollPos] = useState<
     number | null
@@ -87,28 +88,31 @@ const Navigation = () => {
   return (
     <Container $isNavBarVisible={isNavBarVisible}>
       <Header>
-        {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
-        <LinkLogo href='/'>
-          <Logo
-            src={logoImage}
-            alt='logo'
-            width={120}
-            height={70}
-            quality={50}
-            sizes='120px'
-            priority
-          />
-        </LinkLogo>
-        {isMobile ? (
-          <MobileNav
-            isVisible={isVisible}
-            isOpen={isOpen}
-            handleItemClick={handleMenuItemClick}
-          />
-        ) : (
-          <DesktopNav />
-        )}
+        <BrandRow>
+          {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
+          <LinkLogo href='/'>
+            <Logo
+              src={logoImage}
+              alt='logo'
+              width={120}
+              height={70}
+              quality={50}
+              sizes='120px'
+              priority
+            />
+            <BrandText>B R A S I K A</BrandText>
+          </LinkLogo>
+        </BrandRow>
+        {!isMobile && <DesktopNav currentPath={currentPath} />}
       </Header>
+      {isMobile && (
+        <MobileNav
+          currentPath={currentPath}
+          isVisible={isVisible}
+          isOpen={isOpen}
+          handleItemClick={handleMenuItemClick}
+        />
+      )}
     </Container>
   );
 };
@@ -121,39 +125,53 @@ const Container = styled.div<{ $isNavBarVisible: boolean }>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.background};
-  z-index: 3;
+  background: rgba(248, 248, 248, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(57, 65, 47, 0.12);
+  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
+  z-index: 6;
   position: sticky;
   top: 0;
   transform: ${({ $isNavBarVisible }) =>
-    $isNavBarVisible ? 'translateY(0)' : 'translateY(-142px)'};
+    $isNavBarVisible ? 'translateY(0)' : 'translateY(-106px)'};
   transition: transform 0.3s ease-in-out;
 `;
 
 const Header = styled.header`
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  gap: 0.9rem;
   width: 100%;
-  max-width: ${({ theme }) => theme.width.normal};
-  ${({ theme }) => theme.isMobile && `flex-direction: row;`};
+  max-width: ${({ theme }) => theme.width.wide};
+  padding: 0.85rem 1rem;
+`;
+
+const BrandRow = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const Logo = styled(Image)`
-  height: 100%;
+  height: auto;
   width: auto;
 `;
 
 const LinkLogo = styled(Link)`
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
   height: 100%;
-  margin: 1rem auto 1rem;
+`;
 
-  ${({ theme }) =>
-    theme.isMobile &&
-    `
-      width: 100%;
-      justify-content: end;
-      margin-right: 1rem;
-  `}
+const BrandText = styled.span`
+  font-size: 0.78rem;
+  letter-spacing: 0.24rem;
+  color: rgba(57, 65, 47, 0.82);
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;

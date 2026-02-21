@@ -2,62 +2,210 @@
 
 exports[`Footer Component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c1 {
-  min-width: 9rem;
-  height: 3rem;
-  padding: 0 1rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  background-color: #21412a;
-  border: 2px solid #ededed;
-  color: #ededed;
-}
-
-.c1:hover {
-  background-color: #ededed;
-  border-color: #21412a;
-  color: #21412a;
-}
-
-.c0 {
+  .c0 {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 15rem;
-  justify-content: center;
   align-items: center;
+  width: 100%;
   margin: auto 0 0;
-  padding-top: 5rem;
-  background-color: #21412a;
+  padding-top: 3rem;
+  background: radial-gradient(circle at 10% 0%,rgba(255,255,255,0.08),transparent 32%),linear-gradient(160deg,#1d3d29 0%,#142d1f 100%);
   z-index: 2;
 }
 
+.c1 {
+  width: min(75rem,96vw);
+  display: grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,0.85fr) minmax(0,1fr);
+  gap: 1.1rem;
+  padding: 0 0 2rem;
+}
+
 .c2 {
+  padding-right: 1rem;
+}
+
+.c3 {
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: clamp(1.1rem,2.3vw,1.65rem);
   color: #fff;
-  margin-bottom: 1rem;
-  margin-top: auto;
+}
+
+.c4 {
+  margin-top: 0.75rem;
+  max-width: 40ch;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.88);
+}
+
+.c5 {
+  display: grid;
+  align-content: start;
+  gap: 0.32rem;
+}
+
+.c6 {
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.35rem;
+}
+
+.c7 {
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.94);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease,border-color 0.2s ease;
+}
+
+.c7:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.55);
+}
+
+.c8 {
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(12,25,18,0.3);
+  padding: 1.1rem 1.05rem;
+}
+
+.c9 {
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.c10 {
+  margin-top: 0.45rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.88);
+}
+
+.c11 {
+  margin-top: 0.9rem;
+  display: inline-block;
+  padding: 0.62rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07rem;
+  font-size: 0.82rem;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: #fff;
+  transition: background-color 0.2s ease,color 0.2s ease;
+}
+
+.c11:hover {
+  background-color: #fff;
+  color: #21412a;
+}
+
+.c12 {
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  padding: 0.95rem 1rem 1.1rem;
+}
+
+.c13 {
+  width: min(75rem,96vw);
+  color: rgba(255,255,255,0.78);
+  font-size: 0.83rem;
+  letter-spacing: 0.03rem;
+}
+
+@media (max-width:980px) {
+  .c1 {
+    grid-template-columns: 1fr;
+  }
 }
 
 <footer
     class="c0"
   >
-    <a
-      href="/contacts"
+    <div
+      class="c1"
     >
-      <button
-        class="c1"
+      <section
+        class="c2"
       >
-        Sazināties
-      </button>
-    </a>
-    <p
-      class="c2"
+        <h2
+          class="c3"
+        >
+          Brasika
+        </h2>
+        <p
+          class="c4"
+        >
+          Ainavu darbi, kur funkcionalitate un estetika strada kopa ilgtermina.
+        </p>
+      </section>
+      <nav
+        class="c5"
+      >
+        <p
+          class="c6"
+        >
+          Lapas
+        </p>
+        <a
+          class="c7"
+          href="/services"
+        >
+          Pakalpojumi
+        </a>
+        <a
+          class="c7"
+          href="/projects"
+        >
+          Projekti
+        </a>
+        <a
+          class="c7"
+          href="/about"
+        >
+          Par mums
+        </a>
+        <a
+          class="c7"
+          href="/contacts"
+        >
+          Kontakti
+        </a>
+      </nav>
+      <section
+        class="c8"
+      >
+        <h3
+          class="c9"
+        >
+          Sac savu projektu
+        </h3>
+        <p
+          class="0 c10"
+        >
+          Uzraksti mums, un sakartosim nakamo soli tavai teritorijai.
+        </p>
+        <a
+          class="1 c11"
+          href="/contacts"
+        >
+          Sazinaties
+        </a>
+      </section>
+    </div>
+    <div
+      class="2 c12"
     >
-      Copyright 2023 Hackerman
-    </p>
+      <p
+        class="3 c13"
+      >
+        Copyright 2026 Brasika
+      </p>
+    </div>
   </footer>
 </DocumentFragment>
 `;

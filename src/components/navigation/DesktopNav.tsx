@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 import NavItems from '@/components/navigation/NavItems';
 
-const DesktopNav = () => {
+type DesktopNavProps = {
+  currentPath: string;
+};
+
+const DesktopNav = ({ currentPath }: DesktopNavProps) => {
   return (
     <StyledDesktopNav>
-      <NavItems />
+      <NavItems currentPath={currentPath} />
     </StyledDesktopNav>
   );
 };
@@ -14,8 +18,7 @@ export default DesktopNav;
 
 const StyledDesktopNav = styled.nav`
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  height: 100%;
-  max-width: ${({ theme }) => theme.width.normal};
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 `;
