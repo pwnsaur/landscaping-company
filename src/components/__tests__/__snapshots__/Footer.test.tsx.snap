@@ -37,7 +37,7 @@ exports[`Footer Component matches the snapshot 1`] = `
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: auto 0 0;
+  margin: 0;
   padding-top: 3rem;
   background: radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.08), transparent 32%),linear-gradient(160deg, #1d3d29 0%, #142d1f 100%);
   z-index: 6;

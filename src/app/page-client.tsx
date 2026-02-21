@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import SquareButton from '@/components/reusables/SquareButton';
@@ -11,6 +11,7 @@ import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
 const HomePageClient = () => {
   const heroRef = useRef<HTMLElement>(null);
   const parallaxLayerRef = useRef<HTMLDivElement>(null);
+  const [isScrollHintVisible, setIsScrollHintVisible] = useState(true);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -20,14 +21,22 @@ const HomePageClient = () => {
       return;
     }
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(max-width: 768px)').matches
+    ) {
       return;
     }
 
     let rafId = 0;
+    let isVisible = true;
 
     const updateParallax = () => {
       rafId = 0;
+
+      if (!isVisible) {
+        return;
+      }
 
       const heroRect = hero.getBoundingClientRect();
       const travelRange = hero.offsetHeight + window.innerHeight;
@@ -36,9 +45,9 @@ const HomePageClient = () => {
         1
       );
 
-      const translateY = progress * 110;
-      const scale = 1.08 + progress * 0.08;
-      const opacity = 1 - progress * 0.35;
+      const translateY = progress * 74;
+      const scale = 1.03 + progress * 0.07;
+      const opacity = 1 - progress * 0.22;
 
       layer.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
       layer.style.opacity = `${opacity}`;
@@ -52,17 +61,52 @@ const HomePageClient = () => {
       rafId = window.requestAnimationFrame(updateParallax);
     };
 
+    let observer: IntersectionObserver | null = null;
+    if (typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisible = Boolean(entry?.isIntersecting);
+
+          if (isVisible) {
+            requestUpdate();
+          }
+        },
+        {
+          threshold: 0,
+          rootMargin: '220px 0px',
+        }
+      );
+
+      observer.observe(hero);
+    }
+
     requestUpdate();
 
     window.addEventListener('scroll', requestUpdate, { passive: true });
     window.addEventListener('resize', requestUpdate);
 
     return () => {
+      observer?.disconnect();
       window.removeEventListener('scroll', requestUpdate);
       window.removeEventListener('resize', requestUpdate);
       if (rafId) {
         window.cancelAnimationFrame(rafId);
       }
+    };
+  }, []);
+
+  useEffect(() => {
+    const updateScrollHintVisibility = () => {
+      setIsScrollHintVisible(window.scrollY < 20);
+    };
+
+    updateScrollHintVisibility();
+    window.addEventListener('scroll', updateScrollHintVisibility, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener('scroll', updateScrollHintVisibility);
     };
   }, []);
 
@@ -74,8 +118,8 @@ const HomePageClient = () => {
             src={bacgroundImageThree}
             alt='Brasika landscaping'
             fill
-            quality={50}
-            sizes='100vw'
+            quality={60}
+            sizes='(max-width: 768px) 130vw, 116vw'
             placeholder='blur'
             priority
           />
@@ -96,7 +140,7 @@ const HomePageClient = () => {
           </HeroActions>
         </HeroContent>
 
-        <ScrollHint>ritiniet uz leju</ScrollHint>
+        <ScrollHint $visible={isScrollHintVisible}>ritiniet uz leju</ScrollHint>
       </Hero>
 
       <Panels>
@@ -141,25 +185,36 @@ const Hero = styled.section`
   position: relative;
   min-height: ${({ theme }) => theme.components.home.heroMinHeight};
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: center;
   padding: 0 ${({ theme }) => theme.spacing.md}
-    ${({ theme }) => theme.components.home.heroBottom};
+    calc(
+      ${({ theme }) => theme.components.home.heroBottom} +
+        env(safe-area-inset-bottom)
+    );
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     min-height: ${({ theme }) => theme.components.home.heroMinHeightCompact};
     padding: 0 ${({ theme }) => theme.spacing.md}
-      ${({ theme }) => theme.components.home.heroBottomCompact};
+      calc(
+        ${({ theme }) => theme.components.home.heroBottomCompact} +
+          env(safe-area-inset-bottom)
+      );
   }
 `;
 
 const ParallaxLayer = styled.div`
   position: absolute;
-  inset: -8%;
-  transform: translate3d(0, 0, 0) scale(1.08);
+  inset: -6%;
+  transform: translate3d(0, 0, 0) scale(1.03);
   will-change: transform, opacity;
   transition: opacity ${({ theme }) => theme.motion.normal} linear;
   filter: saturate(0.95) contrast(1.1);
+  pointer-events: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    inset: -4%;
+  }
 `;
 
 const StyledImage = styled(Image)`
@@ -170,6 +225,7 @@ const HeroShade = styled.div`
   position: absolute;
   inset: 0;
   background: ${({ theme }) => theme.gradients.heroShade};
+  pointer-events: none;
 `;
 
 const HeroGlow = styled.div`
@@ -190,7 +246,9 @@ const HeroContent = styled.div`
   text-align: center;
   z-index: ${({ theme }) => theme.zIndex.floating};
   padding: ${({ theme }) => theme.components.home.heroContentPadding};
+  margin-bottom: clamp(0.75rem, 2.4vh, 2rem);
   border: 1px solid ${({ theme }) => theme.colors.lineOnDarkSoft};
+  border-radius: ${({ theme }) => theme.radii.lg};
   background: ${({ theme }) => theme.gradients.heroPanel};
   backdrop-filter: blur(6px);
   box-shadow: ${({ theme }) => theme.shadows.heroPanel};
@@ -230,21 +288,27 @@ const HeroActions = styled.div`
   flex-wrap: wrap;
 `;
 
-const ScrollHint = styled.p`
-  position: absolute;
-  bottom: ${({ theme }) => theme.spacing.lg};
+const ScrollHint = styled.p<{ $visible: boolean }>`
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(${({ theme }) => theme.spacing.sm} + env(safe-area-inset-bottom));
   color: ${({ theme }) => theme.colors.textInverseSoft};
   text-transform: uppercase;
   letter-spacing: ${({ theme }) => theme.components.home.eyebrowTracking};
   font-size: ${({ theme }) => theme.components.home.scrollHintSize};
   z-index: ${({ theme }) => theme.zIndex.overlay};
+  pointer-events: none;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  transition: opacity ${({ theme }) => theme.motion.normal}
+    ${({ theme }) => theme.motion.easing};
 `;
 
 const Panels = styled.section`
   width: ${({ theme }) =>
     `min(${theme.layout.container.wide}, ${theme.layout.container.compactViewport})`};
   margin: ${({ theme }) =>
-    `${theme.components.home.panelsOffset} auto ${theme.components.home.panelsBottom}`};
+    `${theme.components.home.panelsTop} auto ${theme.components.home.panelsBottom}`};
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: ${({ theme }) => theme.layout.grid.gap};
@@ -253,7 +317,7 @@ const Panels = styled.section`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin: ${({ theme }) =>
-      `${theme.components.home.panelsOffsetCompact} auto ${theme.components.home.panelsBottomCompact}`};
+      `${theme.components.home.panelsTopCompact} auto ${theme.components.home.panelsBottomCompact}`};
     grid-template-columns: 1fr;
   }
 `;
@@ -283,13 +347,13 @@ const Panel = styled.article<{ $accent?: boolean }>`
 
 const PanelTitle = styled.h2`
   text-transform: uppercase;
-  letter-spacing: 0.06rem;
+  letter-spacing: ${({ theme }) => theme.components.home.panelTitleTracking};
   font-size: ${({ theme }) => theme.components.home.panelTitleSize};
   margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 const PanelText = styled.p`
-  max-width: 44ch;
+  max-width: ${({ theme }) => theme.components.home.panelTextMaxWidth};
   line-height: 1.6;
   margin-bottom: ${({ theme }) => theme.spacing.lg};
 `;

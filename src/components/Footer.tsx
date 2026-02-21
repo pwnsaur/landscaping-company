@@ -50,7 +50,7 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: auto 0 0;
+  margin: 0;
   padding-top: ${({ theme }) => theme.spacing.xxl};
   background: ${({ theme }) => theme.gradients.footer};
   z-index: ${({ theme }) => theme.zIndex.nav};

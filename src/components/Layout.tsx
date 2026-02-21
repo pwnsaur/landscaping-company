@@ -26,12 +26,13 @@ const Container = styled.div`
   min-height: 100vh;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: ${({ theme }) => theme.colors.surfaceSoft};
 `;
 
 const Content = styled.div`
   display: flex;
+  flex: 1;
   width: 100%;
   justify-content: center;
 `;

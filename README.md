@@ -141,7 +141,10 @@ Current maturity:
 - shared primitives now back all main marketing routes (`/`, `/services*`, `/projects*`, `/about`, `/contacts`, `/_not-found`)
 - listing/detail pages are template-driven
 - navigation/footer/contact form controls are mapped to shared action/form/style tokens
-- remaining hardcoded values are mostly intentional visual tuning values (hero/parallax specifics), not structural glue
+- home hero/panels spacing and typography values are tokenized (`components.home.*`) instead of local magic numbers
+- parallax is guarded for reduced-motion/mobile and only updates while hero is near viewport
+- app shell content now uses a full-height flex layout (`Content` is `flex: 1`) so page backgrounds extend cleanly down to the footer
+- footer no longer uses `margin-top: auto`, preventing unintended empty vertical gaps above footer in flex layouts
 
 ## Key implementation patterns
 
@@ -149,6 +152,9 @@ Current maturity:
 - Styled-components SSR: `src/lib/StyledComponentsRegistry.tsx`
 - Defensive content rendering: null-safe fetch + `notFound()` for missing slugs
 - Shared card/template abstractions for listings/details to reduce duplication
+- Home parallax loop is `requestAnimationFrame` + `IntersectionObserver` throttled to reduce unnecessary scroll work
+- Home hero keeps content higher in viewport and uses safe-area-aware bottom offsets for better device fit
+- Home scroll hint is viewport-anchored and auto-fades once user starts scrolling
 
 ## Testing
 
@@ -201,6 +207,8 @@ Required for on-demand ISR:
 - Next.js 16 + React 19 migration completed.
 - Static-first rendering with ISR is in place.
 - Styling system foundations are in place and broadly adopted across pages/components.
+- Landing page hero/panels received a stability pass (softer parallax, simpler vertical flow, mobile-safe defaults).
+- Landing page shell/spacing now avoids blank zones before footer and keeps hero callouts visible on small displays.
 - Tests/build are green after style-system refactors and test harness cleanup.
 
 ## Living document protocol
