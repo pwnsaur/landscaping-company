@@ -19,6 +19,13 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang='lv' data-scroll-behavior='smooth'>
+      <head>
+        <link
+          rel='preconnect'
+          href='https://images.ctfassets.net'
+          crossOrigin='anonymous'
+        />
+      </head>
       <body>
         <Providers>
           <AppShell>{children}</AppShell>

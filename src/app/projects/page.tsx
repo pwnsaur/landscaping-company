@@ -24,7 +24,7 @@ const ProjectsPage = async () => {
         <ProjectCard
           key={project.sys.id}
           project={project}
-          priority={index < 2}
+          priority={index === 0}
         />
       )}
       emptyStateText='Paslaik projektu galerija tiek papildinata. Ja velies redzet lidzigus darbus, sazinies ar mums.'

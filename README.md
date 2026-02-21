@@ -154,7 +154,10 @@ Current maturity:
 - server-rendered primitives keep using imported theme tokens (not runtime `theme` props) to avoid App Router server/client theme-context gaps
 - root layout includes `data-scroll-behavior="smooth"` to match Next.js scroll restoration expectations
 - about hero image uses `placeholder='empty'` to avoid persistent blur artifacts in local dev
-- navigation logo now sets explicit auto dimensions on the `next/image` element to prevent aspect-ratio console warnings
+- navigation logo now uses a static `<img>` with fixed intrinsic dimensions to avoid recurrent Next image sizing warnings
+- list cards use intent-based route prefetch (`prefetch={false}` on `Link`) to avoid eager viewport prefetch churn on long grids
+- image optimizer cache floor is increased to 31 days (`images.minimumCacheTTL`) for stronger repeat-visit performance
+- home hero source image was downscaled/compressed to reduce transfer cost while preserving visual quality
 
 ## Key implementation patterns
 
@@ -168,6 +171,7 @@ Current maturity:
 - Contact form action row now reflows responsively and form field row collapses earlier on tablet widths
 - Action links/buttons share one tokenized sizing model (`components.action.*`) with consistent hover/focus behavior
 - Form fields and textarea share one tokenized density/focus model (`components.form.*`) for consistent input rhythm
+- external media host is preconnected in root layout (`images.ctfassets.net`) to reduce first-image handshake latency
 
 ## Testing
 

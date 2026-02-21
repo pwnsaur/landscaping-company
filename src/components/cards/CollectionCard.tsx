@@ -77,7 +77,9 @@ const Card = styled.div`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link).attrs({
+  prefetch: false,
+})`
   display: flex;
   flex-direction: column;
   width: 100%;

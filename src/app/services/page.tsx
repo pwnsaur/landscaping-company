@@ -24,7 +24,7 @@ const ServicesPage = async () => {
         <ServiceCard
           key={service.sys.id}
           service={service}
-          priority={index < 2}
+          priority={index === 0}
         />
       )}
       emptyStateText='Paslaik pakalpojumu sadala tiek papildinata. Uzraksti mums, un ieteiksim piemerotako risinajumu tavai teritorijai.'

@@ -116,8 +116,9 @@ exports[`Navigation component matches the snapshot 1`] = `
 }
 
 .c4 {
+  width: 120px;
   height: auto;
-  width: auto;
+  flex-shrink: 0;
 }
 
 .c3 {
@@ -157,10 +158,9 @@ exports[`Navigation component matches the snapshot 1`] = `
           <img
             alt="logo"
             class="c4"
+            decoding="async"
             height="70"
-            sizes="120px"
             src="/img.jpg"
-            style="width: auto; height: auto;"
             width="120"
           />
           <span

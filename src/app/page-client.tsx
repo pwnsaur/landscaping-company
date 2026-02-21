@@ -117,8 +117,8 @@ const HomePageClient = () => {
           src={bacgroundImageThree}
           alt='Brasika landscaping'
           fill
-          quality={60}
-          sizes='(max-width: 768px) 130vw, 116vw'
+          quality={55}
+          sizes='(max-width: 768px) 112vw, 108vw'
           placeholder='blur'
           priority
         />

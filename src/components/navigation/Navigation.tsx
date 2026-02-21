@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
@@ -99,14 +98,11 @@ const Navigation = () => {
           {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
           <LinkLogo href='/'>
             <Logo
-              src={logoImage}
+              src={logoImage.src}
               alt='logo'
               width={120}
               height={70}
-              style={{ width: 'auto', height: 'auto' }}
-              quality={50}
-              sizes='120px'
-              priority
+              decoding='async'
             />
             <BrandText>B R A S I K A</BrandText>
           </LinkLogo>
@@ -163,9 +159,10 @@ const BrandRow = styled.div`
   align-items: center;
 `;
 
-const Logo = styled(Image)`
+const Logo = styled.img`
+  width: 120px;
   height: auto;
-  width: auto;
+  flex-shrink: 0;
 `;
 
 const LinkLogo = styled(Link)`
