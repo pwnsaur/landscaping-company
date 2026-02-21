@@ -21,6 +21,8 @@ type RecaptchaVerifyResponse = {
 type MailError = Error & {
   code?: string;
   responseCode?: number;
+  response?: string;
+  command?: string;
 };
 
 const RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
@@ -323,18 +325,19 @@ export const POST = async (request: Request) => {
     },
   };
 
-  const transporter =
-    mailConfig.host || !mailConfig.service
-      ? nodemailer.createTransport({
-          host: mailConfig.host,
-          port: mailConfig.port,
-          secure: mailConfig.secure,
-          ...transportBase,
-        })
-      : nodemailer.createTransport({
-          service: mailConfig.service,
-          ...transportBase,
-        });
+  // Keep backward compatibility with legacy configuration:
+  // if EMAIL_SERVICE is provided, prefer it even if stray SMTP_* vars exist.
+  const transporter = mailConfig.service
+    ? nodemailer.createTransport({
+        service: mailConfig.service,
+        ...transportBase,
+      })
+    : nodemailer.createTransport({
+        host: mailConfig.host,
+        port: mailConfig.port,
+        secure: mailConfig.secure,
+        ...transportBase,
+      });
 
   try {
     await transporter.sendMail({
@@ -355,9 +358,14 @@ export const POST = async (request: Request) => {
     );
   } catch (error: unknown) {
     const mapped = mapMailError(error);
+    const typedError = error as MailError;
     console.error('[send-mail] Failed to send email', {
       mappedCode: mapped.code,
-      error,
+      code: typedError?.code,
+      responseCode: typedError?.responseCode,
+      command: typedError?.command,
+      response: typedError?.response,
+      message: typedError?.message,
     });
 
     return jsonResponse(
