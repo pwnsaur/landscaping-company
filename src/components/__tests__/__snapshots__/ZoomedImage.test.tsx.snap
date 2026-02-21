@@ -29,12 +29,12 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  z-index: 6;
+  z-index: 7;
 }
 
 .c3 {
   position: absolute;
-  z-index: 7;
+  z-index: 8;
   top: 50%;
   color: #1a1a1a;
   background: transparent;
@@ -104,14 +104,9 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
       <img
         alt="meow"
         class="c5"
-        data-nimg="1"
-        decoding="async"
         height="0"
-        loading="lazy"
         sizes="(max-width: 768px) calc(100vw - 2rem), calc(100vw - 140px)"
-        src="/_next/image?url=https%3A%2F%2Fmeow.com&w=3840&q=75"
-        srcset="/_next/image?url=https%3A%2F%2Fmeow.com&w=32&q=75 32w, /_next/image?url=https%3A%2F%2Fmeow.com&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fmeow.com&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fmeow.com&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fmeow.com&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fmeow.com&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fmeow.com&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fmeow.com&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fmeow.com&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fmeow.com&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fmeow.com&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fmeow.com&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fmeow.com&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fmeow.com&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fmeow.com&w=3840&q=75 3840w"
-        style="color: transparent;"
+        src="https://meow.com"
         width="0"
       />
     </div>

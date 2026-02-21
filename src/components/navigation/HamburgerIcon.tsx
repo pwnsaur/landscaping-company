@@ -1,14 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface HamburgerIconProps {
   isOpen: boolean;
   onClick: () => void;
 }
 
-const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => (
+const HamburgerIcon = ({ isOpen, onClick }: HamburgerIconProps) => (
   <StyledHamburgerIcon
     onClick={onClick}
-    open={isOpen}
+    $open={isOpen}
     aria-label={isOpen ? 'Aizvērt navigāciju' : 'Atvērt navigāciju'}
     aria-expanded={isOpen}
     aria-controls='mobile-nav'
@@ -22,12 +22,13 @@ const HamburgerIcon: React.FC<HamburgerIconProps> = ({ isOpen, onClick }) => (
 
 export default HamburgerIcon;
 
-const StyledHamburgerIcon = styled.button<{ open: boolean }>`
-  width: 2.7rem;
-  height: 2.7rem;
-  position: ${({ open }) => (open ? 'fixed' : 'static')};
-  top: ${({ open }) => (open ? '1.25rem' : 'auto')};
-  left: ${({ open, theme }) => (open ? theme.spacing.md : 'auto')};
+const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
+  width: ${({ theme }) => theme.components.iconButton.size};
+  height: ${({ theme }) => theme.components.iconButton.size};
+  position: ${({ $open }) => ($open ? 'fixed' : 'static')};
+  top: ${({ $open, theme }) =>
+    $open ? theme.components.iconButton.topOffset : 'auto'};
+  left: ${({ $open, theme }) => ($open ? theme.spacing.md : 'auto')};
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -36,10 +37,11 @@ const StyledHamburgerIcon = styled.button<{ open: boolean }>`
   background: ${({ theme }) => theme.colors.glowSoft};
   border-radius: ${({ theme }) => theme.radii.sm};
   transform: rotate(0deg);
-  transition: 0.28s ease-in-out;
+  transition: transform ${({ theme }) => theme.motion.slow}
+    ${({ theme }) => theme.motion.easingEmphasized};
   cursor: pointer;
   margin: 0;
-  z-index: 8;
+  z-index: ${({ theme }) => theme.zIndex.floating};
 
   &:focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.lineStrong};
@@ -49,13 +51,17 @@ const StyledHamburgerIcon = styled.button<{ open: boolean }>`
   span {
     display: block;
     position: absolute;
-    height: 2px;
-    width: 1.3rem;
+    height: ${({ theme }) => theme.components.iconButton.lineThickness};
+    width: ${({ theme }) => theme.components.iconButton.lineWidth};
     background: ${({ theme }) => theme.colors.black};
-    border-radius: 2px;
+    border-radius: ${({ theme }) => theme.radii.sm};
     opacity: 1;
     transform: rotate(0deg);
-    transition: 0.24s ease-in-out;
+    transition: transform ${({ theme }) => theme.motion.normal}
+        ${({ theme }) => theme.motion.easing},
+      top ${({ theme }) => theme.motion.normal} ${({ theme }) => theme.motion.easing},
+      width ${({ theme }) => theme.motion.normal}
+        ${({ theme }) => theme.motion.easing};
 
     &:nth-child(1) {
       top: 0.86rem;
@@ -71,25 +77,25 @@ const StyledHamburgerIcon = styled.button<{ open: boolean }>`
     }
   }
 
-  ${({ open }) =>
-    open &&
-    `
-    span:nth-child(1) {
-      top: 1.28rem;
-      width: 0%;
-    }
+  ${({ $open }) =>
+    $open &&
+    css`
+      span:nth-child(1) {
+        top: 1.28rem;
+        width: 0%;
+      }
 
-    span:nth-child(2) {
-      transform: rotate(45deg);
-    }
+      span:nth-child(2) {
+        transform: rotate(45deg);
+      }
 
-    span:nth-child(3) {
-      transform: rotate(-45deg);
-    }
+      span:nth-child(3) {
+        transform: rotate(-45deg);
+      }
 
-    span:nth-child(4) {
-      top: 1.28rem;
-      width: 0%;
-    }
-  `}
+      span:nth-child(4) {
+        top: 1.28rem;
+        width: 0%;
+      }
+    `}
 `;

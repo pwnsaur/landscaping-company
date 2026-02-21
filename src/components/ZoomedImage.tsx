@@ -1,4 +1,3 @@
-import { Asset } from 'contentful';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -82,7 +81,7 @@ const ImageWrapper = styled.div<{ $aspectRatio: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100% - 140px);
+  width: ${({ theme }) => `calc(100% - ${theme.components.overlay.contentWidthOffset})`};
   height: auto;
   max-height: 100%;
   aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
@@ -98,13 +97,13 @@ const Overlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  z-index: 6;
+  padding: ${({ theme }) => theme.components.overlay.lightPadding};
+  z-index: ${({ theme }) => theme.zIndex.overlay};
 `;
 
 const Arrow = styled.button`
   position: absolute;
-  z-index: 7;
+  z-index: ${({ theme }) => theme.zIndex.floating};
   top: 50%;
   color: ${({ theme }) => theme.colors.black};
   background: transparent;
@@ -128,7 +127,7 @@ const ArrowContainer = styled.div<{ disabled: boolean }>`
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 70px;
+  width: ${({ theme }) => theme.components.overlay.sideRailWidth};
   display: flex;
   justify-content: center;
   cursor: pointer;

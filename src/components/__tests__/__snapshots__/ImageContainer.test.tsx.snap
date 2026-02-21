@@ -4,7 +4,7 @@ exports[`ImageContainer component matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(16rem,1fr));
+  grid-template-columns: repeat( auto-fit,minmax(16rem,1fr) );
   width: 100%;
   gap: 1rem;
   justify-content: center;
@@ -43,13 +43,8 @@ exports[`ImageContainer component matches the snapshot 1`] = `
       <img
         alt="project image"
         class="c2"
-        data-nimg="fill"
-        decoding="async"
-        loading="lazy"
         sizes="(max-width: 768px) 94vw, (max-width: 1280px) 46vw, 31vw"
-        src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=75"
-        srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=75 3840w"
-        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+        src="https://images.ctfassets.net/sandie-clarke-q13Zq1Jufks-unsplash.jpg"
       />
     </div>
     <div
@@ -58,13 +53,8 @@ exports[`ImageContainer component matches the snapshot 1`] = `
       <img
         alt="project image"
         class="c2"
-        data-nimg="fill"
-        decoding="async"
-        loading="lazy"
         sizes="(max-width: 768px) 94vw, (max-width: 1280px) 46vw, 31vw"
-        src="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=75"
-        srcset="/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fsandie-clarke-q13Zq1Jufks-unsplash.jpg&w=3840&q=75 3840w"
-        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+        src="https://images.ctfassets.net/sandie-clarke-q13Zq1Jufks-unsplash.jpg"
       />
     </div>
   </div>

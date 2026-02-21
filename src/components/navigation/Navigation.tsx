@@ -14,7 +14,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [isNavBarVisible, setisNavBarVisible] = useState(true);
+  const [isNavBarVisible, setIsNavBarVisible] = useState(true);
 
   const isMobile = useIsMobile();
   const pathname = usePathname();
@@ -57,17 +57,17 @@ const Navigation = () => {
       const currentScrollPos = window.scrollY;
 
       if (currentScrollPos <= 100) {
-        setisNavBarVisible(true);
+        setIsNavBarVisible(true);
         setStartUpwardsScrollPos(null);
       } else if (prevScrollPos > currentScrollPos) {
         if (startUpwardsScrollPos === null) {
           setStartUpwardsScrollPos(prevScrollPos);
         } else if (startUpwardsScrollPos - currentScrollPos >= 100) {
-          setisNavBarVisible(true);
+          setIsNavBarVisible(true);
           setStartUpwardsScrollPos(null);
         }
       } else if (prevScrollPos < currentScrollPos) {
-        setisNavBarVisible(false);
+        setIsNavBarVisible(false);
         setStartUpwardsScrollPos(null);
       }
 
@@ -136,12 +136,15 @@ const Container = styled.div<{ $isNavBarVisible: boolean }>`
   backdrop-filter: blur(10px);
   border-bottom: 1px solid ${({ theme }) => theme.colors.lineSoft};
   box-shadow: ${({ theme }) => theme.shadows.soft};
-  z-index: 6;
+  z-index: ${({ theme }) => theme.zIndex.nav};
   position: sticky;
   top: 0;
-  transform: ${({ $isNavBarVisible }) =>
-    $isNavBarVisible ? 'translateY(0)' : 'translateY(-106px)'};
-  transition: transform 0.3s ease-in-out;
+  transform: ${({ $isNavBarVisible, theme }) =>
+    $isNavBarVisible
+      ? 'translateY(0)'
+      : `translateY(${theme.layout.nav.hiddenOffset})`};
+  transition: transform ${({ theme }) => theme.motion.slow}
+    ${({ theme }) => theme.motion.easingEmphasized};
 `;
 
 const Header = styled.header`
@@ -150,7 +153,7 @@ const Header = styled.header`
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacing.md};
   width: 100%;
-  max-width: ${({ theme }) => theme.width.wide};
+  max-width: ${({ theme }) => theme.layout.container.wide};
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
 `;
 

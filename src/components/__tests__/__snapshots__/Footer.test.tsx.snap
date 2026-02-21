@@ -2,7 +2,37 @@
 
 exports[`Footer Component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c0 {
+  .c12 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 0.15rem;
+  transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.84rem;
+  letter-spacing: 0.07rem;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.c12:hover {
+  background: #fff;
+  color: #21412a;
+}
+
+.c12:focus-visible {
+  outline: 2px solid rgba(33, 65, 42, 0.34);
+  outline-offset: 2px;
+}
+
+.c1 {
+  width: min(75rem, 96vw);
+}
+
+.c0 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,42 +40,41 @@ exports[`Footer Component matches the snapshot 1`] = `
   margin: auto 0 0;
   padding-top: 3rem;
   background: radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.08), transparent 32%),linear-gradient(160deg, #1d3d29 0%, #142d1f 100%);
-  z-index: 2;
-}
-
-.c1 {
-  width: min(75rem,96vw);
-  display: grid;
-  grid-template-columns: minmax(0,1.1fr) minmax(0,0.85fr) minmax(0,1fr);
-  gap: 1rem;
-  padding: 0 0 2rem;
+  z-index: 6;
 }
 
 .c2 {
-  padding-right: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,0.85fr) minmax(0,1fr);
+  gap: 1rem;
+  padding-bottom: 2rem;
 }
 
 .c3 {
-  text-transform: uppercase;
-  letter-spacing: 0.16rem;
-  font-size: clamp(1.1rem,2.3vw,1.65rem);
-  color: #fff;
+  padding-right: 1rem;
 }
 
 .c4 {
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  font-size: clamp(1.08rem, 2.3vw, 1.6rem);
+  color: #fff;
+}
+
+.c5 {
   margin-top: 0.75rem;
   max-width: 40ch;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.88);
 }
 
-.c5 {
+.c6 {
   display: grid;
   align-content: start;
-  gap: 0.32rem;
+  gap: 0.25rem;
 }
 
-.c6 {
+.c7 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
   font-size: 0.76rem;
@@ -53,72 +82,59 @@ exports[`Footer Component matches the snapshot 1`] = `
   margin-bottom: 0.25rem;
 }
 
-.c7 {
+.c8 {
   width: fit-content;
   text-transform: uppercase;
   letter-spacing: 0.06rem;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease,border-color 0.2s ease;
 }
 
-.c7:hover {
+.c8:hover {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.6);
 }
 
-.c8 {
+.c9 {
   border: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(12, 25, 18, 0.3);
   padding: 1rem 1rem;
 }
 
-.c9 {
+.c10 {
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: 1rem;
   color: #fff;
 }
 
-.c10 {
+.c11 {
   margin-top: 0.5rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.88);
 }
 
-.c11 {
+.c13 {
   margin-top: 0.75rem;
-  display: inline-block;
-  padding: 0.75rem 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07rem;
-  font-size: 0.82rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: #fff;
-  transition: background-color 0.2s ease,color 0.2s ease;
 }
 
-.c11:hover {
-  background-color: #fff;
-  color: #21412a;
-}
-
-.c12 {
+.c14 {
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding: 0.75rem 1rem 1rem;
 }
 
-.c13 {
-  width: min(75rem,96vw);
+.c15 {
+  width: 100%;
   color: rgba(255, 255, 255, 0.78);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   letter-spacing: 0.03rem;
 }
 
 @media (max-width:980px) {
-  .c1 {
+  .c2 {
     grid-template-columns: 1fr;
   }
 }
@@ -126,85 +142,89 @@ exports[`Footer Component matches the snapshot 1`] = `
 <footer
     class="c0"
   >
-    <div
-      class="c1"
+    <section
+      class="c1 c2"
     >
       <section
-        class="c2"
+        class="c3"
       >
         <h2
-          class="c3"
+          class="c4"
         >
           Brasika
         </h2>
         <p
-          class="c4"
+          class="c5"
         >
           Ainavu darbi, kur funkcionalitate un estetika strada kopa ilgtermina.
         </p>
       </section>
       <nav
-        class="c5"
+        class="c6"
       >
         <p
-          class="c6"
+          class="c7"
         >
           Lapas
         </p>
         <a
-          class="c7"
+          class="c8"
           href="/services"
         >
           Pakalpojumi
         </a>
         <a
-          class="c7"
+          class="c8"
           href="/projects"
         >
           Projekti
         </a>
         <a
-          class="c7"
+          class="c8"
           href="/about"
         >
           Par mums
         </a>
         <a
-          class="c7"
+          class="c8"
           href="/contacts"
         >
           Kontakti
         </a>
       </nav>
       <section
-        class="c8"
+        class="c9"
       >
         <h3
-          class="c9"
+          class="c10"
         >
           Sac savu projektu
         </h3>
         <p
-          class="0 c10"
+          class="0 c11"
         >
           Uzraksti mums, un sakartosim nakamo soli tavai teritorijai.
         </p>
         <a
-          class="1 c11"
+          class="1 c12 c13"
           href="/contacts"
         >
           Sazinaties
         </a>
       </section>
-    </div>
+    </section>
     <div
-      class="2 c12"
+      class="2 c14"
     >
-      <p
-        class="3 c13"
+      <section
+        class="c1"
       >
-        Copyright 2026 Brasika
-      </p>
+        <p
+          class="4 c15"
+        >
+          Copyright 2026 Brasika
+        </p>
+      </section>
     </div>
   </footer>
 </DocumentFragment>

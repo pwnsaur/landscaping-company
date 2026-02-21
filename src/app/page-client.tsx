@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import SqareButton from '@/components/reusables/SquareButton';
+import SquareButton from '@/components/reusables/SquareButton';
+import { DisplayTitle, LeadText } from '@/components/ui/typography/primitives';
 import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
 
 const HomePageClient = () => {
@@ -90,8 +91,8 @@ const HomePageClient = () => {
             izpildi un minimalu troksni klienta ikdiena.
           </Lead>
           <HeroActions>
-            <SqareButton destination='services' name='Pakalpojumi' />
-            <SqareButton destination='projects' name='Projekti' />
+            <SquareButton destination='services' name='Pakalpojumi' />
+            <SquareButton destination='projects' name='Projekti' />
           </HeroActions>
         </HeroContent>
 
@@ -106,7 +107,7 @@ const HomePageClient = () => {
             Tu redzi skaidru gaitu, terminu un rezultatu bez liekas
             improvizacijas.
           </PanelText>
-          <SqareButton destination='services' name='Pakalpojumi' />
+          <SquareButton destination='services' name='Pakalpojumi' />
         </Panel>
 
         <Panel $accent>
@@ -116,7 +117,7 @@ const HomePageClient = () => {
             merogu un raksturu. Skaties projektus un atrodi sev atbilstosu
             virzienu.
           </PanelText>
-          <SqareButton destination='projects' name='Projekti' isInverted />
+          <SquareButton destination='projects' name='Projekti' isInverted />
         </Panel>
       </Panels>
     </Page>
@@ -127,26 +128,28 @@ export default HomePageClient;
 
 const Page = styled.main`
   width: 100%;
-  margin-top: -84px;
+  margin-top: ${({ theme }) => `calc(${theme.layout.nav.heightDesktop} * -1)`};
   background: ${({ theme }) => theme.gradients.homePage};
   overflow: clip;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin-top: -72px;
+    margin-top: ${({ theme }) => `calc(${theme.layout.nav.heightMobile} * -1)`};
   }
 `;
 
 const Hero = styled.section`
   position: relative;
-  min-height: 130svh;
+  min-height: ${({ theme }) => theme.components.home.heroMinHeight};
   display: flex;
   align-items: end;
   justify-content: center;
-  padding: 0 1rem 8rem;
+  padding: 0 ${({ theme }) => theme.spacing.md}
+    ${({ theme }) => theme.components.home.heroBottom};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    min-height: 112svh;
-    padding: 0 1rem 4rem;
+    min-height: ${({ theme }) => theme.components.home.heroMinHeightCompact};
+    padding: 0 ${({ theme }) => theme.spacing.md}
+      ${({ theme }) => theme.components.home.heroBottomCompact};
   }
 `;
 
@@ -155,7 +158,7 @@ const ParallaxLayer = styled.div`
   inset: -8%;
   transform: translate3d(0, 0, 0) scale(1.08);
   will-change: transform, opacity;
-  transition: opacity 0.2s linear;
+  transition: opacity ${({ theme }) => theme.motion.normal} linear;
   filter: saturate(0.95) contrast(1.1);
 `;
 
@@ -173,8 +176,8 @@ const HeroGlow = styled.div`
   position: absolute;
   top: 18%;
   left: 50%;
-  width: min(72rem, 88vw);
-  height: min(32rem, 56vw);
+  width: ${({ theme }) => theme.components.home.heroGlowWidth};
+  height: ${({ theme }) => theme.components.home.heroGlowHeight};
   transform: translateX(-50%);
   background: ${({ theme }) => theme.gradients.heroGlow};
   pointer-events: none;
@@ -182,81 +185,82 @@ const HeroGlow = styled.div`
 
 const HeroContent = styled.div`
   position: relative;
-  width: min(58rem, 92vw);
+  width: ${({ theme }) => theme.components.home.heroContentWidth};
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
-  z-index: 2;
-  padding: 2.5rem 1.75rem;
+  z-index: ${({ theme }) => theme.zIndex.floating};
+  padding: ${({ theme }) => theme.components.home.heroContentPadding};
   border: 1px solid ${({ theme }) => theme.colors.lineOnDarkSoft};
   background: ${({ theme }) => theme.gradients.heroPanel};
   backdrop-filter: blur(6px);
   box-shadow: ${({ theme }) => theme.shadows.heroPanel};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 1.6rem 1.1rem;
+    padding: ${({ theme }) => theme.components.home.heroContentPaddingCompact};
   }
 `;
 
 const Eyebrow = styled.p`
-  letter-spacing: 0.42rem;
+  letter-spacing: ${({ theme }) => theme.components.home.eyebrowTracking};
   text-transform: uppercase;
-  font-size: 0.74rem;
-  margin-bottom: 0.9rem;
+  font-size: ${({ theme }) => theme.typography.label};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
   opacity: 0.9;
 `;
 
-const Title = styled.h1`
+const Title = styled(DisplayTitle)`
   text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: 1rem;
   font-weight: ${({ theme }) => theme.fontWeights.superBold};
-  font-size: ${({ theme }) => theme.typography.display};
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: ${({ theme }) => theme.spacing.md};
 `;
 
-const Lead = styled.p`
+const Lead = styled(LeadText)`
   max-width: 42rem;
   margin: 0 auto;
-  font-size: clamp(1rem, 1.6vw, 1.28rem);
-  line-height: 1.6;
+  font-size: ${({ theme }) => theme.components.home.heroLeadSize};
   color: ${({ theme }) => theme.colors.textInverse};
 `;
 
 const HeroActions = styled.div`
-  margin-top: 1.8rem;
+  margin-top: ${({ theme }) => theme.spacing.lg};
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.spacing.md};
   flex-wrap: wrap;
 `;
 
 const ScrollHint = styled.p`
   position: absolute;
-  bottom: 1.5rem;
+  bottom: ${({ theme }) => theme.spacing.lg};
   color: ${({ theme }) => theme.colors.textInverseSoft};
   text-transform: uppercase;
-  letter-spacing: 0.3rem;
-  font-size: 0.66rem;
-  z-index: 2;
+  letter-spacing: ${({ theme }) => theme.components.home.eyebrowTracking};
+  font-size: ${({ theme }) => theme.components.home.scrollHintSize};
+  z-index: ${({ theme }) => theme.zIndex.overlay};
 `;
 
 const Panels = styled.section`
-  width: min(75rem, 94vw);
-  margin: -6rem auto 5rem;
+  width: ${({ theme }) =>
+    `min(${theme.layout.container.wide}, ${theme.layout.container.compactViewport})`};
+  margin: ${({ theme }) =>
+    `${theme.components.home.panelsOffset} auto ${theme.components.home.panelsBottom}`};
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.layout.grid.gap};
   position: relative;
-  z-index: 3;
+  z-index: ${({ theme }) => theme.zIndex.overlay};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin: -3rem auto 3.5rem;
+    margin: ${({ theme }) =>
+      `${theme.components.home.panelsOffsetCompact} auto ${theme.components.home.panelsBottomCompact}`};
     grid-template-columns: 1fr;
   }
 `;
 
 const Panel = styled.article<{ $accent?: boolean }>`
-  min-height: 18rem;
-  padding: 2rem;
+  min-height: ${({ theme }) => theme.components.home.panelMinHeight};
+  padding: ${({ theme }) => theme.spacing.xl};
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -272,20 +276,20 @@ const Panel = styled.article<{ $accent?: boolean }>`
     $accent ? theme.shadows.darkStrong : theme.shadows.darkSoft};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    min-height: 14rem;
-    padding: 1.5rem;
+    min-height: ${({ theme }) => theme.components.home.panelMinHeightCompact};
+    padding: ${({ theme }) => theme.spacing.lg};
   }
 `;
 
 const PanelTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: 0.06rem;
-  font-size: clamp(1.2rem, 2vw, 1.72rem);
-  margin-bottom: 0.9rem;
+  font-size: ${({ theme }) => theme.components.home.panelTitleSize};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 const PanelText = styled.p`
   max-width: 44ch;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
 `;

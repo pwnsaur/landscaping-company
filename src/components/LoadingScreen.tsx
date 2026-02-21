@@ -24,9 +24,9 @@ export default LoadingScreen;
 const Dot = styled.div`
   background-color: ${({ theme }) => theme.colors.text};
   border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
-  margin: 1rem;
+  width: ${({ theme }) => theme.spacing.lg};
+  height: ${({ theme }) => theme.spacing.lg};
+  margin: ${({ theme }) => theme.spacing.md};
   animation: ${dotFade} 1.4s infinite ease-in-out both;
 
   &:nth-child(2) {
@@ -48,6 +48,6 @@ const LoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.background};
-  z-index: 6;
+  z-index: ${({ theme }) => theme.zIndex.floating};
   overflow-x: hidden;
 `;

@@ -1,49 +1,32 @@
-import Link from 'next/link';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-interface SqareButtonProps {
+import { ActionLink } from '@/components/ui/actions/primitives';
+
+interface SquareButtonProps {
   name: string;
   destination: 'services' | 'projects' | 'contacts';
   isInverted?: boolean;
 }
 
-const SqareButton = ({ name, destination, isInverted }: SqareButtonProps) => {
+const SquareButton = ({ name, destination, isInverted }: SquareButtonProps) => {
   return (
-    <Link href={`/${destination}`}>
-      <Button $inverted={isInverted}>{name}</Button>
-    </Link>
+    <Button
+      href={`/${destination}`}
+      $variant={isInverted ? 'inverse' : 'outline'}
+      $size='md'
+    >
+      {name}
+    </Button>
   );
 };
 
-export default SqareButton;
+export default SquareButton;
 
-const Button = styled.button<{ $inverted?: boolean }>`
+const Button = styled(ActionLink)`
   min-width: 9rem;
-  height: 3rem;
-  padding: 0 ${({ theme }) => theme.spacing.md};
-  text-transform: uppercase;
+  min-height: 3rem;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes.normal};
   letter-spacing: 0.04rem;
-  border-radius: ${({ theme }) => theme.radii.sm};
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-
-  ${({ theme, $inverted }) => {
-    const { darkGreen } = theme.colors;
-
-    return css`
-      background-color: ${$inverted ? darkGreen : theme.colors.surfaceElevated};
-      border: 1px solid ${$inverted ? theme.colors.surfaceElevated : darkGreen};
-      color: ${$inverted ? theme.colors.surfaceElevated : darkGreen};
-      box-shadow: ${theme.shadows.soft};
-
-      &:hover {
-        transform: translateY(-1px);
-        background-color: ${$inverted ? theme.colors.surfaceElevated : darkGreen};
-        border-color: ${$inverted ? darkGreen : theme.colors.surfaceElevated};
-        color: ${$inverted ? darkGreen : theme.colors.surfaceElevated};
-      }
-    `;
-  }}
+  box-shadow: ${({ theme }) => theme.shadows.soft};
 `;

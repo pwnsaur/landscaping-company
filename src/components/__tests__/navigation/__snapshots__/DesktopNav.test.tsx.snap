@@ -28,6 +28,7 @@ exports[`DesktopNav component matches the snapshot 1`] = `
   min-height: 2.35rem;
   padding: 0.5rem 0.75rem;
   white-space: nowrap;
+  border-radius: 0.15rem;
   border: 1px solid rgba(33, 65, 42, 0.34);
   background: rgba(33, 65, 42, 0.09);
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
@@ -57,6 +58,7 @@ exports[`DesktopNav component matches the snapshot 1`] = `
   min-height: 2.35rem;
   padding: 0.5rem 0.75rem;
   white-space: nowrap;
+  border-radius: 0.15rem;
   border: 1px solid transparent;
   background: transparent;
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;

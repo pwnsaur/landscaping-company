@@ -2,7 +2,37 @@
 
 exports[`Layout component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c13 {
+  .c25 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 0.15rem;
+  transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.84rem;
+  letter-spacing: 0.07rem;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+.c25:hover {
+  background: #fff;
+  color: #21412a;
+}
+
+.c25:focus-visible {
+  outline: 2px solid rgba(33, 65, 42, 0.34);
+  outline-offset: 2px;
+}
+
+.c14 {
+  width: min(75rem, 96vw);
+}
+
+.c13 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,42 +40,41 @@ exports[`Layout component matches the snapshot 1`] = `
   margin: auto 0 0;
   padding-top: 3rem;
   background: radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.08), transparent 32%),linear-gradient(160deg, #1d3d29 0%, #142d1f 100%);
-  z-index: 2;
-}
-
-.c14 {
-  width: min(75rem,96vw);
-  display: grid;
-  grid-template-columns: minmax(0,1.1fr) minmax(0,0.85fr) minmax(0,1fr);
-  gap: 1rem;
-  padding: 0 0 2rem;
+  z-index: 6;
 }
 
 .c15 {
-  padding-right: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,0.85fr) minmax(0,1fr);
+  gap: 1rem;
+  padding-bottom: 2rem;
 }
 
 .c16 {
-  text-transform: uppercase;
-  letter-spacing: 0.16rem;
-  font-size: clamp(1.1rem,2.3vw,1.65rem);
-  color: #fff;
+  padding-right: 1rem;
 }
 
 .c17 {
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  font-size: clamp(1.08rem, 2.3vw, 1.6rem);
+  color: #fff;
+}
+
+.c18 {
   margin-top: 0.75rem;
   max-width: 40ch;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.88);
 }
 
-.c18 {
+.c19 {
   display: grid;
   align-content: start;
-  gap: 0.32rem;
+  gap: 0.25rem;
 }
 
-.c19 {
+.c20 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
   font-size: 0.76rem;
@@ -53,67 +82,54 @@ exports[`Layout component matches the snapshot 1`] = `
   margin-bottom: 0.25rem;
 }
 
-.c20 {
+.c21 {
   width: fit-content;
   text-transform: uppercase;
   letter-spacing: 0.06rem;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease,border-color 0.2s ease;
 }
 
-.c20:hover {
+.c21:hover {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.6);
 }
 
-.c21 {
+.c22 {
   border: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(12, 25, 18, 0.3);
   padding: 1rem 1rem;
 }
 
-.c22 {
+.c23 {
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   font-size: 1rem;
   color: #fff;
 }
 
-.c23 {
+.c24 {
   margin-top: 0.5rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.88);
 }
 
-.c24 {
+.c26 {
   margin-top: 0.75rem;
-  display: inline-block;
-  padding: 0.75rem 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07rem;
-  font-size: 0.82rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: #fff;
-  transition: background-color 0.2s ease,color 0.2s ease;
 }
 
-.c24:hover {
-  background-color: #fff;
-  color: #21412a;
-}
-
-.c25 {
+.c27 {
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   padding: 0.75rem 1rem 1rem;
 }
 
-.c26 {
-  width: min(75rem,96vw);
+.c28 {
+  width: 100%;
   color: rgba(255, 255, 255, 0.78);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   letter-spacing: 0.03rem;
 }
 
@@ -143,6 +159,7 @@ exports[`Layout component matches the snapshot 1`] = `
   min-height: 2.35rem;
   padding: 0.5rem 0.75rem;
   white-space: nowrap;
+  border-radius: 0.15rem;
   border: 1px solid rgba(33, 65, 42, 0.34);
   background: rgba(33, 65, 42, 0.09);
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
@@ -172,6 +189,7 @@ exports[`Layout component matches the snapshot 1`] = `
   min-height: 2.35rem;
   padding: 0.5rem 0.75rem;
   white-space: nowrap;
+  border-radius: 0.15rem;
   border: 1px solid transparent;
   background: transparent;
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
@@ -210,7 +228,7 @@ exports[`Layout component matches the snapshot 1`] = `
   position: sticky;
   top: 0;
   transform: translateY(0);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .c2 {
@@ -265,7 +283,7 @@ exports[`Layout component matches the snapshot 1`] = `
 }
 
 @media (max-width:980px) {
-  .c14 {
+  .c15 {
     grid-template-columns: 1fr;
   }
 }
@@ -295,13 +313,9 @@ exports[`Layout component matches the snapshot 1`] = `
             <img
               alt="logo"
               class="c5"
-              data-nimg="1"
-              decoding="async"
               height="70"
               sizes="120px"
-              src="/_next/image?url=%2Fimg.jpg&w=3840&q=75"
-              srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 32w, /_next/image?url=%2Fimg.jpg&w=48&q=75 48w, /_next/image?url=%2Fimg.jpg&w=64&q=75 64w, /_next/image?url=%2Fimg.jpg&w=96&q=75 96w, /_next/image?url=%2Fimg.jpg&w=128&q=75 128w, /_next/image?url=%2Fimg.jpg&w=256&q=75 256w, /_next/image?url=%2Fimg.jpg&w=384&q=75 384w, /_next/image?url=%2Fimg.jpg&w=640&q=75 640w, /_next/image?url=%2Fimg.jpg&w=750&q=75 750w, /_next/image?url=%2Fimg.jpg&w=828&q=75 828w, /_next/image?url=%2Fimg.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimg.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimg.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimg.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimg.jpg&w=3840&q=75 3840w"
-              style="color: transparent;"
+              src="/img.jpg"
               width="120"
             />
             <span
@@ -382,85 +396,89 @@ exports[`Layout component matches the snapshot 1`] = `
     <footer
       class="c13"
     >
-      <div
-        class="c14"
+      <section
+        class="c14 c15"
       >
         <section
-          class="c15"
+          class="c16"
         >
           <h2
-            class="c16"
+            class="c17"
           >
             Brasika
           </h2>
           <p
-            class="c17"
+            class="c18"
           >
             Ainavu darbi, kur funkcionalitate un estetika strada kopa ilgtermina.
           </p>
         </section>
         <nav
-          class="c18"
+          class="c19"
         >
           <p
-            class="c19"
+            class="c20"
           >
             Lapas
           </p>
           <a
-            class="c20"
+            class="c21"
             href="/services"
           >
             Pakalpojumi
           </a>
           <a
-            class="c20"
+            class="c21"
             href="/projects"
           >
             Projekti
           </a>
           <a
-            class="c20"
+            class="c21"
             href="/about"
           >
             Par mums
           </a>
           <a
-            class="c20"
+            class="c21"
             href="/contacts"
           >
             Kontakti
           </a>
         </nav>
         <section
-          class="c21"
+          class="c22"
         >
           <h3
-            class="c22"
+            class="c23"
           >
             Sac savu projektu
           </h3>
           <p
-            class="0 c23"
+            class="0 c24"
           >
             Uzraksti mums, un sakartosim nakamo soli tavai teritorijai.
           </p>
           <a
-            class="1 c24"
+            class="1 c25 c26"
             href="/contacts"
           >
             Sazinaties
           </a>
         </section>
-      </div>
+      </section>
       <div
-        class="2 c25"
+        class="2 c27"
       >
-        <p
-          class="3 c26"
+        <section
+          class="c14"
         >
-          Copyright 2026 Brasika
-        </p>
+          <p
+            class="4 c28"
+          >
+            Copyright 2026 Brasika
+          </p>
+        </section>
       </div>
     </footer>
   </div>

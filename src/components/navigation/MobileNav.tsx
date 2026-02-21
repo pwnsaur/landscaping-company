@@ -62,7 +62,7 @@ const Container = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 7;
+  z-index: ${({ theme }) => theme.zIndex.overlay};
 `;
 
 const Backdrop = styled.div`
@@ -82,17 +82,19 @@ const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
   right: 0;
   top: 0;
   height: 100%;
-  padding: 5.7rem ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) =>
+    `${theme.layout.nav.mobilePanelTopOffset} ${theme.spacing.md} ${theme.spacing.md}`};
   background: ${({ theme }) => theme.gradients.nav};
   border-left: 1px solid ${({ theme }) => theme.colors.lineSoft};
   box-shadow: ${({ theme }) => theme.shadows.sidePanel};
-  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.27s ease-out
-    forwards;
+  animation: ${({ $isOpen }) =>
+      $isOpen ? slideIn : slideOut}
+    ${({ theme }) => theme.motion.slow} ease-out forwards;
 `;
 
 const PanelTitle = styled.p`
   text-transform: uppercase;
-  letter-spacing: 0.16rem;
+  letter-spacing: ${({ theme }) => theme.typography.eyebrowTracking};
   font-size: ${({ theme }) => theme.typography.label};
   color: ${({ theme }) => theme.colors.textMuted};
   margin-bottom: ${({ theme }) => theme.spacing.sm};

@@ -3,37 +3,44 @@
 exports[`SquareButton component matches the snapshot 1`] = `
 <DocumentFragment>
   .c0 {
-  min-width: 9rem;
-  height: 3rem;
-  padding: 0 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.04rem;
+  border: 1px solid;
   border-radius: 0.15rem;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  background-color: #fff;
-  border: 1px solid #21412a;
+  transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;
+  padding: 0.75rem 1.2rem;
+  font-size: 0.84rem;
+  letter-spacing: 0.07rem;
+  background: transparent;
+  border-color: rgba(33, 65, 42, 0.5);
   color: #21412a;
-  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
 }
 
 .c0:hover {
-  transform: translateY(-1px);
-  background-color: #21412a;
-  border-color: #fff;
-  color: #fff;
+  background: rgba(33, 65, 42, 0.08);
+}
+
+.c0:focus-visible {
+  outline: 2px solid rgba(33, 65, 42, 0.34);
+  outline-offset: 2px;
+}
+
+.c1 {
+  min-width: 9rem;
+  min-height: 3rem;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.04rem;
+  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
 }
 
 <a
+    class="c0 c1"
     href="/services"
   >
-    <button
-      class="c0"
-    >
-      podziņa
-    </button>
+    podziņa
   </a>
 </DocumentFragment>
 `;

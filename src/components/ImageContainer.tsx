@@ -129,11 +129,14 @@ export default ImageContainer;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(${({ theme }) => theme.components.gallery.tileMinWidth}, 1fr)
+  );
   width: 100%;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.layout.grid.gap};
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: ${({ theme }) => theme.components.gallery.topOffset};
 `;
 
 const StyledImage = styled(Image)`
@@ -148,7 +151,7 @@ const StyledImage = styled(Image)`
 const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 66%;
+  padding-top: ${({ theme }) => theme.components.gallery.tileAspectPadding};
   overflow: hidden;
   cursor: zoom-in;
 

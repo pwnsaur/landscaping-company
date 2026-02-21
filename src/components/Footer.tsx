@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { ActionLink } from '@/components/ui/actions/primitives';
+import { ContentContainer } from '@/components/ui/layout/primitives';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <FooterContainer>
-      <FooterInner>
+      <FooterInner $size='wide'>
         <BrandBlock>
           <BrandTitle>Brasika</BrandTitle>
           <BrandText>
@@ -27,12 +30,14 @@ const Footer = () => {
           <ActionText>
             Uzraksti mums, un sakartosim nakamo soli tavai teritorijai.
           </ActionText>
-          <ActionLink href='/contacts'>Sazinaties</ActionLink>
+          <ActionCta href='/contacts'>Sazinaties</ActionCta>
         </ActionCard>
       </FooterInner>
 
       <BottomBar>
-        <FooterText>Copyright {currentYear} Brasika</FooterText>
+        <FooterBottom $size='wide'>
+          <FooterText>Copyright {currentYear} Brasika</FooterText>
+        </FooterBottom>
       </BottomBar>
     </FooterContainer>
   );
@@ -48,15 +53,14 @@ const FooterContainer = styled.footer`
   margin: auto 0 0;
   padding-top: ${({ theme }) => theme.spacing.xxl};
   background: ${({ theme }) => theme.gradients.footer};
-  z-index: 2;
+  z-index: ${({ theme }) => theme.zIndex.nav};
 `;
 
-const FooterInner = styled.div`
-  width: min(75rem, 96vw);
+const FooterInner = styled(ContentContainer)`
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.85fr) minmax(0, 1fr);
   gap: ${({ theme }) => theme.spacing.md};
-  padding: 0 0 ${({ theme }) => theme.spacing.xl};
+  padding-bottom: ${({ theme }) => theme.spacing.xl};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
@@ -69,8 +73,8 @@ const BrandBlock = styled.section`
 
 const BrandTitle = styled.h2`
   text-transform: uppercase;
-  letter-spacing: 0.16rem;
-  font-size: clamp(1.1rem, 2.3vw, 1.65rem);
+  letter-spacing: 0.12rem;
+  font-size: ${({ theme }) => theme.typography.sectionHeading};
   color: ${({ theme }) => theme.colors.white};
 `;
 
@@ -84,7 +88,7 @@ const BrandText = styled.p`
 const LinksColumn = styled.nav`
   display: grid;
   align-content: start;
-  gap: 0.32rem;
+  gap: ${({ theme }) => theme.spacing.xxs};
 `;
 
 const LinksTitle = styled.p`
@@ -99,12 +103,13 @@ const FooterLink = styled(Link)`
   width: fit-content;
   text-transform: uppercase;
   letter-spacing: 0.06rem;
-  font-size: 0.86rem;
+  font-size: ${({ theme }) => theme.components.card.actionSize};
   color: ${({ theme }) => theme.colors.textInverse};
   border-bottom: 1px solid transparent;
   transition:
-    color 0.2s ease,
-    border-color 0.2s ease;
+    color ${({ theme }) => theme.motion.normal} ${({ theme }) => theme.motion.easing},
+    border-color ${({ theme }) => theme.motion.normal}
+      ${({ theme }) => theme.motion.easing};
 
   &:hover {
     color: ${({ theme }) => theme.colors.white};
@@ -121,7 +126,7 @@ const ActionCard = styled.section`
 const ActionTitle = styled.h3`
   text-transform: uppercase;
   letter-spacing: 0.06rem;
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   color: ${({ theme }) => theme.colors.white};
 `;
 
@@ -131,34 +136,24 @@ const ActionText = styled.p`
   color: ${({ theme }) => theme.colors.glowSurface};
 `;
 
-const ActionLink = styled(Link)`
+const ActionCta = styled(ActionLink).attrs({
+  $variant: 'inverse',
+})`
   margin-top: ${({ theme }) => theme.spacing.sm};
-  display: inline-block;
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
-  text-transform: uppercase;
-  letter-spacing: 0.07rem;
-  font-size: 0.82rem;
-  border: 1px solid ${({ theme }) => theme.colors.lineOnDarkStrong};
-  color: ${({ theme }) => theme.colors.white};
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.darkGreen};
-  }
 `;
 
 const BottomBar = styled.div`
   width: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors.lineOnDarkMuted};
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md} ${theme.spacing.md}`};
+  padding: ${({ theme }) =>
+    `${theme.spacing.sm} ${theme.spacing.md} ${theme.spacing.md}`};
 `;
 
+const FooterBottom = styled(ContentContainer)``;
+
 const FooterText = styled.p`
-  width: min(75rem, 96vw);
+  width: 100%;
   color: ${({ theme }) => theme.colors.textInverseMuted};
-  font-size: 0.83rem;
+  font-size: ${({ theme }) => theme.components.card.actionSize};
   letter-spacing: 0.03rem;
 `;

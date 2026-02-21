@@ -1,4 +1,11 @@
 import { palette } from '@/styles/palette';
+import {
+  componentTokens,
+  layoutTokens,
+  motionTokens,
+  typographyTokens,
+  zIndexTokens,
+} from '@/styles/system';
 
 export const theme = {
   palette,
@@ -125,10 +132,14 @@ export const theme = {
     superLarge: '3rem',
   },
   typography: {
-    label: '0.76rem',
+    label: typographyTokens.eyebrowSize,
+    eyebrowTracking: typographyTokens.eyebrowTracking,
     body: '1rem',
-    bodyLarge: '1.18rem',
-    heading: 'clamp(1.6rem, 4.2vw, 3.15rem)',
+    bodyLarge: typographyTokens.pageLead,
+    heading: typographyTokens.pageHeading,
+    headingMaxWidth: typographyTokens.headingMaxWidth,
+    leadMaxWidth: typographyTokens.leadMaxWidth,
+    sectionHeading: typographyTokens.sectionHeading,
     display: 'clamp(2rem, 5vw, 4.6rem)',
   },
   smallClamp: {
@@ -151,4 +162,8 @@ export const theme = {
     normal: '48rem',
     wide: '75rem',
   },
+  components: componentTokens,
+  layout: layoutTokens,
+  motion: motionTokens,
+  zIndex: zIndexTokens,
 };

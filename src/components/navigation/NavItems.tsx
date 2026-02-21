@@ -81,6 +81,7 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
       ? `${theme.spacing.sm} ${theme.spacing.md}`
       : `${theme.spacing.xs} ${theme.spacing.sm}`};
   white-space: nowrap;
+  border-radius: ${({ theme }) => theme.radii.sm};
   border: 1px solid
     ${({ theme, $active }) => ($active ? theme.colors.lineStrong : 'transparent')};
   background: ${({ theme, $active, $mobile }) =>
@@ -90,10 +91,13 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
         ? theme.colors.glowSoft
         : 'transparent'};
   transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
+    color ${({ theme }) => theme.motion.normal} ${({ theme }) => theme.motion.easing},
+    background-color ${({ theme }) => theme.motion.normal}
+      ${({ theme }) => theme.motion.easing},
+    border-color ${({ theme }) => theme.motion.normal}
+      ${({ theme }) => theme.motion.easing},
+    transform ${({ theme }) => theme.motion.normal}
+      ${({ theme }) => theme.motion.easing};
 
   &:hover {
     color: ${({ theme }) => theme.colors.darkGreen};

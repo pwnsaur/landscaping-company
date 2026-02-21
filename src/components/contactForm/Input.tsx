@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { FieldInput } from '@/components/ui/form/primitives';
 
 type InputProps = {
   id: string;
@@ -20,7 +20,7 @@ const Input = ({
   required,
 }: InputProps) => {
   return (
-    <StyledInput
+    <FieldInput
       id={id}
       type={type}
       value={value}
@@ -33,27 +33,3 @@ const Input = ({
 };
 
 export default Input;
-
-const StyledInput = styled.input`
-  width: 100%;
-  min-height: 2.9rem;
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.sm}`};
-  border: 1px solid ${({ theme }) => theme.colors.lineSoft};
-  border-radius: ${({ theme }) => theme.radii.sm};
-  background: ${({ theme }) => theme.colors.glowSoft};
-  font-size: ${({ theme }) => theme.fontSizes.normal};
-  line-height: 1.4;
-  outline: none;
-  transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.darkGreen};
-    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.focusRing};
-  }
-
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.textMuted};
-  }
-`;

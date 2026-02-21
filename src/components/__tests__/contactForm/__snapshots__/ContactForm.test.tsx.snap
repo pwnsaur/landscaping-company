@@ -2,40 +2,10 @@
 
 exports[`ContactForm component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c5 {
-  padding: 0.75rem 1.5rem;
-  min-width: 8.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08rem;
-  background-color: #21412a;
-  color: #fff;
-  border: 1px solid #21412a;
-  border-radius: 0.15rem;
-  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background-color 0.2s ease,color 0.2s ease,transform 0.2s ease;
-  cursor: pointer;
-}
-
-.c5:hover {
-  transform: translateY(-1px);
-  background-color: transparent;
-  color: #21412a;
-}
-
-.c5:disabled {
-  transform: none;
-  background-color: rgba(33, 65, 42, 0.35);
-  border-color: rgba(33, 65, 42, 0.28);
-  color: #696767;
-  cursor: not-allowed;
-}
-
-.c2 {
+  .c2 {
   width: 100%;
   min-height: 2.9rem;
-  padding: 0.75rem 0.75rem;
+  padding: 0.75rem;
   border: 1px solid rgba(57, 65, 47, 0.16);
   border-radius: 0.15rem;
   background: rgba(255, 255, 255, 0.45);
@@ -75,6 +45,36 @@ exports[`ContactForm component matches the snapshot 1`] = `
 
 .c3 ::placeholder {
   color: #5a6254;
+}
+
+.c5 {
+  padding: 0.75rem 1.5rem;
+  min-width: 8.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  background-color: #21412a;
+  color: #fff;
+  border: 1px solid #21412a;
+  border-radius: 0.15rem;
+  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease,color 0.2s ease,transform 0.2s ease;
+  cursor: pointer;
+}
+
+.c5:hover {
+  transform: translateY(-1px);
+  background-color: transparent;
+  color: #21412a;
+}
+
+.c5:disabled {
+  transform: none;
+  background-color: rgba(33, 65, 42, 0.35);
+  border-color: rgba(33, 65, 42, 0.28);
+  color: #696767;
+  cursor: not-allowed;
 }
 
 .c0 {
@@ -185,7 +185,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c1 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.35;
   font-weight: 600;
   margin: 0;

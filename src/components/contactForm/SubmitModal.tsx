@@ -33,7 +33,7 @@ const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 1rem;
+  bottom: ${({ theme }) => theme.components.overlay.toastBottomOffset};
   left: 50%;
   transform: translateX(-50%);
   width: min(32rem, calc(100vw - 2rem));
@@ -47,11 +47,11 @@ const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
     ${({ theme, $isError }) =>
       $isError ? theme.colors.errorBorder : theme.colors.successBorder};
   box-shadow: ${({ theme }) => theme.shadows.modal};
-  z-index: 7;
+  z-index: ${({ theme }) => theme.zIndex.overlay};
 `;
 
 const Message = styled.p`
-  font-size: 0.95rem;
+  font-size: ${({ theme }) => theme.fontSizes.normal};
   line-height: 1.35;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   margin: 0;

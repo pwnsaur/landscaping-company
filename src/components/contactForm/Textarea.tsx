@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { FieldTextarea } from '@/components/ui/form/primitives';
 
 type TextareaProps = {
   id: string;
@@ -16,7 +16,7 @@ const Textarea = ({
   required,
 }: TextareaProps) => {
   return (
-    <StyledTextarea
+    <FieldTextarea
       id={id}
       value={value}
       placeholder={placeholder}
@@ -27,28 +27,3 @@ const Textarea = ({
 };
 
 export default Textarea;
-
-const StyledTextarea = styled.textarea`
-  width: 100%;
-  min-height: 11rem;
-  padding: ${({ theme }) => theme.spacing.sm};
-  border: 1px solid ${({ theme }) => theme.colors.lineSoft};
-  border-radius: ${({ theme }) => theme.radii.sm};
-  background: ${({ theme }) => theme.colors.glowSoft};
-  font-size: ${({ theme }) => theme.fontSizes.normal};
-  line-height: 1.55;
-  resize: none;
-  outline: none;
-  transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.darkGreen};
-    box-shadow: 0 0 0 3px ${({ theme }) => theme.colors.focusRing};
-  }
-
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.textMuted};
-  }
-`;

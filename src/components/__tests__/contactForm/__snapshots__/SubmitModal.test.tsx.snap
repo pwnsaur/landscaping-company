@@ -22,7 +22,7 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
 }
 
 .c1 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.35;
   font-weight: 600;
   margin: 0;
@@ -61,7 +61,7 @@ exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
 }
 
 .c1 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.35;
   font-weight: 600;
   margin: 0;
