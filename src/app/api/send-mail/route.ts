@@ -88,24 +88,38 @@ const verifyRecaptcha = async (recaptchaToken: string, clientIp?: string) => {
 };
 
 const resolveMailConfig = () => {
-  const user =
-    process.env.EMAIL_ADDRESS ||
-    process.env.SMTP_USER ||
-    process.env.SMTP_USERNAME;
-  const pass =
-    process.env.EMAIL_PASSWORD ||
-    process.env.EMAIL_APP_PASSWORD ||
-    process.env.SMTP_PASSWORD ||
-    process.env.SMTP_PASS;
-  const service = process.env.EMAIL_SERVICE;
-  const host = process.env.SMTP_HOST;
-  const port = Number(process.env.SMTP_PORT || 587);
+  const readEnv = (...keys: string[]) => {
+    for (const key of keys) {
+      const rawValue = process.env[key];
+      if (typeof rawValue !== 'string') {
+        continue;
+      }
+
+      const value = rawValue.trim();
+      if (value) {
+        return value;
+      }
+    }
+
+    return undefined;
+  };
+
+  const user = readEnv('EMAIL_ADDRESS', 'SMTP_USER', 'SMTP_USERNAME');
+  const pass = readEnv(
+    'EMAIL_PASSWORD',
+    'EMAIL_APP_PASSWORD',
+    'SMTP_PASSWORD',
+    'SMTP_PASS'
+  );
+  const service = readEnv('EMAIL_SERVICE')?.toLowerCase();
+  const host = readEnv('SMTP_HOST');
+  const port = Number(readEnv('SMTP_PORT') || 587);
   const secure =
-    process.env.SMTP_SECURE === 'true' ||
-    process.env.SMTP_TLS === 'true' ||
+    readEnv('SMTP_SECURE') === 'true' ||
+    readEnv('SMTP_TLS') === 'true' ||
     port === 465;
-  const to = process.env.EMAIL_TO || user;
-  const from = process.env.EMAIL_FROM || user;
+  const to = readEnv('EMAIL_TO') || user;
+  const from = readEnv('EMAIL_FROM') || user;
 
   if (!user || !pass || !to || !from) {
     return null;
