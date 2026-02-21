@@ -71,6 +71,9 @@ export const componentTokens = {
     topOffset: '2rem',
   },
   about: {
+    heroGap: '1rem',
+    heroMediaAspect: '5 / 6',
+    heroMediaAspectCompact: '4 / 5',
     heroMediaMinHeight: '28rem',
     heroMediaMinHeightCompact: '16rem',
     sectionCardMinWidth: '18rem',

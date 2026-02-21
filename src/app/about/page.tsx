@@ -122,20 +122,24 @@ const AboutPage = () => {
 export default AboutPage;
 
 const Hero = styled.section`
-  display: flex;
-  gap: ${theme.layout.grid.gap};
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: ${theme.components.about.heroGap};
+  align-items: start;
 
   @media (max-width: ${theme.breakpoints.lg}) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 `;
 
 const HeroMedia = styled(MediaFrame)`
-  flex: 1;
+  width: 100%;
+  aspect-ratio: ${theme.components.about.heroMediaAspect};
   min-height: ${theme.components.about.heroMediaMinHeight};
+  background: ${theme.colors.surfaceElevatedMuted};
 
   @media (max-width: ${theme.breakpoints.lg}) {
+    aspect-ratio: ${theme.components.about.heroMediaAspectCompact};
     min-height: ${theme.components.about.heroMediaMinHeightCompact};
   }
 `;
@@ -144,7 +148,6 @@ const HeroContent = styled(SoftPanel)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 1;
   padding: ${theme.spacing.xl};
 `;
 
@@ -193,5 +196,6 @@ const ValueText = styled(BodyText)`
 `;
 
 const StyledImage = styled(Image)`
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center top;
 `;
