@@ -2,91 +2,137 @@
 
 exports[`ContactForm component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c3 {
-  padding: 0.5rem;
-  min-width: 5rem;
+  .c5 {
+  padding: 0.65rem 1.2rem;
+  min-width: 8.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
   background-color: #21412a;
   color: #fff;
-  border: none;
+  border: 1px solid #21412a;
   font-size: 1rem;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  transition: background-color 0.2s ease,color 0.2s ease,transform 0.2s ease;
   cursor: pointer;
 }
 
-.c3:hover {
-  background-color: #05ac05;
+.c5:hover {
+  transform: translateY(-1px);
+  background-color: transparent;
+  color: #21412a;
 }
 
-.c3:disabled {
+.c5:disabled {
+  transform: none;
+  background-color: rgba(33,65,42,0.35);
+  border-color: rgba(33,65,42,0.28);
   color: #696767;
   cursor: not-allowed;
 }
 
-.c1 {
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  margin: 15px 0;
-  width: 100%;
-  outline: none;
-}
-
-.c1:focus {
-  border-color: #05ac05;
-}
-
-.c1 ::placeholder {
-  color: #aaa;
-}
-
 .c2 {
-  padding: 1rem;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  margin: 1.5rem 0 2.5rem;
   width: 100%;
-  height: 10rem;
-  resize: none;
+  min-height: 2.9rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(57,65,47,0.24);
+  background: rgba(255,255,255,0.88);
+  font-size: 1rem;
+  line-height: 1.4;
   outline: none;
+  transition: border-color 0.18s ease,box-shadow 0.18s ease;
 }
 
 .c2:focus {
-  border-color: #05ac05;
+  border-color: #21412a;
+  box-shadow: 0 0 0 3px rgba(33,65,42,0.12);
 }
 
 .c2 ::placeholder {
-  color: #aaa;
+  color: rgba(57,65,47,0.6);
+}
+
+.c3 {
+  width: 100%;
+  min-height: 11rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(57,65,47,0.24);
+  background: rgba(255,255,255,0.88);
+  font-size: 1rem;
+  line-height: 1.55;
+  resize: none;
+  outline: none;
+  transition: border-color 0.18s ease,box-shadow 0.18s ease;
+}
+
+.c3:focus {
+  border-color: #21412a;
+  box-shadow: 0 0 0 3px rgba(33,65,42,0.12);
+}
+
+.c3 ::placeholder {
+  color: rgba(57,65,47,0.6);
 }
 
 .c0 {
   width: 100%;
-  margin: 2rem auto 1rem;
+  margin: 1.2rem auto 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 0.75rem;
+}
+
+.c1 {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 0.75rem;
+}
+
+.c4 {
+  margin-top: 0.2rem;
+}
+
+.c6 {
+  margin-top: 0.8rem;
+  line-height: 1.55;
+  font-size: 0.84rem;
+  max-width: 60ch;
+  color: #333;
+}
+
+@media (max-width:660px) {
+  .c1 {
+    grid-template-columns: 1fr;
+  }
 }
 
 <form
     class="c0"
   >
-    <input
+    <div
       class="c1"
-      id="name"
-      placeholder="Vārds, uzvārds"
-      required=""
-      type="text"
-      value=""
-    />
+    >
+      <input
+        autocomplete="name"
+        class="c2"
+        id="name"
+        placeholder="Vārds, uzvārds"
+        required=""
+        type="text"
+        value=""
+      />
+      <input
+        autocomplete="email"
+        class="c2"
+        id="email"
+        placeholder="E-pasts"
+        required=""
+        type="email"
+        value=""
+      />
+    </div>
     <input
-      class="c1"
-      id="email"
-      placeholder="Epasts"
-      required=""
-      type="email"
-      value=""
-    />
-    <input
-      class="c1"
+      autocomplete="tel"
+      class="c2"
       id="phone"
       placeholder="Tālrunis"
       required=""
@@ -94,37 +140,55 @@ exports[`ContactForm component matches the snapshot 1`] = `
       value=""
     />
     <textarea
-      class="c2"
+      class="c3"
       id="message"
-      placeholder="Ievadiet ziņojumu"
+      placeholder="Aprakstiet situaciju, velmes un aptuveno teritorijas apjomu"
       required=""
     />
-    <button
-      class="c3"
+    <div
+      class="c4"
     >
-      Sūtīt
-    </button>
+      <button
+        class="c5"
+        type="submit"
+      >
+        Sūtīt
+      </button>
+      <p
+        class="c6"
+      >
+        Nospiežot sūtīt, piekrīti datu izmantošanai, lai ar tevi sazinātos par pieprasījumu.
+      </p>
+    </div>
   </form>
   .c0 {
   display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3rem;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(32rem,calc(100vw - 2rem));
+  min-height: 3rem;
+  padding: 0.55rem 0.85rem;
   background-color: #ff3333;
-  color: #333;
-  transition: all 0.3s ease;
-  z-index: 5;
+  color: #fff;
+  border: 1px solid rgba(142, 32, 32, 0.65);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  z-index: 7;
 }
 
 .c1 {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 600;
   margin: 0;
-  padding: 0;
+  text-align: center;
+}
+
+@media (max-width:660px) {
+
 }
 
 <div

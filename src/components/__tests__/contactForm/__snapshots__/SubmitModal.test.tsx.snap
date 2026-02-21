@@ -7,21 +7,25 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3rem;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(32rem,calc(100vw - 2rem));
+  min-height: 3rem;
+  padding: 0.55rem 0.85rem;
   background-color: #42ba96;
-  color: #333;
-  transition: all 0.3s ease;
-  z-index: 5;
+  color: #fff;
+  border: 1px solid rgba(26, 103, 74, 0.6);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  z-index: 7;
 }
 
 .c1 {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 600;
   margin: 0;
-  padding: 0;
+  text-align: center;
 }
 
 <div
@@ -41,21 +45,25 @@ exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3rem;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(32rem,calc(100vw - 2rem));
+  min-height: 3rem;
+  padding: 0.55rem 0.85rem;
   background-color: #ff3333;
-  color: #333;
-  transition: all 0.3s ease;
-  z-index: 5;
+  color: #fff;
+  border: 1px solid rgba(142, 32, 32, 0.65);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+  z-index: 7;
 }
 
 .c1 {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 600;
   margin: 0;
-  padding: 0;
+  text-align: center;
 }
 
 <div

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 import { FormData } from '@/types/contactForm';
@@ -20,9 +21,13 @@ const useEmailSubmit = () => {
         return true;
       }
     } catch (e) {
+      const responseErrorMessage = axios.isAxiosError(e)
+        ? (e.response?.data as { error?: string } | undefined)?.error
+        : undefined;
+
       setResponseMessage({
         isSuccessful: false,
-        message: 'Ziņojumu neizdevās nosūtīt.',
+        message: responseErrorMessage || 'Ziņojumu neizdevās nosūtīt.',
       });
     }
     return false;

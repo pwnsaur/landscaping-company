@@ -33,22 +33,27 @@ const ModalContainer = styled.div<{ $isOpen: boolean; $isError: boolean }>`
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3rem;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(32rem, calc(100vw - 2rem));
+  min-height: 3rem;
+  padding: 0.55rem 0.85rem;
   background-color: ${({ theme, $isError }) =>
     $isError ? theme.colors.error : theme.colors.success};
-  color: ${({ theme }) => theme.colors.text};
-  transition: all 0.3s ease;
-  z-index: 5;
+  color: ${({ theme }) => theme.colors.white};
+  border: 1px solid
+    ${({ $isError }) => ($isError ? 'rgba(142, 32, 32, 0.65)' : 'rgba(26, 103, 74, 0.6)')};
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  z-index: 7;
 `;
 
 const Message = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.normal};
-  font-weight: bold;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   margin: 0;
-  padding: 0;
+  text-align: center;
 `;
 
 export default Modal;
