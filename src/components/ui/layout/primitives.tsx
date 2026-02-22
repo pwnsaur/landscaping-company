@@ -57,9 +57,8 @@ export const PageShell = styled.main<{
     `${theme.layout.page.top} ${theme.spacing.md} ${getPageBottomDesktop($variant)}`};
   background: ${({ $surface = 'page' }) => pageSurface[$surface]};
 
-  ${media.down('md')`
-    padding: ${({ $variant = 'default' }: { $variant?: PageVariant }) =>
-      `${theme.layout.page.topCompact} ${theme.spacing.md} ${getPageBottomMobile($variant)}`};
+  ${({ $variant = 'default' }: { $variant?: PageVariant }) => media.down('md')`
+    padding: ${theme.layout.page.topCompact} ${theme.spacing.md} ${getPageBottomMobile($variant)};
   `}
 `;
 
