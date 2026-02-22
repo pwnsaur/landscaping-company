@@ -2,7 +2,7 @@
 
 exports[`MobileNav component matches the snapshot 1`] = `
 <DocumentFragment>
-  .c4 {
+  .c6 {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -12,14 +12,14 @@ exports[`MobileNav component matches the snapshot 1`] = `
   padding: 0;
 }
 
-.c5 {
+.c7 {
   display: flex;
 }
 
-.c6 {
+.c8 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   font-size: 1.15rem;
   letter-spacing: 0.05rem;
@@ -34,22 +34,22 @@ exports[`MobileNav component matches the snapshot 1`] = `
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 
-.c6:hover {
+.c8:hover {
   color: #2b5437;
   border-color: rgba(43, 84, 55, 0.22);
   background: rgba(43, 84, 55, 0.08);
   transform: translateY(-1px);
 }
 
-.c6:focus-visible {
+.c8:focus-visible {
   outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
 
-.c7 {
+.c9 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   font-size: 1.15rem;
   letter-spacing: 0.05rem;
@@ -60,18 +60,18 @@ exports[`MobileNav component matches the snapshot 1`] = `
   white-space: nowrap;
   border-radius: 0.25rem;
   border: 1px solid transparent;
-  background: rgba(255, 255, 255, 0.45);
+  background: transparent;
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 
-.c7:hover {
+.c9:hover {
   color: #2b5437;
   border-color: rgba(43, 84, 55, 0.22);
   background: rgba(43, 84, 55, 0.08);
   transform: translateY(-1px);
 }
 
-.c7:focus-visible {
+.c9:focus-visible {
   outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
@@ -102,8 +102,8 @@ exports[`MobileNav component matches the snapshot 1`] = `
   position: fixed;
   right: 0;
   top: 0;
-  height: 100%;
-  padding: 5.7rem 1rem 1rem;
+  bottom: 0;
+  padding: 1rem 1rem 2rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(249, 249, 246, 0.94) 100%);
   border-left: 1px solid rgba(57, 65, 47, 0.10);
   box-shadow: -18px 0 42px rgba(13, 22, 16, 0.2);
@@ -111,11 +111,57 @@ exports[`MobileNav component matches the snapshot 1`] = `
 }
 
 .c3 {
-  text-transform: uppercase;
-  letter-spacing: 0.12rem;
-  font-size: 0.74rem;
-  color: #4d5846;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
   margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(57, 65, 47, 0.10);
+}
+
+.c4 {
+  font-size: 0.74rem;
+  letter-spacing: 0.16rem;
+  color: #4d5846;
+  text-transform: uppercase;
+}
+
+.c5 {
+  width: 2.7rem;
+  height: 2.7rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(43, 84, 55, 0.22);
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.c5::before,
+.c5::after {
+  content: '';
+  position: absolute;
+  width: 1.3rem;
+  height: 2px;
+  background: #1a1a1a;
+  border-radius: 0.25rem;
+}
+
+.c5::before {
+  transform: rotate(45deg);
+}
+
+.c5::after {
+  transform: rotate(-45deg);
+}
+
+.c5:focus-visible {
+  outline: 2px solid rgba(43, 84, 55, 0.22);
+  outline-offset: 2px;
 }
 
 <div
@@ -128,60 +174,68 @@ exports[`MobileNav component matches the snapshot 1`] = `
       class="c2"
       data-testid="mobile-nav"
     >
-      <p
+      <div
         class="c3"
       >
-        Navigācija
-      </p>
+        <span
+          class="c4"
+        >
+          B R A S I K A
+        </span>
+        <button
+          aria-label="Aizvērt navigāciju"
+          class="c5"
+        />
+      </div>
       <ul
-        class="c4"
+        class="c6"
       >
         <li
-          class="c5"
+          class="c7"
         >
           <a
             aria-current="page"
-            class="c6"
+            class="c8"
             href="/"
           >
             Sākums
           </a>
         </li>
         <li
-          class="c5"
+          class="c7"
         >
           <a
-            class="c7"
+            class="c9"
             href="/services"
           >
             Pakalpojumi
           </a>
         </li>
         <li
-          class="c5"
+          class="c7"
         >
           <a
-            class="c7"
+            class="c9"
             href="/projects"
           >
             Projekti
           </a>
         </li>
         <li
-          class="c5"
+          class="c7"
         >
           <a
-            class="c7"
+            class="c9"
             href="/about"
           >
             Par mums
           </a>
         </li>
         <li
-          class="c5"
+          class="c7"
         >
           <a
-            class="c7"
+            class="c9"
             href="/contacts"
           >
             Kontakti

@@ -93,23 +93,25 @@ const Navigation = () => {
   }, [isOpen]);
 
   return (
-    <Container $isNavBarVisible={isNavBarVisible}>
-      <Header>
-        <BrandRow>
-          {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
-          <LinkLogo href='/'>
-            <Logo
-              src={logoImage.src}
-              alt='logo'
-              width={120}
-              height={70}
-              decoding='async'
-            />
-            <BrandText>B R A S I K A</BrandText>
-          </LinkLogo>
-        </BrandRow>
-        {!isMobile && <DesktopNav currentPath={currentPath} />}
-      </Header>
+    <>
+      <Container $isNavBarVisible={isNavBarVisible}>
+        <Header>
+          <BrandRow>
+            {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
+            <LinkLogo href='/'>
+              <Logo
+                src={logoImage.src}
+                alt='logo'
+                width={120}
+                height={70}
+                decoding='async'
+              />
+              <BrandText>B R A S I K A</BrandText>
+            </LinkLogo>
+          </BrandRow>
+          {!isMobile && <DesktopNav currentPath={currentPath} />}
+        </Header>
+      </Container>
       {isMobile && (
         <MobileNav
           currentPath={currentPath}
@@ -118,7 +120,7 @@ const Navigation = () => {
           handleItemClick={handleMenuItemClick}
         />
       )}
-    </Container>
+    </>
   );
 };
 
