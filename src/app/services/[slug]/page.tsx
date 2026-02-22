@@ -17,7 +17,7 @@ type Props = {
 
 export const metadata: Metadata = {
   title: 'Pakalpojums',
-  description: 'Pakalpojums',
+  description: 'Ainavu pakalpojums — teritorijas plānošana, apstādījumi un labiekārtošana.',
 };
 
 export const revalidate = 900;

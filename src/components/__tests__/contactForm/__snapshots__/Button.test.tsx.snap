@@ -8,7 +8,7 @@ exports[`Button component matches the snapshot for enabled state 1`] = `
   text-transform: uppercase;
   letter-spacing: 0.08rem;
   background-color: #2b5437;
-  color: #ffffff;
+  color: #fff;
   border: 1px solid #2b5437;
   border-radius: 0.25rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);

@@ -6,7 +6,7 @@ import { getProjects } from '@/lib/contentfulData';
 
 export const metadata: Metadata = {
   title: 'Projekti',
-  description: 'Projekti',
+  description: 'Realizēti ainavu projekti — privāti pagalmi, ceļi un apzaļumošana. Ieskatieties mūsu darbos.',
 };
 
 export const revalidate = 900;
@@ -17,8 +17,8 @@ const ProjectsPage = async () => {
   return (
     <ListingPageTemplate
       eyebrow='Projekti'
-      title='Piemeri ar realiem teritoriju parveidojumiem'
-      lead='No privatiem pagalmiem lidz lielakam teritorijam. Katrs projekts tiek pielagots vietai, lietojumam un ilgtermina uzturesanai.'
+      title='Piemēri ar reāliem teritoriju pārveidojumiem'
+      lead='No privātiem pagalmiem līdz lielākām teritorijām. Katrs projekts tiek pielāgots vietai, lietojumam un ilgtermiņa uzturēšanai.'
       items={projects}
       renderItem={(project, index) => (
         <ProjectCard
@@ -27,10 +27,10 @@ const ProjectsPage = async () => {
           priority={index === 0}
         />
       )}
-      emptyStateText='Paslaik projektu galerija tiek papildinata. Ja velies redzet lidzigus darbus, sazinies ar mums.'
+      emptyStateText='Pašlaik projektu galerija tiek papildināta. Ja vēlies redzēt līdzīgus darbus, sazinieties ar mums.'
       cta={{
-        title: 'Nepieciesams lidzigs risinajums?',
-        text: 'Apraksti situaciju un sagatavosim ieteicamo darbu planu.',
+        title: 'Nepieciešams līdzīgs risinājums?',
+        text: 'Apraksti situāciju un sagatavosim ieteicamo darbu plānu.',
         href: '/contacts',
         label: 'Sazinaties',
       }}

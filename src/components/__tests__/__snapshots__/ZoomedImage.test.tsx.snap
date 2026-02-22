@@ -61,26 +61,34 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
   width: 70px;
   display: flex;
   justify-content: center;
+  cursor: default;
+  background: transparent;
+}
+
+.c1:hover {
+  background: transparent;
+}
+
+.c6 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
-}
-
-.c1:not([disabled]):hover {
-  background: rgba(200, 200, 200, 0.6);
-}
-
-.c1:not([disabled]) {
   background: rgba(200, 200, 200, 0.3);
 }
 
-.c1[disabled] {
-  cursor: default;
+.c6:hover {
+  background: rgba(200, 200, 200, 0.6);
 }
 
 .c2 {
   left: 0;
 }
 
-.c6 {
+.c7 {
   right: 0;
 }
 
@@ -89,13 +97,12 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
   >
     <div
       class="c1 c2"
-      disabled=""
     >
       <button
         class="c3"
         disabled=""
       >
-        &lt;
+        ‹
       </button>
     </div>
     <div
@@ -111,12 +118,12 @@ exports[`ZoomedImage component matches the snapshot 1`] = `
       />
     </div>
     <div
-      class="c1 c6"
+      class="c6 c7"
     >
       <button
         class="c3"
       >
-        &gt;
+        ›
       </button>
     </div>
   </div>

@@ -20,11 +20,12 @@ import {
   SectionTitle as SharedSectionTitle,
   SectionText as SharedSectionText,
 } from '@/components/ui/typography/primitives';
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 export const metadata: Metadata = {
   title: 'Par mums',
-  description: 'Par mums',
+  description: 'Par Brasika ainavu komandu — strādājam ar konkrētu plānu, tīru izpildi un ilgtspējīgu rezultātu.',
 };
 
 const AboutPage = () => {
@@ -127,9 +128,9 @@ const Hero = styled.section`
   gap: 1.6rem;
   align-items: stretch;
 
-  @media (max-width: ${theme.breakpoints.lg}) {
+  ${media.down('lg')`
     grid-template-columns: 1fr;
-  }
+  `}
 `;
 
 const HeroMedia = styled(MediaFrame)`
@@ -138,10 +139,10 @@ const HeroMedia = styled(MediaFrame)`
   min-height: 28rem;
   background: ${theme.colors.surfaceElevatedMuted};
 
-  @media (max-width: ${theme.breakpoints.lg}) {
+  ${media.down('lg')`
     aspect-ratio: 4 / 5;
     min-height: 16rem;
-  }
+  `}
 `;
 
 const HeroContent = styled(SoftPanel)`

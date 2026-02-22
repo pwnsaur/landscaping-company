@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { theme } from '@/styles/theme';
@@ -27,15 +26,10 @@ const ZoomedImage = ({
   zoomedImageIndex,
   imagesLength,
 }: ZoomedImageProps) => {
-  const [leftDisabled, setLeftDisabled] = useState(false);
-  const [rightDisabled, setRightDisabled] = useState(false);
+  const leftDisabled = zoomedImageIndex === 0;
+  const rightDisabled = zoomedImageIndex === imagesLength - 1;
 
-  useEffect(() => {
-    setLeftDisabled(zoomedImageIndex === 0);
-    setRightDisabled(zoomedImageIndex === imagesLength - 1);
-  }, [zoomedImageIndex, imagesLength]);
-
-  const aspectRatio = height / width;
+  const aspectRatio = width / height;
 
   return (
     <Overlay onClick={close}>
@@ -44,9 +38,9 @@ const ZoomedImage = ({
           e.stopPropagation();
           previous();
         }}
-        disabled={leftDisabled}
+        $disabled={leftDisabled}
       >
-        <Arrow disabled={leftDisabled}>{'<'}</Arrow>
+        <Arrow disabled={leftDisabled}>&#8249;</Arrow>
       </ArrowContainerLeft>
       <ImageWrapper $aspectRatio={aspectRatio}>
         <StyledImage
@@ -63,9 +57,9 @@ const ZoomedImage = ({
           e.stopPropagation();
           next();
         }}
-        disabled={rightDisabled}
+        $disabled={rightDisabled}
       >
-        <Arrow disabled={rightDisabled}>{'>'}</Arrow>
+        <Arrow disabled={rightDisabled}>&#8250;</Arrow>
       </ArrowContainerRight>
     </Overlay>
   );
@@ -125,25 +119,20 @@ const Arrow = styled.button`
   }
 `;
 
-const ArrowContainer = styled.div<{ disabled: boolean }>`
+const ArrowContainer = styled.div<{ $disabled: boolean }>`
   position: absolute;
   top: 0;
   bottom: 0;
   width: 70px;
   display: flex;
   justify-content: center;
-  cursor: pointer;
+  cursor: ${({ $disabled }) => ($disabled ? 'default' : 'pointer')};
+  background: ${({ $disabled }) =>
+    $disabled ? 'transparent' : theme.colors.overlayHoverSoft};
 
-  &:not([disabled]):hover {
-    background: ${theme.colors.overlayHoverStrong};
-  }
-
-  &:not([disabled]) {
-    background: ${theme.colors.overlayHoverSoft};
-  }
-
-  &[disabled] {
-    cursor: default;
+  &:hover {
+    background: ${({ $disabled }) =>
+      $disabled ? 'transparent' : theme.colors.overlayHoverStrong};
   }
 `;
 

@@ -1,7 +1,7 @@
 # brasika site
 
 Living technical documentation for the Brasika web app.  
-Last updated: 2026-02-21
+Last updated: 2026-02-22
 
 ## Purpose
 
@@ -104,6 +104,7 @@ Client:
 - `src/app/contacts/page-client.tsx`
 - `src/components/contactForm/*`
 - uses `react-google-recaptcha-v3` with `NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY`
+- form submission is handled by `src/utils/submitEmail.ts` (plain async function, not a hook)
 - form now has shared client/server validation, inline field errors, submission timeout handling, and anti-spam honeypot + fill-time checks
 
 Server:
@@ -121,7 +122,7 @@ Theme and tokens:
 - `src/styles/system.ts` - token source of truth (layout, motion, z-index, typography, component-level tokens)
 - `src/styles/theme.ts` - resolved theme (legacy flat colors + semantic groups)
 - `src/styles/globalStyles.ts` - global reset + base typography rules
-- `src/styles/media.ts` - media helpers
+- `src/styles/media.ts` - media helpers (`media.down` / `media.up` / `media.between`) using static theme imports; used consistently across all styled components
 
 UI primitives:
 
@@ -156,7 +157,6 @@ Current maturity:
 - shared primitives (`typography`, `actions`, `form`, `surfaces`) now consume tokenized sizes/line-heights/tracking instead of local values
 - nav/footer/detail/listing building blocks now map to `components.nav/footer/detail/listing/*` token families
 - server-rendered primitives keep using imported theme tokens (not runtime `theme` props) to avoid App Router server/client theme-context gaps
-- root layout includes `data-scroll-behavior="smooth"` to match Next.js scroll restoration expectations
 - about hero image uses `placeholder='empty'` to avoid persistent blur artifacts in local dev
 - navigation logo now uses a static `<img>` with fixed intrinsic dimensions to avoid recurrent Next image sizing warnings
 - list cards use intent-based route prefetch (`prefetch={false}` on `Link`) to avoid eager viewport prefetch churn on long grids
@@ -173,6 +173,10 @@ Current maturity:
 - listing/detail templates now use stack-based section flow (`SectionStack`) driven by semantic rhythm tokens instead of ad-hoc per-block top margins
 - listing pages now apply stronger semantic separation between card grids and downstream CTA blocks (`components.listing.sectionGap/cardsToCtaTop`)
 - home/about/contacts page spacing is further tokenized (headings, actions, panel paddings, intra-section offsets), reducing magic values and making future spacing adjustments centralized
+- navigation hamburger and desktop nav are always rendered server-side; CSS `display: none` (via `media.down`) controls which is visible — eliminates hydration flash on first paint
+- image zoom is gated on `(hover: hover)` capability detection instead of viewport-width JS check, which is semantically correct and avoids SSR/client mismatch
+- `semantic` theme layer no longer duplicates hex values — each `semantic.*` entry now references the corresponding `colors.*` constant
+- `ZoomedImage` arrow state is derived directly from index/length (no `useState` + `useEffect` sync), aspect ratio corrected, and disabled state expressed via transient styled-component prop instead of the non-functional `[disabled]` attribute selector
 
 ## Key implementation patterns
 
@@ -248,6 +252,7 @@ Required for on-demand ISR:
 - Contact form validation/submission pipeline was hardened (shared validation, anti-spam checks, safer mail handling, clearer user feedback).
 - Design-system consistency pass completed across shared primitives and major shared components (nav/footer/cards/templates/forms).
 - Tests/build are green after style-system refactors and test harness cleanup.
+- Codebase cleanup pass completed: real bugs fixed in `ZoomedImage` (derived state, aspect ratio, disabled-on-div), responsiveness unified through `media.ts` helpers with no remaining inline breakpoints, JS-based hydration-sensitive layout detection replaced with CSS and capability queries, dead utility files removed, code quality improvements across `ErrorBoundary`, `theme`, `ContactForm`, `useOnScreen`, and `submitEmail`.
 
 ## Living document protocol
 

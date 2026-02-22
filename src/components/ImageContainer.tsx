@@ -6,7 +6,6 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 
 import { getAssetImageData } from '@/utils/contentfulAsset';
-import useIsMobile from '@/utils/hooks/useIsMobile';
 import ZoomedImage from '@components/ZoomedImage';
 import { theme } from '@/styles/theme';
 
@@ -16,7 +15,6 @@ type Props = {
 
 const ImageContainer = ({ images }: Props) => {
   const [zoomedImageIndex, setZoomedImageIndex] = useState<number | null>(null);
-  const isMobile = useIsMobile();
   const imagesWithData = useMemo(
     () =>
       (images ?? [])
@@ -40,10 +38,9 @@ const ImageContainer = ({ images }: Props) => {
   );
 
   const handleClick = (index: number) => {
-    if (!isMobile) {
-      setZoomedImageIndex(index);
-      document.body.style.overflow = 'hidden';
-    }
+    if (!window.matchMedia('(hover: hover)').matches) return;
+    setZoomedImageIndex(index);
+    document.body.style.overflow = 'hidden';
   };
 
   const handleClose = useCallback(() => {
@@ -109,7 +106,7 @@ const ImageContainer = ({ images }: Props) => {
           </ImageWrapper>
         ))}
       </Container>
-      {zoomedImageIndex !== null && !isMobile && imagesWithData[zoomedImageIndex] && (
+      {zoomedImageIndex !== null && imagesWithData[zoomedImageIndex] && (
         <ZoomedImage
           src={imagesWithData[zoomedImageIndex].imageData.src}
           alt='zoomed image'
@@ -138,12 +135,7 @@ const Container = styled.div`
 `;
 
 const StyledImage = styled(Image)`
-  position: absolute;
   object-fit: cover;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 `;
 
 const ImageWrapper = styled.div`
@@ -151,9 +143,9 @@ const ImageWrapper = styled.div`
   width: 100%;
   padding-top: 66%;
   overflow: hidden;
-  cursor: zoom-in;
+  cursor: default;
 
-  @media (max-width: ${theme.breakpoints.md}) {
-    cursor: default;
+  @media (hover: hover) {
+    cursor: zoom-in;
   }
 `;

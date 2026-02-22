@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import NavItems from '@/components/navigation/NavItems';
+import { media } from '@/styles/media';
 
 type DesktopNavProps = {
   currentPath: string;
@@ -21,4 +22,8 @@ const StyledDesktopNav = styled.nav`
   align-items: center;
   justify-content: flex-end;
   flex: 1;
+
+  ${media.down('tablet')`
+    display: none;
+  `}
 `;

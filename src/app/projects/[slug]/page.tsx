@@ -19,7 +19,7 @@ type Props = {
 
 export const metadata: Metadata = {
   title: 'Projekts',
-  description: 'Projekts',
+  description: 'Realizēts ainavu projekts — teritorijas plānošana, apstādījumi un labiekārtošana.',
 };
 
 export const revalidate = 900;
@@ -58,14 +58,14 @@ const ProjectPage = async ({ params }: Props) => {
 
   if (projectImages.length > 0) {
     sections.push({
-      title: 'Project gallery',
+      title: 'Projektu galerija',
       content: <ImageContainer images={projectImages} />,
     });
   }
 
   if (relatedProjects.length > 0) {
     sections.push({
-      title: 'Related projects',
+      title: 'Saistītie projekti',
       content: (
         <CardGrid>
           {relatedProjects.map((relatedProject) => (
@@ -83,7 +83,7 @@ const ProjectPage = async ({ params }: Props) => {
   return (
     <DetailPageTemplate
       backHref='/projects'
-      backLabel='Back to projects'
+      backLabel='Atpakaļ uz projektiem'
       title={title}
       lead={excerpt}
       meta={projectDate || undefined}

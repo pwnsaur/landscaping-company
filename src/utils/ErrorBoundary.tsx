@@ -1,4 +1,7 @@
 import React, { ErrorInfo } from 'react';
+import styled from 'styled-components';
+
+import { theme } from '@/styles/theme';
 
 interface Props {
   children: React.ReactNode;
@@ -20,15 +23,18 @@ class ErrorBoundary extends React.Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.log({ error, errorInfo });
+    console.error({ error, errorInfo });
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <h1>Lapu neizdevās ielādēt.</h1>
-        </div>
+        <Fallback>
+          <FallbackTitle>Lapu neizdevās ielādēt.</FallbackTitle>
+          <ReloadButton onClick={() => window.location.reload()}>
+            Mēģināt vēlreiz
+          </ReloadButton>
+        </Fallback>
       );
     }
 
@@ -37,3 +43,34 @@ class ErrorBoundary extends React.Component<Props, State> {
 }
 
 export default ErrorBoundary;
+
+const Fallback = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: ${theme.spacing.md};
+  min-height: 50vh;
+  padding: ${theme.spacing.xl};
+  text-align: center;
+`;
+
+const FallbackTitle = styled.h1`
+  font-size: ${theme.fontSizes.larger};
+  color: ${theme.colors.title};
+`;
+
+const ReloadButton = styled.button`
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
+  border: 1px solid ${theme.semantic.border.strong};
+  border-radius: ${theme.radii.md};
+  background: ${theme.gradients.panelLight};
+  color: ${theme.colors.text};
+  cursor: pointer;
+  font-size: ${theme.fontSizes.normal};
+  transition: background ${theme.motion.normal} ${theme.motion.easing};
+
+  &:hover {
+    background: ${theme.colors.interactiveSoft};
+  }
+`;

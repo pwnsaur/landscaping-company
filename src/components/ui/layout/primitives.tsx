@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 type PageSurface = 'page' | 'detail' | 'home';
@@ -56,12 +57,10 @@ export const PageShell = styled.main<{
     `${theme.layout.page.top} ${theme.spacing.md} ${getPageBottomDesktop($variant)}`};
   background: ${({ $surface = 'page' }) => pageSurface[$surface]};
 
-  @media (max-width: ${theme.breakpoints.md}) {
-    padding: ${({ $variant = 'default' }) =>
-      `${theme.layout.page.topCompact} ${theme.spacing.md} ${getPageBottomMobile(
-        $variant
-      )}`};
-  }
+  ${media.down('md')`
+    padding: ${({ $variant = 'default' }: { $variant?: PageVariant }) =>
+      `${theme.layout.page.topCompact} ${theme.spacing.md} ${getPageBottomMobile($variant)}`};
+  `}
 `;
 
 export const ContentContainer = styled.section<{
