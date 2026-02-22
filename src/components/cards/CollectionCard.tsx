@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 type CollectionCardImage = {
@@ -98,9 +99,9 @@ const Media = styled.div`
   min-height: 14rem;
   overflow: hidden;
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     min-height: 12rem;
-  }
+  `}
 `;
 
 const MediaPlaceholder = styled.div`

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import SquareButton from '@/components/reusables/SquareButton';
 import { DisplayTitle, LeadText } from '@/components/ui/typography/primitives';
 import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 const HomePageClient = () => {
@@ -24,7 +25,7 @@ const HomePageClient = () => {
 
     if (
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      window.matchMedia('(max-width: 768px)').matches
+      window.matchMedia(`(max-width: ${theme.breakpoints.md})`).matches
     ) {
       return;
     }
@@ -179,9 +180,9 @@ const Page = styled.main`
   background: ${theme.gradients.homePage};
   overflow: clip;
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     margin-top: calc(${theme.layout.nav.heightMobile} * -1);
-  }
+  `}
 `;
 
 const Hero = styled.section`
@@ -193,10 +194,10 @@ const Hero = styled.section`
   justify-content: center;
   padding: 0 ${theme.spacing.md} calc(6rem + env(safe-area-inset-bottom));
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     min-height: 112svh;
     padding: 0 ${theme.spacing.md} calc(3.4rem + env(safe-area-inset-bottom));
-  }
+  `}
 `;
 
 const ParallaxLayer = styled.div`
@@ -209,9 +210,9 @@ const ParallaxLayer = styled.div`
   filter: saturate(0.95) contrast(1.1);
   pointer-events: none;
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     inset: -4%;
-  }
+  `}
 `;
 
 const StyledImage = styled(Image)`
@@ -250,9 +251,9 @@ const HeroContent = styled.div`
   backdrop-filter: blur(6px);
   box-shadow: ${theme.shadows.heroPanel};
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     padding: 1.6rem 1.1rem;
-  }
+  `}
 `;
 
 const Eyebrow = styled.p`
@@ -309,10 +310,10 @@ const Panels = styled.section`
   position: relative;
   z-index: 1;
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     margin: 1.8rem auto 2.4rem;
     grid-template-columns: 1fr;
-  }
+  `}
 `;
 
 const Panel = styled.article<{ $accent?: boolean }>`
@@ -325,14 +326,16 @@ const Panel = styled.article<{ $accent?: boolean }>`
   border: 1px solid
     ${({ $accent }) => ($accent ? theme.colors.lineOnDarkSoft : theme.colors.lineSoft)};
   border-radius: ${theme.radii.xl};
-  background: ${({ $accent }) => ($accent ? theme.gradients.panelDark : theme.gradients.panelLight)};
+  background: ${({ $accent }) =>
+    $accent ? theme.gradients.panelDark : theme.gradients.panelLight};
   color: ${({ $accent }) => ($accent ? theme.colors.white : theme.colors.title)};
-  box-shadow: ${({ $accent }) => ($accent ? theme.shadows.darkStrong : theme.shadows.darkSoft)};
+  box-shadow: ${({ $accent }) =>
+    $accent ? theme.shadows.darkStrong : theme.shadows.darkSoft};
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     min-height: 15rem;
     padding: 1.9rem;
-  }
+  `}
 `;
 
 const PanelTitle = styled.h2`

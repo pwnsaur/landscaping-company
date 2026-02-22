@@ -14,48 +14,39 @@ import {
   normalizeContactFormFields,
   validateContactFormFields,
 } from '@/utils/contactFormValidation';
+import { submitEmail } from '@/utils/submitEmail';
 import Button from '@components/contactForm/Button';
 import Input from '@components/contactForm/Input';
 import SubmitModal from '@components/contactForm/SubmitModal';
 import Textarea from '@components/contactForm/Textarea';
 import useContactForm from '@utils/hooks/useContactForm';
-import useEmailSubmit from '@utils/hooks/useEmailSubmit';
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 const RECAPTCHA_ACTION = 'contact_form_submit';
 const FIELD_ORDER: ContactFormFieldName[] = ['name', 'email', 'phone', 'message'];
 
 const ContactForm = () => {
-  const [modalState, setModalState] = useState({
-    isOpen: false,
+  const [submitResult, setSubmitResult] = useState({
+    isModalOpen: false,
     message: '',
     isError: false,
   });
   const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
-  const [formStatus, setFormStatus] = useState({
-    message: '',
-    isError: false,
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [website, setWebsite] = useState('');
   const formStartedAtRef = useRef(Date.now());
 
   const { formData, handleChange, resetForm } = useContactForm();
-  const { submitEmail } = useEmailSubmit();
 
   const closeModal = () => {
-    setModalState((prevState) => ({ ...prevState, isOpen: false }));
+    setSubmitResult((prev) => ({ ...prev, isModalOpen: false }));
   };
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const setStatus = (message: string, isError: boolean) => {
-    setFormStatus({ message, isError });
-  };
-
   const openModal = (message: string, isError: boolean) => {
-    setModalState({ isOpen: true, message, isError });
-    setStatus(message, isError);
+    setSubmitResult({ isModalOpen: true, message, isError });
   };
 
   const focusFirstInvalidField = (errors: ContactFormErrors) => {
@@ -120,12 +111,16 @@ const ContactForm = () => {
     setFormErrors(validationErrors);
 
     if (hasContactFormErrors(validationErrors)) {
-      setStatus('Lūdzu izlabo atzīmētos laukus un mēģini vēlreiz.', true);
+      setSubmitResult({
+        isModalOpen: false,
+        message: 'Lūdzu izlabo atzīmētos laukus un mēģini vēlreiz.',
+        isError: true,
+      });
       focusFirstInvalidField(validationErrors);
       return;
     }
 
-    setStatus('', false);
+    setSubmitResult({ isModalOpen: false, message: '', isError: false });
     setIsSubmitting(true);
 
     try {
@@ -147,23 +142,23 @@ const ContactForm = () => {
         return;
       }
 
-      const submitResult = await submitEmail({
+      const result = await submitEmail({
         ...normalized,
         recaptcha: recaptchaToken,
         website,
         formStartedAt: formStartedAtRef.current,
       });
 
-      if (submitResult.errors) {
+      if (result.errors) {
         setFormErrors((prevState) => ({
           ...prevState,
-          ...submitResult.errors,
+          ...result.errors,
         }));
       }
 
-      openModal(submitResult.message, !submitResult.isSuccessful);
+      openModal(result.message, !result.isSuccessful);
 
-      if (submitResult.isSuccessful) {
+      if (result.isSuccessful) {
         resetForm();
         setFormErrors({});
         setWebsite('');
@@ -253,14 +248,17 @@ const ContactForm = () => {
             par pieprasījumu.
           </FormHint>
         </ActionRow>
-        <FormStatus role={formStatus.isError ? 'alert' : 'status'} $isError={formStatus.isError}>
-          {formStatus.message}
+        <FormStatus
+          role={submitResult.isError ? 'alert' : 'status'}
+          $isError={submitResult.isError}
+        >
+          {submitResult.message}
         </FormStatus>
       </Form>
       <SubmitModal
-        isOpen={modalState.isOpen}
-        message={modalState.message}
-        isError={modalState.isError}
+        isOpen={submitResult.isModalOpen}
+        message={submitResult.message}
+        isError={submitResult.isError}
         onClose={closeModal}
       />
     </>
@@ -282,9 +280,9 @@ const Row = styled.div`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${theme.spacing.md};
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     grid-template-columns: 1fr;
-  }
+  `}
 `;
 
 const ActionRow = styled.div`
@@ -294,10 +292,10 @@ const ActionRow = styled.div`
   justify-content: space-between;
   gap: ${theme.spacing.sm};
 
-  @media (max-width: ${theme.breakpoints.sm}) {
+  ${media.down('sm')`
     flex-direction: column;
     align-items: stretch;
-  }
+  `}
 `;
 
 const HoneypotField = styled.div`

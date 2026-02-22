@@ -1,8 +1,9 @@
 import { RefObject, useEffect, useState } from 'react';
 
+const THRESHOLD = 0.1;
+
 const useOnScreen = (ref: RefObject<HTMLElement | null>): boolean => {
   const [isIntersecting, setIntersecting] = useState(false);
-  const threshold = 0.1;
 
   useEffect(() => {
     const currentRef = ref.current;
@@ -12,7 +13,7 @@ const useOnScreen = (ref: RefObject<HTMLElement | null>): boolean => {
         setIntersecting(entry.isIntersecting);
       },
       {
-        threshold,
+        threshold: THRESHOLD,
         rootMargin: '500px',
       }
     );
@@ -26,7 +27,7 @@ const useOnScreen = (ref: RefObject<HTMLElement | null>): boolean => {
         observer.unobserve(currentRef);
       }
     };
-  }, [ref, threshold]);
+  }, [ref]);
 
   return isIntersecting;
 };

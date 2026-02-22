@@ -1,31 +1,29 @@
-import { css, type DefaultTheme } from 'styled-components';
+import { css } from 'styled-components';
 
-type Breakpoint = keyof DefaultTheme['breakpoints'];
+import { theme } from '@/styles/theme';
+
+type Breakpoint = keyof typeof theme.breakpoints;
 type CssArgs = Parameters<typeof css>;
 
-const down = (breakpoint: Breakpoint) =>
+const down = (bp: Breakpoint) =>
   (...args: CssArgs) => css`
-    @media (max-width: ${({ theme }) => theme.breakpoints[breakpoint]}) {
+    @media (max-width: ${theme.breakpoints[bp]}) {
       ${css(...args)}
     }
   `;
 
-const up = (breakpoint: Breakpoint) =>
+const up = (bp: Breakpoint) =>
   (...args: CssArgs) => css`
-    @media (min-width: ${({ theme }) => theme.breakpoints[breakpoint]}) {
+    @media (min-width: ${theme.breakpoints[bp]}) {
       ${css(...args)}
     }
   `;
 
 const between = (min: Breakpoint, max: Breakpoint) =>
   (...args: CssArgs) => css`
-    @media (min-width: ${({ theme }) => theme.breakpoints[min]}) and (max-width: ${({ theme }) => theme.breakpoints[max]}) {
+    @media (min-width: ${theme.breakpoints[min]}) and (max-width: ${theme.breakpoints[max]}) {
       ${css(...args)}
     }
   `;
 
-export const media = {
-  down,
-  up,
-  between,
-};
+export const media = { down, up, between };

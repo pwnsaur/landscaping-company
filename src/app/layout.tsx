@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     default: 'Brasika',
     template: 'Brasika | %s',
   },
-  description: 'Brasika',
+  description: 'Brasika — ainavu darbu uzņēmums. Projektēšana, ierīkošana un kopšana.',
 };
 
 const RootLayout = ({ children }: Props) => {
   return (
-    <html lang='lv' data-scroll-behavior='smooth'>
+    <html lang='lv'>
       <head>
         <link
           rel='preconnect'

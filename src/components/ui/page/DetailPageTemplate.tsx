@@ -15,6 +15,7 @@ import {
   PageTitle,
   SectionTitle as SectionHeading,
 } from '@/components/ui/typography/primitives';
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 type CoverImage = {
@@ -132,17 +133,17 @@ const ContentGrid = styled.section<{ $hasMedia: boolean }>`
     $hasMedia ? 'minmax(0, 0.9fr) minmax(0, 1.1fr)' : '1fr'};
   gap: 1.5rem;
 
-  @media (max-width: ${theme.breakpoints.tablet}) {
+  ${media.down('tablet')`
     grid-template-columns: 1fr;
-  }
+  `}
 `;
 
 const Media = styled(MediaFrame)`
   min-height: 24rem;
 
-  @media (max-width: ${theme.breakpoints.tablet}) {
+  ${media.down('tablet')`
     min-height: 16rem;
-  }
+  `}
 `;
 
 const CoverImageElement = styled(Image)`

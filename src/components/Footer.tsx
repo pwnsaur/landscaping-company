@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { ActionLink } from '@/components/ui/actions/primitives';
 import { ContentContainer } from '@/components/ui/layout/primitives';
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 const Footer = () => {
@@ -63,9 +64,9 @@ const FooterInner = styled(ContentContainer)`
   gap: ${theme.spacing.md};
   padding-bottom: ${theme.spacing.xl};
 
-  @media (max-width: ${theme.breakpoints.tablet}) {
+  ${media.down('tablet')`
     grid-template-columns: 1fr;
-  }
+  `}
 `;
 
 const BrandBlock = styled.section`

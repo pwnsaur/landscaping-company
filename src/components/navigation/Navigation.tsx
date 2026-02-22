@@ -8,6 +8,7 @@ import DesktopNav from '@components/navigation/DesktopNav';
 import HamburgerIcon from '@components/navigation/HamburgerIcon';
 import MobileNav from '@components/navigation/MobileNav';
 import useIsMobile from '@utils/hooks/useIsMobile';
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 const Navigation = () => {
@@ -42,7 +43,7 @@ const Navigation = () => {
 
   useEffect(() => {
     handleMenuItemClick();
-  }, [isMobile, pathname, handleMenuItemClick]);
+  }, [pathname, handleMenuItemClick]);
 
   useEffect(() => {
     if (!isMobile && (isOpen || isVisible)) {
@@ -97,7 +98,9 @@ const Navigation = () => {
       <Container $isNavBarVisible={isNavBarVisible}>
         <Header>
           <BrandRow>
-            {isMobile && <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />}
+            <HamburgerWrapper>
+              <HamburgerIcon isOpen={isOpen} onClick={toggleMenu} />
+            </HamburgerWrapper>
             <LinkLogo href='/'>
               <Logo
                 src={logoImage.src}
@@ -109,17 +112,15 @@ const Navigation = () => {
               <BrandText>B R A S I K A</BrandText>
             </LinkLogo>
           </BrandRow>
-          {!isMobile && <DesktopNav currentPath={currentPath} />}
+          <DesktopNav currentPath={currentPath} />
         </Header>
       </Container>
-      {isMobile && (
-        <MobileNav
-          currentPath={currentPath}
-          isVisible={isVisible}
-          isOpen={isOpen}
-          handleItemClick={handleMenuItemClick}
-        />
-      )}
+      <MobileNav
+        currentPath={currentPath}
+        isVisible={isVisible}
+        isOpen={isOpen}
+        handleItemClick={handleMenuItemClick}
+      />
     </>
   );
 };
@@ -160,6 +161,14 @@ const BrandRow = styled.div`
   align-items: center;
 `;
 
+const HamburgerWrapper = styled.div`
+  display: none;
+
+  ${media.down('tablet')`
+    display: flex;
+  `}
+`;
+
 const Logo = styled.img`
   width: 120px;
   height: auto;
@@ -180,7 +189,7 @@ const BrandText = styled.span`
   text-transform: uppercase;
   white-space: nowrap;
 
-  @media (max-width: ${theme.breakpoints.xs}) {
+  ${media.down('xs')`
     display: none;
-  }
+  `}
 `;

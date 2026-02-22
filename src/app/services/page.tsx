@@ -6,7 +6,7 @@ import { getServices } from '@/lib/contentfulData';
 
 export const metadata: Metadata = {
   title: 'Pakalpojumi',
-  description: 'Pakalpojumi',
+  description: 'Ainavu pakalpojumi — teritoriju plānošana, apstādījumi, segumi un mazā arhitektūra.',
 };
 
 export const revalidate = 900;
@@ -17,8 +17,8 @@ const ServicesPage = async () => {
   return (
     <ListingPageTemplate
       eyebrow='Pakalpojumi'
-      title='Ainavu darbi no ieceres lidz gatavam rezultatam'
-      lead='Planojam, veidojam un sakartojam teritorijas ta, lai rezultats butu estetisks, ilgtspejigs un erti kopjams ikdiena.'
+      title='Ainavu darbi no ieceres līdz gatavam rezultātam'
+      lead='Plānojam, veidojam un sakārtojam teritorijas tā, lai rezultāts būtu estētisks, ilgtspējīgs un ērti kopjams ikdienā.'
       items={services}
       renderItem={(service, index) => (
         <ServiceCard
@@ -27,10 +27,10 @@ const ServicesPage = async () => {
           priority={index === 0}
         />
       )}
-      emptyStateText='Paslaik pakalpojumu sadala tiek papildinata. Uzraksti mums, un ieteiksim piemerotako risinajumu tavai teritorijai.'
+      emptyStateText='Pašlaik pakalpojumu sadaļa tiek papildināta. Uzraksti mums, un ieteiksim piemērotāko risinājumu tavai teritorijai.'
       cta={{
-        title: 'Vajag konsultaciju pirms projekta sakuma?',
-        text: 'Uzraksti, un vienosimies par labako risinajumu tavai teritorijai.',
+        title: 'Vajag konsultāciju pirms projekta sākuma?',
+        text: 'Uzraksti, un vienosimies par labāko risinājumu tavai teritorijai.',
         href: '/contacts',
         label: 'Sazinaties',
       }}

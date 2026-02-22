@@ -83,6 +83,12 @@ exports[`DesktopNav component matches the snapshot 1`] = `
   flex: 1;
 }
 
+@media (max-width:980px) {
+  .c0 {
+    display: none;
+  }
+}
+
 <nav
     class="c0"
   >

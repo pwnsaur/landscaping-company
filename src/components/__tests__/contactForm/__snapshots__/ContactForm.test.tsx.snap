@@ -63,7 +63,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
   text-transform: uppercase;
   letter-spacing: 0.08rem;
   background-color: #2b5437;
-  color: #ffffff;
+  color: #fff;
   border: 1px solid #2b5437;
   border-radius: 0.25rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
@@ -365,7 +365,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
   min-height: 3rem;
   padding: 0.5rem 0.75rem 0.5rem;
   background-color: #42ba96;
-  color: #ffffff;
+  color: #fff;
   border-radius: 0.45rem;
   border: 1px solid rgba(26, 103, 74, 0.6);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
@@ -388,7 +388,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
 .c2 {
   border: 1px solid rgba(255, 255, 255, 0.6);
   background: transparent;
-  color: #ffffff;
+  color: #fff;
   border-radius: 999px;
   width: 1.65rem;
   min-width: 1.65rem;

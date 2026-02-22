@@ -15,6 +15,7 @@ import {
   SectionTitle as SharedSectionTitle,
 } from '@/components/ui/typography/primitives';
 import ContactForm from '@components/contactForm/ContactForm';
+import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
 
 const ContactsPageClient = () => {
@@ -106,9 +107,9 @@ const ContentGrid = styled.section`
   align-items: stretch;
   gap: 1.75rem;
 
-  @media (max-width: ${theme.breakpoints.lg}) {
+  ${media.down('lg')`
     grid-template-columns: 1fr;
-  }
+  `}
 `;
 
 const InfoPanel = styled(SoftPanel)`
@@ -117,9 +118,9 @@ const InfoPanel = styled(SoftPanel)`
   flex-direction: column;
   padding: 2.3rem 2rem;
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     padding: 1.65rem 1.4rem;
-  }
+  `}
 `;
 
 const InfoTitle = styled(SharedSectionTitle)``;
@@ -160,9 +161,9 @@ const InfoLinks = styled.div`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.1rem;
 
-  @media (max-width: ${theme.breakpoints.sm}) {
+  ${media.down('sm')`
     grid-template-columns: 1fr;
-  }
+  `}
 
   a {
     width: 100%;
@@ -175,9 +176,9 @@ const FormPanel = styled(SoftPanel)`
   flex-direction: column;
   padding: 2.3rem 2rem;
 
-  @media (max-width: ${theme.breakpoints.md}) {
+  ${media.down('md')`
     padding: 1.65rem 1.4rem;
-  }
+  `}
 `;
 
 const FormTitle = styled(SharedSectionTitle)``;
