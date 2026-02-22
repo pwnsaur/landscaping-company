@@ -33,8 +33,8 @@ export const PageLead = styled.p`
 `;
 
 export const SectionTitle = styled.h2`
-  text-transform: uppercase;
   font-size: ${theme.typography.sectionHeading};
+  font-weight: ${theme.fontWeights.bold};
   letter-spacing: ${theme.typography.trackingTight};
   line-height: ${theme.typography.lineHeightHeading};
 `;
@@ -50,9 +50,9 @@ export const BodyText = styled.p`
 `;
 
 export const FeatureTitle = styled.h3`
-  text-transform: uppercase;
-  letter-spacing: ${theme.typography.trackingNormal};
+  letter-spacing: ${theme.typography.trackingTight};
   font-size: ${theme.typography.featureTitle};
+  font-weight: ${theme.fontWeights.bold};
   color: ${theme.colors.darkGreen};
   line-height: ${theme.typography.lineHeightHeading};
 `;

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_in_Chrome__switch_browser",
+      "Bash(npm test:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": false
+}

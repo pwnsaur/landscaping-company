@@ -16,9 +16,9 @@ exports[`SubmitModal component matches the snapshot on success 1`] = `
   padding: 0.5rem 0.75rem 0.5rem;
   background-color: #42ba96;
   color: #ffffff;
-  border-radius: 0.3rem;
+  border-radius: 0.45rem;
   border: 1px solid rgba(26, 103, 74, 0.6);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
   z-index: 7;
   opacity: 1;
   visibility: visible;
@@ -84,9 +84,9 @@ exports[`SubmitModal component matches the snapshot snapshot on error 1`] = `
   padding: 0.5rem 0.75rem 0.5rem;
   background-color: #ff3333;
   color: #ffffff;
-  border-radius: 0.3rem;
+  border-radius: 0.45rem;
   border: 1px solid rgba(142, 32, 32, 0.65);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
   z-index: 7;
   opacity: 1;
   visibility: visible;
