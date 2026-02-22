@@ -4,8 +4,8 @@ import { theme } from '@/styles/theme';
 
 export const FieldInput = styled.input`
   width: 100%;
-  min-height: ${theme.components.form.fieldMinHeight};
-  padding: ${theme.components.form.fieldPadding};
+  min-height: 2.9rem;
+  padding: 0.75rem;
   border: 1px solid ${theme.semantic.border.subtle};
   border-radius: ${theme.radii.sm};
   background: ${theme.colors.glowSoft};
@@ -18,14 +18,12 @@ export const FieldInput = styled.input`
 
   &:focus {
     border-color: ${theme.colors.darkGreen};
-    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
-      ${theme.semantic.interactive.focusRing};
+    box-shadow: 0 0 0 3px ${theme.semantic.interactive.focusRing};
   }
 
   &[aria-invalid='true'] {
     border-color: ${theme.colors.error};
-    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
-      rgba(142, 32, 32, 0.16);
+    box-shadow: 0 0 0 3px rgba(142, 32, 32, 0.16);
   }
 
   ::placeholder {
@@ -35,8 +33,8 @@ export const FieldInput = styled.input`
 
 export const FieldTextarea = styled.textarea`
   width: 100%;
-  min-height: ${theme.components.form.textareaMinHeight};
-  padding: ${theme.components.form.fieldPadding};
+  min-height: 11rem;
+  padding: 0.75rem;
   border: 1px solid ${theme.semantic.border.subtle};
   border-radius: ${theme.radii.sm};
   background: ${theme.colors.glowSoft};
@@ -50,14 +48,12 @@ export const FieldTextarea = styled.textarea`
 
   &:focus {
     border-color: ${theme.colors.darkGreen};
-    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
-      ${theme.semantic.interactive.focusRing};
+    box-shadow: 0 0 0 3px ${theme.semantic.interactive.focusRing};
   }
 
   &[aria-invalid='true'] {
     border-color: ${theme.colors.error};
-    box-shadow: 0 0 0 ${theme.components.form.focusRingWidth}
-      rgba(142, 32, 32, 0.16);
+    box-shadow: 0 0 0 3px rgba(142, 32, 32, 0.16);
   }
 
   ::placeholder {
@@ -67,9 +63,9 @@ export const FieldTextarea = styled.textarea`
 
 export const PrimaryButton = styled.button`
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
-  min-width: ${theme.components.form.buttonMinWidth};
+  min-width: 8.5rem;
   text-transform: uppercase;
-  letter-spacing: ${theme.components.form.buttonTracking};
+  letter-spacing: 0.08rem;
   background-color: ${theme.colors.darkGreen};
   color: ${theme.semantic.text.onAccent};
   border: 1px solid ${theme.colors.darkGreen};

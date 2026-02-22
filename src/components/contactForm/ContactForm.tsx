@@ -20,6 +20,7 @@ import SubmitModal from '@components/contactForm/SubmitModal';
 import Textarea from '@components/contactForm/Textarea';
 import useContactForm from '@utils/hooks/useContactForm';
 import useEmailSubmit from '@utils/hooks/useEmailSubmit';
+import { theme } from '@/styles/theme';
 
 const RECAPTCHA_ACTION = 'contact_form_submit';
 const FIELD_ORDER: ContactFormFieldName[] = ['name', 'email', 'phone', 'message'];
@@ -270,30 +271,30 @@ export default ContactForm;
 
 const Form = styled.form`
   width: 100%;
-  margin: ${({ theme }) => `${theme.spacing.lg} auto 0`};
+  margin: ${theme.spacing.lg} auto 0;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: ${theme.spacing.md};
 `;
 
 const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: ${theme.spacing.md};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${theme.breakpoints.md}) {
     grid-template-columns: 1fr;
   }
 `;
 
 const ActionRow = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.xs};
+  margin-top: ${theme.spacing.xs};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: ${({ theme }) => theme.spacing.sm};
+  gap: ${theme.spacing.sm};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media (max-width: ${theme.breakpoints.sm}) {
     flex-direction: column;
     align-items: stretch;
   }
@@ -309,16 +310,15 @@ const HoneypotField = styled.div`
 `;
 
 const FormHint = styled.p`
-  line-height: ${({ theme }) => theme.typography.lineHeightBody};
-  font-size: ${({ theme }) => theme.components.contacts.formHintSize};
+  line-height: ${theme.typography.lineHeightBody};
+  font-size: 0.84rem;
   max-width: 60ch;
-  color: ${({ theme }) => theme.semantic.text.primary};
+  color: ${theme.semantic.text.primary};
 `;
 
 const FormStatus = styled.p<{ $isError: boolean }>`
   min-height: 1.25rem;
   margin: 0;
-  font-size: ${({ theme }) => theme.typography.meta};
-  color: ${({ theme, $isError }) =>
-    $isError ? theme.colors.errorText : theme.semantic.text.primary};
+  font-size: ${theme.typography.meta};
+  color: ${({ $isError }) => ($isError ? theme.colors.errorText : theme.semantic.text.primary)};
 `;

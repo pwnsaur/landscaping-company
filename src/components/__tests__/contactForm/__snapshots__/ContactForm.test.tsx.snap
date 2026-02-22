@@ -361,7 +361,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%) translateY(0.5rem);
-  width: min(32rem, calc(100vw - 2rem));
+  width: min(32rem,calc(100vw - 2rem));
   min-height: 3rem;
   padding: 0.5rem 0.75rem 0.5rem;
   background-color: #42ba96;

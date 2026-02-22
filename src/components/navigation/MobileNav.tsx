@@ -2,6 +2,7 @@ import { MouseEvent } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import NavItems from '@components/navigation/NavItems';
+import { theme } from '@/styles/theme';
 
 const slideIn = keyframes`
   0% {
@@ -62,13 +63,13 @@ const Container = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: ${({ theme }) => theme.zIndex.overlay};
+  z-index: ${theme.zIndex.overlay};
 `;
 
 const Backdrop = styled.div`
   flex-grow: 1;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.overlayBackdrop};
+  background-color: ${theme.colors.overlayBackdrop};
   backdrop-filter: blur(2px);
 `;
 
@@ -82,20 +83,18 @@ const StyledMobileNav = styled.nav<{ $isOpen: boolean }>`
   right: 0;
   top: 0;
   height: 100%;
-  padding: ${({ theme }) =>
-    `${theme.layout.nav.mobilePanelTopOffset} ${theme.spacing.md} ${theme.spacing.md}`};
-  background: ${({ theme }) => theme.gradients.nav};
-  border-left: 1px solid ${({ theme }) => theme.colors.lineSoft};
-  box-shadow: ${({ theme }) => theme.shadows.sidePanel};
-  animation: ${({ $isOpen }) =>
-      $isOpen ? slideIn : slideOut}
-    ${({ theme }) => theme.motion.slow} ease-out forwards;
+  padding: ${theme.layout.nav.mobilePanelTopOffset} ${theme.spacing.md} ${theme.spacing.md};
+  background: ${theme.gradients.nav};
+  border-left: 1px solid ${theme.colors.lineSoft};
+  box-shadow: ${theme.shadows.sidePanel};
+  animation: ${({ $isOpen }) => $isOpen ? slideIn : slideOut}
+    ${theme.motion.slow} ease-out forwards;
 `;
 
 const PanelTitle = styled.p`
   text-transform: uppercase;
-  letter-spacing: ${({ theme }) => theme.typography.eyebrowTracking};
-  font-size: ${({ theme }) => theme.typography.label};
-  color: ${({ theme }) => theme.colors.textMuted};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  letter-spacing: ${theme.typography.eyebrowTracking};
+  font-size: ${theme.typography.label};
+  color: ${theme.colors.textMuted};
+  margin-bottom: ${theme.spacing.sm};
 `;

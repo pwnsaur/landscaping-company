@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { theme } from '@/styles/theme';
+
 interface ZoomedImageProps {
   src: string;
   alt: string;
@@ -81,7 +83,7 @@ const ImageWrapper = styled.div<{ $aspectRatio: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${({ theme }) => `calc(100% - ${theme.components.overlay.contentWidthOffset})`};
+  width: calc(100% - 140px);
   height: auto;
   max-height: 100%;
   aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
@@ -93,28 +95,28 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.colors.overlayLight};
+  background: ${theme.colors.overlayLight};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${({ theme }) => theme.components.overlay.lightPadding};
-  z-index: ${({ theme }) => theme.zIndex.overlay};
+  padding: 1rem;
+  z-index: ${theme.zIndex.overlay};
 `;
 
 const Arrow = styled.button`
   position: absolute;
-  z-index: ${({ theme }) => theme.zIndex.floating};
+  z-index: ${theme.zIndex.floating};
   top: 50%;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${theme.colors.black};
   background: transparent;
   border: none;
-  font-size: ${({ theme }) => theme.fontSizes.superLarge};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${theme.fontSizes.superLarge};
+  font-weight: ${theme.fontWeights.bold};
   transform: translateY(-50%);
   cursor: pointer;
 
   &[disabled] {
-    color: ${({ theme }) => theme.colors.borderGrey};
+    color: ${theme.colors.borderGrey};
     cursor: default;
   }
 
@@ -127,17 +129,17 @@ const ArrowContainer = styled.div<{ disabled: boolean }>`
   position: absolute;
   top: 0;
   bottom: 0;
-  width: ${({ theme }) => theme.components.overlay.sideRailWidth};
+  width: 70px;
   display: flex;
   justify-content: center;
   cursor: pointer;
 
   &:not([disabled]):hover {
-    background: ${({ theme }) => theme.colors.overlayHoverStrong};
+    background: ${theme.colors.overlayHoverStrong};
   }
 
   &:not([disabled]) {
-    background: ${({ theme }) => theme.colors.overlayHoverSoft};
+    background: ${theme.colors.overlayHoverSoft};
   }
 
   &[disabled] {

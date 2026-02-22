@@ -58,7 +58,7 @@ exports[`ServiceCard renders correctly 1`] = `
 
 .c6 {
   line-height: 1.22;
-  font-size: clamp(1.3rem, 1.8vw, 1.9rem);
+  font-size: clamp(1.3rem,1.8vw,1.9rem);
   font-weight: 600;
   color: #2d3328;
   display: -webkit-box;

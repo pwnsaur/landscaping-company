@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { ActionLink } from '@/components/ui/actions/primitives';
+import { theme } from '@/styles/theme';
 
 interface SquareButtonProps {
   name: string;
@@ -23,10 +24,10 @@ const SquareButton = ({ name, destination, isInverted }: SquareButtonProps) => {
 export default SquareButton;
 
 const Button = styled(ActionLink)`
-  min-width: ${({ theme }) => theme.components.action.squareMinWidth};
-  min-height: ${({ theme }) => theme.components.action.squareMinHeight};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  font-size: ${({ theme }) => theme.fontSizes.normal};
-  letter-spacing: ${({ theme }) => theme.components.action.squareTracking};
-  box-shadow: ${({ theme }) => theme.shadows.soft};
+  min-width: 9rem;
+  min-height: 3rem;
+  font-weight: ${theme.fontWeights.bold};
+  font-size: ${theme.fontSizes.normal};
+  letter-spacing: 0.04rem;
+  box-shadow: ${theme.shadows.soft};
 `;

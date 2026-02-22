@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { FieldTextarea } from '@/components/ui/form/primitives';
+import { theme } from '@/styles/theme';
 
 type TextareaProps = {
   id: string;
@@ -56,14 +57,14 @@ export default Textarea;
 const Field = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xxs};
+  gap: ${theme.spacing.xxs};
 `;
 
 const FieldLabel = styled.label`
-  font-size: ${({ theme }) => theme.typography.labelStrong};
+  font-size: ${theme.typography.labelStrong};
   text-transform: uppercase;
-  letter-spacing: ${({ theme }) => theme.typography.trackingWide};
-  color: ${({ theme }) => theme.semantic.text.strong};
+  letter-spacing: ${theme.typography.trackingWide};
+  color: ${theme.semantic.text.strong};
 `;
 
 const FieldMetaRow = styled.div`
@@ -71,17 +72,17 @@ const FieldMetaRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: ${({ theme }) => theme.spacing.xs};
+  gap: ${theme.spacing.xs};
 `;
 
 const FieldError = styled.p`
   margin: 0;
-  font-size: ${({ theme }) => theme.typography.meta};
-  color: ${({ theme }) => theme.colors.errorText};
+  font-size: ${theme.typography.meta};
+  color: ${theme.colors.errorText};
 `;
 
 const FieldCounter = styled.span`
   margin-left: auto;
-  font-size: ${({ theme }) => theme.typography.meta};
-  color: ${({ theme }) => theme.semantic.text.subtle};
+  font-size: ${theme.typography.meta};
+  color: ${theme.semantic.text.subtle};
 `;
