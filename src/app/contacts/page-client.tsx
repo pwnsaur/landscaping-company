@@ -15,6 +15,7 @@ import {
   SectionTitle as SharedSectionTitle,
 } from '@/components/ui/typography/primitives';
 import ContactForm from '@components/contactForm/ContactForm';
+import { theme } from '@/styles/theme';
 
 const ContactsPageClient = () => {
   const recaptchaKey =
@@ -96,17 +97,16 @@ const ContactsPageClient = () => {
 export default ContactsPageClient;
 
 const Hero = styled(PageHeader)`
-  margin-bottom: ${({ theme }) => theme.components.contacts.heroBottom};
+  margin-bottom: 3.5rem;
 `;
 
 const ContentGrid = styled.section`
   display: grid;
-  grid-template-columns: ${({ theme }) =>
-    `${theme.components.contacts.infoGridLeft} ${theme.components.contacts.infoGridRight}`};
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
   align-items: stretch;
-  gap: ${({ theme }) => theme.components.contacts.gridGap};
+  gap: 1.75rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+  @media (max-width: ${theme.breakpoints.lg}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -115,10 +115,10 @@ const InfoPanel = styled(SoftPanel)`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => theme.components.contacts.panelPadding};
+  padding: 2.3rem 2rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: ${({ theme }) => theme.components.contacts.panelPaddingCompact};
+  @media (max-width: ${theme.breakpoints.md}) {
+    padding: 1.65rem 1.4rem;
   }
 `;
 
@@ -126,28 +126,28 @@ const InfoTitle = styled(SharedSectionTitle)``;
 
 const InfoList = styled.ul`
   display: grid;
-  gap: ${({ theme }) => theme.components.contacts.listGap};
-  margin-top: ${({ theme }) => theme.components.contacts.listTop};
+  gap: 1.3rem;
+  margin-top: 1.15rem;
 `;
 
 const InfoItem = styled.li`
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: ${({ theme }) => theme.components.contacts.itemGap};
+  gap: 0.85rem;
   align-items: start;
 `;
 
 const ItemStep = styled.span`
-  min-width: ${({ theme }) => theme.components.contacts.stepSize};
-  min-height: ${({ theme }) => theme.components.contacts.stepSize};
+  min-width: 2.15rem;
+  min-height: 2.15rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid ${({ theme }) => theme.colors.lineStrong};
-  border-radius: ${({ theme }) => theme.radii.full};
-  font-size: ${({ theme }) => theme.typography.label};
-  color: ${({ theme }) => theme.colors.darkGreen};
+  border: 1px solid ${theme.colors.lineStrong};
+  border-radius: ${theme.radii.full};
+  font-size: ${theme.typography.label};
+  color: ${theme.colors.darkGreen};
 `;
 
 const ItemText = styled(BodyText)`
@@ -155,12 +155,12 @@ const ItemText = styled(BodyText)`
 `;
 
 const InfoLinks = styled.div`
-  margin-top: ${({ theme }) => theme.components.contacts.linksTop};
+  margin-top: 1.8rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: ${({ theme }) => theme.components.contacts.actionGap};
+  gap: 1.1rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media (max-width: ${theme.breakpoints.sm}) {
     grid-template-columns: 1fr;
   }
 
@@ -173,34 +173,34 @@ const FormPanel = styled(SoftPanel)`
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => theme.components.contacts.panelPadding};
+  padding: 2.3rem 2rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: ${({ theme }) => theme.components.contacts.panelPaddingCompact};
+  @media (max-width: ${theme.breakpoints.md}) {
+    padding: 1.65rem 1.4rem;
   }
 `;
 
 const FormTitle = styled(SharedSectionTitle)``;
 
 const FormIntro = styled(BodyText)`
-  margin-top: ${({ theme }) => theme.components.contacts.formIntroTop};
+  margin-top: 0.9rem;
   line-height: 1.6;
 `;
 
 const MissingKey = styled.p`
-  margin-top: ${({ theme }) => theme.components.contacts.missingKeyTop};
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
-  border: 1px solid ${({ theme }) => theme.colors.dangerBorder};
-  background: ${({ theme }) => theme.colors.dangerSurface};
-  color: ${({ theme }) => theme.colors.errorText};
+  margin-top: 1.1rem;
+  padding: ${theme.spacing.sm} ${theme.spacing.md};
+  border: 1px solid ${theme.colors.dangerBorder};
+  background: ${theme.colors.dangerSurface};
+  color: ${theme.colors.errorText};
   line-height: 1.5;
-  font-size: ${({ theme }) => theme.fontSizes.normal};
-  border-radius: ${({ theme }) => theme.radii.md};
+  font-size: ${theme.fontSizes.normal};
+  border-radius: ${theme.radii.md};
   overflow-wrap: anywhere;
 
   code {
     font-family: monospace;
-    background: ${({ theme }) => theme.colors.dangerCodeBg};
-    padding: ${({ theme }) => `0.06rem ${theme.spacing.xxs}`};
+    background: ${theme.colors.dangerCodeBg};
+    padding: 0.06rem ${theme.spacing.xxs};
   }
 `;

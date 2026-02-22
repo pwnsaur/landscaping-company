@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
+import { theme } from '@/styles/theme';
+
 type NavItemsProps = {
   currentPath: string;
   isMobile?: boolean;
@@ -54,8 +56,7 @@ const List = styled.ul<{ $mobile?: boolean }>`
   display: flex;
   flex-direction: ${({ $mobile }) => ($mobile ? 'column' : 'row')};
   align-items: ${({ $mobile }) => ($mobile ? 'stretch' : 'center')};
-  gap: ${({ theme, $mobile }) =>
-    $mobile ? theme.spacing.xs : theme.spacing.xxs};
+  gap: ${({ $mobile }) => ($mobile ? theme.spacing.xs : theme.spacing.xxs)};
   list-style: none;
   margin: 0;
   padding: 0;
@@ -70,54 +71,37 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
   align-items: center;
   justify-content: ${({ $mobile }) => ($mobile ? 'space-between' : 'center')};
   width: ${({ $mobile }) => ($mobile ? '100%' : 'auto')};
-  font-size: ${({ theme, $mobile }) =>
-    $mobile
-      ? theme.components.nav.linkSizeMobile
-      : theme.components.nav.linkSizeDesktop};
-  letter-spacing: ${({ theme, $mobile }) =>
-    $mobile
-      ? theme.components.nav.linkTrackingMobile
-      : theme.components.nav.linkTrackingDesktop};
-  color: ${({ theme, $active }) =>
-    $active ? theme.colors.darkGreen : theme.semantic.text.strong};
+  font-size: ${({ $mobile }) => ($mobile ? '1.15rem' : '0.92rem')};
+  letter-spacing: ${({ $mobile }) => ($mobile ? '0.05rem' : '0.04rem')};
+  color: ${({ $active }) => ($active ? theme.colors.darkGreen : theme.semantic.text.strong)};
   text-transform: uppercase;
-  min-height: ${({ theme, $mobile }) =>
-    $mobile
-      ? theme.components.nav.linkHeightMobile
-      : theme.components.nav.linkHeightDesktop};
-  padding: ${({ theme, $mobile }) =>
-    $mobile
-      ? theme.components.nav.linkPaddingMobile
-      : theme.components.nav.linkPaddingDesktop};
+  min-height: ${({ $mobile }) => ($mobile ? '2.8rem' : '2.35rem')};
+  padding: ${({ $mobile }) => ($mobile ? '0.75rem 1rem' : '0.5rem 0.75rem')};
   white-space: nowrap;
-  border-radius: ${({ theme }) => theme.radii.sm};
+  border-radius: ${theme.radii.sm};
   border: 1px solid
-    ${({ theme, $active }) =>
-      $active ? theme.semantic.border.strong : 'transparent'};
-  background: ${({ theme, $active, $mobile }) =>
+    ${({ $active }) => ($active ? theme.semantic.border.strong : 'transparent')};
+  background: ${({ $active, $mobile }) =>
     $active
       ? theme.semantic.interactive.active
       : $mobile
         ? theme.colors.glowSoft
         : 'transparent'};
   transition:
-    color ${({ theme }) => theme.motion.normal} ${({ theme }) => theme.motion.easing},
-    background-color ${({ theme }) => theme.motion.normal}
-      ${({ theme }) => theme.motion.easing},
-    border-color ${({ theme }) => theme.motion.normal}
-      ${({ theme }) => theme.motion.easing},
-    transform ${({ theme }) => theme.motion.normal}
-      ${({ theme }) => theme.motion.easing};
+    color ${theme.motion.normal} ${theme.motion.easing},
+    background-color ${theme.motion.normal} ${theme.motion.easing},
+    border-color ${theme.motion.normal} ${theme.motion.easing},
+    transform ${theme.motion.normal} ${theme.motion.easing};
 
   &:hover {
-    color: ${({ theme }) => theme.colors.darkGreen};
-    border-color: ${({ theme }) => theme.semantic.border.strong};
-    background: ${({ theme }) => theme.semantic.interactive.ghost};
+    color: ${theme.colors.darkGreen};
+    border-color: ${theme.semantic.border.strong};
+    background: ${theme.semantic.interactive.ghost};
     transform: translateY(-1px);
   }
 
   &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.semantic.border.strong};
+    outline: 2px solid ${theme.semantic.border.strong};
     outline-offset: 2px;
   }
 `;

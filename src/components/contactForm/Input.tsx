@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { FieldInput } from '@/components/ui/form/primitives';
+import { theme } from '@/styles/theme';
 
 type InputProps = {
   id: string;
@@ -69,19 +70,19 @@ export default Input;
 const Field = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xxs};
+  gap: ${theme.spacing.xxs};
 `;
 
 const FieldLabel = styled.label`
-  font-size: ${({ theme }) => theme.typography.labelStrong};
+  font-size: ${theme.typography.labelStrong};
   text-transform: uppercase;
-  letter-spacing: ${({ theme }) => theme.typography.trackingWide};
-  color: ${({ theme }) => theme.semantic.text.strong};
+  letter-spacing: ${theme.typography.trackingWide};
+  color: ${theme.semantic.text.strong};
 `;
 
 const FieldError = styled.p`
   min-height: 1.15rem;
   margin: 0;
-  font-size: ${({ theme }) => theme.typography.meta};
-  color: ${({ theme }) => theme.colors.errorText};
+  font-size: ${theme.typography.meta};
+  color: ${theme.colors.errorText};
 `;

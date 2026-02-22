@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { getAssetImageData } from '@/utils/contentfulAsset';
 import useIsMobile from '@/utils/hooks/useIsMobile';
 import ZoomedImage from '@components/ZoomedImage';
+import { theme } from '@/styles/theme';
 
 type Props = {
   images: Asset[] | undefined;
@@ -129,14 +130,11 @@ export default ImageContainer;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(${({ theme }) => theme.components.gallery.tileMinWidth}, 1fr)
-  );
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   width: 100%;
-  gap: ${({ theme }) => theme.layout.grid.gap};
+  gap: ${theme.layout.grid.gap};
   justify-content: center;
-  margin-top: ${({ theme }) => theme.components.gallery.topOffset};
+  margin-top: 2rem;
 `;
 
 const StyledImage = styled(Image)`
@@ -151,11 +149,11 @@ const StyledImage = styled(Image)`
 const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  padding-top: ${({ theme }) => theme.components.gallery.tileAspectPadding};
+  padding-top: 66%;
   overflow: hidden;
   cursor: zoom-in;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${theme.breakpoints.md}) {
     cursor: default;
   }
 `;

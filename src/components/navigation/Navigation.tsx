@@ -8,6 +8,7 @@ import DesktopNav from '@components/navigation/DesktopNav';
 import HamburgerIcon from '@components/navigation/HamburgerIcon';
 import MobileNav from '@components/navigation/MobileNav';
 import useIsMobile from '@utils/hooks/useIsMobile';
+import { theme } from '@/styles/theme';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -129,28 +130,27 @@ const Container = styled.div<{ $isNavBarVisible: boolean }>`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background: ${({ theme }) => theme.gradients.nav};
+  background: ${theme.gradients.nav};
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid ${({ theme }) => theme.semantic.border.subtle};
-  z-index: ${({ theme }) => theme.zIndex.nav};
+  border-bottom: 1px solid ${theme.semantic.border.subtle};
+  z-index: ${theme.zIndex.nav};
   position: sticky;
   top: 0;
-  transform: ${({ $isNavBarVisible, theme }) =>
+  transform: ${({ $isNavBarVisible }) =>
     $isNavBarVisible
       ? 'translateY(0)'
       : `translateY(${theme.layout.nav.hiddenOffset})`};
-  transition: transform ${({ theme }) => theme.motion.slow}
-    ${({ theme }) => theme.motion.easingEmphasized};
+  transition: transform ${theme.motion.slow} ${theme.motion.easingEmphasized};
 `;
 
 const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: ${({ theme }) => theme.spacing.md};
+  gap: ${theme.spacing.md};
   width: 100%;
-  max-width: ${({ theme }) => theme.layout.container.wide};
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
+  max-width: ${theme.layout.container.wide};
+  padding: ${theme.spacing.sm} ${theme.spacing.md};
 `;
 
 const BrandRow = styled.div`
@@ -167,18 +167,18 @@ const Logo = styled.img`
 const LinkLogo = styled(Link)`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => theme.spacing.xs};
+  gap: ${theme.spacing.xs};
   height: 100%;
 `;
 
 const BrandText = styled.span`
-  font-size: ${({ theme }) => theme.typography.label};
-  letter-spacing: ${({ theme }) => theme.components.nav.brandTracking};
-  color: ${({ theme }) => theme.semantic.text.muted};
+  font-size: ${theme.typography.label};
+  letter-spacing: 0.16rem;
+  color: ${theme.semantic.text.muted};
   text-transform: uppercase;
   white-space: nowrap;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+  @media (max-width: ${theme.breakpoints.xs}) {
     display: none;
   }
 `;

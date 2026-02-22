@@ -48,7 +48,7 @@ const ListingPageTemplate = <T,>({
 }: ListingPageTemplateProps<T>) => {
   return (
     <PageShell $surface='page' $variant='listing'>
-      <TemplateStack $gap={theme.components.listing.sectionGap}>
+      <TemplateStack $gap='4rem'>
         <ContentContainer $size='content' $viewport='compact'>
           <HeaderBlock>
             <Eyebrow>{eyebrow}</Eyebrow>
@@ -92,7 +92,7 @@ const TemplateStack = styled(SectionStack)`
 `;
 
 const CtaContainer = styled(ContentContainer)`
-  margin-top: ${theme.components.listing.cardsToCtaTop};
+  margin-top: 3.25rem;
 `;
 
 const CtaTitle = styled(SectionTitle)`
@@ -101,10 +101,10 @@ const CtaTitle = styled(SectionTitle)`
 
 const CtaText = styled(SectionText)`
   margin: ${theme.layout.rhythm.tight} auto ${theme.layout.rhythm.related};
-  max-width: ${theme.components.listing.ctaTextMaxWidth};
+  max-width: 44ch;
   color: ${theme.colors.textInverseSoft};
 `;
 
 const CtaLink = styled(ActionLink)`
-  min-width: ${theme.components.listing.ctaLinkMinWidth};
+  min-width: 10.5rem;
 `;

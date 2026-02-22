@@ -7,14 +7,14 @@ export const SoftPanel = styled.section<{ $padding?: string }>`
   border-radius: ${theme.radii.lg};
   background: ${theme.gradients.panelLight};
   box-shadow: ${theme.shadows.panel};
-  padding: ${({ $padding }) => $padding || theme.components.surface.softPadding};
+  padding: ${({ $padding }) => $padding || '2rem 1.75rem'};
 `;
 
 export const MutedPanel = styled.article<{ $padding?: string }>`
   border: 1px solid ${theme.semantic.border.subtle};
   border-radius: ${theme.radii.lg};
   background: ${theme.semantic.surface.elevatedMuted};
-  padding: ${({ $padding }) => $padding || theme.components.surface.mutedPadding};
+  padding: ${({ $padding }) => $padding || '1.75rem 1.5rem'};
 `;
 
 export const MediaFrame = styled.div`

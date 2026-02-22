@@ -64,8 +64,8 @@ const AboutPage = () => {
       </ContentContainer>
 
       <ContentContainer $size='wide'>
-        <PlainSection $mt={theme.components.about.heroToSectionsTop}>
-          <AboutCardGrid $min={theme.components.about.sectionCardMinWidth}>
+        <PlainSection $mt='6rem'>
+          <AboutCardGrid $min='18rem'>
             <SectionCard>
               <SectionTitle>Ko mes daram</SectionTitle>
               <SectionText>
@@ -88,9 +88,9 @@ const AboutPage = () => {
       </ContentContainer>
 
       <ContentContainer $size='wide'>
-        <PlainSection $mt={theme.components.about.betweenSectionsTop}>
+        <PlainSection $mt='5rem'>
           <ValuesTitle>Principi, pie kuriem turamies</ValuesTitle>
-          <AboutCardGrid $min={theme.components.about.valueCardMinWidth}>
+          <AboutCardGrid $min='16rem'>
             <ValueCard>
               <ValueName>Praktiskums</ValueName>
               <ValueText>
@@ -124,7 +124,7 @@ export default AboutPage;
 const Hero = styled.section`
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  gap: ${theme.components.about.heroGap};
+  gap: 1.6rem;
   align-items: stretch;
 
   @media (max-width: ${theme.breakpoints.lg}) {
@@ -134,13 +134,13 @@ const Hero = styled.section`
 
 const HeroMedia = styled(MediaFrame)`
   width: 100%;
-  aspect-ratio: ${theme.components.about.heroMediaAspect};
-  min-height: ${theme.components.about.heroMediaMinHeight};
+  aspect-ratio: 5 / 6;
+  min-height: 28rem;
   background: ${theme.colors.surfaceElevatedMuted};
 
   @media (max-width: ${theme.breakpoints.lg}) {
-    aspect-ratio: ${theme.components.about.heroMediaAspectCompact};
-    min-height: ${theme.components.about.heroMediaMinHeightCompact};
+    aspect-ratio: 4 / 5;
+    min-height: 16rem;
   }
 `;
 
@@ -149,7 +149,7 @@ const HeroContent = styled(SoftPanel)`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: ${theme.components.about.heroPanelPadding};
+  padding: 2.4rem;
 `;
 
 const Eyebrow = styled(SharedEyebrow)``;
@@ -157,19 +157,19 @@ const Eyebrow = styled(SharedEyebrow)``;
 const Title = styled(DisplayTitle)``;
 
 const Lead = styled(LeadText)`
-  margin-top: ${theme.components.about.leadTop};
+  margin-top: 1.1rem;
   max-width: 52ch;
 `;
 
 const Actions = styled.div`
-  margin-top: ${theme.components.about.actionsTop};
+  margin-top: 1.8rem;
   display: flex;
-  gap: ${theme.components.about.actionsGap};
+  gap: 1rem;
   flex-wrap: wrap;
 `;
 
 const AboutCardGrid = styled(CardGrid)`
-  gap: ${theme.components.about.sectionGap};
+  gap: 1.9rem;
 `;
 
 const SectionCard = styled(MutedPanel)`
@@ -179,22 +179,22 @@ const SectionCard = styled(MutedPanel)`
 const SectionTitle = styled(SharedSectionTitle)``;
 
 const SectionText = styled(SharedSectionText)`
-  margin-top: ${theme.components.about.sectionTextTop};
+  margin-top: 1rem;
   line-height: 1.7;
 `;
 
 const ValuesTitle = styled(SharedSectionTitle)`
-  margin-bottom: ${theme.components.about.valuesTitleBottom};
+  margin-bottom: 1.1rem;
 `;
 
 const ValueCard = styled(SoftPanel)`
-  padding: ${theme.components.about.valueCardPadding};
+  padding: 2rem 1.6rem;
 `;
 
 const ValueName = styled(FeatureTitle)``;
 
 const ValueText = styled(BodyText)`
-  margin-top: ${theme.components.about.valueTextTop};
+  margin-top: 0.6rem;
 `;
 
 const StyledImage = styled(Image)`

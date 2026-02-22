@@ -76,7 +76,7 @@ const Card = styled.div`
     box-shadow ${theme.motion.normal} ${theme.motion.easing};
 
   &:hover {
-    transform: translateY(${theme.components.card.hoverLift});
+    transform: translateY(-4px);
     box-shadow: ${theme.shadows.strong};
   }
 `;
@@ -95,16 +95,16 @@ const StyledLink = styled(Link).attrs({
 const Media = styled.div`
   position: relative;
   width: 100%;
-  min-height: ${theme.components.card.mediaMinHeight};
+  min-height: 14rem;
   overflow: hidden;
 
   @media (max-width: ${theme.breakpoints.md}) {
-    min-height: ${theme.components.card.mediaMinHeightCompact};
+    min-height: 12rem;
   }
 `;
 
 const MediaPlaceholder = styled.div`
-  min-height: ${theme.components.card.mediaMinHeight};
+  min-height: 14rem;
   background: ${theme.gradients.placeholder};
 `;
 
@@ -117,26 +117,26 @@ const Description = styled.div`
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
-  min-height: ${theme.components.card.descriptionMinHeight};
-  gap: ${theme.components.card.descriptionGap};
-  padding: ${theme.components.card.descriptionPadding};
+  min-height: 13rem;
+  gap: 1rem;
+  padding: 1.9rem 1.65rem 2rem;
 `;
 
 const Meta = styled.p`
   text-transform: uppercase;
-  letter-spacing: ${theme.components.card.metaTracking};
-  font-size: ${theme.components.card.metaSize};
+  letter-spacing: 0.14rem;
+  font-size: 0.72rem;
   color: ${theme.semantic.text.subtle};
 `;
 
 const Title = styled.h2`
   line-height: ${theme.typography.lineHeightHeading};
-  font-size: ${theme.components.card.titleSize};
+  font-size: clamp(1.3rem, 1.8vw, 1.9rem);
   font-weight: ${theme.fontWeights.bold};
   color: ${theme.colors.title};
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: ${theme.components.card.titleLines};
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
 
@@ -146,16 +146,16 @@ const Excerpt = styled.p`
   color: ${theme.semantic.text.primary};
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: ${theme.components.card.excerptLines};
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 `;
 
 const Action = styled.span`
   margin-top: auto;
-  padding-top: ${theme.components.card.actionTopSpacing};
+  padding-top: 1.15rem;
   text-transform: uppercase;
-  letter-spacing: ${theme.components.card.actionTracking};
-  font-size: ${theme.components.card.actionSize};
+  letter-spacing: 0.08rem;
+  font-size: 0.82rem;
   font-weight: ${theme.fontWeights.bold};
   color: ${theme.colors.darkGreen};
 `;

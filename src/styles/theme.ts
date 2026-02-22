@@ -1,6 +1,5 @@
 import { palette } from '@/styles/palette';
 import {
-  componentTokens,
   layoutTokens,
   motionTokens,
   typographyTokens,
@@ -207,7 +206,6 @@ export const theme = {
     normal: '48rem',
     wide: '75rem',
   },
-  components: componentTokens,
   layout: layoutTokens,
   motion: motionTokens,
   zIndex: zIndexTokens,

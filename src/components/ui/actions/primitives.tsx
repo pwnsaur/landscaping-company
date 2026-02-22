@@ -27,14 +27,14 @@ export const ActionLink = styled(Link)<{
   ${({ $size = 'md' }) =>
     $size === 'sm'
       ? css`
-          padding: ${theme.components.action.smPadding};
-          font-size: ${theme.components.action.smSize};
-          letter-spacing: ${theme.components.action.smTracking};
+          padding: 0.62rem 1rem;
+          font-size: 0.8rem;
+          letter-spacing: 0.06rem;
         `
       : css`
-          padding: ${theme.components.action.mdPadding};
-          font-size: ${theme.components.action.mdSize};
-          letter-spacing: ${theme.components.action.mdTracking};
+          padding: 0.75rem 1.2rem;
+          font-size: 0.84rem;
+          letter-spacing: 0.07rem;
         `}
 
   ${({ $variant = 'outline' }) => {
@@ -45,7 +45,7 @@ export const ActionLink = styled(Link)<{
         color: ${theme.semantic.text.onAccent};
 
         &:hover {
-          transform: translateY(${theme.components.action.hoverLiftPrimary});
+          transform: translateY(-2px);
           box-shadow: ${theme.shadows.softLift};
         }
       `;
@@ -70,7 +70,7 @@ export const ActionLink = styled(Link)<{
       color: ${theme.colors.darkGreen};
 
       &:hover {
-        transform: translateY(${theme.components.action.hoverLiftDefault});
+        transform: translateY(-1px);
         background: ${theme.semantic.interactive.ghost};
       }
     `;

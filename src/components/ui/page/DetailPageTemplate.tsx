@@ -106,23 +106,23 @@ const BackLink = styled(ActionLink).attrs({
   $variant: 'outline',
   $size: 'sm',
 })`
-  min-width: ${theme.components.detail.backMinWidth};
+  min-width: 10.4rem;
 `;
 
 const Title = styled(PageTitle)`
-  margin-top: ${theme.components.detail.titleTop};
+  margin-top: 1.1rem;
 `;
 
 const Lead = styled(PageLead)`
-  margin-top: ${theme.components.detail.leadTop};
+  margin-top: 1.1rem;
   max-width: 56ch;
 `;
 
 const Meta = styled.p`
-  margin-top: ${theme.components.detail.metaTop};
+  margin-top: 1rem;
   text-transform: uppercase;
-  letter-spacing: ${theme.components.detail.metaTracking};
-  font-size: ${theme.components.detail.metaSize};
+  letter-spacing: 0.08rem;
+  font-size: 0.75rem;
   color: ${theme.semantic.text.subtle};
 `;
 
@@ -130,7 +130,7 @@ const ContentGrid = styled.section<{ $hasMedia: boolean }>`
   display: grid;
   grid-template-columns: ${({ $hasMedia }) =>
     $hasMedia ? 'minmax(0, 0.9fr) minmax(0, 1.1fr)' : '1fr'};
-  gap: ${theme.components.detail.gridGap};
+  gap: 1.5rem;
 
   @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
@@ -138,10 +138,10 @@ const ContentGrid = styled.section<{ $hasMedia: boolean }>`
 `;
 
 const Media = styled(MediaFrame)`
-  min-height: ${theme.components.detail.mediaMinHeight};
+  min-height: 24rem;
 
   @media (max-width: ${theme.breakpoints.tablet}) {
-    min-height: ${theme.components.detail.mediaMinHeightCompact};
+    min-height: 16rem;
   }
 `;
 
@@ -152,31 +152,28 @@ const CoverImageElement = styled(Image)`
 const Description = styled(SoftPanel).attrs({
   as: 'article',
 })`
-  padding: ${theme.components.detail.descriptionPadding};
+  padding: 2rem;
   color: ${theme.semantic.text.primary};
   line-height: ${theme.typography.lineHeightRelaxed};
 
   h2,
   h3 {
-    margin: ${theme.components.detail.descriptionHeadingTop} 0
-      ${theme.components.detail.descriptionHeadingBottom};
+    margin: 1.3rem 0 0.75rem;
     color: ${theme.colors.title};
-    letter-spacing: ${theme.components.detail.descriptionHeadingTracking};
+    letter-spacing: 0.04rem;
   }
 
   p {
-    margin: ${theme.components.detail.paragraphSpacing} 0;
+    margin: 1rem 0;
   }
 
   ul,
   ol {
-    margin: ${theme.components.detail.listVerticalSpacing} 0
-      ${theme.components.detail.listVerticalSpacing}
-      ${theme.components.detail.listIndent};
+    margin: 1.1rem 0 1.1rem 1.2rem;
   }
 `;
 
 const SectionTitle = styled(SectionHeading)`
-  letter-spacing: ${theme.components.detail.sectionTitleTracking};
-  margin-bottom: ${theme.components.detail.sectionTitleBottom};
+  letter-spacing: 0.08rem;
+  margin-bottom: 1.1rem;
 `;
