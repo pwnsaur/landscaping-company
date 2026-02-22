@@ -119,8 +119,9 @@ const FooterLink = styled(Link)`
 
 const ActionCard = styled.section`
   border: 1px solid ${({ theme }) => theme.colors.lineOnDarkSoft};
+  border-radius: ${({ theme }) => theme.radii.lg};
   background: ${({ theme }) => theme.colors.surfaceDarkSoft};
-  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.md}`};
+  padding: ${({ theme }) => `${theme.spacing.lg} ${theme.spacing.md}`};
 `;
 
 const ActionTitle = styled.h3`

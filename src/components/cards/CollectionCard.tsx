@@ -67,6 +67,8 @@ const Card = styled.div`
   width: 100%;
   height: 100%;
   border: 1px solid ${theme.semantic.border.subtle};
+  border-radius: ${theme.radii.lg};
+  overflow: hidden;
   background: ${theme.gradients.panelLight};
   box-shadow: ${theme.shadows.medium};
   transition:
@@ -128,7 +130,6 @@ const Meta = styled.p`
 `;
 
 const Title = styled.h2`
-  text-transform: uppercase;
   line-height: ${theme.typography.lineHeightHeading};
   font-size: ${theme.components.card.titleSize};
   font-weight: ${theme.fontWeights.bold};

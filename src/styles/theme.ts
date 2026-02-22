@@ -37,9 +37,9 @@ export const theme = {
     surfaceDark: palette.pine800,
     surfaceDarkSoft: 'rgba(12, 25, 18, 0.3)',
     surfaceHighlight: 'rgba(255, 255, 255, 0.7)',
-    lineSoft: 'rgba(57, 65, 47, 0.16)',
-    lineStrong: 'rgba(33, 65, 42, 0.34)',
-    lineAccent: 'rgba(33, 65, 42, 0.5)',
+    lineSoft: 'rgba(57, 65, 47, 0.10)',
+    lineStrong: 'rgba(33, 65, 42, 0.22)',
+    lineAccent: 'rgba(33, 65, 42, 0.38)',
     lineOnDarkSoft: 'rgba(255, 255, 255, 0.22)',
     lineOnDarkStrong: 'rgba(255, 255, 255, 0.6)',
     lineOnDarkMuted: 'rgba(255, 255, 255, 0.14)',
@@ -78,9 +78,9 @@ export const theme = {
       darkSoft: 'rgba(12, 25, 18, 0.3)',
     },
     border: {
-      subtle: 'rgba(57, 65, 47, 0.16)',
-      strong: 'rgba(33, 65, 42, 0.34)',
-      accent: 'rgba(33, 65, 42, 0.5)',
+      subtle: 'rgba(57, 65, 47, 0.10)',
+      strong: 'rgba(33, 65, 42, 0.22)',
+      accent: 'rgba(33, 65, 42, 0.38)',
       onDark: 'rgba(255, 255, 255, 0.22)',
       onDarkStrong: 'rgba(255, 255, 255, 0.6)',
     },
@@ -94,20 +94,20 @@ export const theme = {
   },
   gradients: {
     page:
-      'radial-gradient(circle at 14% 0%, rgba(33, 65, 42, 0.18), transparent 35%), radial-gradient(circle at 86% 14%, rgba(57, 65, 47, 0.12), transparent 33%), linear-gradient(180deg, #f3f3f3 0%, #ededed 100%)',
+      'radial-gradient(circle at 14% 0%, rgba(33, 65, 42, 0.07), transparent 35%), radial-gradient(circle at 86% 14%, rgba(57, 65, 47, 0.05), transparent 33%), linear-gradient(180deg, #f9f9f6 0%, #f3f3ef 100%)',
     pageDetail:
-      'radial-gradient(circle at 85% 0%, rgba(57, 65, 47, 0.14), transparent 32%), linear-gradient(180deg, #f4f4f4 0%, #ededed 100%)',
+      'radial-gradient(circle at 85% 0%, rgba(57, 65, 47, 0.06), transparent 32%), linear-gradient(180deg, #f9f9f6 0%, #f3f3ef 100%)',
     panelLight:
-      'linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, #f4f4f4 100%)',
+      'linear-gradient(165deg, rgba(255, 255, 255, 1) 0%, #f9f9f6 100%)',
     panelDark: 'linear-gradient(155deg, #1d3c27 0%, #153021 100%)',
     footer:
       'radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.08), transparent 32%), linear-gradient(160deg, #1d3d29 0%, #142d1f 100%)',
     nav:
-      'linear-gradient(150deg, rgba(250, 250, 248, 0.9) 0%, rgba(236, 238, 233, 0.88) 100%)',
+      'linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(249, 249, 246, 0.94) 100%)',
     placeholder:
       'radial-gradient(circle at 24% 20%, rgba(62, 80, 59, 0.45), transparent 54%), linear-gradient(160deg, #364a3c 0%, #213129 100%)',
     homePage:
-      'linear-gradient(180deg, #0f1d15 0%, #1d3c27 42%, #ededed 76%)',
+      'linear-gradient(180deg, #0f1d15 0%, #1d3c27 42%, #f3f3ef 76%)',
     heroShade:
       'linear-gradient(180deg, rgba(4, 10, 7, 0.68) 0%, rgba(9, 20, 14, 0.6) 28%, rgba(9, 20, 14, 0.25) 70%, rgba(9, 20, 14, 0.05) 100%), radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.22), transparent 40%)',
     heroGlow:
@@ -116,24 +116,24 @@ export const theme = {
       'linear-gradient(150deg, rgba(10, 22, 16, 0.6) 0%, rgba(12, 25, 18, 0.44) 100%)',
   },
   shadows: {
-    soft: '0 8px 24px rgba(23, 34, 26, 0.08)',
-    medium: '0 18px 42px rgba(23, 34, 26, 0.1)',
-    strong: '0 24px 44px rgba(18, 29, 21, 0.14)',
-    panel: '0 18px 38px rgba(21, 31, 24, 0.08)',
-    raised: '0 20px 46px rgba(22, 33, 25, 0.12)',
-    softLift: '0 10px 20px rgba(28, 54, 37, 0.18)',
+    soft: '0 4px 16px rgba(0, 0, 0, 0.05)',
+    medium: '0 10px 32px rgba(0, 0, 0, 0.07)',
+    strong: '0 16px 40px rgba(0, 0, 0, 0.1)',
+    panel: '0 8px 28px rgba(0, 0, 0, 0.05)',
+    raised: '0 12px 36px rgba(0, 0, 0, 0.07)',
+    softLift: '0 8px 18px rgba(28, 54, 37, 0.14)',
     sidePanel: '-18px 0 42px rgba(13, 22, 16, 0.2)',
     heroPanel: '0 22px 90px rgba(5, 13, 9, 0.35)',
     darkStrong: '0 18px 54px rgba(10, 21, 15, 0.28)',
-    darkSoft: '0 18px 46px rgba(31, 44, 34, 0.09)',
-    modal: '0 12px 28px rgba(0, 0, 0, 0.2)',
+    darkSoft: '0 12px 36px rgba(0, 0, 0, 0.06)',
+    modal: '0 8px 24px rgba(0, 0, 0, 0.14)',
   },
   radii: {
     none: '0',
-    sm: '0.15rem',
-    md: '0.3rem',
-    lg: '0.55rem',
-    xl: '0.85rem',
+    sm: '0.25rem',
+    md: '0.45rem',
+    lg: '0.85rem',
+    xl: '1.2rem',
     full: '999px',
   },
   spacing: {

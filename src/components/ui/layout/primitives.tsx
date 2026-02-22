@@ -101,6 +101,7 @@ export const CenteredPanel = styled.section`
   text-align: center;
   line-height: ${theme.typography.lineHeightRelaxed};
   border: 1px solid ${theme.semantic.border.subtle};
+  border-radius: ${theme.radii.lg};
   background: ${theme.colors.surfaceElevatedSoft};
   padding: ${theme.spacing.lg} ${theme.spacing.md};
 `;
@@ -109,6 +110,7 @@ export const DarkCtaPanel = styled.section`
   width: 100%;
   text-align: center;
   border: 1px solid ${theme.semantic.border.strong};
+  border-radius: ${theme.radii.xl};
   background: ${theme.gradients.panelDark};
   color: ${theme.semantic.text.onAccent};
   padding: ${theme.spacing.xl} ${theme.spacing.lg};

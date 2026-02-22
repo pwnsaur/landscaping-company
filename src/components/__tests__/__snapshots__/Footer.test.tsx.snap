@@ -9,7 +9,7 @@ exports[`Footer Component matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   border: 1px solid;
-  border-radius: 0.15rem;
+  border-radius: 0.25rem;
   transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;
   padding: 0.75rem 1.2rem;
   font-size: 0.84rem;
@@ -25,7 +25,7 @@ exports[`Footer Component matches the snapshot 1`] = `
 }
 
 .c12:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.34);
+  outline: 2px solid rgba(33, 65, 42, 0.22);
   outline-offset: 2px;
 }
 
@@ -102,8 +102,9 @@ exports[`Footer Component matches the snapshot 1`] = `
 
 .c9 {
   border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0.85rem;
   background: rgba(12, 25, 18, 0.3);
-  padding: 1rem 1rem;
+  padding: 1.5rem 1rem;
 }
 
 .c10 {

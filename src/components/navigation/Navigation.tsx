@@ -130,9 +130,8 @@ const Container = styled.div<{ $isNavBarVisible: boolean }>`
   align-items: center;
   width: 100%;
   background: ${({ theme }) => theme.gradients.nav};
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid ${({ theme }) => theme.semantic.border.subtle};
-  box-shadow: ${({ theme }) => theme.shadows.soft};
   z-index: ${({ theme }) => theme.zIndex.nav};
   position: sticky;
   top: 0;

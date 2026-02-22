@@ -154,9 +154,7 @@ const HeroContent = styled(SoftPanel)`
 
 const Eyebrow = styled(SharedEyebrow)``;
 
-const Title = styled(DisplayTitle)`
-  text-transform: uppercase;
-`;
+const Title = styled(DisplayTitle)``;
 
 const Lead = styled(LeadText)`
   margin-top: ${theme.components.about.leadTop};
@@ -186,7 +184,6 @@ const SectionText = styled(SharedSectionText)`
 `;
 
 const ValuesTitle = styled(SharedSectionTitle)`
-  letter-spacing: ${theme.typography.trackingWide};
   margin-bottom: ${theme.components.about.valuesTitleBottom};
 `;
 

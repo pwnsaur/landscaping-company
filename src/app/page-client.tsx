@@ -336,6 +336,7 @@ const Panel = styled.article<{ $accent?: boolean }>`
   border: 1px solid
     ${({ theme, $accent }) =>
       $accent ? theme.colors.lineOnDarkSoft : theme.colors.lineSoft};
+  border-radius: ${({ theme }) => theme.radii.xl};
   background: ${({ $accent, theme }) =>
     $accent ? theme.gradients.panelDark : theme.gradients.panelLight};
   color: ${({ $accent, theme }) =>
@@ -350,9 +351,9 @@ const Panel = styled.article<{ $accent?: boolean }>`
 `;
 
 const PanelTitle = styled.h2`
-  text-transform: uppercase;
   letter-spacing: ${({ theme }) => theme.components.home.panelTitleTracking};
   font-size: ${({ theme }) => theme.components.home.panelTitleSize};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   color: inherit;
   margin-bottom: ${({ theme }) => theme.components.home.panelTitleBottom};
 `;

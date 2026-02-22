@@ -9,13 +9,13 @@ exports[`SquareButton component matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   border: 1px solid;
-  border-radius: 0.15rem;
+  border-radius: 0.25rem;
   transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;
   padding: 0.75rem 1.2rem;
   font-size: 0.84rem;
   letter-spacing: 0.07rem;
   background: transparent;
-  border-color: rgba(33, 65, 42, 0.5);
+  border-color: rgba(33, 65, 42, 0.38);
   color: #21412a;
 }
 
@@ -25,7 +25,7 @@ exports[`SquareButton component matches the snapshot 1`] = `
 }
 
 .c0:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.34);
+  outline: 2px solid rgba(33, 65, 42, 0.22);
   outline-offset: 2px;
 }
 
@@ -35,7 +35,7 @@ exports[`SquareButton component matches the snapshot 1`] = `
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.04rem;
-  box-shadow: 0 8px 24px rgba(23, 34, 26, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 <a
