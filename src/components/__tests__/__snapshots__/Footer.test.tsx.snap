@@ -9,7 +9,7 @@ exports[`Footer Component matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   border: 1px solid;
-  border-radius: 0.25rem;
+  border-radius: 999px;
   transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;
   padding: 0.75rem 1.2rem;
   font-size: 0.84rem;
@@ -21,11 +21,11 @@ exports[`Footer Component matches the snapshot 1`] = `
 
 .c12:hover {
   background: #fff;
-  color: #21412a;
+  color: #2b5437;
 }
 
 .c12:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.22);
+  outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
 
@@ -60,7 +60,7 @@ exports[`Footer Component matches the snapshot 1`] = `
 .c4 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
-  font-size: clamp(1.08rem, 2.3vw, 1.6rem);
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
   color: #ffffff;
 }
 
@@ -80,7 +80,7 @@ exports[`Footer Component matches the snapshot 1`] = `
 .c7 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.25rem;
 }

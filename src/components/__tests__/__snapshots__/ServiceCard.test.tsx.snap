@@ -57,10 +57,10 @@ exports[`ServiceCard renders correctly 1`] = `
 }
 
 .c6 {
-  line-height: 1.2;
+  line-height: 1.22;
   font-size: clamp(1.3rem, 1.8vw, 1.9rem);
   font-weight: 600;
-  color: #39412f;
+  color: #2d3328;
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 2;
@@ -69,7 +69,7 @@ exports[`ServiceCard renders correctly 1`] = `
 
 .c7 {
   flex: 1;
-  line-height: 1.65;
+  line-height: 1.68;
   color: #2f362a;
   display: -webkit-box;
   overflow: hidden;
@@ -84,7 +84,7 @@ exports[`ServiceCard renders correctly 1`] = `
   letter-spacing: 0.08rem;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #21412a;
+  color: #2b5437;
 }
 
 @media (max-width:768px) {

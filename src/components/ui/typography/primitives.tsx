@@ -17,10 +17,10 @@ export const Eyebrow = styled.p`
 export const PageTitle = styled.h1`
   max-width: ${theme.typography.headingMaxWidth};
   margin: 0 auto;
-  text-transform: uppercase;
   line-height: ${theme.typography.lineHeightTight};
   font-size: ${theme.typography.heading};
   font-weight: ${theme.fontWeights.bold};
+  letter-spacing: ${theme.typography.trackingTight};
   color: ${theme.colors.title};
 `;
 

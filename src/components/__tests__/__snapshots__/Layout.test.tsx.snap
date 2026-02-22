@@ -9,7 +9,7 @@ exports[`Layout component matches the snapshot 1`] = `
   text-transform: uppercase;
   font-weight: 600;
   border: 1px solid;
-  border-radius: 0.25rem;
+  border-radius: 999px;
   transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease;
   padding: 0.75rem 1.2rem;
   font-size: 0.84rem;
@@ -21,11 +21,11 @@ exports[`Layout component matches the snapshot 1`] = `
 
 .c25:hover {
   background: #fff;
-  color: #21412a;
+  color: #2b5437;
 }
 
 .c25:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.22);
+  outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
 
@@ -60,7 +60,7 @@ exports[`Layout component matches the snapshot 1`] = `
 .c17 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
-  font-size: clamp(1.08rem, 2.3vw, 1.6rem);
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
   color: #ffffff;
 }
 
@@ -80,7 +80,7 @@ exports[`Layout component matches the snapshot 1`] = `
 .c20 {
   text-transform: uppercase;
   letter-spacing: 0.12rem;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.25rem;
 }
@@ -157,27 +157,27 @@ exports[`Layout component matches the snapshot 1`] = `
   justify-content: center;
   width: auto;
   font-size: 0.92rem;
-  letter-spacing: 0.05rem;
-  color: #21412a;
+  letter-spacing: 0.04rem;
+  color: #2b5437;
   text-transform: uppercase;
   min-height: 2.35rem;
   padding: 0.5rem 0.75rem;
   white-space: nowrap;
   border-radius: 0.25rem;
-  border: 1px solid rgba(33, 65, 42, 0.22);
-  background: rgba(33, 65, 42, 0.09);
+  border: 1px solid rgba(43, 84, 55, 0.22);
+  background: rgba(43, 84, 55, 0.09);
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 
 .c10:hover {
-  color: #21412a;
-  border-color: rgba(33, 65, 42, 0.22);
-  background: rgba(33, 65, 42, 0.08);
+  color: #2b5437;
+  border-color: rgba(43, 84, 55, 0.22);
+  background: rgba(43, 84, 55, 0.08);
   transform: translateY(-1px);
 }
 
 .c10:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.22);
+  outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
 
@@ -187,7 +187,7 @@ exports[`Layout component matches the snapshot 1`] = `
   justify-content: center;
   width: auto;
   font-size: 0.92rem;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.04rem;
   color: #1f271d;
   text-transform: uppercase;
   min-height: 2.35rem;
@@ -200,14 +200,14 @@ exports[`Layout component matches the snapshot 1`] = `
 }
 
 .c11:hover {
-  color: #21412a;
-  border-color: rgba(33, 65, 42, 0.22);
-  background: rgba(33, 65, 42, 0.08);
+  color: #2b5437;
+  border-color: rgba(43, 84, 55, 0.22);
+  background: rgba(43, 84, 55, 0.08);
   transform: translateY(-1px);
 }
 
 .c11:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.22);
+  outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
 
@@ -263,8 +263,8 @@ exports[`Layout component matches the snapshot 1`] = `
 }
 
 .c6 {
-  font-size: 0.76rem;
-  letter-spacing: 0.24rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.16rem;
   color: #4d5846;
   text-transform: uppercase;
   white-space: nowrap;

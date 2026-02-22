@@ -161,7 +161,6 @@ const Description = styled(SoftPanel).attrs({
     margin: ${theme.components.detail.descriptionHeadingTop} 0
       ${theme.components.detail.descriptionHeadingBottom};
     color: ${theme.colors.title};
-    text-transform: uppercase;
     letter-spacing: ${theme.components.detail.descriptionHeadingTracking};
   }
 
