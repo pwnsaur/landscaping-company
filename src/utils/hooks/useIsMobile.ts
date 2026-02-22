@@ -5,13 +5,7 @@ const hasMatchMedia = () =>
   typeof window !== 'undefined' && typeof window.matchMedia === 'function';
 
 const useIsMobile = (): boolean => {
-  const [isMobile, setIsMobile] = useState<boolean>(() => {
-    if (!hasMatchMedia()) {
-      return false;
-    }
-
-    return window.matchMedia(MOBILE_QUERY).matches;
-  });
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
     if (!hasMatchMedia()) {
