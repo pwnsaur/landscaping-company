@@ -157,12 +157,12 @@ const ContactForm = () => {
       }
 
       openModal(result.message, !result.isSuccessful);
+      formStartedAtRef.current = Date.now();
 
       if (result.isSuccessful) {
         resetForm();
         setFormErrors({});
         setWebsite('');
-        formStartedAtRef.current = Date.now();
       }
     } catch {
       openModal('Ziņojumu neizdevās nosūtīt. Mēģini vēlreiz.', true);
