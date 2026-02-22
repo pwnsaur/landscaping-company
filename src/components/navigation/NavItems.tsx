@@ -69,7 +69,7 @@ const Item = styled.li`
 const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
   display: flex;
   align-items: center;
-  justify-content: ${({ $mobile }) => ($mobile ? 'space-between' : 'center')};
+  justify-content: ${({ $mobile }) => ($mobile ? 'flex-start' : 'center')};
   width: ${({ $mobile }) => ($mobile ? '100%' : 'auto')};
   font-size: ${({ $mobile }) => ($mobile ? '1.15rem' : '0.92rem')};
   letter-spacing: ${({ $mobile }) => ($mobile ? '0.05rem' : '0.04rem')};
@@ -81,12 +81,8 @@ const StyledLink = styled(Link)<{ $active: boolean; $mobile?: boolean }>`
   border-radius: ${theme.radii.sm};
   border: 1px solid
     ${({ $active }) => ($active ? theme.semantic.border.strong : 'transparent')};
-  background: ${({ $active, $mobile }) =>
-    $active
-      ? theme.semantic.interactive.active
-      : $mobile
-        ? theme.colors.glowSoft
-        : 'transparent'};
+  background: ${({ $active }) =>
+    $active ? theme.semantic.interactive.active : 'transparent'};
   transition:
     color ${theme.motion.normal} ${theme.motion.easing},
     background-color ${theme.motion.normal} ${theme.motion.easing},

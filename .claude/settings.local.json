@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "mcp__Claude_in_Chrome__switch_browser",
-      "Bash(npm test:*)"
+      "Bash(npm test:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(printf:*)",
+      "Bash(git -C /Users/kaspars/dev/brasika-site add .husky/pre-commit)",
+      "Bash(git -C /Users/kaspars/dev/brasika-site commit -m \"update husky pre-commit to v9 format\")",
+      "Bash(git -C /Users/kaspars/dev/brasika-site push)",
+      "WebFetch(domain:styled-components.com)"
     ]
   },
   "enableAllProjectMcpServers": false

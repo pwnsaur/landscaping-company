@@ -27,9 +27,7 @@ export default HamburgerIcon;
 const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
   width: 2.7rem;
   height: 2.7rem;
-  position: ${({ $open }) => ($open ? 'fixed' : 'static')};
-  top: ${({ $open }) => ($open ? '1.25rem' : 'auto')};
-  left: ${({ $open }) => ($open ? theme.spacing.md : 'auto')};
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +39,7 @@ const StyledHamburgerIcon = styled.button<{ $open: boolean }>`
   transition: transform ${theme.motion.slow} ${theme.motion.easingEmphasized};
   cursor: pointer;
   margin: 0;
-  z-index: ${theme.zIndex.floating};
+  visibility: ${({ $open }) => ($open ? 'hidden' : 'visible')};
 
   &:focus-visible {
     outline: 2px solid ${theme.semantic.border.strong};
