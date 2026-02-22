@@ -7,9 +7,9 @@ exports[`Button component matches the snapshot for enabled state 1`] = `
   min-width: 8.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
-  background-color: #21412a;
+  background-color: #2b5437;
   color: #ffffff;
-  border: 1px solid #21412a;
+  border: 1px solid #2b5437;
   border-radius: 0.25rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   font-size: 1rem;
@@ -21,13 +21,13 @@ exports[`Button component matches the snapshot for enabled state 1`] = `
 .c0:hover {
   transform: translateY(-1px);
   background-color: transparent;
-  color: #21412a;
+  color: #2b5437;
 }
 
 .c0:disabled {
   transform: none;
-  background-color: rgba(33, 65, 42, 0.35);
-  border-color: rgba(33, 65, 42, 0.28);
+  background-color: rgba(43, 84, 55, 0.35);
+  border-color: rgba(43, 84, 55, 0.28);
   color: #696767;
   cursor: not-allowed;
 }

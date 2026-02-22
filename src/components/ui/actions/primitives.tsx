@@ -16,7 +16,7 @@ export const ActionLink = styled(Link)<{
   text-transform: uppercase;
   font-weight: ${theme.fontWeights.bold};
   border: 1px solid;
-  border-radius: ${theme.radii.sm};
+  border-radius: ${theme.radii.full};
   transition:
     transform ${theme.motion.normal} ${theme.motion.easing},
     box-shadow ${theme.motion.normal} ${theme.motion.easing},

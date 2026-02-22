@@ -22,27 +22,27 @@ exports[`MobileNav component matches the snapshot 1`] = `
   justify-content: space-between;
   width: 100%;
   font-size: 1.15rem;
-  letter-spacing: 0.06rem;
-  color: #21412a;
+  letter-spacing: 0.05rem;
+  color: #2b5437;
   text-transform: uppercase;
   min-height: 2.8rem;
   padding: 0.75rem 1rem;
   white-space: nowrap;
   border-radius: 0.25rem;
-  border: 1px solid rgba(33, 65, 42, 0.22);
-  background: rgba(33, 65, 42, 0.09);
+  border: 1px solid rgba(43, 84, 55, 0.22);
+  background: rgba(43, 84, 55, 0.09);
   transition: color 0.2s ease,background-color 0.2s ease,border-color 0.2s ease,transform 0.2s ease;
 }
 
 .c6:hover {
-  color: #21412a;
-  border-color: rgba(33, 65, 42, 0.22);
-  background: rgba(33, 65, 42, 0.08);
+  color: #2b5437;
+  border-color: rgba(43, 84, 55, 0.22);
+  background: rgba(43, 84, 55, 0.08);
   transform: translateY(-1px);
 }
 
 .c6:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.22);
+  outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
 
@@ -52,7 +52,7 @@ exports[`MobileNav component matches the snapshot 1`] = `
   justify-content: space-between;
   width: 100%;
   font-size: 1.15rem;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.05rem;
   color: #1f271d;
   text-transform: uppercase;
   min-height: 2.8rem;
@@ -65,14 +65,14 @@ exports[`MobileNav component matches the snapshot 1`] = `
 }
 
 .c7:hover {
-  color: #21412a;
-  border-color: rgba(33, 65, 42, 0.22);
-  background: rgba(33, 65, 42, 0.08);
+  color: #2b5437;
+  border-color: rgba(43, 84, 55, 0.22);
+  background: rgba(43, 84, 55, 0.08);
   transform: translateY(-1px);
 }
 
 .c7:focus-visible {
-  outline: 2px solid rgba(33, 65, 42, 0.22);
+  outline: 2px solid rgba(43, 84, 55, 0.22);
   outline-offset: 2px;
 }
 
@@ -112,8 +112,8 @@ exports[`MobileNav component matches the snapshot 1`] = `
 
 .c3 {
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-size: 0.76rem;
+  letter-spacing: 0.12rem;
+  font-size: 0.74rem;
   color: #4d5846;
   margin-bottom: 0.75rem;
 }

@@ -16,8 +16,8 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c5:focus {
-  border-color: #21412a;
-  box-shadow: 0 0 0 3px rgba(33, 65, 42, 0.12);
+  border-color: #2b5437;
+  box-shadow: 0 0 0 3px rgba(43, 84, 55, 0.12);
 }
 
 .c5[aria-invalid='true'] {
@@ -44,8 +44,8 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c9:focus {
-  border-color: #21412a;
-  box-shadow: 0 0 0 3px rgba(33, 65, 42, 0.12);
+  border-color: #2b5437;
+  box-shadow: 0 0 0 3px rgba(43, 84, 55, 0.12);
 }
 
 .c9[aria-invalid='true'] {
@@ -62,9 +62,9 @@ exports[`ContactForm component matches the snapshot 1`] = `
   min-width: 8.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08rem;
-  background-color: #21412a;
+  background-color: #2b5437;
   color: #ffffff;
-  border: 1px solid #21412a;
+  border: 1px solid #2b5437;
   border-radius: 0.25rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   font-size: 1rem;
@@ -76,13 +76,13 @@ exports[`ContactForm component matches the snapshot 1`] = `
 .c14:hover {
   transform: translateY(-1px);
   background-color: transparent;
-  color: #21412a;
+  color: #2b5437;
 }
 
 .c14:disabled {
   transform: none;
-  background-color: rgba(33, 65, 42, 0.35);
-  border-color: rgba(33, 65, 42, 0.28);
+  background-color: rgba(43, 84, 55, 0.35);
+  border-color: rgba(43, 84, 55, 0.28);
   color: #696767;
   cursor: not-allowed;
 }
@@ -96,7 +96,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
 .c4 {
   font-size: 0.84rem;
   text-transform: uppercase;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.06rem;
   color: #1f271d;
 }
 
@@ -116,7 +116,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
 .c8 {
   font-size: 0.84rem;
   text-transform: uppercase;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.06rem;
   color: #1f271d;
 }
 
@@ -172,7 +172,7 @@ exports[`ContactForm component matches the snapshot 1`] = `
 }
 
 .c15 {
-  line-height: 1.65;
+  line-height: 1.68;
   font-size: 0.84rem;
   max-width: 60ch;
   color: #2f362a;
