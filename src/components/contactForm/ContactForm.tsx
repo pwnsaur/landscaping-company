@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
 
+import { media } from '@/styles/media';
+import { theme } from '@/styles/theme';
 import {
   ContactFormErrors,
   ContactFormFieldName,
@@ -20,8 +22,6 @@ import Input from '@components/contactForm/Input';
 import SubmitModal from '@components/contactForm/SubmitModal';
 import Textarea from '@components/contactForm/Textarea';
 import useContactForm from '@utils/hooks/useContactForm';
-import { media } from '@/styles/media';
-import { theme } from '@/styles/theme';
 
 const RECAPTCHA_ACTION = 'contact_form_submit';
 const FIELD_ORDER: ContactFormFieldName[] = ['name', 'email', 'phone', 'message'];
@@ -157,9 +157,9 @@ const ContactForm = () => {
       }
 
       openModal(result.message, !result.isSuccessful);
-      formStartedAtRef.current = Date.now();
 
       if (result.isSuccessful) {
+        formStartedAtRef.current = Date.now();
         resetForm();
         setFormErrors({});
         setWebsite('');

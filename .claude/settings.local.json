@@ -11,7 +11,12 @@
       "Bash(git -C /Users/kaspars/dev/brasika-site add .husky/pre-commit)",
       "Bash(git -C /Users/kaspars/dev/brasika-site commit -m \"update husky pre-commit to v9 format\")",
       "Bash(git -C /Users/kaspars/dev/brasika-site push)",
-      "WebFetch(domain:styled-components.com)"
+      "WebFetch(domain:styled-components.com)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git stash:*)",
+      "Bash(git stash pop:*)",
+      "Bash(npx tsc:*)"
     ]
   },
   "enableAllProjectMcpServers": false

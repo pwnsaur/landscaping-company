@@ -14,15 +14,15 @@ import {
   PageTitle,
   SectionTitle as SharedSectionTitle,
 } from '@/components/ui/typography/primitives';
-import ContactForm from '@components/contactForm/ContactForm';
 import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
+import ContactForm from '@components/contactForm/ContactForm';
 
-const ContactsPageClient = () => {
-  const recaptchaKey =
-    process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY ||
-    process.env.GOOGLE_RECAPTCHA_SITE_KEY;
+type ContactsPageClientProps = {
+  recaptchaKey?: string;
+};
 
+const ContactsPageClient = ({ recaptchaKey }: ContactsPageClientProps) => {
   return (
     <PageShell $surface='page'>
       <ContentContainer $size='wide'>
