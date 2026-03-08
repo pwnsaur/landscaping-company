@@ -2,65 +2,62 @@
 
 import { Asset } from 'contentful';
 import Image from 'next/image';
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { getAssetImageData } from '@/utils/contentfulAsset';
-import ZoomedImage from '@components/ZoomedImage';
 import { theme } from '@/styles/theme';
+import { getAssetImageData } from '@/utils/contentfulAsset';
+import useBodyScrollLock from '@/utils/hooks/useBodyScrollLock';
+import ZoomedImage from '@components/ZoomedImage';
 
 type Props = {
   images: Asset[] | undefined;
 };
 
+type ImageWithData = {
+  id: string;
+  imageData: {
+    src: string;
+    width: number;
+    height: number;
+  };
+};
+
 const ImageContainer = ({ images }: Props) => {
   const [zoomedImageIndex, setZoomedImageIndex] = useState<number | null>(null);
-  const imagesWithData = useMemo(
-    () =>
-      (images ?? [])
-        .map((asset) => {
-          const imageData = getAssetImageData(asset);
-          return imageData ? { id: asset.sys.id, imageData } : null;
-        })
-        .filter(
-          (
-            image
-          ): image is {
-            id: string;
-            imageData: {
-              src: string;
-              width: number;
-              height: number;
-            };
-          } => image !== null
-        ),
-    [images]
-  );
+  const imagesWithData: ImageWithData[] = (images ?? [])
+    .map((asset) => {
+      const imageData = getAssetImageData(asset);
+      return imageData ? { id: asset.sys.id, imageData } : null;
+    })
+    .filter((image): image is ImageWithData => image !== null);
+
+  useBodyScrollLock(zoomedImageIndex !== null);
 
   const handleClick = (index: number) => {
     if (!window.matchMedia('(hover: hover)').matches) return;
     setZoomedImageIndex(index);
-    document.body.style.overflow = 'hidden';
   };
 
-  const handleClose = useCallback(() => {
+  const handleClose = () => {
     setZoomedImageIndex(null);
-    document.body.style.overflow = 'auto';
-  }, [setZoomedImageIndex]);
+  };
 
-  const navigateImage = useCallback(
-    (direction: number) => {
-      if (!imagesWithData.length || zoomedImageIndex === null) {
-        return;
+  const navigateImage = (direction: number) => {
+    setZoomedImageIndex((currentIndex) => {
+      if (currentIndex === null || !imagesWithData.length) {
+        return currentIndex;
       }
 
-      const newIndex = zoomedImageIndex + direction;
-      if (newIndex >= 0 && newIndex < imagesWithData.length) {
-        setZoomedImageIndex(newIndex);
+      const nextIndex = currentIndex + direction;
+
+      if (nextIndex < 0 || nextIndex >= imagesWithData.length) {
+        return currentIndex;
       }
-    },
-    [imagesWithData, zoomedImageIndex]
-  );
+
+      return nextIndex;
+    });
+  };
 
   useEffect(() => {
     if (
@@ -72,24 +69,40 @@ const ImageContainer = ({ images }: Props) => {
   }, [imagesWithData.length, zoomedImageIndex]);
 
   useEffect(() => {
+    if (zoomedImageIndex === null) {
+      return;
+    }
+
     const handleKeydown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
-        navigateImage(-1);
+        setZoomedImageIndex((currentIndex) => {
+          if (currentIndex === null) {
+            return currentIndex;
+          }
+
+          return currentIndex > 0 ? currentIndex - 1 : currentIndex;
+        });
       } else if (e.key === 'ArrowRight') {
-        navigateImage(1);
+        setZoomedImageIndex((currentIndex) => {
+          if (currentIndex === null) {
+            return currentIndex;
+          }
+
+          return currentIndex < imagesWithData.length - 1
+            ? currentIndex + 1
+            : currentIndex;
+        });
       } else if (e.key === 'Escape') {
         handleClose();
       }
     };
 
-    if (zoomedImageIndex !== null) {
-      window.addEventListener('keydown', handleKeydown);
-    }
+    window.addEventListener('keydown', handleKeydown);
 
     return () => {
       window.removeEventListener('keydown', handleKeydown);
     };
-  }, [zoomedImageIndex, navigateImage, handleClose]);
+  }, [zoomedImageIndex, imagesWithData.length]);
 
   return (
     <>

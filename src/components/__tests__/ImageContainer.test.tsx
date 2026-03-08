@@ -45,6 +45,7 @@ describe('ImageContainer component', () => {
     render(<ImageContainer images={[mockImage]} />);
     fireEvent.click(screen.getByAltText('project image'));
     expect(screen.getByAltText('zoomed image')).toBeInTheDocument();
+    expect(document.body.style.overflow).toBe('hidden');
   });
 
   test("clicking on an image on a touch-only device doesn't zoom it", () => {
@@ -68,5 +69,6 @@ describe('ImageContainer component', () => {
     fireEvent.click(screen.getByAltText('project image'));
     fireEvent.click(screen.getByRole('button', { name: 'Close zoomed image' }));
     expect(screen.queryByAltText('zoomed image')).not.toBeInTheDocument();
+    expect(document.body.style.overflow).toBe('');
   });
 });

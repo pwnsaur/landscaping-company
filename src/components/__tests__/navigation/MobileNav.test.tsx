@@ -8,7 +8,7 @@ describe('MobileNav component', () => {
         currentPath='/'
         isOpen={false}
         isVisible={true}
-        handleItemClick={jest.fn()}
+        onClose={jest.fn()}
       />
     );
     expect(asFragment()).toMatchSnapshot();

@@ -173,6 +173,7 @@ exports[`MobileNav component matches the snapshot 1`] = `
     <nav
       class="c2"
       data-testid="mobile-nav"
+      id="mobile-nav"
     >
       <div
         class="c3"

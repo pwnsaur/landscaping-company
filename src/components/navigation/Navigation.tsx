@@ -1,97 +1,106 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
+import { media } from '@/styles/media';
+import { theme } from '@/styles/theme';
 import logoImage from '@assets/logo.png';
 import DesktopNav from '@components/navigation/DesktopNav';
 import HamburgerIcon from '@components/navigation/HamburgerIcon';
 import MobileNav from '@components/navigation/MobileNav';
+import useBodyScrollLock from '@utils/hooks/useBodyScrollLock';
 import useIsMobile from '@utils/hooks/useIsMobile';
-import { media } from '@/styles/media';
-import { theme } from '@/styles/theme';
+
+const MOBILE_NAV_ANIMATION_MS = 300;
+const NAV_VISIBILITY_SCROLL_THRESHOLD = 100;
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [isNavBarVisible, setIsNavBarVisible] = useState(true);
-
+  const menuVisibilityTimeoutRef = useRef<number | null>(null);
+  const prevScrollPosRef = useRef(0);
+  const startUpwardsScrollPosRef = useRef<number | null>(null);
   const isMobile = useIsMobile();
   const pathname = usePathname();
   const currentPath = pathname || '/';
 
-  const [startUpwardsScrollPos, setStartUpwardsScrollPos] = useState<
-    number | null
-  >(null);
+  useBodyScrollLock(isOpen);
 
-  //mobile menu
-  const handleMenuItemClick = useCallback(() => {
+  const closeMenu = () => {
     setIsOpen(false);
-    setIsVisible(false);
-  }, []);
+  };
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    setTimeout(
-      () => {
-        setIsVisible(!isOpen);
-      },
-      !isOpen ? 0 : 300,
-    );
+    setIsOpen((current) => !current);
   };
 
   useEffect(() => {
-    handleMenuItemClick();
-  }, [pathname, handleMenuItemClick]);
+    closeMenu();
+  }, [pathname]);
 
   useEffect(() => {
-    if (!isMobile && (isOpen || isVisible)) {
-      setIsOpen(false);
-      setIsVisible(false);
+    if (!isMobile && isOpen) {
+      closeMenu();
     }
-  }, [isMobile, isOpen, isVisible]);
+  }, [isMobile, isOpen]);
 
-  //navbar hide
+  useEffect(() => {
+    if (menuVisibilityTimeoutRef.current !== null) {
+      window.clearTimeout(menuVisibilityTimeoutRef.current);
+      menuVisibilityTimeoutRef.current = null;
+    }
+
+    if (isOpen) {
+      setIsVisible(true);
+      return;
+    }
+
+    menuVisibilityTimeoutRef.current = window.setTimeout(() => {
+      setIsVisible(false);
+      menuVisibilityTimeoutRef.current = null;
+    }, MOBILE_NAV_ANIMATION_MS);
+
+    return () => {
+      if (menuVisibilityTimeoutRef.current !== null) {
+        window.clearTimeout(menuVisibilityTimeoutRef.current);
+        menuVisibilityTimeoutRef.current = null;
+      }
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
+      const prevScrollPos = prevScrollPosRef.current;
+      const startUpwardsScrollPos = startUpwardsScrollPosRef.current;
 
-      if (currentScrollPos <= 100) {
+      if (currentScrollPos <= NAV_VISIBILITY_SCROLL_THRESHOLD) {
         setIsNavBarVisible(true);
-        setStartUpwardsScrollPos(null);
-      } else if (prevScrollPos > currentScrollPos) {
+        startUpwardsScrollPosRef.current = null;
+      } else if (currentScrollPos < prevScrollPos) {
         if (startUpwardsScrollPos === null) {
-          setStartUpwardsScrollPos(prevScrollPos);
-        } else if (startUpwardsScrollPos - currentScrollPos >= 100) {
+          startUpwardsScrollPosRef.current = prevScrollPos;
+        } else if (
+          startUpwardsScrollPos - currentScrollPos >= NAV_VISIBILITY_SCROLL_THRESHOLD
+        ) {
           setIsNavBarVisible(true);
-          setStartUpwardsScrollPos(null);
+          startUpwardsScrollPosRef.current = null;
         }
-      } else if (prevScrollPos < currentScrollPos) {
+      } else if (currentScrollPos > prevScrollPos) {
         setIsNavBarVisible(false);
-        setStartUpwardsScrollPos(null);
+        startUpwardsScrollPosRef.current = null;
       }
 
-      setPrevScrollPos(currentScrollPos);
+      prevScrollPosRef.current = currentScrollPos;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    prevScrollPosRef.current = window.scrollY;
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos, startUpwardsScrollPos]);
-
-  //scrollbar compensation
-  useEffect(() => {
-    if (isOpen) {
-      const scrollBarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = `${scrollBarWidth}px`;
-    } else {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
-    }
-  }, [isOpen]);
+  }, []);
 
   return (
     <>
@@ -119,7 +128,7 @@ const Navigation = () => {
         currentPath={currentPath}
         isVisible={isVisible}
         isOpen={isOpen}
-        handleItemClick={handleMenuItemClick}
+        onClose={closeMenu}
       />
     </>
   );

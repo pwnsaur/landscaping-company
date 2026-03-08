@@ -1,8 +1,8 @@
 import { MouseEvent } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import NavItems from '@components/navigation/NavItems';
 import { theme } from '@/styles/theme';
+import NavItems from '@components/navigation/NavItems';
 
 const slideIn = keyframes`
   0% {
@@ -28,30 +28,26 @@ type MobileNavProps = {
   isOpen: boolean;
   isVisible: boolean;
   currentPath: string;
-  handleItemClick: (event: MouseEvent) => void;
+  onClose: (event?: MouseEvent) => void;
 };
 
 const MobileNav = ({
   isOpen,
   isVisible,
   currentPath,
-  handleItemClick,
+  onClose,
 }: MobileNavProps) => {
   if (!isVisible) return null;
 
   return (
     <Container>
-      <Backdrop onClick={handleItemClick} />
-      <StyledMobileNav $isOpen={isOpen} data-testid='mobile-nav'>
+      <Backdrop onClick={onClose} />
+      <StyledMobileNav id='mobile-nav' $isOpen={isOpen} data-testid='mobile-nav'>
         <PanelHeader>
           <BrandText>B R A S I K A</BrandText>
-          <CloseButton onClick={handleItemClick} aria-label='Aizvērt navigāciju' />
+          <CloseButton onClick={onClose} aria-label='Aizvērt navigāciju' />
         </PanelHeader>
-        <NavItems
-          currentPath={currentPath}
-          isMobile
-          onItemClick={handleItemClick}
-        />
+        <NavItems currentPath={currentPath} isMobile onItemClick={onClose} />
       </StyledMobileNav>
     </Container>
   );

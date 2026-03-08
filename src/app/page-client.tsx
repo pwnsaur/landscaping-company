@@ -6,9 +6,9 @@ import styled from 'styled-components';
 
 import SquareButton from '@/components/reusables/SquareButton';
 import { DisplayTitle, LeadText } from '@/components/ui/typography/primitives';
-import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
 import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
+import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
 
 const HomePageClient = () => {
   const heroRef = useRef<HTMLElement>(null);
