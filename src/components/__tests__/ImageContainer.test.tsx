@@ -59,6 +59,14 @@ describe('ImageContainer component', () => {
     render(<ImageContainer images={[mockImage]} />);
     fireEvent.click(screen.getByAltText('project image'));
     fireEvent.click(screen.getByAltText('zoomed image'));
+    expect(screen.getByAltText('zoomed image')).toBeInTheDocument();
+  });
+
+  test('clicking the explicit close button closes the zoomed view', () => {
+    mockMatchMedia(true);
+    render(<ImageContainer images={[mockImage]} />);
+    fireEvent.click(screen.getByAltText('project image'));
+    fireEvent.click(screen.getByRole('button', { name: 'Close zoomed image' }));
     expect(screen.queryByAltText('zoomed image')).not.toBeInTheDocument();
   });
 });
