@@ -1,23 +1,28 @@
 import { ChangeEvent } from 'react';
 
 import Textarea from '@/components/contactForm/Textarea';
-import { render } from '@/utils/test-utils';
+import { render, screen } from '@/utils/test-utils';
 
 describe('Textarea component', () => {
-  test('matches the snapshot', () => {
-    const { asFragment } = render(
+  test('renders the counter and links error messaging accessibly', () => {
+    render(
       <Textarea
         id='message'
         label='Ziņojums'
-        value=''
+        value='Labdien'
         placeholder='Jūsu ziņojums'
-        onChange={function (event: ChangeEvent<HTMLTextAreaElement>): void {
-          throw new Error('Function not implemented.');
-        }}
+        onChange={function (_event: ChangeEvent<HTMLTextAreaElement>): void {}}
         maxLength={1500}
-        error=''
+        error='Lauks ir obligāts'
       />
     );
-    expect(asFragment()).toMatchSnapshot();
+
+    const textarea = screen.getByLabelText('Ziņojums');
+    const error = screen.getByText('Lauks ir obligāts');
+
+    expect(textarea).toHaveAttribute('aria-invalid', 'true');
+    expect(textarea).toHaveAttribute('aria-describedby', 'message-error');
+    expect(error).toHaveAttribute('id', 'message-error');
+    expect(screen.getByText('7/1500')).toBeInTheDocument();
   });
 });

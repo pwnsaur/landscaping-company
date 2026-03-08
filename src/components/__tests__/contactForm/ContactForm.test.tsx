@@ -54,9 +54,14 @@ describe('ContactForm component', () => {
     jest.restoreAllMocks();
   });
 
-  test('matches the snapshot', () => {
-    const { asFragment } = render(<ContactForm />);
-    expect(asFragment()).toMatchSnapshot();
+  test('renders the core fields and submit action', () => {
+    render(<ContactForm />);
+
+    expect(screen.getByLabelText('Vārds')).toBeInTheDocument();
+    expect(screen.getByLabelText('E-pasts')).toBeInTheDocument();
+    expect(screen.getByLabelText('Tālrunis')).toBeInTheDocument();
+    expect(screen.getByLabelText('Ziņojums')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Sūtīt' })).toBeEnabled();
   });
 
   test('keeps the original form start time after a failed submit', async () => {

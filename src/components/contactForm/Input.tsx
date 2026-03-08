@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
-import { FieldInput } from '@/components/ui/form/primitives';
-import { theme } from '@/styles/theme';
+import {
+  FieldErrorText,
+  FieldInput,
+  FieldLabel,
+  FieldStack,
+} from '@/components/ui/form/primitives';
 
 type InputProps = {
   id: string;
@@ -43,7 +47,7 @@ const Input = ({
   const errorId = error ? `${id}-error` : undefined;
 
   return (
-    <Field>
+    <FieldStack>
       <FieldLabel htmlFor={id}>{label}</FieldLabel>
       <FieldInput
         id={id}
@@ -61,28 +65,12 @@ const Input = ({
         aria-describedby={errorId}
       />
       <FieldError id={errorId}>{error}</FieldError>
-    </Field>
+    </FieldStack>
   );
 };
 
 export default Input;
 
-const Field = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${theme.spacing.xxs};
-`;
-
-const FieldLabel = styled.label`
-  font-size: ${theme.typography.labelStrong};
-  text-transform: uppercase;
-  letter-spacing: ${theme.typography.trackingWide};
-  color: ${theme.semantic.text.strong};
-`;
-
-const FieldError = styled.p`
+const FieldError = styled(FieldErrorText)`
   min-height: 1.15rem;
-  margin: 0;
-  font-size: ${theme.typography.meta};
-  color: ${theme.colors.errorText};
 `;

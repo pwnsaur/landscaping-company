@@ -8,12 +8,18 @@ import SquareButton from '@/components/reusables/SquareButton';
 import { DisplayTitle, LeadText } from '@/components/ui/typography/primitives';
 import { media } from '@/styles/media';
 import { theme } from '@/styles/theme';
+import useMediaQuery from '@/utils/hooks/useMediaQuery';
 import bacgroundImageThree from '@assets/bacgroundImageThree.jpg';
+
+const HERO_SCROLL_HINT_THRESHOLD = 20;
 
 const HomePageClient = () => {
   const heroRef = useRef<HTMLElement>(null);
   const parallaxLayerRef = useRef<HTMLDivElement>(null);
   const [isScrollHintVisible, setIsScrollHintVisible] = useState(true);
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const isCompactViewport = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+  const canUseParallax = !prefersReducedMotion && !isCompactViewport;
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -23,10 +29,9 @@ const HomePageClient = () => {
       return;
     }
 
-    if (
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      window.matchMedia(`(max-width: ${theme.breakpoints.md})`).matches
-    ) {
+    if (!canUseParallax) {
+      layer.style.transform = 'translate3d(0, 0, 0) scale(1.03)';
+      layer.style.opacity = '1';
       return;
     }
 
@@ -95,11 +100,14 @@ const HomePageClient = () => {
         window.cancelAnimationFrame(rafId);
       }
     };
-  }, []);
+  }, [canUseParallax]);
 
   useEffect(() => {
     const updateScrollHintVisibility = () => {
-      setIsScrollHintVisible(window.scrollY < 20);
+      const nextVisibility = window.scrollY < HERO_SCROLL_HINT_THRESHOLD;
+      setIsScrollHintVisible((currentVisibility) =>
+        currentVisibility === nextVisibility ? currentVisibility : nextVisibility
+      );
     };
 
     updateScrollHintVisibility();

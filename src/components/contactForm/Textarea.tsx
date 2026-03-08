@@ -1,7 +1,11 @@
-import styled from 'styled-components';
-
-import { FieldTextarea } from '@/components/ui/form/primitives';
-import { theme } from '@/styles/theme';
+import {
+  FieldCounterText,
+  FieldErrorText,
+  FieldLabel,
+  FieldMetaRow,
+  FieldStack,
+  FieldTextarea,
+} from '@/components/ui/form/primitives';
 
 type TextareaProps = {
   id: string;
@@ -30,7 +34,7 @@ const Textarea = ({
   const charCount = value.length;
 
   return (
-    <Field>
+    <FieldStack>
       <FieldLabel htmlFor={id}>{label}</FieldLabel>
       <FieldTextarea
         id={id}
@@ -45,44 +49,11 @@ const Textarea = ({
         aria-describedby={errorId}
       />
       <FieldMetaRow>
-        <FieldError id={errorId}>{error}</FieldError>
-        {maxLength && <FieldCounter>{`${charCount}/${maxLength}`}</FieldCounter>}
+        <FieldErrorText id={errorId}>{error}</FieldErrorText>
+        {maxLength && <FieldCounterText>{`${charCount}/${maxLength}`}</FieldCounterText>}
       </FieldMetaRow>
-    </Field>
+    </FieldStack>
   );
 };
 
 export default Textarea;
-
-const Field = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${theme.spacing.xxs};
-`;
-
-const FieldLabel = styled.label`
-  font-size: ${theme.typography.labelStrong};
-  text-transform: uppercase;
-  letter-spacing: ${theme.typography.trackingWide};
-  color: ${theme.semantic.text.strong};
-`;
-
-const FieldMetaRow = styled.div`
-  min-height: 1.15rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${theme.spacing.xs};
-`;
-
-const FieldError = styled.p`
-  margin: 0;
-  font-size: ${theme.typography.meta};
-  color: ${theme.colors.errorText};
-`;
-
-const FieldCounter = styled.span`
-  margin-left: auto;
-  font-size: ${theme.typography.meta};
-  color: ${theme.semantic.text.subtle};
-`;

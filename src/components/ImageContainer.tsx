@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { theme } from '@/styles/theme';
 import { getAssetImageData } from '@/utils/contentfulAsset';
 import useBodyScrollLock from '@/utils/hooks/useBodyScrollLock';
+import useMediaQuery from '@/utils/hooks/useMediaQuery';
 import ZoomedImage from '@components/ZoomedImage';
 
 type Props = {
@@ -25,6 +26,7 @@ type ImageWithData = {
 
 const ImageContainer = ({ images }: Props) => {
   const [zoomedImageIndex, setZoomedImageIndex] = useState<number | null>(null);
+  const canHover = useMediaQuery('(hover: hover)');
   const imagesWithData: ImageWithData[] = (images ?? [])
     .map((asset) => {
       const imageData = getAssetImageData(asset);
@@ -35,7 +37,7 @@ const ImageContainer = ({ images }: Props) => {
   useBodyScrollLock(zoomedImageIndex !== null);
 
   const handleClick = (index: number) => {
-    if (!window.matchMedia('(hover: hover)').matches) return;
+    if (!canHover) return;
     setZoomedImageIndex(index);
   };
 

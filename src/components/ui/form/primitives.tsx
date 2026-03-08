@@ -2,6 +2,39 @@ import styled from 'styled-components';
 
 import { theme } from '@/styles/theme';
 
+export const FieldStack = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${theme.spacing.xxs};
+`;
+
+export const FieldLabel = styled.label`
+  font-size: ${theme.typography.labelStrong};
+  text-transform: uppercase;
+  letter-spacing: ${theme.typography.trackingWide};
+  color: ${theme.semantic.text.strong};
+`;
+
+export const FieldMetaRow = styled.div`
+  min-height: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${theme.spacing.xs};
+`;
+
+export const FieldErrorText = styled.p`
+  margin: 0;
+  font-size: ${theme.typography.meta};
+  color: ${theme.colors.errorText};
+`;
+
+export const FieldCounterText = styled.span`
+  margin-left: auto;
+  font-size: ${theme.typography.meta};
+  color: ${theme.semantic.text.subtle};
+`;
+
 export const FieldInput = styled.input`
   width: 100%;
   min-height: 2.9rem;

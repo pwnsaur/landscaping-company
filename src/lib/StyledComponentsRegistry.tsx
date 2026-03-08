@@ -1,11 +1,15 @@
 'use client';
 
 import { useServerInsertedHTML } from 'next/navigation';
-import React, { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
+};
+
+type StyleSheetWithClearTag = ServerStyleSheet['instance'] & {
+  clearTag?: () => void;
 };
 
 const StyledComponentsRegistry = ({ children }: Props) => {
@@ -13,7 +17,8 @@ const StyledComponentsRegistry = ({ children }: Props) => {
 
   useServerInsertedHTML(() => {
     const styles = sheet.getStyleElement();
-    (sheet.instance as unknown as { clearTag?: () => void }).clearTag?.();
+    // styled-components exposes `clearTag` at runtime, but not in the public type.
+    (sheet.instance as StyleSheetWithClearTag).clearTag?.();
     return <>{styles}</>;
   });
 

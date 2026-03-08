@@ -1,23 +1,27 @@
 import { ChangeEvent } from 'react';
 
 import Input from '@/components/contactForm/Input';
-import { render } from '@/utils/test-utils';
+import { render, screen } from '@/utils/test-utils';
 
 describe('Input component', () => {
-  test('matches the snapshot', () => {
-    const { asFragment } = render(
+  test('renders an accessible field with linked validation messaging', () => {
+    render(
       <Input
         id='email'
         type='email'
         label='E-pasts'
         value=''
         placeholder='E-pasts'
-        onChange={function (event: ChangeEvent<HTMLInputElement>): void {
-          throw new Error('Function not implemented.');
-        }}
-        error=''
+        onChange={function (_event: ChangeEvent<HTMLInputElement>): void {}}
+        error='Nepareizs e-pasts'
       />
     );
-    expect(asFragment()).toMatchSnapshot();
+
+    const input = screen.getByLabelText('E-pasts');
+    const error = screen.getByText('Nepareizs e-pasts');
+
+    expect(input).toHaveAttribute('aria-invalid', 'true');
+    expect(input).toHaveAttribute('aria-describedby', 'email-error');
+    expect(error).toHaveAttribute('id', 'email-error');
   });
 });
